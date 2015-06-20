@@ -3,12 +3,59 @@ a
 	text-decoration:none;
 }
 
-body
+#round_body
 {
 	border-width:1px;
 	border-style:solid;
-	border-radius:50px;
+	border-radius:20px;
 	background-color:white;
 	padding:32px;
 	margin:16px;
 }
+
+.thingy
+{
+	border-width:1px;
+	border-style:solid;
+	border-radius:10px;
+}
+
+/*
+{
+	border-width:1px;
+	border-style:dashed;
+}/* */
+
+/*html, body
+{
+	background: #ccc;
+}
+
+.wrap
+{
+	margin: 20px;
+	padding: 20px;
+	padding-right:240px;
+	background: #fff;
+	overflow:auto;
+}
+
+.sidebar
+{
+	height:100%;
+	width: 200px;
+	float: left;
+}
+
+.main
+{
+	margin-right: -220px;
+	width: 100%;
+	float:right;
+}
+
+.main, .sidebar
+{
+	background: #eee;
+}/* */
+
