@@ -3,59 +3,67 @@ a
 	text-decoration:none;
 }
 
-#round_body
+table.fixed
 {
-	border-width:1px;
-	border-style:solid;
-	border-radius:20px;
-	background-color:white;
-	padding:32px;
-	margin:16px;
+	table-layout:fixed;
+	width:100%;
 }
 
-.thingy
+.rounded
 {
 	border-width:1px;
 	border-style:solid;
 	border-radius:10px;
+	padding:16px;
+	vertical-align:top;
 }
 
-/*
+#titlebox
 {
-	border-width:1px;
-	border-style:dashed;
-}/* */
-
-/*html, body
-{
-	background: #ccc;
+	text-align:center;
+	background-color:#ffffff;
+	border-color:#b2b2b2;
 }
 
-.wrap
+#sidebar
 {
-	margin: 20px;
-	padding: 20px;
-	padding-right:240px;
-	background: #fff;
-	overflow:auto;
+	width:100px;
+	background-color:#ffffff;
+	border-color:#b2b2b2;
 }
 
-.sidebar
+#navtitle
 {
-	height:100%;
-	width: 200px;
-	float: left;
+	margin-top:0px;
+	margin-bottom:0px;
 }
 
-.main
+p.sidelink
 {
-	margin-right: -220px;
-	width: 100%;
-	float:right;
+	margin-top:0.5em;
+	margin-bottom:0.5em;
 }
 
-.main, .sidebar
+p.sidelink_selected
 {
-	background: #eee;
-}/* */
+	margin-top:0.5em;
+	margin-bottom:0.5em;
+	font-weight:bold;
+}
 
+#gap
+{
+	width:16px;
+}
+
+#main
+{
+	background-color:#ffffff;
+	border-color:#b2b2b2;
+}
+
+#back
+{
+	background-color:#f0f0f0;
+	padding:32px;
+}
