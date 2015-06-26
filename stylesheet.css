@@ -3,6 +3,12 @@ a
 	text-decoration:none;
 }
 
+#content-container
+{
+	max-width:1000px;
+	margin:auto;
+}
+
 table.fixed
 {
 	table-layout:fixed;
