@@ -5,16 +5,8 @@
 		<link type="text/css" rel="stylesheet" href="stylesheet.css" />
 	</head>
 	<body id="back">
-		<table class="fixed" style="margin-bottom:16px;">
-			<tr>
-				<td />
-				<td id="titlebox" class="rounded" colspan=3>
-					<h1>Welcome to my GitHub Page</h1>
-					<h3>Hello friends and family!<br/>My name is Harrison and I'm a programmer,<br/>not by trade but by nature.</h3>
-				</td>
-				<td />
-			</td>
-		</table>
+		<h1>Hello friends and family!</h1>
+		<h3/>My name is Harrison and I'm a programmer, not by trade but by nature.</h3>
 		<table class="fixed">
 			<tr>
 				<td id="sidebar" class="rounded">
@@ -22,7 +14,7 @@
 					<hr />
 					<p class="sidelink_selected">About Me</p>
 					<p class="sidelink"><a href="https://github.com/HarriKnox">GitHub</a></p>
-					<p class="sidelink"><a href="Projects.html">My Projects</a></p>
+					<p class="sidelink"><a href="Projects">My Projects</a></p>
 				</td>
 				<td id="gap" />
 				<td id="main" class="rounded">
@@ -30,7 +22,7 @@
 					<hr />
 					<p>
 						My name is Harrison Knox.
-						I am a 19 year old sophomore student at <a href="http://www.calpoly.edu/">Cal Poly</a> studying in Computer Engineering.
+						I am a <span id="age"><noscript>20</noscript></span> year old sophomore student at <a href="http://www.calpoly.edu/">Cal Poly</a> studying in Computer Engineering.
 						I program as a hobby and have been programming for about eight years.
 						In programming, my languages of choice are as follows:
 						<ol type="I">
@@ -49,5 +41,9 @@
 				</td>
 			</tr>
 		</table>
+		<script>
+			var now = new Date();
+			document.getElementById("age").innerHTML = now.getFullYear() - 1996 - ((now.getMonth() == 0 && now.getDate() < 11) ? 1 : 0);
+		</script>
 	</body>
 </html>
