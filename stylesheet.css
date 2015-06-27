@@ -1,11 +1,13 @@
 a
 {
 	text-decoration:none;
+	color:#000080;
 }
 
 #navbar
 {
-	height:3em;
+	padding-top:1px;
+	padding-bottom:1px;
 	background-color:#000050;
 }
 
@@ -16,6 +18,13 @@ a
 	padding-left:2em;
 	padding-right:2em;
 	display:inline-block;
+	color:#e0e0e0;
+}
+
+#navbar-button-selected
+{
+	color:#ffffff;
+	background-color:#000070;
 }
 
 #content-container
