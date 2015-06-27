@@ -1,7 +1,7 @@
-var NavbarButton = function(name, target)
+var NavbarButton = function(name, href)
 {
 	this.name = name;
-	this.target = target;
+	this.href = href;
 };
 
 var navbarButtons = [
@@ -14,15 +14,28 @@ var paddingAmount = 20;
 
 $('document').ready(function()
 {
-	var pageName = window.location.href;
-	$('head').append('<title>Coder by Nature: ' + pageName + '</title><link type="text/css" rel="stylesheet" href="stylesheet.css" />');
+	var pageName = window.location.pathname.substring(1);
+	var pageTitle;
+	if (pageName === "" || pageName === "index.html")
+	{
+		pageTitle = "Home";
+	}
+	else
+	{
+		for (var i = 0; i < navbarButtons.length; i++)
+		{
+			if (navbarButtons[i].href === pageName
+		}
+	}
+	
+	$('head').append('<title>Coder by Nature: ' + pageTitle + '</title><link type="text/css" rel="stylesheet" href="stylesheet.css" />');
 	
 	$content = $('#content-container');
 	$content.css({
 		width : pageWidth,
 		padding : paddingAmount,
 	});
-	$content.prepend('<h2>' + pageName + '</h2>');
+	$content.prepend('<h2 style="margin:0px;">' + pageTitle + '</h2>');
 	
 	$('body').prepend('<div id="header-container"><div id="title"><h1 style="margin-bottom:0px;">Hello friends and family</h1><h3 style="margin-top:0px;">My name is Harrison and I\'m a programmer, not by trade but by nature</h3></div><div id="navbar"></div></div>');
 	$('#header-container').width(pageWidth + (2 * paddingAmount) + 10);
