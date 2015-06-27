@@ -9,6 +9,15 @@ a
 	background-color:#000050;
 }
 
+.navbar-button
+{
+	padding-top:1em;
+	padding-bottom:1em;
+	padding-left:2em;
+	padding-right:2em;
+	display:inline-block;
+}
+
 #content-container
 {
 	background-color:#ffffff;
@@ -18,10 +27,10 @@ a
 #header-container
 {
 	margin:auto;
-	color:#e0e0e0;
+	color:#f0f0f0;
 }
 
-#back
+body
 {
 	background-color:#606060;
 }
