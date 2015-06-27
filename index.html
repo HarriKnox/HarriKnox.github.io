@@ -3,45 +3,36 @@
 	<head>
 		<title>Coder by Nature</title>
 		<link type="text/css" rel="stylesheet" href="stylesheet.css" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="titleAndNavbar.js"></script>
 	</head>
 	<body id="back">
+		<div id="header-container">
+			<em><noscript>(You need JavaScript enabled to properly view this website. Click the script button in your address bar or go directly to your settings to enable it.)</noscript></em>
+			<div id="title"></div>
+			<div id="navbar" style="margin=0px;"></div>
+		</div>
 		<div id="content-container">
-			<h1>Hello friends and family!</h1>
-			<h3/>My name is Harrison and I'm a programmer, not by trade but by nature.</h3>
-			<table class="fixed">
-				<tr>
-					<td id="sidebar" class="rounded">
-						<h3 id="navtitle">Navigation</h3>
-						<hr />
-						<p class="sidelink_selected">About Me</p>
-						<p class="sidelink"><a href="https://github.com/HarriKnox">GitHub</a></p>
-						<p class="sidelink"><a href="projects.html">My Projects</a></p>
-					</td>
-					<td id="gap" />
-					<td id="main" class="rounded">
-						<h2>About Me</h2>
-						<hr />
-						<p>
-							My name is Harrison Knox.
-							I am a <span id="age"><noscript>20</noscript></span> year old sophomore student at <a href="http://www.calpoly.edu/">Cal Poly</a> studying in Computer Engineering.
-							I program as a hobby and have been programming for about eight years.
-							In programming, my languages of choice are as follows:
-							<ol type="I">
-								<li><a href="http://www.lua.org">Lua</a>: a beautiful scripting language that is easy, fun, and safe for children six and up.</li>
-								<li><a href="https://java.com/en/">Java</a>: a gigantic, bulky, and clumsy, but portable onto any platform, including toasters.</li>
-								<li><a href="https://www.python.org/">Python</a>: the weird kid on the playground who wants to play games with everyone, but doesn't like everyone elses' rules and brings too many unnecessary toys.</li>
-								<li><a href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a>: the lovechild of a horrendously verbose, complex, and difficult-to-read and write language, and Java.</li>
-							</ol>
-							I am learning more languages. Currently I am learning HTML and JavaScript, particularly AngularJS.
-						</p>
-						<p>
-							Recently I have been putting my projects online.
-							Most of my projects and school assignments are viewable from the links in the navigation box to the left.
-						</p>
-						<p><em>(This site is still under construction. New material is constantly being added. Use the navigation column on the left to access other parts of the site.)</em></p>
-					</td>
-				</tr>
-			</table>
+			<h2>About Me</h2>
+			<hr />
+			<p>
+				My name is Harrison Knox.
+				I am a <span id="age"><noscript>19+</noscript></span> year old sophomore student at <a href="http://www.calpoly.edu/">Cal Poly</a> studying in Computer Engineering.
+				I program as a hobby and have been programming for about eight years.
+				In programming, my languages of choice are as follows:
+				<ol type="I">
+					<li><a href="http://www.lua.org">Lua</a>: a beautiful scripting language that is easy, fun, and safe for children six and up.</li>
+					<li><a href="https://java.com/en/">Java</a>: a gigantic, bulky, and clumsy language, but used on every platform, including toasters.</li>
+					<li><a href="https://www.python.org/">Python</a>: the weird kid on the playground who wants to play games with everyone, but doesn't like everyone elses' rules and brings too many unnecessary toys.</li>
+					<li><a href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a>: the lovechild of a horrendously verbose, complex, and difficult-to-read and write language, and Java.</li>
+				</ol>
+				I am learning more languages. Currently I am learning HTML and JavaScript, particularly AngularJS.
+			</p>
+			<p>
+				Recently I have been putting my projects online.
+				Most of my projects and school assignments are viewable from the links in the navigation box to the left.
+			</p>
+			<p><em>(This site is still under construction. New material is constantly being added. Use the navigation column on the left to access other parts of the site.)</em></p>
 			<script>
 				var now = new Date();
 				document.getElementById("age").innerHTML = now.getFullYear() - 1996 - ((now.getMonth() == 0 && now.getDate() < 11) ? 1 : 0);

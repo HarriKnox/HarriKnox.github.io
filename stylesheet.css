@@ -3,72 +3,25 @@ a
 	text-decoration:none;
 }
 
+#navbar
+{
+	height:3em;
+	background-color:#000050;
+}
+
 #content-container
 {
-	max-width:1000px;
+	background-color:#ffffff;
 	margin:auto;
 }
 
-table.fixed
+#header-container
 {
-	table-layout:fixed;
-	width:100%;
-}
-
-.rounded
-{
-	border-width:1px;
-	border-style:solid;
-	border-radius:10px;
-	padding:16px;
-	vertical-align:top;
-}
-
-#titlebox
-{
-	text-align:center;
-	background-color:#ffffff;
-	border-color:#b2b2b2;
-}
-
-#sidebar
-{
-	width:100px;
-	background-color:#ffffff;
-	border-color:#b2b2b2;
-}
-
-#navtitle
-{
-	margin-top:0px;
-	margin-bottom:0px;
-}
-
-p.sidelink
-{
-	margin-top:0.5em;
-	margin-bottom:0.5em;
-}
-
-p.sidelink_selected
-{
-	margin-top:0.5em;
-	margin-bottom:0.5em;
-	font-weight:bold;
-}
-
-#gap
-{
-	width:16px;
-}
-
-#main
-{
-	background-color:#ffffff;
-	border-color:#b2b2b2;
+	margin:auto;
+	color:#e0e0e0;
 }
 
 #back
 {
-	background-color:#f0f0f0;
+	background-color:#606060;
 }
