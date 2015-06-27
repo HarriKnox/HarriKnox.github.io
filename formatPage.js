@@ -15,16 +15,16 @@ var paddingAmount = 20;
 $('document').ready(function()
 {
 	var pageName = window.location.pathname.substring(1);
-	var pageTitle;
-	if (pageName === "" || pageName === "index.html")
-	{
-		pageTitle = "Home";
-	}
-	else
+	var pageTitle = "Home";
+	if (pageName !== "" && pageName !== "index.html")
 	{
 		for (var i = 0; i < navbarButtons.length; i++)
 		{
-			if (navbarButtons[i].href === pageName
+			if (navbarButtons[i].href === pageName)
+			{
+				pageTitle = navbarButtons[i].name;
+				break;
+			}
 		}
 	}
 	
