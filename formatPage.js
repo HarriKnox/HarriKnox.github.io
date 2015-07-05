@@ -11,7 +11,7 @@ var splashes = [
 	"Now available in English",
 	'<span style="color:#FF7F50;">Coral</span> <span style="color:#DC143C;">Crimson</span> <span style="color:#FF8C00;">DarkOrange</span><br />' +
 	'<span style="color:#FFA500;">Orange</span> <span style="color:#FF4500;">OrangeRed</span> <span style="color:#FF0000;">Red</span>',
-	'<a href="https://github.com/HarriKnox">Fork me on GitHub</a>',
+	'<a href="https://github.com/HarriKnox" target="_blank">Fork me on GitHub</a>',
 ];
 
 var getSplash = function()
