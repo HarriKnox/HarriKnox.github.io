@@ -1,15 +1,9 @@
-a
-{
-	width:100%;
-	text-decoration:none;
-	color:#000080;
-}
-
 #navbar
 {
 	background-color:#000050;
-	margin-left:-5px;
-	margin-right:-5px;
+	text-decoration:none;
+	margin-left:-10px;
+	margin-right:-10px;
 }
 
 .navbar-button
@@ -34,6 +28,13 @@ a
 {
 	background-color:#ffffff;
 	padding:20px;
+	font-size:1em;
+}
+
+#content-container a
+{
+	text-decoration:none;
+	color:#000080;
 }
 
 #header-container
@@ -43,30 +44,44 @@ a
 
 #title
 {
-	color:#f0f0f0;
+	color:#000000;
 }
 
 #splash
 {
 	width:1px;
 	white-space:nowrap;
-	color:#ffff00;
+	color:#FF0000;
 	transform:rotate(10deg);
 	text-align:center;
 	font-weight:bold;
 }
 
+#splash a
+{
+	color:inherit;
+}
+
+/*
+Coral FF7F50
+Crimson DC143C
+DarkOrange FF8C00
+Orange FFA500
+OrangeRed FF4500
+Red FF0000
+*/
+
 body
 {
-	background-color:#606060;
+	background-color:#f0f0f0;
 	width:1000px;
 	margin:auto;
-	padding:10px;
+	padding:0px 20px;
 }
 
 code
 {
-	background-color:#efefef;
+	background-color:#e0e0e0;
 	padding:1px 5px 1px 5px;
 	font-size:1.1em;
 }

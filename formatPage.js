@@ -1,3 +1,24 @@
+var splashes = [
+	"Now includes<br/>complementary splashes",
+	"Work in progress",
+	"Check out the navbar",
+	"Made by Harrison Knox",
+	"Made from scratch",
+	"Made in California",
+	"Call me Harri",
+	"Powered by jQuery",
+	"Powered by electrons",
+	"Now available in English",
+	'<span style="color:#FF7F50;">Coral</span> <span style="color:#DC143C;">Crimson</span> <span style="color:#FF8C00;">DarkOrange</span><br />' +
+	'<span style="color:#FFA500;">Orange</span> <span style="color:#FF4500;">OrangeRed</span> <span style="color:#FF0000;">Red</span>',
+	'<a href="https://github.com/HarriKnox">Fork me on GitHub</a>',
+];
+
+var getSplash = function()
+{
+	return splashes[Math.floor(Math.random() * splashes.length)];
+};
+
 var NavbarButton = function(name, href)
 {
 	this.name = name;
@@ -7,24 +28,8 @@ var NavbarButton = function(name, href)
 var navbarButtons = [
 	new NavbarButton('Home', 'index.html'),
 	new NavbarButton('Projects', 'projects.html'),
-	new NavbarButton('My Languages', 'languages.html'),
+	new NavbarButton('Programming', 'languages.html'),
 ];
-
-var splashes = [
-	"Now includes<br/>complementary splashes",
-	"Work in progress",
-	"Check out the navbar",
-	"Made by Harrison Knox",
-	"Call me Harri",
-	"Powered by jQuery",
-	"Powered by electrons",
-	"Now available in English",
-];
-
-var getSplash = function()
-{
-	return splashes[Math.floor(Math.random() * splashes.length)];
-};
 
 $('document').ready(function()
 {
