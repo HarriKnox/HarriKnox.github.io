@@ -16,12 +16,12 @@
 
 .navbar-button:hover
 {
-	background-color:#151560;
+	background-color:#303070;
 }
 
 #navbar-button-selected
 {
-	background-color:#303070;
+	background-color:#404078;
 }
 
 #content-container
@@ -44,14 +44,21 @@
 
 #title
 {
+	width:1px;
+	white-space:nowrap;
+}
+
+#link-home
+{
 	color:#000000;
+	text-decoration:none;
 }
 
 #splash
 {
 	width:1px;
 	white-space:nowrap;
-	color:#FF0000;
+	color:#ff0000;
 	transform:rotate(10deg);
 	text-align:center;
 	font-weight:bold;
@@ -63,20 +70,21 @@
 }
 
 /*
-Coral FF7F50
-Crimson DC143C
-DarkOrange FF8C00
-Orange FFA500
-OrangeRed FF4500
-Red FF0000
+	Coral ff7f50
+	Crimson dc143c
+	DarkOrange ff8c00
+	Orange ffa500
+	OrangeRed ff4500
+	Red ff0000
 */
 
 body
 {
 	background-color:#f0f0f0;
-	width:1000px;
+	width:1040px;
 	margin:auto;
-	padding:0px 20px;
+	padding:20px;
+	padding-top:0px;
 }
 
 code
