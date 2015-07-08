@@ -59,6 +59,7 @@ var navbar = [
 	[
 		new Button('Languages', 'languages.html'),
 		new Button('Lua', 'lua.html'),
+		new Button('Ruby', 'ruby.html'),
 	]),
 ];
 
