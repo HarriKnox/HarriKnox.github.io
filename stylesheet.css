@@ -33,7 +33,7 @@
 
 .navbar-button
 {
-	padding:0.5em;
+	padding:0.5em 1em;
 	border-width:1px;
 	border-style:solid;
 	border-color:#000000;
@@ -64,7 +64,23 @@
 
 #content-container a
 {
-	color:#000080;
+	text-decoration:none;
+	color:#101080;
+}
+
+#content-container a[target="_blank"]
+{
+	color:#3366bb;
+}
+
+#content-container a:hover
+{
+	text-decoration:underline;
+}
+
+#page-title
+{
+	margin:0px;
 }
 
 #header-container
@@ -86,15 +102,21 @@
 	font-weight:bold;
 }
 
+#splash a
+{
+	color:inherit;
+	text-decoration:underline;
+}
+
+#splash a:hover
+{
+	text-decoration:none;
+}
+
 td.squish
 {
 	width:1px;
 	white-space:nowrap;
-}
-
-#splash a
-{
-	color:inherit;
 }
 
 /*
@@ -115,9 +137,11 @@ body
 	padding-top:0px;
 }
 
-code
+code, pre
 {
+	display:inline-block;
 	background-color:#e0e0e0;
 	padding:1px 5px 1px 5px;
+	margin:0px;
 	font-size:1.1em;
 }
