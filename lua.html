@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link type="text/css" rel="stylesheet" href="stylesheet.css" />
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script src="formatPage.js"></script>
+		<script src="loadScripts.js"></script>
 		<style>
 			.lang
 			{
@@ -12,8 +10,11 @@
 		</style>
 	</head>
 	<body>
+		<noscript>
+			JavaScript must be enabled to view this website. Click the scroll button in the right side of your address bar to allow JavaScript. Fear not, this site does not use harmful scripts to steal your identity or take over your computer. JavaScript is used purely for formatting this site.
+		</noscript>
 		<a href="http://www.lua.org"><img src="images/lua-language.gif" style="float:right;margin:2em;" /></a>
-		<div id="content-container" page="Lua">
+		<div id="content-container" style="display:none;" page="Lua">
 			<h1 id="page-title">Lua</h1>
 			<p>
 				<a href="http://www.lua.org">Lua</a> is a beautiful and simple scripting language that is safe for children six and up: easy to learn with simple syntax and no unnecessary rubbish.
@@ -21,14 +22,14 @@
 				It is a multi-paradigm language, featuring support for functional and object-oriented (prototype-based design) programming.
 			</p>
 			<p>
-				<h3 class="lang">Functional Programming</h2>
+				<h3 class="content-header">Functional Programming</h2>
 				Functions are first-class citizens in Lua.
 				Like most functional languages, functions are values that can be passed between function calls, assigned to variables, and called recursively.
 				In Lua, functions can be created anonymously and in closures, as well as be used as keys for tables.
 				These are not unique to Lua, but the freedom to the usage of functions in Lua makes them pretty powerful and pretty darn cool.
 			</p>
 			<p>
-				<h3 class="lang">Object Oriented (OO) Programming</h2>
+				<h3 class="content-header">Object Oriented (OO) Programming</h2>
 				Lua has basic support for OO-like programming, but not like common OO languages like Java and Ruby.
 				In Java, the class is a model of all the attributes its instances will have, and all instances of a class will have exactly those specified attributes.
 				Lua, however, relies on the Prototype-Based model, like JavaScript.
@@ -90,7 +91,7 @@ setmetatable( Ducati, metamotorcycle )</pre>
 				There are a <a href="http://www.lua.org/manual/5.3/manual.html#2.4">ton of other metatables</a> that are too numerous to elaborate on here.
 				Metatables make Lua about as close to OO without being OO.
 			</p>
-			<h3 class="lang">What would make Lua better</h3>
+			<h3 class="content-header">What would make Lua better</h3>
 			<p>
 				Excuse my assertion, but Lua is almost the perfect language, there are just a few things that annoy me a bit.
 				These aren't major; in fact, each has a reason as to why the "annoyance" exists.
