@@ -3,7 +3,8 @@
 	background-color:#000050;
 	text-decoration:none;
 	margin-left:-10px;
-	margin-right:-10px;
+	width:1060px;
+	top:0px;
 }
 
 .navbar-menu-button
@@ -78,7 +79,7 @@
 	text-decoration:underline;
 }
 
-#page-title
+.content-header, #page-title
 {
 	margin:0px;
 }
