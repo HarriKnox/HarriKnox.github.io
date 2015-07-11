@@ -170,7 +170,8 @@
 			$content.css('display', 'block');
 		});
 
-		$document.click(function(e){
+		$document.click(function(e)
+		{
 			$target = $(e.target);
 			var clazz = $target.attr('class');
 			if (typeof clazz === 'undefined' || !clazz.match(/^navbar-/))

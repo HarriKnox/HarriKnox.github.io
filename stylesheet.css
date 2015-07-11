@@ -141,8 +141,10 @@ body
 code, pre
 {
 	display:inline-block;
-	background-color:#e0e0e0;
+	background-color:#f0f0f0;
 	padding:1px 5px 1px 5px;
 	margin:0px;
-	font-size:1.1em;
+	border-width:1px;
+	border-color:#dddddd;
+	border-style:solid;
 }
