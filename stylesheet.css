@@ -67,11 +67,13 @@
 {
 	text-decoration:none;
 	color:#101080;
+	font-weight:bold;
 }
 
 #content-container a[target="_blank"]
 {
 	color:#3366bb;
+	font-weight:normal;
 }
 
 #content-container a:hover
@@ -80,6 +82,16 @@
 }
 
 .content-header, #page-title
+{
+	margin:0px;
+}
+
+.paragraph
+{
+	margin:1em 0px;
+}
+
+ul, ol
 {
 	margin:0px;
 }
@@ -147,4 +159,5 @@ code, pre
 	border-width:1px;
 	border-color:#dddddd;
 	border-style:solid;
+	border-radius:5px;
 }
