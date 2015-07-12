@@ -61,6 +61,8 @@
 	background-color:#ffffff;
 	padding:2em;
 	font-size:1em;
+	display:none;
+	text-align:justify;
 }
 
 #content-container a
@@ -160,4 +162,10 @@ code, pre
 	border-color:#dddddd;
 	border-style:solid;
 	border-radius:5px;
+}
+
+#language-icon
+{
+	margin-left:1em;
+	float:right;
 }
