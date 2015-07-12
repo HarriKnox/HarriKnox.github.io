@@ -57,13 +57,10 @@
 <pre>
 a = "This is a string"
 b = "This is a string"
-puts "a object_id = " &lt;&lt; a.object_id.to_s
-puts "b object_id = " &lt;&lt; b.object_id.to_s
-puts (a.object_id == b.object_id).to_s
-	# execute
-a object_id = 74149330
-b object_id = 74149320
-false</pre>
+puts "a object_id = " &lt;&lt; a.object_id.to_s    #=&gt; a object_id = 74149330
+puts "b object_id = " &lt;&lt; b.object_id.to_s    #=&gt; b object_id = 74149320
+puts (a.object_id == b.object_id).to_s       #=&gt; false
+</pre>
 			<div class="paragraph">
 				The two object ids differ, not by much, but they differ.
 				Even though the two strings are the same, they refer to different objects.
@@ -73,13 +70,10 @@ false</pre>
 <pre>
 a = :symbol_name
 b = :symbol_name
-puts "a object_id = " &lt;&lt; a.object_id.to_s
-puts "b object_id = " &lt;&lt; b.object_id.to_s
-puts (a.object_id == b.object_id).to_s
-	#execute
-a object_id = 146968
-b object_id = 146968
-true</pre>
+puts "a object_id = " &lt;&lt; a.object_id.to_s    #=&gt; a object_id = 146968
+puts "b object_id = " &lt;&lt; b.object_id.to_s    #=&gt; b object_id = 146968
+puts (a.object_id == b.object_id).to_s       #=&gt; true
+</pre>
 			<div class="paragraph">
 				<h3 class="content-header">Sigils</h3>
 				Ruby also has what are called sigils.
@@ -93,7 +87,19 @@ true</pre>
 				The bang follows a method name to indicate the method is a "dangerous" method, one that affects the object in question and does not merely return a new object.
 				Take the following:
 			</div>
-			
+<pre>
+# no bang
+a = [1, 4, 2, 5, 3]
+b = a.sort
+puts a.to_s    #=&gt; [1, 4, 2, 5, 3]
+puts b.to_s    #=&gt; [1, 2, 3, 4, 5]
+
+# with a bang
+a = [1, 4, 2, 5, 3]
+b = a.sort!
+puts a.to_s    #=&gt; [1, 2, 3, 4, 5]
+puts b.to_s    #=&gt; [1, 2, 3, 4, 5]
+</pre>
 			<div class="paragraph">
 			</div>
 			<div class="paragraph">
