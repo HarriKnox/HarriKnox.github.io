@@ -150,6 +150,7 @@ body
 	margin:auto;
 	padding:20px;
 	padding-top:0px;
+	-webkit-text-size-adjust:none;
 }
 
 code, pre
