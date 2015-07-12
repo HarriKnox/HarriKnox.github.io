@@ -2,12 +2,6 @@
 <html>
 	<head>
 		<script src="loadScripts.js"></script>
-		<style>
-			.lang
-			{
-				margin-bottom:0px;
-			}
-		</style>
 	</head>
 	<body>
 		<noscript>
@@ -16,26 +10,76 @@
 		<a href="https://www.ruby-lang.org/en/"><img src="images/ruby-logo.png" style="float:right;margin:2em;" /></a>
 		<div id="content-container"style="display:none;" page="Ruby">
 			<h1 id="page-title">Ruby</h1>
-			<p>
-				If Python and Ruby were real humans, they would be bitter rivals.
-				While Python prides itself on being concise and having one way to do something, Ruby prides itself on being as unnecessarily redundant as it can possibly be.
-				Ruby's mantra is essentially "There should be multiple ways to do it".
-				There are <code>if</code> and its complement <code>unless</code>, <code>while</code> and its complement <code>until</code>.
+			<div class="paragraph">
+				<em>
+					(This page in particular I have spent some time writing.
+					I will be up-front and say I don't like Ruby, but the more I write about Ruby, the less I can find myself complaining about it.
+					The more I understand Ruby the more I'll update the information here.)
+				</em>
+			</div>
+			<div class="paragraph">
+				<a href="https://www.ruby-lang.org/en/">Ruby</a> is a multiparadigm scripting language, primarily object-oriented and functional.
+				Ruby was designed to be intelligible by humans and not just by machines.
+				Most languages use strict syntax so the computer will understand what its instructions are.
+				Ruby, on the other hand, uses English syntax to aid in readability and has numerous techniques to do something to aid in compehensibility.
+			</div>
+			<div class="paragraph">
+				I am an advocate of removing unnecessary syntax: I don't like having a million ways to do something.
+				Because of that, I am not a big fan of Ruby.
+				There is a lot to Ruby that I don't know and don't understand, but from what I know I don't particularly take to it.
+				That being said, I am not saying to not learn Ruby: quite the opposite.
+				Ruby is one of the languages everyone in programming should learn.
+				It is used in web development (<a href="http://rubyonrails.org/">Ruby on Rails</a>) and is available on most major platforms.
+				I tried it out of curiosity and don't like it, but that doesn't mean you won't like it either.
+			</div>
+			<div class="paragraph">
+				<h2 class="content-header">Features of Ruby</h2>
+				Before jumping into what I don't like about Ruby, I think it's only fair to write about all the features the language offers.
+				Primarily I will focus on what the language has that most languages don't have.
+			</div>
+			<div class="paragraph">
+				<h3 class="content-header">Data Types Galore</h3>
+				I love Lua, and as such, I am used to everything being a table.
+				Ruby, however, takes a more Pythonic approach to various data types.
+				Ruby has hashes, classes, and modules, which parallel Python's dicts, classes, and classes (again).
+				Dictionaries in Python, hashes in Ruby, and tables in Lua are all rather similar: a set of key-value pairs.
+				Lua does not have a concept of classes, but Ruby and Python do.
+				The classes allow you to create copious instances of them and extend other classes.
+				Ruby takes things a step further by adding modules, which are essentially static classes that can be implemented by any class.
+			</div>
+			<div class="paragraph">
+				<h3 class="content-header">Symbols and Sigils</h3>
+				Ruby provides symbols
+			</div>
+			<div class="paragraph">
+				<h3 class="content-header">Why Ruby Isn't my Cup of Tea</h3>
+				If Python and Ruby were real humans, they would be bitter rivals: Python prides itself on being concise and having one way to do something, Ruby prides itself on being as redundant as it can possibly be.
+				Like I said, I don't like having a million ways to do something; I like things to be a bit less chaotic.
+				It seems like Matz (creator of Ruby) said to himself "I wonder if this should be put in" and never said no: it's not if he should, but if he could.
+				There are many instances in Ruby where there are various means to achieve the same thing.
+			</div>
+			<div class="paragraph">
+				<h3 class="content-header">Matz's Third Law:</h3>
+				<h4 style="margin:0px 3em;">for every keyword, there is an equal and opposite re-keyword</h4>
+				For example, just like any language there is the <code>if ...</code> statement, but there is its complement <code>unless ...</code> which the same as <code>if not ...</code>.
+				There is <code>while ...</code> and also <code>until ...</code>, identical to <code>while not ...</code>.
+				For these, I can sort of understand why there are the complements.
+				Ruby is designed for readability, and sometimes it is easier for some to say "unless you're tired, run" instead of "if you're not tired, run".
+				I'd still opt for the latter.
+			</div>
+			<div class="paragraph">
 				There are lambdas, procs, and blocks, and each has its own differences.
-				There are hashes, classes, and modules, which act like Lua tables and Python classes combined.
-				There are five types of loops:
-			</p>
-			<ul style="margin:0px">
-				<li><code>(int).times{}</code> for iterating something a definitive number of times</li>
-				<li><code>(list/hashmap).each{}</code> for iterating over every element of an iterable</li>
-				<li><code>for</code> for iterating something a definitive number of times or over every element of an iterable</li>
-				<li><code>while</code> for iterating indefinitely</li>
-				<li><code>until</code> for iterating not indefinitely enough</li>
-			</ul>
-			<p>
-				I am not a fan of Ruby.
-				Most of this may come from ignorance and my lack of experience with the language, but from what I've seen I don't particulary enjoy nor understand Ruby.
-			</p>
+			</div>
+			<div class="paragraph">
+				There are also five types of loops:
+				<ul>
+					<li><code>(int).times{}</code> for iterating something a definitive number of times</li>
+					<li><code>(list/hash).each{}</code> for iterating over every element of an iterable</li>
+					<li><code>for</code> for iterating something a definitive number of times or over every element of an iterable</li>
+					<li><code>while</code> for iterating indefinitely</li>
+					<li><code>until</code> for iterating not indefinitely enough</li>
+				</ul>
+			</div>
 		</div>
 	</body>
 </html>
