@@ -143,6 +143,12 @@ td.squish
 	Red ff0000
 */
 
+@media screen and (max-device-width: 480px){
+  body{
+    -webkit-text-size-adjust: none;
+  }
+}
+
 body
 {
 	background-color:#f0f0f0;
@@ -150,7 +156,6 @@ body
 	margin:auto;
 	padding:20px;
 	padding-top:0px;
-	-webkit-text-size-adjust:none;
 }
 
 code, pre
