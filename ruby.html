@@ -7,8 +7,8 @@
 		<noscript>
 			JavaScript must be enabled to view this website. Click the scroll button in the right side of your address bar to allow JavaScript. Fear not, this site does not use harmful scripts to steal your identity or take over your computer. JavaScript is used purely for formatting this site.
 		</noscript>
-		<a href="https://www.ruby-lang.org/en/"><img src="images/ruby-logo.png" style="float:right;margin:2em;" /></a>
-		<div id="content-container"style="display:none;" page="Ruby">
+		<div id="content-container" page="Ruby">
+			<a href="https://www.ruby-lang.org/en/"><img src="images/ruby-logo.png" id="language-icon" /></a>
 			<h1 id="page-title">Ruby</h1>
 			<div class="paragraph">
 				<em>
@@ -18,7 +18,7 @@
 				</em>
 			</div>
 			<div class="paragraph">
-				<a href="https://www.ruby-lang.org/en/">Ruby</a> is a multiparadigm scripting language, primarily object-oriented and functional.
+				<a href="https://www.ruby-lang.org/en/">Ruby</a> is a multiparadigm scripting language, primarily object-oriented (OO) and functional.
 				Ruby was designed to be intelligible by humans and not just by machines.
 				Most languages use strict syntax so the computer will understand what its instructions are.
 				Ruby, on the other hand, uses English syntax to aid in readability and has numerous techniques to do something to aid in compehensibility.
@@ -48,11 +48,56 @@
 				Ruby takes things a step further by adding modules, which are essentially static classes that can be implemented by any class.
 			</div>
 			<div class="paragraph">
-				<h3 class="content-header">Symbols and Sigils</h3>
-				Ruby provides symbols
+				<h3 class="content-header">Symbols</h3>
+				Ruby provides a special data type called a symbol.
+				In normal OO languages, objects are unique and multiple clones may not point to the same location.
+				They are convenient as keys in hashes and method names because of their uniqueness and immuatbility.
+				For example, I did the following
+			</div>
+<pre>
+a = "This is a string"
+b = "This is a string"
+puts "a object_id = " &lt;&lt; a.object_id.to_s
+puts "b object_id = " &lt;&lt; b.object_id.to_s
+puts (a.object_id == b.object_id).to_s
+	# execute
+a object_id = 74149330
+b object_id = 74149320
+false</pre>
+			<div class="paragraph">
+				The two object ids differ, not by much, but they differ.
+				Even though the two strings are the same, they refer to different objects.
+				Symbols, written like <code>:symbol_name</code> evaluate to themselves.
+				All symbols of the same name accross a Ruby program have the exact same object_id.
+			</div>
+<pre>
+a = :symbol_name
+b = :symbol_name
+puts "a object_id = " &lt;&lt; a.object_id.to_s
+puts "b object_id = " &lt;&lt; b.object_id.to_s
+puts (a.object_id == b.object_id).to_s
+	#execute
+a object_id = 146968
+b object_id = 146968
+true</pre>
+			<div class="paragraph">
+				<h3 class="content-header">Sigils</h3>
+				Ruby also has what are called sigils.
+				In some languages, like Perl, sigils appear next to variable names to indicate the type of the value <span style="white-space:nowrap">(<code>$</code></span> indicates the value is a scaler, <code>@</code> indicates it's an array, etc).
+				In Ruby, they indicate the return value of a method.
+				One sigil that I wished was in Lua is the query sigil <code>?</code>.
+				The query comes at the end of a method name to indicate it's a predicate (returns a boolean).
+				This makes the code look a bit more like English.
+				For example: <code>"some string".includes? "t"</code> reads like "does 'some string' include 't'?", to which the answer is 'yes'.
+				Another sigil is the bang sigil <code>!</code>.
+				The bang follows a method name to indicate the method is a "dangerous" method, one that affects the object in question and does not merely return a new object.
+				Take the following:
+			</div>
+			
+			<div class="paragraph">
 			</div>
 			<div class="paragraph">
-				<h3 class="content-header">Why Ruby Isn't my Cup of Tea</h3>
+				<h2 class="content-header">Why Ruby Isn't my Cup of Tea</h2>
 				If Python and Ruby were real humans, they would be bitter rivals: Python prides itself on being concise and having one way to do something, Ruby prides itself on being as redundant as it can possibly be.
 				Like I said, I don't like having a million ways to do something; I like things to be a bit less chaotic.
 				It seems like Matz (creator of Ruby) said to himself "I wonder if this should be put in" and never said no: it's not if he should, but if he could.
