@@ -63,6 +63,7 @@
 	font-size:1em;
 	display:none;
 	text-align:justify;
+	float:left;
 }
 
 #content-container a
@@ -142,12 +143,6 @@ td.squish
 	OrangeRed ff4500
 	Red ff0000
 */
-
-@media screen and (max-device-width: 480px){
-  body{
-    -webkit-text-size-adjust: none;
-  }
-}
 
 body
 {
