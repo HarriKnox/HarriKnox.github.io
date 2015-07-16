@@ -60,6 +60,7 @@
 			new Button('Lua', 'lua.html'),
 			new Button('Ruby', 'ruby.html'),
 		]),
+		new Button('Test Link', 'projects.html')
 	];
 	
 	var getHome = function()
@@ -69,7 +70,6 @@
 	
 	var DOWN_ARROW = '&#9660;'
 	var UP_ARROW = '&#9650;'
-	//'<span style="font-size:0.8em;vertical-align:top;">' + DOWN_ARROW + '</span>'
 	
 	if (typeof $ !== 'undefined')
 	{
@@ -78,6 +78,10 @@
 		
 		var hideAllMenus = function()
 		{
+			$('.navbar-button-arrow').each(function()
+			{
+				$(this).html(DOWN_ARROW);
+			});
 			$('.navbar-menu').each(function()
 			{
 				$(this).slideUp(100);
@@ -120,30 +124,52 @@
 				'</table>'
 			);
 			
+			/// Function to get HTML code for button ///
+			var makeButtonHTML = function(button, inMenu)
+			{
+				var name = button.name;
+				var href = button.href;
+				var clazz = 'navbar-' + (inMenu ? 'menu-' : '') + 'button';
+				
+				var selected = (name === pageTitle);
+				
+				var inside = '<div ' + (selected ? 'id="' + clazz + '-selected" ' : '') +
+					'class="' + clazz + '">' + name + '</div>';
+				if (!selected) inside = '<a href="' + href + '">' + inside + '</a>';
+				
+				return inside;
+			};
+			
 			/// Build navbar ///
 			$navbar = $('#navbar');
 			for (var m = 0; m < navbar.length; m++)
 			{
-				var menuName = navbar[m].name;
-				var menu = navbar[m].menu;
+				var thing = navbar[m];
 				
-				$navbar.append('<div id="' + menuName + '" class="navbar-menu-button">' + menuName + '</div>');
-				$navbar.append('<div id="' + menuName + '-menu" class="navbar-menu"></div>');
-				
-				var $menu = $('#' + menuName + '-menu');
-				
-				for (var b = 0; b < menu.length; b++)
+				if (thing.constructor === Menu)
 				{
-					var linkName = menu[b].name;
-					var href = menu[b].href;
+					var menuName = thing.name;
+					var menu = thing.menu;
 					
-					var selected = (linkName === pageTitle);
+					$navbar.append(
+						'<div id="' + menuName + '" class="navbar-button">' +
+							'<span id="' + menuName + '-arrow" class="navbar-button-arrow">' + DOWN_ARROW + '</span>' +
+							menuName +
+						'</div>'
+					);
 					
-					var inside = '<div ' + (selected ? 'id="navbar-button-selected" ' : '') +
-						'class="navbar-button">' + linkName + '</div>';
-					if (!selected) inside = '<a href="' + href + '">' + inside + '</a>';
+					$navbar.append('<div id="' + menuName + '-menu" class="navbar-menu"></div>');
 					
-					$menu.append(inside);
+					var $menu = $('#' + menuName + '-menu');
+					
+					for (var b = 0; b < menu.length; b++)
+					{
+						$menu.append(makeButtonHTML(menu[b], true));
+					}
+				}
+				else if (thing.constructor === Button)
+				{
+					$navbar.append(makeButtonHTML(thing, false));
 				}
 			}
 			var navbarThickness = $('#' + navbar[0].name).outerHeight(true);
@@ -151,15 +177,20 @@
 			$('#navbar-container').height(navbarThickness);
 			
 			/// Click navbar menu buttons to toggle menus ///
-			$('.navbar-menu-button').click(function()
+			$('.navbar-button').click(function()
 			{
 				var menuName = $(this).attr('id');
+				
 				var $menu = $('#' + menuName + '-menu');
 				var hidden = $menu.is(':hidden');
 				positionMenu(menuName);
 				hideAllMenus();
 				if (hidden) $menu.slideDown(100);
 				else $menu.slideUp(100);
+				
+				var $arrow = $('#' + menuName + '-arrow');
+				if (hidden) $arrow.html(UP_ARROW);
+				else $arrow.html(DOWN_ARROW);
 			});
 			
 			/// Make all external links open new tabs ///
