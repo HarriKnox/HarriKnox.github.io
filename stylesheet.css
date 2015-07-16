@@ -3,7 +3,7 @@
 	background-color:#000050;
 	text-decoration:none;
 	margin-left:-10px;
-	width:1060px;
+	width:1020px;
 	top:0px;
 }
 
@@ -63,7 +63,6 @@
 	font-size:1em;
 	display:none;
 	text-align:justify;
-	float:left;
 }
 
 #content-container a
@@ -147,7 +146,7 @@ td.squish
 body
 {
 	background-color:#f0f0f0;
-	width:1040px;
+	max-width:1000px;
 	margin:auto;
 	padding:20px;
 	padding-top:0px;

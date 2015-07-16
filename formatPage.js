@@ -36,19 +36,19 @@
 		];
 		return splashes[Math.floor(Math.random() * splashes.length)];
 	};
-
+	
 	var Menu = function(name, menu)
 	{
 		this.name = name;
 		this.menu = menu;
 	};
-
+	
 	var Button = function(name, href)
 	{
 		this.name = name;
 		this.href = href;
 	};
-
+	
 	var navbar = [
 		new Menu('Projects',
 		[
@@ -61,16 +61,16 @@
 			new Button('Ruby', 'ruby.html'),
 		]),
 	];
-
+	
 	var getHome = function()
 	{
 		return location.href.match(/^file/) ? 'index.html' : '/';
 	};
-
+	
 	var DOWN_ARROW = '&#9660;'
 	var UP_ARROW = '&#9650;'
 	//'<span style="font-size:0.8em;vertical-align:top;">' + DOWN_ARROW + '</span>'
-
+	
 	if (typeof $ !== 'undefined')
 	{
 		var $document = $(document);
