@@ -88,17 +88,12 @@ setmetatable( Ducati, metamotorcycle )
 				You can also have a table be its own metatable, with its <code>__index</code> metafield pointing to its parent class.
 				You can also have a table be a metatable for other tables and have its <code>__index</code> metafield point to itself.
 				In the previous examples, we could have had <code>Motorcycle</code> be set as its own metatable with <code>__index</code> set to <code>Vehicle</code>, or we could have had <code>Vehicle.__index</code> point to itself and set <code>Vehicle</code> as the metatable for <code>Motorcycle</code>.
-				There are a <a href="http://www.lua.org/manual/5.3/manual.html#2.4">ton of other metatables</a> that are too numerous to elaborate on here.
+				There are a <a href="http://www.lua.org/manual/5.3/manual.html#2.4">ton of other metamethods</a> that are too numerous to elaborate on here.
 				Metatables make Lua about as close to OO without being OO.
 			</div>
 			<div class="paragraph">
-				<h2 class="content-header">What Would Make Lua Better</h2>
-				Excuse my assertion, but Lua is almost the perfect language, there are just a few things that annoy me a bit.
-				These aren't major; in fact, each has a reason as to why the "annoyance" exists.
-			</div>
-			<div class="paragraph">
-				<h3 class="content-header">Zero is not True</h3>
-				First is that <code>0</code> does not evaluate to <code>false</code>.
+				<h2 class="content-header">An Annoying Gotcha</h2>
+				Lua is almost the perfect language, but there is one primary thing that bugs me about it: <code>0</code> does not evaluate to <code>false</code>.
 				It is very common in many other languages, especially C, for <code>0</code> to evaluate as <code>false</code> in a conditional.
 				In Lua, the only things that evaluate to <code>false</code> are <code>false</code> and <code>nil</code>.
 				Everything else evalueates to <code>true</code>, or at least <code>not nil</code>.
@@ -111,7 +106,7 @@ setmetatable( Ducati, metamotorcycle )
 				For example, it would be nicer for <code>if #arg then parse() else error() end</code> to error if nothing was passed to the script in the command line.
 				You could also do <code>if not #(io.read()) ...</code> to execute something if nothing was read in.
 			</div>
-			<div class="paragraph">
+			<!--div class="paragraph">
 				<h3 class="content-header">Getting Table Size</h3>
 				Second is that there is no way to get the size of a table, only the length of a number-indexed array.
 				If you had the table <code>a = {1, 2, 3, 4, 5, [7] = 10}</code>, then <code>#a</code> would return <code>5</code>, even though there are 6 elements in the table.
@@ -128,7 +123,7 @@ setmetatable( Ducati, metamotorcycle )
 			<div class="paragraph">
 				<h3 class="content-header">Native Fractions</h3>
 				Fourth, fractions
-			</div>
+			</div-->
 		</div>
 	</body>
 </html>
