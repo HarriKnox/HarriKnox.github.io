@@ -104,6 +104,14 @@
 			var $content = $('#content-container');
 			var pageTitle = $content.attr('page');
 			
+			/// Format content to group code blocks to surrounding punctuation marks ///
+			var GROUPED = '<span class="grouped">$1</span>';
+			var innards = $content.html();
+			innards = innards.replace(/(([^\w\s>]|&.+?;)+<code>.*?<\/code>([^<\w\s]|&.+?;)+)/g, GROUPED)
+			innards = innards.replace(/(([^\w\s>]|&.+?;)+<code>.*?<\/code>)/g, GROUPED)
+			innards = innards.replace(/(<code>.*?<\/code>([^<\w\s]|&.+?;)+)/g, GROUPED)
+			$content.html(innards);
+			
 			/// Write page title in <head> and as a header ///
 			$('head').append('<title>Coder by Nature: ' + pageTitle + '</title>');
 			
