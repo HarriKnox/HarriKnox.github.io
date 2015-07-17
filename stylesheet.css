@@ -89,7 +89,7 @@
 	text-decoration:underline;
 }
 
-.content-header, #page-title
+.content-header, #page-title, ul, ol
 {
 	margin:0px;
 }
@@ -97,11 +97,6 @@
 .paragraph
 {
 	margin:1em 0px;
-}
-
-ul, ol
-{
-	margin:0px;
 }
 
 #header-container
@@ -167,7 +162,12 @@ code, pre
 	border-width:1px;
 	border-color:#dddddd;
 	border-style:solid;
-	border-radius:5px;
+	border-radius:3px;
+}
+
+pre
+{
+	margin-right:5px;
 }
 
 #language-icon
