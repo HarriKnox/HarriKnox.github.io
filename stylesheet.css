@@ -162,7 +162,7 @@ code, pre
 {
 	display:inline-block;
 	background-color:#f0f0f0;
-	padding:1px 5px 1px 5px;
+	padding:0px 5px;
 	margin:0px;
 	border-width:1px;
 	border-color:#dddddd;
@@ -173,6 +173,7 @@ code, pre
 pre
 {
 	margin-right:5px;
+	padding:5px;
 }
 
 #language-icon
