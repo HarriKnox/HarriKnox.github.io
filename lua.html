@@ -40,21 +40,21 @@
 				Using the <code>_index</code> metafield in a table's metatable, you can point Lua to a different table if the first table didn't have a value Lua's looking for.
 				For example, take the following code:
 			</div>
-<pre>
+			<pre>
 Vehicle = { speed = 50, vroom = "vroom" }
 Motorcycle = { vroom = "VROOM!" }
 Car = { speed = 80 }
-</pre>
+			</pre>
 			<div class="paragraph">
 				If you tried to get the values of <code>Car.vroom</code> and <code>Motorcycle.speed</code> you'd get <code>nil</code> both times.
 				That's because each of the three are completely separate and different tables.
 				Lua doesn't know they're related to each other yet.
 				To do that, you'd need to do the following:
 			</div>
-<pre>
+			<pre>
 metavehicle = { __index = Vehicle }
 setmetatable( Motorcycle, metavehicle )
-</pre>
+			</pre>
 			<div class="paragraph">
 				In the first line, we're creating a regular table with one field, <code>__index = Vehicle</code> (that `Vehicle` is reffering to the <code>Vehicle</code> table from the previous set of code).
 				In the second line, we set the metatable for <code>Motorcycle</code> to <code>metavehicle</code>.
@@ -79,11 +79,11 @@ setmetatable( Motorcycle, metavehicle )
 				The table that <code>__index</code> points to can have its own metatable, with its own <code>__index</code>, so you can chain inheritences as you go further.
 				Suppose we added a <code>Ducati</code> as a child of <code>Motorcycle</code>, we just do:
 			</div>
-<pre>
+			<pre>
 metamotorcycle = { __index = Motorcycle }
 Ducati = {}
 setmetatable( Ducati, metamotorcycle )
-</pre>
+			</pre>
 			<div class="paragraph">
 				You can also have a table be its own metatable, with its <code>__index</code> metafield pointing to its parent class.
 				You can also have a table be a metatable for other tables and have its <code>__index</code> metafield point to itself.
