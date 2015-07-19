@@ -60,7 +60,6 @@
 			new Button('Lua', 'lua.html'),
 			new Button('Ruby', 'ruby.html'),
 		]),
-		new Button('Test Link', 'projects.html')
 	];
 	
 	var getHome = function()
@@ -229,14 +228,14 @@
 		});
 		
 		/// Makes navbar stick to top of screen when scrolling past it ///
-		$window.scroll(function()
+		/*$window.scroll(function()
 		{
 			var $navbar = $('#navbar');
 			if ($window.scrollTop() > $('#header-container').height())
 				$navbar.css('position', 'fixed');
 			else
 				$navbar.css('position', 'relative');
-		});
+		});*/
 	}
 	else
 	{

@@ -2,8 +2,7 @@
 {
 	background-color:#000050;
 	text-decoration:none;
-	margin-left:-10px;
-	width:1020px;
+	margin:0 -10px;
 	top:0px;
 	color:#ffffff;
 }
@@ -66,7 +65,7 @@
 {
 	background-color:#ffffff;
 	padding:2em;
-	font-size:1em;
+	font-size:0.9999em;
 	display:none;
 	text-align:justify;
 }
