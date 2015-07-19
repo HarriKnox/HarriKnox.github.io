@@ -18,14 +18,14 @@
 				</em>
 			</div>
 			<div class="paragraph">
-				<a href="https://www.ruby-lang.org/en/">Ruby</a> is a multiparadigm scripting language, primarily object-oriented (OO).
-				Ruby was designed to be intelligible by humans and not just by machines.
+				<a href="https://www.ruby-lang.org/en/">Ruby</a> is a multi-paradigm scripting language, primarily object-oriented (OO).
+				Ruby was designed to be intelligible to humans and not just to machines.
 				Most languages use strict syntax so the computer will understand what its instructions are.
-				Ruby, on the other hand, uses English syntax to aid in readability and has numerous techniques to do something to aid in compehensibility.
+				Ruby, on the other hand, uses English syntax to aid in readability and has numerous techniques to do the same thing to aid in ease of writing.
 			</div>
 			<div class="paragraph">
 				I am an advocate of removing unnecessary syntax: I don't like having a million ways to do something.
-				Because of that, I am not a big fan of Ruby.
+				Because of that, I am not a fan of Ruby.
 				There is a lot to Ruby that I don't know and don't understand, but from what I know I don't particularly take to it.
 				That being said, I am not saying to not learn Ruby: quite the opposite.
 				Ruby is one of the languages everyone in programming should learn.
@@ -34,7 +34,7 @@
 			</div>
 			<div class="paragraph">
 				<h2 class="content-header">Features of Ruby</h2>
-				Before jumping into what I don't like about Ruby, I think it's only fair to write about all the features the language offers.
+				Before jumping into what I don't like about Ruby, I think it's only fair to write about some of the features the language offers.
 				Primarily I will focus on what the language has that most languages don't have.
 			</div>
 			<div class="paragraph">
@@ -42,7 +42,7 @@
 				I love Lua, and as such, I am used to everything being a table.
 				Ruby, however, takes a more Pythonic approach to various data types.
 				Ruby has hashes, classes, and modules, which parallel Python's dicts, classes, and classes (again).
-				Dictionaries in Python, hashes in Ruby, and tables in Lua are all rather similar: a set of key-value pairs.
+				Dictionaries in Python, hashes in Ruby, and tables in Lua are all similar: a set of key-value pairs.
 				Lua does not have a concept of classes, but Ruby and Python do.
 				The classes allow you to create copious instances of them and extend other classes.
 				Ruby takes things a step further by adding modules, which are essentially static classes that can be implemented by any class.
@@ -51,32 +51,65 @@
 				<h3 class="content-header">Symbols</h3>
 				Ruby provides a special data type called a symbol.
 				In normal OO languages, objects are unique and multiple clones may not point to the same location.
-				They are convenient as keys in hashes and method names because of their uniqueness and immuatbility.
 				For example, I did the following.
 				The two object ids differ, not by much, but they differ.
-				Even though the two strings are the same, they refer to different objects.
+				Even though the two strings are the same arrangement of characters and equate to each other, they refer to different objects.
 				Symbols, written like <code>:symbol_name</code> evaluate to themselves.
-				All symbols of the same name accross a Ruby program have the exact same object_id.
+				All symbols of the same name across a Ruby program have the exact same object_id.
+				As such, they are convenient as keys in hashes and method names because of their uniqueness and immuatbility.
 			</div>
-			<pre>
+<pre>
 a = "This is a string"
 b = "This is a string"
 puts a.object_id                  #=&gt; 74149330
 puts b.object_id                  #=&gt; 74149320
+puts a == b                       #=&gt; true
 puts a.object_id == b.object_id   #=&gt; false
-			</pre>
-			<pre>
+</pre>
+<pre>
 a = :symbol_name
 b = :symbol_name
-puts a.object_id                         #=&gt; 146968
-puts b.object_id                         #=&gt; 146968
-puts (a.object_id == b.object_id).to_s   #=&gt; true
-			</pre>
+puts a.object_id                  #=&gt; 146968
+puts b.object_id                  #=&gt; 146968
+puts a == b                       #=&gt; true
+puts a.object_id == b.object_id   #=&gt; true
+</pre>
 			<div class="paragraph">
 				<h3 class="content-header">Sigils</h3>
 				Ruby also has what are called sigils.
 				In some languages, like Perl, sigils appear next to variable names to indicate the type of the value (<code>$</code> indicates the value is a scaler, <code>@</code> indicates it's an array, etc).
-				In Ruby, they indicate the return value of a method.
+				In Ruby, sigils have two purposes.
+				The first prefixes the variable name and sets the scope of a variable.
+				There are five types of variables in Ruby, each defined by how the variable name starts.
+				On the left are how a variable can start and on the right are what type of variable it will be.
+				<ul>
+					<table>
+						<tr>
+							<td><li><code>a-z</code> or <code>_</code></li></td>
+							<td>local variable</td>
+						</tr>
+						<tr>
+							<td><li><code>A-Z</code></li></td>
+							<td>constant</td>
+						</tr>
+						<tr>
+							<td><li><code>$</code></li></td>
+							<td>global variable</td>
+						</tr>
+						<tr>
+							<td><li><code>@@</code></li></td>
+							<td>class variable</td>
+						</tr>
+						<tr>
+							<td><li><code>@</code></li></td>
+							<td>instance variable</td>
+						</tr>
+					</table>
+				</ul>
+				Anything else would not be allowed as a variable name.
+			</div>
+			<div class="paragraph">
+				The second type of sigil suffixes a method name to indicate the return value of a method.
 				One sigil that I wished was in Lua is the query sigil <code>?</code>.
 				The query comes at the end of a method name to indicate it's a predicate (returns a boolean).
 				This makes the code look a bit more like English.
@@ -85,19 +118,48 @@ puts (a.object_id == b.object_id).to_s   #=&gt; true
 				The bang follows a method name to indicate the method is a "dangerous" method, one that affects the object in question and does not merely return a new object.
 				Take the following:
 			</div>
-			<pre>
+<pre>
 # no bang
+
 a = [1, 4, 2, 5, 3]
 b = a.sort
-puts a.to_s    #=&gt; [1, 4, 2, 5, 3]
-puts b.to_s    #=&gt; [1, 2, 3, 4, 5]
 
+puts a.inspect    #=&gt; [1, 4, 2, 5, 3]
+puts b.inspect    #=&gt; [1, 2, 3, 4, 5]
+</pre>
+<pre>
 # with a bang
+
 a = [1, 4, 2, 5, 3]
 b = a.sort!
-puts a.to_s    #=&gt; [1, 2, 3, 4, 5]
-puts b.to_s    #=&gt; [1, 2, 3, 4, 5]
-			</pre>
+
+puts a.inspect    #=&gt; [1, 2, 3, 4, 5]
+puts b.inspect    #=&gt; [1, 2, 3, 4, 5]
+</pre>
+			<div class="paragraph">
+				<h4 class="content-header">A Quick Note About Constants</h4>
+				Since I previously mentioned constants I would like to append some extra information about them.
+				First, a constant variable is intended to point to the same reference in memory, not necessarily to an immutable bundle of information.
+				Because of this, if a constant points to an object, the values of the object can change, but the variable can't point to a new value.
+				Ruby doesn't enforce constant-ness, so you can change the references of constant variables.
+				Ruby will warn you when you attempt to change a constant value, but will let you do it anyway.
+			</div>
+<pre>
+# Input.rb
+
+# Set original value
+A_CONST = "Hello"
+puts A_CONST       #=&gt; Hello
+
+# You can change the values inside the object
+A_CONST[0] = "J"
+puts A_CONST       #=&gt; Jello
+
+# You shouldn't change the value of the variable
+A_CONST = "Bob"
+puts A_CONST       #=&gt; Input.rb:10: warning: already initialized constant A_CONST
+                   #=&gt; Bob
+</pre>
 			<div class="paragraph">
 				<h3 class="content-header">Blocks, Procs, and Lambdamobiles</h3>
 				There are lambdas, procs, and blocks, and each has its own differences.
@@ -108,18 +170,20 @@ puts b.to_s    #=&gt; [1, 2, 3, 4, 5]
 				Blocks are nameless pieces of code that are implicitely "passed" to certain functions.
 				You define a block after a method call and the method may yield to the block, sometimes passing values in.
 				This sort of functionality is very convenient as it gives module and API writers the ability to generalize their code and gives module and API users the ability to define what's going on.
-				Blocks are rather limited in that you can provide no more than one block to a method call.
+				Blocks are rather limited, however.
+				For one, you can provide no more than one block to a method call.
 				Blocks are also not objects and cannot be stored to a variable, but if you want to store them to variables, you can.
 			</div>
 			<div class="paragraph">
 				<h4 class="content-header">Procs</h4>
-				Procs are named or unnamed pieces of code that are explicitely or implicitely "passed" to certain functions.
-				They can be defined and set to a variable by using <code>Proc.new</code> and providing a block, like <code>square = Proc.new { |n| n ** 2 }</code> would create a Proc that, when called, returns the square of the passed number.
-				Procs can also be created implicitely by using blocks.
-				In a method, blocks can be either yielded to, or converted to a proc using the <code>&amp;</code> operator in the parameters.
+				Procs are objects with a customizable method that allows them to be explicitely or implicitely "passed" to certain functions.
+				They can be defined and set in two ways.
+				First, a proc can be set to a variable by using <code>Proc.new</code> and providing a block, like <code>square = Proc.new { |n| n ** 2 }</code> would create a Proc that, when called, returns the square of the passed number.
+				Second, they can be created implicitely by using blocks.
+				In a method, blocks can be either yielded to, or converted to a proc by preceding one of the parameters with <code>&amp;</code>.
 				The following pieces of code do the exact same thing.
 			</div>
-			<pre>
+<pre>
 # Using a block
 
 class Array
@@ -135,8 +199,8 @@ result = [1,2,3,4].apply! do |n|
 end
 
 puts result.inspect  #=&gt; [1, 4, 9, 16]
-			</pre>
-			<pre>
+</pre>
+<pre>
 # Converting block to proc
 
 class Array
@@ -152,8 +216,8 @@ result = [1,2,3,4].apply! do |n|
 end
 
 puts result.inspect  #=&gt; [1, 4, 9, 16]
-			</pre>
-			<pre>
+</pre>
+<pre>
 # Passing a proc
 
 class Array
@@ -169,7 +233,7 @@ result = [1,2,3,4].apply!(
 )
 
 puts result.inspect  #=&gt; [1, 4, 9, 16]
-			</pre>
+</pre>
 			<div class="paragraph">
 				Procs have one more added benefit.
 				They act as if their code is injected directly into the code of its calling method, so any returns, breaks, exception raises, and other control flow keywords affect the calling method.
@@ -177,14 +241,13 @@ puts result.inspect  #=&gt; [1, 4, 9, 16]
 			</div>
 			<div class="paragraph">
 				<h4 class="content-header">Lambdas</h4>
-				Lambdas are named or unnamed pieces of code that are explicitely "passed" to certain functions.
-				Lambdas behave exactly like procs.
-				In fact, a lambda's class is Proc: <code>puts (lambda {|x| x ** 2}).class  #=&gt; Proc</code>.
-				Lambdas differ from procs with only two things.
+				Lambdas are procs.
+				Technically speaking, <code>lambda</code> is a method in Ruby that converts a block into a special type of proc, so lambdas are not a different class (<code>puts (lambda {|x| x ** 2}).class  #=&gt; Proc</code>) but we still refer to these special procs as "lambdas".
+				Lambdas differ from procs in only two respects.
 				First, lambdas check the number of arguments passed to them and will error when the number received and number expected differ.
 				Procs do not check and will assign <code>nil</code> to unspecified arguments and will ignore extra passed arguments.
-				Second, lambdas called within a method will not affect the control flow of the method.
-				A lambda with an explicit return called inside a method will not break out, whereas a proc would.
+				Second, lambdas called within a method will not affect the control flow of the method: an explicit return in a lambda called inside a method will not break out, whereas a proc would.
+				These differences are because lambdas are the same as regular methods but wrapped in an object.
 			</div>
 			<div class="paragraph">
 				<h4 class="content-header">Method Objects</h4>
@@ -192,11 +255,11 @@ puts result.inspect  #=&gt; [1, 4, 9, 16]
 				In Ruby, all methods are called automatically, regardless of the presence of parens: both <code>array.inspect</code> and <code>array.inspect()</code> are valid method calls.
 				As such, one does not simply assign a method directly to a variable like they could in Lua or Python.
 				Instead, there is the built-in Ruby method <code>method</code> which takes a symbol (the name of the method in question) and returns a Method object.
-				Method objects behave like lambdas: you call them with <code>.call</code>, they complain about argument mismatch, and they don't break out of their calling methods.
+				Method objects behave like regular methods, but wrapped in an object (same as lambdas): you call them with <code>.call</code>, they complain about argument mismatch, and they don't break out of their calling methods.
 				You can even convert methods into blocks by prefixing the reference with an <code>&amp;</code>.
 				Using the code from above, the following are also legal.
 			</div>
-			<pre>
+<pre>
 # Passing a Method object
 
 class Array
@@ -214,8 +277,8 @@ end
 result = [1,2,3,4].apply!(method(:square))
 
 puts result.inspect  #=&gt; [1, 4, 9, 16]
-			</pre>
-			<pre>
+</pre>
+<pre>
 # Converting Method object to block
 
 class Array
@@ -233,8 +296,8 @@ end
 result = [1,2,3,4].apply! &amp;method(:square)
 
 puts result.inspect  #=&gt; [1, 4, 9, 16]
-			</pre>
-			<pre>
+</pre>
+<pre>
 # Converting Method object to block to proc
 
 class Array
@@ -252,7 +315,7 @@ end
 result = [1,2,3,4].apply! &amp;method(:square)
 
 puts result.inspect  #=&gt; [1, 4, 9, 16]
-			</pre>
+</pre>
 			<div class="paragraph">
 				<h2 class="content-header">Why Ruby Isn't my Cup of Tea</h2>
 				If Python and Ruby were real humans, they would be bitter rivals: Python prides itself on being concise and having one way to do something, Ruby prides itself on being as redundant as it can possibly be.
@@ -265,7 +328,7 @@ puts result.inspect  #=&gt; [1, 4, 9, 16]
 			<div class="paragraph">
 				<h3 class="content-header">Matz's Third Law:</h3>
 				<h4 style="margin:0px 3em;">for every control-flow, there is an equal and opposite re-control-flow</h4>
-				Just like any language there is the <code>if ...</code> statement, but there is its complement <code>unless ...</code> which the same as <code>if not ...</code>.
+				Just like any language Ruby has the <code>if ...</code> statement, but there is its complement <code>unless ...</code> which the same as <code>if not ...</code>.
 				There is <code>while ...</code> and also <code>until ...</code>, identical to <code>while not ...</code>.
 				For these, I can sort of understand why there are the complements.
 				Ruby is designed for readability, and sometimes it is easier for some to say "unless you're tired, run" instead of "if you're not tired, run".
@@ -274,33 +337,11 @@ puts result.inspect  #=&gt; [1, 4, 9, 16]
 			<div class="paragraph">
 				<h3 class="content-header">Optional and Assumed Syntax</h3>
 				There aren't many languages with completely optional syntax.
-				In Lua, you have the option of following your statements with a semicolon, but it is required in some instances.
-				Take a look at the following code.
-				In the first box, the variable <code>max</code> is set to the function <code>math.max</code>, then it calls either <code>print</code> or <code>io.write</code> (whichever is defined) to print the value of <code>max(7, 3)</code>.
-				In the second box, the function <code>math.max</code> is called first with parameters <code>print or io.write</code> and returns <code>print</code> or <code>io.write</code> (whichever is defined).
-				Then, the returned print function is called, being passed the value returned by <code>max(7, 3)</code>.
-				Since <code>max</code> was not defined yet, this causes an error.
+				In Lua, you have the option of following your statements with a semicolon.
+				It is required, however, in some instances when the compiler has the possibility of getting confused with what you've written.
 				The semicolon in Lua is used for disambiguity.
-			</div>
-			<pre>
--- With semicolon
-max = math.max;
-(print or io.write)(max(7, 3))
-
--- Output
-7
-			</pre>
-			<pre>
--- Without semicolon
-max = math.max
-(print or io.write)(max(7, 3))
-
--- Output
-error: attempt to call a nil value (global 'max')
-			</pre>
-			<div class="paragraph">
 				In JavaScript, the semicolon at the end of statements is also somewhat optional.
-				When parsing through the script, if JS sees doesn't find a semicolon where it expects one, it will imagine one is there and continue through.
+				When parsing through the script, if JS doesn't find a semicolon where it expects one, it will imagine one is there and continue through.
 				Include your semicolons anyway.
 			</div>
 			<div class="paragraph">
