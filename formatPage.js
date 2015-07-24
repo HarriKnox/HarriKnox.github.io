@@ -100,11 +100,11 @@
 		
 		$document.ready(function()
 		{
-			/// Get page title ///
+			/** Get page title **/
 			var $content = $('#content-container');
 			var pageTitle = $content.attr('page');
 			
-			/// Format content to group code blocks to surrounding punctuation marks ///
+			/** Format content to group code blocks to surrounding punctuation marks **/
 			var GROUPED = '<span class="grouped">$1</span>';
 			var innards = $content.html();
 			innards = innards.replace(/(([^\w\s>]|&.+?;)+<code>([^<]|<(?!\/code>))*?<\/code>([^<\w\s]|&.+?;)+)/g, GROUPED)
@@ -112,10 +112,10 @@
 					.replace(/(<code>([^<]|<(?!\/code>))*?<\/code>([^<\w\s]|&.+?;)+)/g, GROUPED);
 			$content.html(innards);
 			
-			/// Write page title in <head> and as a header ///
+			/** Write page title in <head> and as a header **/
 			$('head').append('<title>Coder by Nature: ' + pageTitle + '</title>');
 			
-			/// Build header ///
+			/** Build header **/
 			var $body = $('body')
 			$body.prepend('<div id="navbar-container"><div id="navbar"></div></div>');
 			var title = '<h1 style="margin-bottom:0px;">Hello friends and family</h1>' +
@@ -132,7 +132,7 @@
 				'</table>'
 			);
 			
-			/// Function to get HTML code for button ///
+			/** Function to get HTML code for button **/
 			var makeButtonHTML = function(button, inMenu)
 			{
 				var name = button.name;
@@ -148,7 +148,7 @@
 				return inside;
 			};
 			
-			/// Build navbar ///
+			/** Build navbar **/
 			$navbar = $('#navbar');
 			for (var m = 0; m < navbar.length; m++)
 			{
@@ -184,7 +184,7 @@
 			$navbar.height(navbarThickness);
 			$('#navbar-container').height(navbarThickness);
 			
-			/// Click navbar menu buttons to toggle menus ///
+			/** Click navbar menu buttons to toggle menus **/
 			$('.navbar-button').click(function()
 			{
 				var menuName = $(this).attr('id');
@@ -201,7 +201,7 @@
 				else $arrow.html(DOWN_ARROW);
 			});
 			
-			/// Make all external links open new tabs ///
+			/** Make all external links open new tabs **/
 			$('a').each(function()
 			{
 				$this = $(this);
@@ -209,17 +209,18 @@
 					$this.attr('target', '_blank');
 			});
 			
-			var $splash = $('#splash');
+			/** Make splash change message when clicked **/
+			/*var $splash = $('#splash');
 			$splash.click(function()
 			{
 				$splash.html(getSplash(pageTitle));
-			});
+			});*/
 			
-			/// Show content when done ///
+			/** Show content when done **/
 			$content.css('display', 'block');
 		});
 		
-		/// Click off of a navbar item to close all menus ///
+		/** Click off of a navbar item to close all menus **/
 		$document.click(function(e)
 		{
 			$target = $(e.target);
@@ -228,7 +229,7 @@
 				hideAllMenus();
 		});
 		
-		/// Makes navbar stick to top of screen when scrolling past it ///
+		/** Makes navbar stick to top of screen when scrolling past it **/
 		/*$window.scroll(function()
 		{
 			var $navbar = $('#navbar');
