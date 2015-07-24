@@ -53,6 +53,7 @@
 		new Menu('Projects',
 		[
 			new Button('Projects', 'projects.html'),
+			new Button('CPE 102 Project', 'cpe102project.html'),
 		]),
 		new Menu('Programming',
 		[
@@ -92,7 +93,7 @@
 			var $menuButton = $('#' + menuName + '');
 			var pos = $menuButton.position();
 			$('#' + menuName + '-menu').css({
-				top : pos.top + $menuButton.outerHeight(true),
+				//top : pos.top + $menuButton.outerHeight(true),
 				left : pos.left + 2,
 			});
 		};
@@ -107,8 +108,8 @@
 			var GROUPED = '<span class="grouped">$1</span>';
 			var innards = $content.html();
 			innards = innards.replace(/(([^\w\s>]|&.+?;)+<code>([^<]|<(?!\/code>))*?<\/code>([^<\w\s]|&.+?;)+)/g, GROUPED)
-			innards = innards.replace(/(([^\w\s>]|&.+?;)+<code>([^<]|<(?!\/code>))*?<\/code>)/g, GROUPED)
-			innards = innards.replace(/(<code>([^<]|<(?!\/code>))*?<\/code>([^<\w\s]|&.+?;)+)/g, GROUPED)
+					.replace(/(([^\w\s>]|&.+?;)+<code>([^<]|<(?!\/code>))*?<\/code>)/g, GROUPED)
+					.replace(/(<code>([^<]|<(?!\/code>))*?<\/code>([^<\w\s]|&.+?;)+)/g, GROUPED);
 			$content.html(innards);
 			
 			/// Write page title in <head> and as a header ///
@@ -123,9 +124,9 @@
 				title = '<a href="' + getHome() + '" id="link-home" title="Home">' + title + '</a>';
 			$body.prepend(
 				'<table id="header-container">' +
-					'<td id="title" class="squish">' + title +
+					'<td id="title">' + title +
 					'</td><td></td>' +
-					'<td id="splash" class="squish">' +
+					'<td id="splash">' +
 						getSplash(pageTitle) + 
 					'</td>' +
 				'</table>'
