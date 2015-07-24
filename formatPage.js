@@ -7,6 +7,7 @@
 			var now = new Date();
 			return (now.getMonth() + 1) * 100 + now.getDate();
 		})();
+		if (today <= 725) return 'Now mobile friendly!';
 		if (today === 111) return 'Happy Birthday Harri!';
 		if (today === 1008) return 'Happy Birthday Courtney!';
 		if (today === 1016) return 'Happy Anniversary Courtney!';
