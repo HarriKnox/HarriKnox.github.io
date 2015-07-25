@@ -165,8 +165,10 @@ code, pre
 
 pre
 {
-	margin-right:5px;
+	margin:5px;
+	margin-left:0px;
 	padding:5px;
+	overflow-x:scroll;
 }
 
 #language-icon
