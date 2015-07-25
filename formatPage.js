@@ -7,7 +7,6 @@
 			var now = new Date();
 			return (now.getMonth() + 1) * 100 + now.getDate();
 		})();
-		if (today <= 725) return 'Now mobile friendly!';
 		if (today === 111) return 'Happy Birthday Harri!';
 		if (today === 1008) return 'Happy Birthday Courtney!';
 		if (today === 1016) return 'Happy Anniversary Courtney!';
@@ -18,6 +17,7 @@
 		if (today === 1031) return '<span style="color:#ffa500;">BOO!</span>';
 		var splashes = [
 			'Now includes<br/>complementary splashes',
+			'Now mobile friendly',
 			'Work in progress',
 			'Check out the navbar',
 			'Made by Harrison Knox',
@@ -97,6 +97,11 @@
 				//top : pos.top + $menuButton.outerHeight(true),
 				left : pos.left + 2,
 			});
+		};
+		
+		var setPreMaxWidth = function()
+		{
+			$('pre').css('max-width', $('#content-container').width());
 		};
 		
 		$document.ready(function()
@@ -219,6 +224,9 @@
 			
 			/** Show content when done **/
 			$content.css('display', 'block');
+			
+			/** Make all pre blocks scroll horizontally when the content is too wide for the window **/
+			setPreMaxWidth();
 		});
 		
 		/** Click off of a navbar item to close all menus **/
@@ -229,6 +237,9 @@
 			if (typeof clazz === 'undefined' || !clazz.match(/^navbar-/))
 				hideAllMenus();
 		});
+		
+		/** Adjust sizes of pre blocks when the window is resized **/
+		$window.resize(setPreMaxWidth);
 		
 		/** Makes navbar stick to top of screen when scrolling past it **/
 		/*$window.scroll(function()
