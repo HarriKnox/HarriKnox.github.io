@@ -11,15 +11,14 @@
 			<h1 id="page-title">CPE 102 Project</h1>
 			<div class="paragraph">
 				One of the major courses for <abbr title="Computer Engineering">CPE</abbr> majors at <a href="http://www.calpoly.edu/">Cal Poly</a> is the class <abbr title="Computer Science">CSC</abbr> 102: Fundamentals of Computer Science.
-				For our class project, all class members were to use <a href="http://www.pygame.org/news.html">Pygame</a> and <a href="https://processing.org/">Processing</a> to create a grid-based world simulation.
+				For our class project, my partner and I were to use <a href="http://www.pygame.org/news.html">Pygame</a> and <a href="https://processing.org/">Processing</a> to create a grid-based world simulation.
 				The purpose of the project was an exercise in object-oriented programming, functional programming, and simple path-finding.
 				You can view the source <a href="https://github.com/cchu1008/CPE102Project">here for the Pygame version</a> and <a href="https://github.com/cchu1008/CPE102ProjectJava">here for the Processing version</a>.
 			</div>
 			<div class="paragraph">
 				<h2 class="content-header">Object-Oriented (OO) Programming</h2>
-				<a href="https://java.com/en/">Java</a> is a famous and ubiquitous OO language with support for functional programming.
-				<a href="https://www.python.org/">Python</a> is a famous OO and functional language.
-				Using these two languages my classmates and I were given different flavors of OO programming in similar contexts.
+				<a href="https://java.com/en/">Java</a> is a famous and ubiquitous OO language, and <a href="https://www.python.org/">Python</a> is a notorious scripting language with OO support.
+				Using these two languages we were given different flavors of OO programming in similar contexts.
 				For the first part of our project, our professor provided us with dirty and repetitive Python code.
 				The code was of a Pygame project that simulated a small, grid-based world with various moving and interacting entities.
 				The code was mostly functional: only a few classes existed.
@@ -27,8 +26,28 @@
 			</div>
 			<div class="paragraph">
 				<h3 class="content-header">Step One: From Functional to Prototype</h3>
-				Our first task was to move functionality into all of the individual entity classes.
-				The behavior of each entity was defined in an external function.
+				Our first task was to move functionality into the entity classes.
+				The behaviors of all the entities were defined by general external functions.
+				Without using inheritance, we were to copy each relevant function into associated classes as methods.
+				'No inheritance' meant there were multiple copies of methods that all did the same thing; this was intended to show the benefits of inheritance when we apply it.
+				In addition to moving all the functions over, we also had to change the method calls in the rest of the code to make it run.
+				This exercise was intended to introduce us to defining object methods and accessing them.
+			</div>
+			<div class="paragraph">
+				<h3 class="content-header">Step Two: From Prototype to Class</h3>
+				After increasing the sizes of our projects tenfold, we were allowed to use inheritance.
+				Using Python's odd system of inheritance, we grouped like entities together under their shared parent classes.
+				This short exercise was to introduce Python's system of inheritance.
+				Like other OO languages (like Java), Python uses the <code>super</code> keyword to indicate the parent class, the only difference is that you need to be explicit with a super call.
+				In Java, <code>super</code> refers to the super class and will implicitly cast-up the object in question by performing operations defined in the super class.
+				In Python, <code>super</code> is somewhat magical: it is a function that will return an object of type 'super' that has a reference to the parent class(es) of a class.
+				When invoked, the 'super' object will call the the method of the parent class, passing in the object in question.
+				I still don't fully understand how Python's <code>super</code> works.
+				I like knowing how things work so they make sense to me, thus I'm not a fan of "magic" in languages.
+			</div>
+			<div class="paragraph">
+				<h3 class="content-header">Step Three: From Python to Java</h3>
+				
 			</div>
 		</div>
 	</body>
