@@ -34,6 +34,7 @@
 			'Ad-free',
 			'Open source',
 			'Not lounging around',
+			'Today is ' + ['January', 'February', 'March', 'April' , 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][Math.floor(today / 100) - 1] + " " + (today % 100),
 		];
 		return splashes[Math.floor(Math.random() * splashes.length)];
 	};
