@@ -108,7 +108,7 @@
 		{
 			/** Get page title **/
 			var $content = $('#content-container');
-			var pageTitle = $content.attr('page');
+			var pageTitle = $('#page-title').text();
 			
 			/** Format content to group code blocks to surrounding punctuation marks **/
 			var GROUPED = '<span class="grouped">$1</span>';
