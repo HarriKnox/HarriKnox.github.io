@@ -242,7 +242,7 @@ puts result.inspect  #=&gt; [1, 4, 9, 16]
 			<div class="paragraph">
 				<h4 class="content-header">Lambdas</h4>
 				Lambdas are procs.
-				Technically speaking, <code>lambda</code> is a method in Ruby that converts a block into a special type of proc, so lambdas are not a different class (<code>puts (lambda {|x| x ** 2}).class  #=&gt; Proc</code>) but we still refer to these special procs as "lambdas".
+				Technically speaking, <code>lambda</code> is a method in Ruby that converts a block into a special type of proc, so lambdas are not a different class (<code>puts (lambda {}).class  #=&gt; Proc</code>) but we still refer to these special procs as "lambdas".
 				Lambdas differ from procs in only two respects.
 				First, lambdas check the number of arguments passed to them and will error when the number received and number expected differ.
 				Procs do not check and will assign <code>nil</code> to unspecified arguments and will ignore extra passed arguments.
