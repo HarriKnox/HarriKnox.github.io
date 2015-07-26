@@ -168,7 +168,8 @@ pre
 	margin:5px;
 	margin-left:0px;
 	padding:5px;
-	overflow-x:scroll;
+	overflow:auto;
+	overflow-y:hidden;
 }
 
 #language-icon
