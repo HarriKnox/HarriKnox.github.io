@@ -67,7 +67,6 @@
 	padding:2em;
 	font-size:0.9999em;
 	display:none;
-	text-align:justify;
 }
 
 #content-container a
@@ -167,7 +166,7 @@ pre
 {
 	margin:5px;
 	margin-left:0px;
-	padding:5px;
+	padding:10px;
 	overflow:auto;
 	overflow-y:hidden;
 }
