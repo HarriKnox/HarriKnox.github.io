@@ -10,14 +10,100 @@
 		<div id="content-container">
 			<h1 id="page-title">CPE 102 Project</h1>
 			<div class="paragraph">
-				One of the major courses for <abbr title="Computer Engineering">CPE</abbr> majors at <a href="http://www.calpoly.edu/">Cal Poly</a> is the class <abbr title="Computer Science">CSC</abbr> 102: Fundamentals of Computer Science.
+				One of the major courses for <abbr title="Computer Engineering">CPE</abbr> and <abbr title="Computer Science">CSC</abbr> majors at <a href="http://www.calpoly.edu/">Cal Poly</a> is the class CSC 102: Fundamentals of Computer Science.
+				In this class we focused on the languages <a href="https://www.python.org/">Python</a> and <a href="https://java.com/en/">Java</a>.
 				For our class project, my partner and I were to use <a href="http://www.pygame.org/news.html">Pygame</a> and <a href="https://processing.org/">Processing</a> to create a grid-based world simulation.
 				The purpose of the project was an exercise in object-oriented programming, functional programming, and simple path-finding.
-				You can view the source <a href="https://github.com/cchu1008/CPE102Project">here for the Pygame version</a> and <a href="https://github.com/cchu1008/CPE102ProjectJava">here for the Processing version</a>.
+				You can view the sources for the project <a href="https://github.com/cchu1008/CPE102Project">here for the Pygame version</a> and <a href="https://github.com/cchu1008/CPE102ProjectJava">here for the Processing version</a>.
+			</div>
+			<div class="paragraph">
+				<h2 class="content-header">Project structure</h2>
+				The project was a large creation, but most of the code was written once and never touched again.
+				The most important classes were the World class, the WorldView class, the actions, and the entity classes.
+			</div>
+			<div class="paragraph">
+				<h3 class="content-header">World and WorldView</h3>
+				The World class kept track of all the entities.
+				It held a list of all entities and an ordered list of all events.
+				It also managed moving entities around, calculating distances, and scheduling actions.
+				The WorldView class was our Processing Main class.
+				Every Processing applet requires a Main class to draw images to the screen and update itself periodically.
+				WorldView handled image displaying, moving the viewport, key and mouse presses, and updating the World on a timer.
+				Together the two kept the actions running on schedule and moved the entities about.
+			</div>
+			<div class="paragraph">
+				<h3 class="content-header">The Actions</h3>
+				There were four types of major functions in the Actions class: Action Creators, Entity Creators, Entity Schedulers, and Pathing Functions.
+				The Action Creators would (as the name suggests) create actions.
+				The actions were events executed at a scheduled time, and each action performed different operations based on their purpose: actions for moving entities would run the Pathing functions and actions for animation would cycle the sprite image.
+				Some actions would schedule themselves again, thus creating looping actions (like animations).
+				The Entity Creators would create their respective entities with various parameters and schedule their actions.
+				The Entity Schedulers would run the respective Action creators and schedule those actions to run at specified times.
+				The Pathing Functions would obtain the position of the target block (if any), calculate the best path, then move the entity one block in that path.
+				Together, all the action functions created the dynamism of the project.
+			</div>
+			<div class="paragraph">
+				<h3 class="content-header">The Entities</h3>
+				There were multiple entities and multiple types of entities.
+				In all, there were three abstract categories of entities and nine non-abstract, final entities.
+				The full tree looked like the following (bold shows abstract type):
+				<ul>
+					<li>
+						<strong>Entity:</strong>
+						<ul>
+							<li>Blacksmith</li>
+							<li>Obstacle</li>
+							<li>
+								<strong>Actor:</strong>
+								<ul>
+									<li>Ore</li>
+									<li>Vein</li>
+									<li>
+										<strong>Animated:</strong>
+										<ul>
+											<li>Miner</li>
+											<li>OreBlob</li>
+											<li>Quake</li>
+											<li>Zombie</li>
+											<li>Birdie</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="paragraph">
+				<h4 class="content-header">Entity</h4>
+				At the head was the Entity class, which stored only the basic data each entity had: name, position, and sprite image.
+				Non-abstract extenders of Entity were non-action classes.
+				Blacksmith and Obstacle both extended Entity and both did nothing; Blacksmith was a target for Miners and Obstacle was the block of water that got in the way.
+			</div>
+			<div class="paragraph">
+				<h4 class="content-header">Actor</h4>
+				Under Entity was the abstract class of Actor.
+				Actor stored data regarding the path from the pathfinding, the list of actions to be executed, and an arbitrary number for the speed of action execution.
+				Ore, extending Actor, had one action tied to it: a timeout before it transformed into an OreBlob.
+				Vein, also extending Actor, had a repeated action to spawn ores in open spaces around itself.
+			</div>
+			<div class="paragraph">
+				<h4 class="content-header">Animated</h4>
+				Extending Actor was the abstract class Animated, which had an animation rate and a list of sprite images.
+				Under Animated were Miner, OreBlob, Quake, Zombie, and Birdie.
+				Miners roamed the world, seeking ores and picking them up.
+				Whenever a miner was full, he would travel to the nearest Blacksmith and "drop the ores off".
+				OreBlobs would spawn randomly from Ores that were not picked up and would seek out Veins and destroy them.
+				Quake was an animated effect.
+				Quakes were spawned whenever a Vein was destroyed, an OreBlob was killed, or a Birdie teleported out of the world.
+				Zombies were what the Birdies transformed the Miners into.
+				They would seek out OreBlobs and destroy them.
+				Birdies were the birds that would teleport into the world to kill the Miners and transform them into Zombies.
+				They could fly over everything except other birds, moved very quickly, and would periodically drop Ores.
 			</div>
 			<div class="paragraph">
 				<h2 class="content-header">Object-Oriented (OO) Programming</h2>
-				<a href="https://java.com/en/">Java</a> is a famous and ubiquitous OO language, and <a href="https://www.python.org/">Python</a> is a notorious scripting language with OO support.
+				Java is a famous and ubiquitous OO language, and Python is a notorious scripting language with OO support.
 				Using these two languages we were given different flavors of OO programming in similar contexts.
 				For the first part of our project, our professor provided us with dirty and repetitive Python code.
 				The code was of a Pygame project that simulated a small, grid-based world with various moving and interacting entities.
@@ -26,10 +112,11 @@
 			</div>
 			<div class="paragraph">
 				<h3 class="content-header">Step One: From Functional to Prototype</h3>
-				Our first task was to move functionality into the entity classes.
+				Our first task was to move appropriate functionality into classes.
 				The behaviors of all the entities were defined by general external functions.
 				Without using inheritance, we were to copy each relevant function into associated classes as methods.
 				'No inheritance' meant there were multiple copies of methods that all did the same thing; this was intended to show the benefits of inheritance when we apply it.
+				There were also numerous functions for the world that had to be moved.
 				In addition to moving all the functions over, we also had to change the method calls in the rest of the code to make it run.
 				This exercise was intended to introduce us to defining object methods and accessing them.
 			</div>
@@ -41,13 +128,51 @@
 				Like other OO languages (like Java), Python uses the <code>super</code> keyword to indicate the parent class, the only difference is that you need to be explicit with a super call.
 				In Java, <code>super</code> refers to the super class and will implicitly cast-up the object in question by performing operations defined in the super class.
 				In Python, <code>super</code> is somewhat magical: it is a function that will return an object of type 'super' that has a reference to the parent class(es) of a class.
-				When invoked, the 'super' object will call the the method of the parent class, passing in the object in question.
-				I still don't fully understand how Python's <code>super</code> works.
-				I like knowing how things work so they make sense to me, thus I'm not a fan of "magic" in languages.
+				When invoked, the 'super' object will call the method of the parent class, passing in the object in question.
+				The beauty of using <code>super</code> as opposed to directly calling the parent class is that <code>super</code> also manages multiple inheritance for you.
 			</div>
 			<div class="paragraph">
 				<h3 class="content-header">Step Three: From Python to Java</h3>
-				
+				At this stage we started moving the objects over into Java.
+				Primarily we focused on moving the entity classes and the World class.
+				We were then to test our migration by writing endless test cases to ensure everything moved correctly.
+				The test cases simulated a world with entities, without displaying it.
+				This was an introduction to Java's flavor of OO.
+			</div>
+			<div class="paragraph">
+				<h3 class="content-header">Step Four: From Pygame to Processing</h3>
+				After moving just the entities and the World into Java, we had to move in everything else: the world view, entity actions, and keyboard interactions.
+				This version used Processing to display the world to the screen and manage the keyboard interactions (using arrow keys to move the view port, pressing space to pause, etc).
+				The difficult part was moving over the actions.
+				Python is functional, so functions are first-class and could be returned and passed around easily.
+				Plus, functions defined in closures are still able to reference themselves.
+				This part of the assignment proved to be quite challenging for one reason: Java is not functional.
+				Java 8 introduced the Function interface and lambda expressions, which allow you to define a custom method wrapped in an object, like Ruby's procs.
+				This functionality made it possible to return and pass around a "function", but because of Java's strict variable rules, functions defined in closures cannot reference themselves directly.
+				A workaround to this is to put the Function object in an already-defined array of length 1 and reference element <code>[0]</code> of that array.
+			</div>
+			<div class="paragraph">
+				<h3 class="content-header">Step Five: From Here to There</h3>
+				Once everything on the Java side was behaving like everything on the Python side, we were to change the entity pathfinding.
+				The entities that moved had a very simple system: horizontal first, then if it can't go any more horizontal (in the same column or obstructed) go vertically, then if it can't go vertically (at the  destination or obstructed) either celebrate victory or admit defeat.
+				This system resulted in numerous "trapped" entities, even if there may be another way to get to their destination.
+				For that we were introduced to <a href="https://en.wikipedia.org/wiki/A*_search_algorithm">A* pathfinding</a>.
+				A* works by calculating the "cost" to visit a node and comparing costs over a large collection of visited nodes to find the least costly path.
+			</div>
+			<div class="paragraph">
+				<h3 class="content-header">Step Six: From Idea to Reality</h3>
+				All of the previous steps were guided by our professor.
+				For this part, however, he handed the reigns to us to add our own modifications.
+				The changes we implemented had to be triggered by a mouse-click anywhere in the world and had to follow a few rules:
+				<ol>
+					<li>there must be a visual change to the area near the mouse-click</li>
+					<li>there must be a new type of entity to spawn in the world</li>
+					<li>there must be an existing entity that will be affected (in appearance and behavior) in some way</li>
+				</ol>
+				For our creative addition, my partner and I added a portal to an alternate dimension.
+				When you click the world, a portal opens, showing its presence by inverting the colors of all entities and background tiles in the portal region.
+				Killer birds travel through the portal and spawn in the world, fly around the map, attack miners, and turn them into zombies.
+				The zombies roam about chasing ore-blobs and turn them into veins.
 			</div>
 		</div>
 	</body>
