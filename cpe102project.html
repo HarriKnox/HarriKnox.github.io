@@ -73,6 +73,26 @@
 						</ul>
 					</li>
 				</ul>
+				<!--ul>
+					<strong>Entity:</strong>
+					<ul>
+						&#9500; Blacksmith<br />
+						&#9500; Obstacle<br />
+						&#9492; <strong>Actor:</strong>
+						<ul>
+							&#9500; Ore<br />
+							&#9500; Vein<br />
+							&#9492; <strong>Animated:</strong>
+							<ul>
+								&#9500; Miner  <br />
+								&#9500; OreBlob<br />
+								&#9500; Quake  <br />
+								&#9500; Zombie <br />
+								&#9492; Birdie
+							</ul>
+						</ul>
+					</ul>
+				</ul-->
 			</div>
 			<div class="paragraph">
 				<h4 class="content-header">Entity</h4>
@@ -144,12 +164,9 @@
 				After moving just the entities and the World into Java, we had to move in everything else: the world view, entity actions, and keyboard interactions.
 				This version used Processing to display the world to the screen and manage the keyboard interactions (using arrow keys to move the view port, pressing space to pause, etc).
 				The difficult part was moving over the actions.
-				Python is functional, so functions are first-class and could be returned and passed around easily.
-				Plus, functions defined in closures are still able to reference themselves.
 				This part of the assignment proved to be quite challenging for one reason: Java is not functional.
-				Java 8 introduced the Function interface and lambda expressions, which allow you to define a custom method wrapped in an object, like Ruby's procs.
-				This functionality made it possible to return and pass around a "function", but because of Java's strict variable rules, functions defined in closures cannot reference themselves directly.
-				A workaround to this is to put the Function object in an already-defined array of length 1 and reference element <code>[0]</code> of that array.
+				Python is functional, so functions are first-class and could be returned and passed around easily.
+				However, in Java we needed to use the new Function interface to translate the Action code over.
 			</div>
 			<div class="paragraph">
 				<h3 class="content-header">Step Five: From Here to There</h3>
@@ -171,8 +188,43 @@
 				</ol>
 				For our creative addition, my partner and I added a portal to an alternate dimension.
 				When you click the world, a portal opens, showing its presence by inverting the colors of all entities and background tiles in the portal region.
-				Killer birds travel through the portal and spawn in the world, fly around the map, attack miners, and turn them into zombies.
-				The zombies roam about chasing ore-blobs and turn them into veins.
+				Killer birds travel through the portal and spawn in the world, fly around the map, and attack miners.
+				The attacked miners turn into zombies and roam about chasing ore-blobs and turning them into veins.
+			</div>
+			<div class="paragraph">
+				<h2 class="content-header">Functional Programming</h2>
+				Python is a multifaceted scripting language.
+				In addition to OO programming, it is rather powerful in functional programming.
+				Java, however, isn't.
+				Java is the staunch OO language and has been since the begining of time, but the team at Oracle has been slowly adapting to the changing styles of programming.
+				In Java 8, one can now use "lambda expressions", which are (in Java) a way to define a class without needing a full, formal definition.
+				Lambdas open up the possibilities of the functional paradigm as API users are able to easily specify operations to perform.
+				Also new in Java 8 is the Function interface, which contains various types of functions: predicates (return true or false), consumers (don't return anything), operators (return same type as argument), and more.
+				Each of these functions aren't really functions but objects with one calling method, like Ruby's proc objects with the <code>call</code> method.
+			</div>
+			<div class="paragraph">
+				Between Python and Java, functions in Python are more powerful and easy to use than their counterparts in Java.
+				For one, functions in Python are first-class citizens, so they can be passed around, stored to variables, and even created and called in-line.
+				Functions can also be created in closures (the coolest thing in programming), called recursively, even created in closures and called recursively.
+				Variables don't need to be instantiated for the code to compile, so functions can reference themselves, even though they technically don't fully exist at compile-time.
+			</div>
+			<div class="paragraph">
+				In Java, on the other hand, functions are not as privilaged.
+				Functions are wrapped in objects, so, similar to Python, they can be passed around and stored to variables as usual.
+				However, functions cannot be created and called in-line easily, nor called recursively in a succinct manner.
+				Java has strict rules for variables and requires all variables be instantiated (assigned to a value, even <code>null</code>) to compile.
+				Because a function object isn't considered instantiated until the entire function is compiled, any references to itself inside the function code will be references to an un-instantiated variable.
+				You may think you could set the function to <code>null</code> first, then define it: technically it will be instantiated when you reference it in the function definition.
+				This, unfortunately, does not work since all local variables refered to in a function must be treated as final, and changing the value of the variable pointing to your function violates that rule.
+				Fortunately, there are numerous other ways to get around the compiler police.
+			</div>
+			<div class="paragraph">
+				One method my professor taught us was to wrap the function-to-be in an array of length 1, like so: <code>IntSupplier[] getNum = new IntSupplier[1];</code> or <code>IntSupplier[] getNum = { null };</code>.
+				Then, any time you need to reference the function, refer to it as element 0 of that array: <code>getNum[0]</code>.
+				This works because Java has more lenient rules with arrays simply because they are much more difficult to check and track all the values, so the compiler doesn't bother.
+			</div>
+			<div class="paragraph">
+				In the context of the project, the Action code was the only functional code.
 			</div>
 		</div>
 	</body>
