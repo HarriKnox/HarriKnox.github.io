@@ -1,5 +1,10 @@
 (function($)
 {
+	var pickRandom = function(things)
+	{
+		return things[Math.floor(Math.random() * things.length)];
+	};
+	
 	var getSplash = function(pageTitle)
 	{
 		var now = new Date();
@@ -34,11 +39,14 @@
 			'Open source',
 			'Not lounging around',
 			'Contains long-winded essays',
+			'Don\'t deny it,<br />you were reading this',
+			'Ask about the color ' + (function(color) { return '<span style="color:' + color + ';">' + color + '</span>'; })(pickRandom(['Green', 'Goldenrod', 'Blue', 'Purple', 'Brown', 'Orange'])),
 			'Today is ' + ['January', 'February', 'March', 'April' , 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][Math.floor(today / 100) - 1] + " " + (today % 100),
 		];
 		
 		if (now.getDay() === 3) splashes.push("It's Tuesday!");
-		return splashes[Math.floor(Math.random() * splashes.length)];
+		
+		return pickRandom(splashes);
 	};
 	
 	var Menu = function(name, menu)
