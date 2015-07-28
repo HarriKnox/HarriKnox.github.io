@@ -16,8 +16,8 @@
 		if (today === 126) return '<div style="transform:rotate(180deg);">Happy Australia Day!</div>';
 		if (today >= 1200) return 'Happy &lt;insert holiday here&gt;!';
 		if (today === 101) return 'Happy New Year!';
-		if (today === 704) return '<span style="color:#ff0000;">Happy</span> <span style="color:#ffffff;text-shadow:0px -1px 1px black,1px -1px 1px black,1px 1px 1px black,-1px 0px 1px black,0px 1px 1px black,1px 0px 1px black,-1px -1px 1px black,-1px 1px 1px black;">4th of</span> <span style="color:#0000ff">July!</span>';
-		if (today === 1031) return '<span style="color:#ffa500;">BOO!</span>';
+		if (today === 704) return '<span style="color:red;">Happy</span> <span style="color:white;text-shadow:0px -1px 1px black,1px -1px 1px black,1px 1px 1px black,-1px 0px 1px black,0px 1px 1px black,1px 0px 1px black,-1px -1px 1px black,-1px 1px 1px black;">4th of</span> <span style="color:blue">July!</span>';
+		if (today === 1031) return '<span style="color:orange;">BOO!</span>';
 		
 		var splashes = [
 			'Now includes<br/>complementary splashes',
@@ -31,8 +31,8 @@
 			'Powered by jQuery',
 			'Powered by electrons',
 			'Now available in English',
-			'<span style="color:#FF7F50;">Coral</span> <span style="color:#DC143C;">Crimson</span> <span style="color:#FF8C00;">DarkOrange</span><br />' +
-			'<span style="color:#FFA500;">Orange</span> <span style="color:#FF4500;">OrangeRed</span> <span style="color:#FF0000;">Red</span>',
+			'<span style="color:coral;">Coral</span> <span style="color:crimson;">Crimson</span> <span style="color:darkorange;">DarkOrange</span><br />' +
+			'<span style="color:orange;">Orange</span> <span style="color:orangered;">OrangeRed</span> <span style="color:red;">Red</span>',
 			'Fork me on <a href="https://github.com/HarriKnox">GitHub</a>',
 			'Requires internet access',
 			'Ad-free',
@@ -40,7 +40,7 @@
 			'Not lounging around',
 			'Contains long-winded essays',
 			'Don\'t deny it,<br />you were reading this',
-			'Ask about the color ' + (function(color) { return '<span style="color:' + color + ';">' + color + '</span>'; })(pickRandom(['Green', 'Goldenrod', 'Blue', 'Purple', 'Brown', 'Orange'])),
+			'Ask about the color ' + (function(color) { return '<span style="color:' + color + ';">' + color + '</span>'; })(pickRandom(['Green', 'Goldenrod', 'Blue', 'Purple', 'Brown', 'Orange', 'Black',])),
 			'Today is ' + ['January', 'February', 'March', 'April' , 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][Math.floor(today / 100) - 1] + " " + (today % 100),
 		];
 		
