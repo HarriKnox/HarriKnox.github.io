@@ -2,11 +2,9 @@
 {
 	var getSplash = function(pageTitle)
 	{
-		var today = (function()
-		{
-			var now = new Date();
-			return (now.getMonth() + 1) * 100 + now.getDate();
-		})();
+		var now = new Date();
+		var today = (now.getMonth() + 1) * 100 + now.getDate();
+		
 		if (today === 111) return 'Happy Birthday Harri!';
 		if (today === 1008) return 'Happy Birthday Courtney!';
 		if (today === 1016) return 'Happy Anniversary Courtney!';
@@ -15,6 +13,7 @@
 		if (today === 101) return 'Happy New Year!';
 		if (today === 704) return '<span style="color:#ff0000;">Happy</span> <span style="color:#ffffff;text-shadow:0px -1px 1px black,1px -1px 1px black,1px 1px 1px black,-1px 0px 1px black,0px 1px 1px black,1px 0px 1px black,-1px -1px 1px black,-1px 1px 1px black;">4th of</span> <span style="color:#0000ff">July!</span>';
 		if (today === 1031) return '<span style="color:#ffa500;">BOO!</span>';
+		
 		var splashes = [
 			'Now includes<br/>complementary splashes',
 			'Now mobile friendly',
@@ -34,8 +33,11 @@
 			'Ad-free',
 			'Open source',
 			'Not lounging around',
+			'Contains long-winded essays',
 			'Today is ' + ['January', 'February', 'March', 'April' , 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][Math.floor(today / 100) - 1] + " " + (today % 100),
 		];
+		
+		if (now.getDay() === 3) splashes.push("It's Tuesday!");
 		return splashes[Math.floor(Math.random() * splashes.length)];
 	};
 	
@@ -72,6 +74,8 @@
 	
 	var DOWN_ARROW = '&#9660;'
 	var UP_ARROW = '&#9650;'
+	var LEFT_ARROW = '&#9664;'
+	var LEFT_ARROW = '&#9654;'
 	
 	if (typeof $ !== 'undefined')
 	{
