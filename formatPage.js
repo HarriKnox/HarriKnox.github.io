@@ -115,9 +115,9 @@
 		var setPreMaxWidth = function()
 		{
 			$pre = $('pre');
-			var padding = parseInt($pre.css('padding-right'));
+			var padding = parseInt($pre.css('padding-left')) + parseInt($pre.css('padding-right'));
 			var width = $('#content-container').width();
-			$pre.css('max-width', width - (2 * padding));
+			$pre.css('max-width', width - padding);
 		};
 		
 		$document.ready(function()
