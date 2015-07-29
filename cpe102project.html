@@ -10,7 +10,7 @@
 		<div id="content-container">
 			<h1 id="page-title">CPE 102 Project</h1>
 			<div class="paragraph">
-				One of the major courses for <abbr title="Computer Engineering">CPE</abbr> and <abbr title="Computer Science">CSC</abbr> majors at <a href="http://www.calpoly.edu/">Cal Poly</a> is the class CSC 102: Fundamentals of Computer Science.
+				One major courses for <abbr title="Computer Engineering">CPE</abbr> and <abbr title="Computer Science">CSC</abbr> majors at <a href="http://www.calpoly.edu/">Cal Poly</a> is the class CSC 102: Fundamentals of Computer Science.
 				In this class we focused on the languages <a href="https://www.python.org/">Python</a> and <a href="https://java.com/en/">Java</a>.
 				For our class project, my partner and I were to use <a href="http://www.pygame.org/news.html">Pygame</a> and <a href="https://processing.org/">Processing</a> to create a grid-based world simulation.
 				The purpose of the project was an exercise in object-oriented programming, functional programming, and simple path-finding.
@@ -47,52 +47,26 @@
 				There were multiple entities and multiple types of entities.
 				In all, there were three abstract categories of entities and nine non-abstract, final entities.
 				The full tree looked like the following (bold shows abstract type):
-				<ul>
-					<li>
-						<strong>Entity:</strong>
-						<ul>
-							<li>Blacksmith</li>
-							<li>Obstacle</li>
-							<li>
-								<strong>Actor:</strong>
-								<ul>
-									<li>Ore</li>
-									<li>Vein</li>
-									<li>
-										<strong>Animated:</strong>
-										<ul>
-											<li>Miner</li>
-											<li>OreBlob</li>
-											<li>Quake</li>
-											<li>Zombie</li>
-											<li>Birdie</li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</li>
-				</ul>
-				<!--ul>
+				<div style="margin-left:1em;">
 					<strong>Entity:</strong>
-					<ul>
+					<div style="margin-left:1em;">
 						&#9500; Blacksmith<br />
 						&#9500; Obstacle<br />
 						&#9492; <strong>Actor:</strong>
-						<ul>
+						<div style="margin-left:1em;">
 							&#9500; Ore<br />
 							&#9500; Vein<br />
 							&#9492; <strong>Animated:</strong>
-							<ul>
+							<div style="margin-left:1em;">
 								&#9500; Miner  <br />
 								&#9500; OreBlob<br />
 								&#9500; Quake  <br />
 								&#9500; Zombie <br />
 								&#9492; Birdie
-							</ul>
-						</ul>
-					</ul>
-				</ul-->
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 			<div class="paragraph">
 				<h4 class="content-header">Entity</h4>
@@ -104,8 +78,8 @@
 				<h4 class="content-header">Actor</h4>
 				Under Entity was the abstract class of Actor.
 				Actor stored data regarding the path from the pathfinding, the list of actions to be executed, and an arbitrary number for the speed of action execution.
-				Ore, extending Actor, had one action tied to it: a timeout before it transformed into an OreBlob.
-				Vein, also extending Actor, had a repeated action to spawn ores in open spaces around itself.
+				Ore had one action tied to it: an action to transform itself into an OreBlob.
+				Vein had a repeated action to spawn ores in open spaces around itself.
 			</div>
 			<div class="paragraph">
 				<h4 class="content-header">Animated</h4>
@@ -145,7 +119,7 @@
 				After increasing the sizes of our projects tenfold, we were allowed to use inheritance.
 				Using Python's odd system of inheritance, we grouped like entities together under their shared parent classes.
 				This short exercise was to introduce Python's system of inheritance.
-				Like other OO languages (like Java), Python uses the <code>super</code> keyword to indicate the parent class, the only difference is that you need to be explicit with a super call.
+				Like other OO languages (like Java), Python uses the <code>super</code> keyword to reference the parent class, the only difference is that you need to be explicit with a super call.
 				In Java, <code>super</code> refers to the super class and will implicitly cast-up the object in question by performing operations defined in the super class.
 				In Python, <code>super</code> is somewhat magical: it is a function that will return an object of type 'super' that has a reference to the parent class(es) of a class.
 				When invoked, the 'super' object will call the method of the parent class, passing in the object in question.
@@ -171,7 +145,7 @@
 			<div class="paragraph">
 				<h3 class="content-header">Step Five: From Here to There</h3>
 				Once everything on the Java side was behaving like everything on the Python side, we were to change the entity pathfinding.
-				The entities that moved had a very simple system: horizontal first, then if it can't go any more horizontal (in the same column or obstructed) go vertically, then if it can't go vertically (at the  destination or obstructed) either celebrate victory or admit defeat.
+				The entities that moved had a very simple system: horizontally first, then if it cannot go any more horizontally (in the same column or obstructed) go vertically, then if it cannot go vertically (at the  destination or obstructed) either celebrate victory or admit defeat.
 				This system resulted in numerous "trapped" entities, even if there may be another way to get to their destination.
 				For that we were introduced to <a href="https://en.wikipedia.org/wiki/A*_search_algorithm">A* pathfinding</a>.
 				A* works by calculating the "cost" to visit a node and comparing costs over a large collection of visited nodes to find the least costly path.
@@ -194,37 +168,44 @@
 			<div class="paragraph">
 				<h2 class="content-header">Functional Programming</h2>
 				Python is a multifaceted scripting language.
-				In addition to OO programming, it is rather powerful in functional programming.
-				Java, however, isn't.
-				Java is the staunch OO language and has been since the begining of time, but the team at Oracle has been slowly adapting to the changing styles of programming.
+				Besides OO programming, it is rather powerful in functional programming.
+				Java, however, is not.
+				Java is the staunch OO language and has been since the beginning of time, but the team at Oracle has been slowly adapting to the changing styles of programming.
 				In Java 8, one can now use "lambda expressions", which are (in Java) a way to define a class without needing a full, formal definition.
-				Lambdas open up the possibilities of the functional paradigm as API users are able to easily specify operations to perform.
-				Also new in Java 8 is the Function interface, which contains various types of functions: predicates (return true or false), consumers (don't return anything), operators (return same type as argument), and more.
+				Lambdas open the possibilities of the functional paradigm as API users are able to specify operations to perform.
+				Also new in Java 8 is the Function interface, which contains various types of functions: predicates (return true or false), consumers (return void), operators (return same type as argument), and more.
 				Each of these functions aren't really functions but objects with one calling method, like Ruby's proc objects with the <code>call</code> method.
 			</div>
 			<div class="paragraph">
 				Between Python and Java, functions in Python are more powerful and easy to use than their counterparts in Java.
 				For one, functions in Python are first-class citizens, so they can be passed around, stored to variables, and even created and called in-line.
 				Functions can also be created in closures (the coolest thing in programming), called recursively (also the coolest thing in programming), even created in closures and called recursively (the coolest thing in programming squared).
-				Variables don't need to be instantiated for the code to compile, so functions can reference themselves, even though they technically don't fully exist at compile-time.
+				Variables do not need to be instantiated for the code to compile, so functions can reference themselves, even though they technically do not fully exist at compile-time.
 			</div>
 			<div class="paragraph">
-				In Java, on the other hand, functions are not as privilaged.
+				In Java, on the other hand, functions are not as privileged.
 				Functions are wrapped in objects, so, similar to Python, they can be passed around and stored to variables as usual.
 				However, functions cannot be created and called in-line easily, nor called recursively in a succinct manner.
 				Java has strict rules for variables and requires all variables be instantiated (assigned to a value, even <code>null</code>) to compile.
-				Because a function object isn't considered instantiated until the entire function is compiled, any references to itself inside the function code will be references to an un-instantiated variable.
+				Because a function object is not considered instantiated until the entire function is compiled, any references to itself inside the function code will be references to an un-instantiated variable.
 				You may think you could set the function to <code>null</code> first, then define it: technically it will be instantiated when you reference it in the function definition.
-				This, unfortunately, does not work since all local variables refered to in a function must be treated as final, and changing the value of the variable pointing to your function violates that rule.
+				This, unfortunately, does not work since all local variables referred to in a function must be treated as final, and changing the value of the variable pointing to your function violates that rule.
 				Fortunately, there are numerous other ways to get around the compiler police.
 			</div>
 			<div class="paragraph">
-				One method my professor taught us was to wrap the function-to-be in an array of length 1, like so: <code>IntSupplier[] getNum = new IntSupplier[1];</code> or <code>IntSupplier[] getNum = { null };</code>.
-				Then, any time you need to reference the function, refer to it as element 0 of that array: <code>getNum[0]</code>.
-				This works because Java has more lenient rules with arrays simply because they are much more difficult to check and track all the values, so the compiler doesn't bother.
+				One method my professor taught us was to wrap the recursive-function-to-be in an array of length 1, like so: <code>IntUnaryOperator[] fact = new IntUnaryOperator[1];</code> or <code>IntUnaryOperator[] fact = { null };</code>.
+				Then, any time you need to reference the function, refer to it as element 0 of that array: <code>fact[0]</code>.
+				This works because Java has more lenient rules with arrays simply because they are much more difficult to check and track all the values, so the compiler does not bother.
+				Even though element 0 of that array is not treated as final, Java does not check that it follows the rules since it's in an array, providing an inconvenient, but effective, exploit to defining recursive functions.
 			</div>
 			<div class="paragraph">
 				In the context of the project, the Action code was the only functional code.
+				In Python, the action code was easy to use because functions in Python can be called recursively, which is what was required for the actions to reschedule themselves.
+				In Java, the action code was more difficult to write because functions cannot be called recursively easily.
+				After implementing the exploit our professor taught us, the action code became easier to write.
+			</div>
+			<div class="paragraph">
+				<h2 class="content-header">Pathfinding</h2>
 			</div>
 		</div>
 	</body>
