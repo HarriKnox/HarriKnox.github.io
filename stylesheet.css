@@ -152,18 +152,23 @@ body
 
 code, pre
 {
-	display:inline-block;
 	background-color:#f0f0f0;
-	padding:0px 5px;
-	margin:0px;
 	border-width:1px;
 	border-color:#dddddd;
 	border-style:solid;
 	border-radius:3px;
 }
 
+code
+{
+	white-space:normal;
+	padding:0px 5px;
+	margin:0px;
+}
+
 pre
 {
+	display:inline-block;
 	margin:5px;
 	margin-left:0px;
 	padding:10px;
