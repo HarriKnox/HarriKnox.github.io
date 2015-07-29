@@ -203,8 +203,8 @@
 				}
 			}
 			var navbarThickness = $('#' + navbar[0].name).outerHeight(true);
-			$navbar.height(navbarThickness);
-			$('#navbar-container').height(navbarThickness);
+			$navbar.css('min-height', navbarThickness);
+			$('#navbar-container').css('min-height', navbarThickness);
 			
 			/** Click navbar menu buttons to toggle menus **/
 			$('.navbar-button').click(function()
