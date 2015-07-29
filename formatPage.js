@@ -44,7 +44,10 @@
 			'Today is ' + ['January', 'February', 'March', 'April' , 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][Math.floor(today / 100) - 1] + " " + (today % 100),
 		];
 		
-		if (now.getDay() === 3) splashes.push("It's Tuesday!");
+		if (now.getDay() === 3) splashes.push('It\'s Tuesday');
+		
+		var hour = now.getHours();
+		if (hour >= 5 && hour <= 10) splashes.push('Good Morning');
 		
 		return pickRandom(splashes);
 	};
