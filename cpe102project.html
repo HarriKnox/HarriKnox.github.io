@@ -206,6 +206,49 @@
 			</div>
 			<div class="paragraph">
 				<h2 class="content-header">Pathfinding</h2>
+				During class we learned briefly about graph theory and path finding.
+				To introduce us to the topic, our professor demonstrated the <a href="https://en.wikipedia.org/wiki/Depth-first_search">Depth-First Search algorithm</a> (DFS).
+				DFS works by traversing a grid in a predetermined order without visiting the same node twice and "falling back" a node if there are no available paths to take: it goes as far as it can without overlapping before having to backtrack.
+				Think about the common strategy to solve a maze by walking along the left wall and having to go back only when there's nowhere else to go.
+				Given that there is a path between A and B, DFS is a fail-proof algorithm that will find a path from A to B.
+				The problem with DFS is that it is an algorithm, not a heuristic, meaning that it is brute-force and not methodical.
+				Though DFS will find a path, that path may not be the best path; in some cases, it may be one of the worst paths possible.
+				The following is a vastly over-simplified example of how DFS works in the context of the project:
+			</div>
+<pre>
+a SPACE is legal if
+    the SPACE is in the grid and
+    the SPACE has not been visited and
+    the SPACE is not an obstruction
+
+Loop until done
+    if I am at the target then
+        celebrate and break Loop
+    
+    else if all spaces are visited then
+        error: no path to target
+    
+    else if RIGHT is a legal space then
+        go RIGHT and mark it as visited
+    
+    else if UP is a legal space then
+        go UP and mark it as visited
+    
+    else if LEFT is a legal space then
+        go LEFT and mark it as visited
+    
+    else if DOWN is a legal space then
+        go DOWN and mark it as visited
+    
+    else if NONE are legal spaces then
+        go BACK
+</pre>
+			<div class="paragraph">
+				This pseudo-code demonstrates how one can reach their target by using the pattern RIGHT-UP-LEFT-DOWN.
+				DFS is better written recursively, but the recursive definition is a bit more programmy instead of englishy.
+				DFS is a rigid algorithm, so the order in which it traverses is predetermined: you could just go DOWN and get to the goal, but the algorithm has you go RIGHT, UP, and LEFT first.
+				DFS can be made more heuristically, determining its search order for every node, but that just complicates things.
+				For the pathfinding in the project we were discouraged from using DFS and encouraged to use A* Pathfinding.
 			</div>
 		</div>
 	</body>
