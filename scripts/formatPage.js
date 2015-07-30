@@ -72,9 +72,9 @@
 		]),
 		new Menu('Programming',
 		[
-			new Button('Languages', 'programming/languages.html'),
-			new Button('Lua', 'programming/lua.html'),
-			new Button('Ruby', 'programming/ruby.html'),
+			new Button('Languages', 'languages.html'),
+			new Button('Lua', 'lua.html'),
+			new Button('Ruby', 'ruby.html'),
 		]),
 	];
 	
