@@ -262,9 +262,9 @@ Loop until done
 				The value of Heuristic is estimated using a variety of techniques: for a grid-based world where actors can move only once block at a time up, down, left, or right, then a reasonable heuristic would be the taxicab distance from the current node to the finish node.
 				The estimated heuristic should never overestimate the actual cost to get to the finish.
 				Often the cost equation is written as <code>f(n) = g(n) + h(n)</code> where <code>f</code> is Cost, <code>g</code> is PathCost, and <code>h</code> is Heuristic, but I prefer to write the variables in English for explanation purposes.
-				The process behind A* is interesting: it seems complex, but once you understand it, it seems so obvious.
 			</div>
 			<div class="paragraph">
+				The process behind A* is interesting: it seems complex, but once you understand it, it seems so obvious.
 				The following is an overview of how the algorithm works in the context of the project both with a pseudocode example and English explanation.
 				Assume that each node keeps track of three values: its PathCost value, its Cost value, and the Node from which it was entered.
 				Because the model is using a simple grid in which only the four cardinal directions are allowed, the Heuristic value for each node stays constant (the Heuristic is the distance from the Node to the Goal, and the nodes don't move about) so assume all Heuristic values are known by each Node.
