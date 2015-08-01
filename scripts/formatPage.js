@@ -269,6 +269,8 @@
 			else
 				$navbar.css('position', 'relative');
 		});*/
+		
+		console.log('Ignore these error messages. They\'re caused by the page trying to load before the <base> tag as an effect.');
 	}
 	else
 	{
