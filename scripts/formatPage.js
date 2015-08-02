@@ -75,6 +75,7 @@
 			new Button('Languages', 'programming/languages.html'),
 			new Button('Lua', 'programming/lua.html'),
 			new Button('Ruby', 'programming/ruby.html'),
+			new Button('Java', 'programming/java.html'),
 		]),
 	];
 	
