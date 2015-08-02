@@ -10,7 +10,7 @@ var scripts = [
 ];
 scripts.forEach(function(script)
 {
-	document.write('<script src="' + script + '<"></script>');
+	document.write('<script src="' + script + '"></script>');
 });
 
 
