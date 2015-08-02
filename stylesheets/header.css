@@ -1,0 +1,92 @@
+#navbar
+{
+	background-color:#000050;
+	text-decoration:none;
+	margin:0 -10px;
+	top:0px;
+	color:#ffffff;
+}
+
+.navbar-button
+{
+	padding:1em;
+	margin:2px;
+	display:inline-block;
+	background-color:#151560;
+}
+
+.navbar-button:hover
+{
+	background-color:#303070;
+}
+
+.navbar-button-arrow
+{
+	font-size:0.8em;
+	vertical-align:top;
+	margin-right:8px;
+}
+
+.navbar-menu
+{
+	position:absolute;
+	background-color:#505050;
+	border-width:1px;
+	border-style:solid;
+	border-color:#000000;
+	display:none;
+}
+
+.navbar-menu-button
+{
+	padding:0.5em 1em;
+	border-width:1px;
+	border-style:solid;
+	border-color:#000000;
+}
+
+.navbar-menu-button:hover
+{
+	background-color:#707070;
+}
+
+#navbar-menu-button-selected
+{
+	background-color:#707070;
+}
+
+#navbar a
+{
+	text-decoration:none;
+	color:inherit;
+}
+
+#link-home
+{
+	color:#000000;
+	text-decoration:none;
+}
+
+#splash
+{
+	color:#ff0000;
+	transform:rotate(10deg);
+	text-align:center;
+	font-weight:bold;
+}
+
+#splash a
+{
+	color:inherit;
+	text-decoration:underline;
+}
+
+#splash a:hover
+{
+	text-decoration:none;
+}
+
+#header-container
+{
+	width:100%;
+}

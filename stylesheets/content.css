@@ -1,0 +1,46 @@
+#content-container
+{
+	background-color:#ffffff;
+	padding:2em;
+	font-size:0.9999em;
+	display:none;
+}
+
+#content-container a
+{
+	text-decoration:none;
+	color:#101080;
+	font-weight:bold;
+}
+
+#content-container a[target="_blank"]
+{
+	color:#3366bb;
+	font-weight:normal;
+}
+
+#content-container a:hover
+{
+	text-decoration:underline;
+}
+
+.content-header, #page-title, ul, ol
+{
+	margin:0px;
+}
+
+.paragraph
+{
+	margin:1em 0px;
+}
+
+.grouped
+{
+	white-space:nowrap;
+}
+
+#language-icon
+{
+	margin-left:1em;
+	float:right;
+}
