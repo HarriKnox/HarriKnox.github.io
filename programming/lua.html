@@ -15,14 +15,14 @@
 				It is a multi-paradigm language, featuring support for functional and object-oriented (prototype-based) programming.
 			</div>
 			<div class="paragraph">
-				<h2 class="content-header">Functional Programming</h2>
+				<h2>Functional Programming</h2>
 				Functions are first-class citizens in Lua.
 				Like most functional languages, functions are values that can be passed between function calls, assigned to variables, and called recursively.
 				In Lua, functions can be created anonymously and in closures, as well as be used as keys for tables.
 				These are not unique to Lua, but the freedom to the usage of functions in Lua makes them pretty powerful and pretty darn cool.
 			</div>
 			<div class="paragraph">
-				<h2 class="content-header">Object Oriented (OO) Programming</h2>
+				<h2>Object Oriented (OO) Programming</h2>
 				Lua has basic support for OO-like programming, but not like common OO languages like Java and Ruby.
 				In Java, the class is a model of all the attributes its instances will have, and all instances of a class will have exactly those specified attributes.
 				Lua, however, relies on the Prototype-Based model, like JavaScript.
@@ -109,7 +109,7 @@ setmetatable( Motorcycle, Vehicle )
 				Metatables make Lua about as close to OO without being OO.
 			</div>
 			<div class="paragraph">
-				<h2 class="content-header">An Annoying Gotcha</h2>
+				<h2>An Annoying Gotcha</h2>
 				Lua is almost the perfect language, but there is one primary thing that bugs me about it: <code>0</code> does not fail a conditional.
 				It is very common in many other languages, especially C-like languages, for <code>0</code> to evaluate as <code>false</code> in a conditional.
 				In Lua, the only things that fail a conditional are <code>false</code> and <code>nil</code>.
@@ -124,21 +124,21 @@ setmetatable( Motorcycle, Vehicle )
 				You could also do <code>if not #(io.read()) ...</code> to execute something if nothing was read in.
 			</div>
 			<!--div class="paragraph">
-				<h3 class="content-header">Getting Table Size</h3>
+				<h3>Getting Table Size</h3>
 				Second is that there is no way to get the size of a table, only the length of a number-indexed array.
 				If you had the table <code>a = {1, 2, 3, 4, 5, [7] = 10}</code>, then <code>#a</code> would return <code>5</code>, even though there are 6 elements in the table.
 				To get the total number of elements in the table, you'd have to iterate through it using <code>for k, v in pairs(a) count() end</code>.
 				Perhaps a table function or an operator like <code>$a</code> or <code>&amp;a</code> to return the total number of elements in the table would be nice.
 			</div>
 			<div class="paragraph">
-				<h3 class="content-header">Sigils</h3>
+				<h3>Sigils</h3>
 				Third is that there can be no question mark in variable names.
 				This is only a case in which I'm envious of Ruby.
 				Ruby has methods that end with a question mark to indicate that the method returns a boolean.
 				Something like that would be nice so function and method names in Lua would look a bit more English.
 			</div>
 			<div class="paragraph">
-				<h3 class="content-header">Native Fractions</h3>
+				<h3>Native Fractions</h3>
 				Fourth, fractions
 			</div-->
 		</div>
