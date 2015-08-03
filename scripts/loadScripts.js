@@ -17,6 +17,7 @@ scripts.forEach(function(script)
 var stylesheets = [
 	'header.css',
 	'content.css',
+	'navbar.css',
 	'stylesheet.css',
 ];
 stylesheets.forEach(function(sheet)
