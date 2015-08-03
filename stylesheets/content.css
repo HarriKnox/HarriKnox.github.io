@@ -24,7 +24,7 @@
 	text-decoration:underline;
 }
 
-.content-header, #page-title, ul, ol
+#page-title
 {
 	margin:0px;
 }
