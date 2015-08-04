@@ -37,24 +37,24 @@
 				Primarily I will focus on what the language has that most languages don't have.
 			</div>
 			<div class="paragraph">
-				<h3>Data Types Galore</h3>
+				<h3>Hashes, Classes, and Modulemobiles</h3>
 				I love Lua, and as such, I am used to everything being a table.
 				Ruby, however, takes a more Pythonic approach to various data types.
 				Ruby has hashes, classes, and modules, which parallel Python's dicts, classes, and classes (again).
 				Dictionaries in Python, hashes in Ruby, and tables in Lua are all similar: a set of key-value pairs.
 				Lua does not have a concept of classes, but Ruby and Python do.
-				The classes allow you to create copious instances of them and extend other classes.
-				Ruby takes things a step further by adding modules, which are essentially static classes that can be implemented by any class.
+				The classes allow you to create innumerable instances of them and extend other classes.
+				Ruby takes things a step further by adding modules, which are essentially static classes or interfaces that can be implemented by any class.
 			</div>
 			<div class="paragraph">
 				<h3>Symbols</h3>
-				Ruby provides a special data type called a symbol.
+				Ruby provides a special data type called a <em>symbol</em>.
 				In normal OO languages, objects are unique and multiple clones may not point to the same location.
-				For example, I did the following.
-				The two object ids differ, not by much, but they differ.
+				For example, I ran the following two blocks of code separately.
+				In the first box you see the two object ids for the strings differ.
 				Even though the two strings are the same arrangement of characters and equate to each other, they refer to different objects.
-				Symbols, written like <code>:symbol_name</code> evaluate to themselves.
-				All symbols of the same name across a Ruby program have the exact same object_id.
+				Symbols, written like <code>:symbol_name</code>, evaluate to themselves.
+				All symbols of the same name across a Ruby program have the exact same object id.
 				As such, they are convenient as keys in hashes and method names because of their uniqueness and immutability.
 			</div>
 <pre>
@@ -76,9 +76,9 @@ puts a.object_id == b.object_id   #=&gt; true
 			<div class="paragraph">
 				<h3>Sigils</h3>
 				Ruby also has what are called sigils.
-				In some languages, like Perl, sigils appear next to variable names to indicate the type of the value (<code>$</code> indicates the value is a scaler, <code>@</code> indicates it's an array, etc).
-				In Ruby, sigils have two purposes.
-				The first prefixes the variable name and sets the scope of a variable.
+				In some languages, like Perl, sigils appear next to variable names to indicate the type of the value (in Perl <code>$</code> indicates the value is a scaler, <code>@</code> indicates it's an array, etc).
+				In Ruby, sigils have two types.
+				The first type of sigil prefixes the variable name and sets the scope of a variable.
 				There are five types of variables in Ruby, each defined by how the variable name starts.
 				On the left are how a variable can start and on the right are what type of variable it will be.
 				<ul>
@@ -105,15 +105,15 @@ puts a.object_id == b.object_id   #=&gt; true
 						</tr>
 					</table>
 				</ul>
-				Anything else would not be allowed as a variable name.
+				Anything else at the front of a variable name would not be allowed as a variable name.
 			</div>
 			<div class="paragraph">
 				The second type of sigil suffixes a method name to indicate the return value of a method.
-				One sigil that I wished was in Lua is the query sigil <code>?</code>.
+				One sigil that I wished was in Lua is the <em>query sigil</em> <code>?</code>.
 				The query comes at the end of a method name to indicate it's a predicate (returns a boolean).
 				This makes the code look a bit more like English.
 				For example: <code>"some string".includes? "t"</code> reads like "does 'some string' include 't'?", to which the answer is 'yes'.
-				Another sigil is the bang sigil <code>!</code>.
+				Another sigil is the <em>bang sigil</em> <code>!</code>.
 				The bang follows a method name to indicate the method is a "dangerous" method, one that affects the object in question and does not merely return a new object.
 				Take the following:
 			</div>
@@ -138,10 +138,13 @@ puts b.inspect    #=&gt; [1, 2, 3, 4, 5]
 			<div class="paragraph">
 				<h4>A Quick Note About Constants</h4>
 				Since I previously mentioned constants I would like to append some extra information about them.
-				First, a constant variable is intended to point to the same reference in memory, not necessarily to an immutable bundle of information.
-				Because of this, if a constant points to an object, the values of the object can change, but the variable can't point to a new value.
-				Ruby doesn't enforce constant-ness, so you can change the references of constant variables.
-				Ruby will warn you when you attempt to change a constant value, but will let you do it anyway.
+				Constants are called "constants" in various languages but their implementations differ.
+				In C, a constant variable is completely immutable: you cannot change where it points or any of the values bundled inside it.
+				To change the values inside a constant in C you would need to declare the variable as a constant pointer, which doesn't let you change where it points, but allows you to change the values inside.
+				In Java, constant variables (those declared <em>final</em>) act like constant pointers from C.
+				Ruby constants act like constant pointers, but Ruby doesn't enforce constant-ness.
+				You can actually change the references of constant variables; Ruby will warn you when you attempt to change a constant value, but will let you do it anyway.
+				Observe:
 			</div>
 <pre>
 # Input.rb
@@ -171,7 +174,7 @@ puts A_CONST       #=&gt; Input.rb:10: warning: already initialized constant A_C
 				This sort of functionality is very convenient as it gives module and API writers the ability to generalize their code and gives module and API users the ability to define what's going on.
 				Blocks are rather limited, however.
 				For one, you can provide no more than one block to a method call.
-				Blocks are also not objects and cannot be stored to a variable, but if you want to store them to variables, you can.
+				Blocks are also not objects and cannot be stored to a variable, but if you want to store them to variables, you can: that sounds contradictory, but read on.
 			</div>
 			<div class="paragraph">
 				<h4>Procs</h4>
@@ -241,12 +244,12 @@ puts result.inspect  #=&gt; [1, 4, 9, 16]
 			<div class="paragraph">
 				<h4>Lambdas</h4>
 				Lambdas are procs.
-				Technically speaking, <code>lambda</code> is a method in Ruby that converts a block into a special type of proc, so lambdas are not a different class (<code>puts (lambda {}).class  #=&gt; Proc</code>) but we still refer to these special procs as "lambdas".
+				Technically speaking, <code>lambda</code> is a method in Ruby that converts a block into a special type of proc, so lambdas are not a different class (<code>puts (lambda {}).class  #=&gt; Proc</code>) but we still refer to these special procs as <em>lambdas</em>.
 				Lambdas differ from procs in only two respects.
 				First, lambdas check the number of arguments passed to them and will error when the number received and number expected differ.
 				Procs do not check and will assign <code>nil</code> to unspecified arguments and will ignore extra passed arguments.
 				Second, lambdas called within a method will not affect the control flow of the method: an explicit return in a lambda called inside a method will not break out, whereas a proc would.
-				These differences are because lambdas are the same as regular methods but wrapped in an object.
+				These differences are because lambdas act like regular methods but wrapped in an object.
 			</div>
 			<div class="paragraph">
 				<h4>Method Objects</h4>
@@ -255,8 +258,8 @@ puts result.inspect  #=&gt; [1, 4, 9, 16]
 				As such, one does not simply assign a method directly to a variable like they could in Lua or Python.
 				Instead, there is the built-in Ruby method <code>method</code> which takes a symbol (the name of the method in question) and returns a Method object.
 				Method objects behave like regular methods, but wrapped in an object (same as lambdas): you call them with <code>.call</code>, they complain about argument mismatch, and they don't break out of their calling methods.
-				You can even convert methods into blocks by prefixing the reference with an <code>&amp;</code>.
-				Using the code from above, the following are also legal.
+				You can even convert methods into blocks by prefixing the reference with an <code>&amp;</code> and placing them after a method call.
+				Using the code from above, the following are also legal, thus providing us with at least six ways to square every element in an array.
 			</div>
 <pre>
 # Passing a Method object
@@ -317,11 +320,11 @@ puts result.inspect  #=&gt; [1, 4, 9, 16]
 </pre>
 			<div class="paragraph">
 				<h2>Why Ruby Isn't my Cup of Tea</h2>
-				If Python and Ruby were real humans, they would be bitter rivals: Python prides itself on being concise and having one way to do something, Ruby prides itself on being as redundant as it can possibly be.
+				If Python and Ruby were real humans, they would be bitter rivals: Python prides itself on being concise and having one way to do something; Ruby prides itself on being as redundant as it can possibly be.
 				Like I said, I don't like having a million ways to do something; I like things to be a bit less chaotic.
 				It seems like Matz (creator of Ruby) said to himself "I wonder if this should be put in" and never said no: he was so preoccupied with whether or not he could that he didn't stop to think if he should.
 				There are many instances in Ruby where there are various means to achieve the same thing.
-				It isn't that big of an issue to have multiple ways to do something: in fact, having all these different options gives a better chance that there is a way to do what you want to do.
+				It isn't that big of an issue to have multiple ways to do something: in fact, having all these different options gives a better chance that it is possible to do whatevery you want to do.
 				The issue for me is that all these redundancies lead to inconsistent code, which in turn affects comprehensibility.
 			</div>
 			<div class="paragraph">
@@ -336,18 +339,17 @@ puts result.inspect  #=&gt; [1, 4, 9, 16]
 			<div class="paragraph">
 				<h3>Optional and Assumed Syntax</h3>
 				There aren't many languages with completely optional syntax.
-				In Lua, you have the option of following your statements with a semicolon.
-				It is required, however, in some instances when the compiler has the possibility of getting confused with what you've written.
-				The semicolon in Lua is used for disambiguity.
+				In Lua, you have the option of following your statements with a semicolon, which is used for disambiguity.
+				It's required in some instances when the compiler has the possibility of getting confused with what you've written.
 				In JavaScript, the semicolon at the end of statements is also somewhat optional.
 				When parsing through the script, if JS doesn't find a semicolon where it expects one, it will imagine one is there and continue through.
 				Include your semicolons anyway.
 			</div>
 			<div class="paragraph">
 				Ruby is the only language that I can think of where certain keywords are completely optional.
-				For one, every method is automatically called with all comma separated values passed as arguments, so the parentheses are not required.
+				For one, every method is automatically called with all following comma separated values (up to a newline) passed as arguments, so the parentheses are not required.
 				The parentheses are also not required for method definitions.
-				In fact, parentheses are completely optional: they are needed only for clarification for the interpreter.
+				In fact, parentheses are completely optional: they are needed only for clarification for the interpreter, like for specifying the order of arithmetic operations.
 				The keywords <code>do</code> and <code>then</code> are optional after <code>while</code>, <code>until</code>, <code>if</code>, and <code>unless</code>.
 				The <code>return</code> keyword is also optional.
 				Ruby automatically returns the last statement it evaluates, so a legal function is <code>def square(n) n ** 2 end</code>.
