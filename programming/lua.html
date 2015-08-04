@@ -27,13 +27,13 @@
 				In Java, the class is a model of all the attributes its instances will have, and all instances of a class will have exactly those specified attributes.
 				Lua, however, relies on the Prototype-Based model, like JavaScript.
 				In Lua, all complex data types are tables (essentially a Map in Java, a Hash in Ruby, a Dictionary in Python and other languages), which are key-value pairs.
-				In prototype-based design, there are no classes per-se.
+				In prototype-based design, there are no classes <em>per-se</em>.
 				Every object is its own bundle of data and can have whatever attributes it wants, though you can emulate the concept of a class by defining default values for various attributes.
 				This would mean that for every time you wanted to "extend" a class (which would just be another object), you would have to clone the entire object, so every attribute name and value would be put into your new object.
 				Thankfully, Lua has a built-in system to manage the inheritence-chain.
 			</div>
 			<div class="paragraph">
-				What Lua uses is called a "metatable".
+				What Lua uses is called a <em>metatable</em>.
 				A metatable affects the behavior of the table itself rather than the behavior inside the table.
 				In Java, classes define the behavior inside an object: how the object manipulates and uses the data inside of it.
 				In Lua, tables can still do that, but the metatables affect how Lua manipulates and uses certain tables.
@@ -56,7 +56,7 @@ metavehicle = { __index = Vehicle }
 setmetatable( Motorcycle, metavehicle )
 </pre>
 			<div class="paragraph">
-				In the first line, we're creating a regular table with one field, <code>__index = Vehicle</code> (that `Vehicle` is reffering to the <code>Vehicle</code> table from the previous set of code).
+				In the first line, we're creating a regular table with one field, <code>__index = Vehicle</code> (<code>Vehicle</code> is reffering to the <code>Vehicle</code> table from the previous set of code).
 				In the second line, we set the metatable for <code>Motorcycle</code> to <code>metavehicle</code>.
 				Now if you were to do <code>Motorcycle.speed</code> it would return <code>50</code>.
 				Because we did this for only <code>Motorcycle</code> and not for <code>Car</code>, doing <code>Car.vroom</code> will still return <code>nil</code>.
@@ -127,7 +127,7 @@ setmetatable( Motorcycle, Vehicle )
 				<h3>Getting Table Size</h3>
 				Second is that there is no way to get the size of a table, only the length of a number-indexed array.
 				If you had the table <code>a = {1, 2, 3, 4, 5, [7] = 10}</code>, then <code>#a</code> would return <code>5</code>, even though there are 6 elements in the table.
-				To get the total number of elements in the table, you'd have to iterate through it using <code>for k, v in pairs(a) count() end</code>.
+				To get the total number of elements in the table, you'd have to iterate through it using <code>for k, v in pairs(a) count = count + 1 end</code>.
 				Perhaps a table function or an operator like <code>$a</code> or <code>&amp;a</code> to return the total number of elements in the table would be nice.
 			</div>
 			<div class="paragraph">
