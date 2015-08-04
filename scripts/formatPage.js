@@ -6,7 +6,7 @@
 	};
 	
 	var getSplash = function(pageTitle)
-	{
+	{ return 'Get well soon, Courtney!';
 		var now = new Date();
 		var today = (now.getMonth() + 1) * 100 + now.getDate();
 		
