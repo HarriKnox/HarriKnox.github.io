@@ -15,23 +15,15 @@
 		
 		$document.ready(function()
 		{
-			/** Get page title **/
 			var $content = $('#content-container');
-			var pageTitle = $('#page-title').text();
 			
 			/** Format content to group code blocks to surrounding punctuation marks **/
 			var GROUPED = '<span class="grouped">$1</span>';
 			var innards = $content.html();
-			innards = innards.replace(/(([^\w\s>]|&.+?;)+<code>([^<]|<(?!\/code>))*?<\/code>([^<\w\s]|&.+?;)+)/g, GROUPED)
-					.replace(/(([^\w\s>]|&.+?;)+<code>([^<]|<(?!\/code>))*?<\/code>)/g, GROUPED)
-					.replace(/(<code>([^<]|<(?!\/code>))*?<\/code>([^<\w\s]|&.+?;)+)/g, GROUPED);
+			innards = innards.replace(/((?:[^\w\s>]|&.+?;)+<code>(?:[^<]|<(?!\/code>))*?<\/code>)/g, GROUPED)
+							 .replace(/(<code>(?:[^<]|<(?!\/code>))*?<\/code>(?:[^<\w\s]|&.+?;)+)/g, GROUPED)
+							 .replace(/<span class="grouped">((?:[^\w\s>]|&.+?;)+<code>(?:[^<]|<(?!\/code>))*?<\/code>)<\/span>([^<\w\s]|&.+?;)+/g, GROUPED.replace(/\$1/, '$$1$$2'));
 			$content.html(innards);
-			
-			/** Write page title in <head> and as a header **/
-			$('head').append('<title>Coder by Nature: ' + pageTitle + '</title>');
-			
-			/** Build header **/
-			var $body = $('body')
 			
 			/** Make all external links open new tabs **/
 			$('a').each(function()
