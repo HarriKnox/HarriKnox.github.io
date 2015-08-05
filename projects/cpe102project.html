@@ -9,7 +9,7 @@
 		<div id="content-container">
 			<h1 id="page-title">CPE 102 Project</h1>
 			<div class="paragraph">
-				One major courses for <abbr title="Computer Engineering">CPE</abbr> and <abbr title="Computer Science">CSC</abbr> majors at <a href="http://www.calpoly.edu/">Cal Poly</a> is the class CSC 102: Fundamentals of Computer Science.
+				One major courses for <abbr title="Computer Engineering"><em>CPE</em></abbr> and <abbr title="Computer Science"><em>CSC</em></abbr> majors at <a href="http://www.calpoly.edu/">Cal Poly</a> is the class CSC 102: Fundamentals of Computer Science.
 				In this class we focused on the languages <a href="https://www.python.org/">Python</a> and <a href="https://java.com/en/">Java</a>.
 				For our class project, my partner and I were to use <a href="http://www.pygame.org/news.html">Pygame</a> and <a href="https://processing.org/">Processing</a> to create a grid-based world simulation.
 				The purpose of the project was an exercise in object-oriented programming, functional programming, and simple path-finding.
@@ -33,7 +33,7 @@
 			<div class="paragraph">
 				<h3>The Actions</h3>
 				There were four types of major functions in the Actions class: Action Creators, Entity Creators, Entity Schedulers, and Pathing Functions.
-				The Action Creators would (as the name suggests) create actions.
+				The Action Creators would (as the name suggests) create <em>actions</em>.
 				The actions were events executed at a scheduled time, and each action performed different operations based on their purpose: actions for moving entities would run the Pathing functions and actions for animation would cycle the sprite image.
 				Some actions would schedule themselves again, thus creating looping actions (like animations).
 				The Entity Creators would create their respective entities with various parameters and schedule their actions.
@@ -101,10 +101,10 @@
 				For the first part of our project, our professor provided us with dirty and repetitive Python code.
 				The code was of a Pygame project that simulated a small, grid-based world with various moving and interacting entities.
 				The code was mostly functional: only a few classes existed.
-				There were helper classes that were given to us (such as <code>Point</code> and <code>Ordered_list</code>), but there were also the entity classes, which only held data and had no behavior for themselves.
+				There were helper classes that were given to us (such as <code>Point</code> and <code>Ordered_list</code>) and the entity classes (which only held data and had no behavior for themselves).
 			</div>
 			<div class="paragraph">
-				<h3>Step One: From Functional to Prototype</h3>
+				<h3>Step One: From Functional to OO</h3>
 				Our first task was to move appropriate functionality into classes.
 				The behaviors of all the entities were defined by general external functions.
 				Without using inheritance, we were to copy each relevant function into associated classes as methods.
@@ -114,14 +114,15 @@
 				This exercise was intended to introduce us to defining object methods and accessing them.
 			</div>
 			<div class="paragraph">
-				<h3>Step Two: From Prototype to Class</h3>
+				<h3>Step Two: From Prototype to Inherited</h3>
 				After increasing the sizes of our projects tenfold, we were allowed to use inheritance.
 				Using Python's odd system of inheritance, we grouped like entities together under their shared parent classes.
 				This short exercise was to introduce Python's system of inheritance.
 				Like other OO languages (like Java), Python uses the <code>super</code> keyword to reference the parent class, the only difference is that you need to be explicit with a super call.
 				In Java, <code>super</code> refers to the super class and will implicitly cast-up the object in question by performing operations defined in the super class.
-				In Python, <code>super</code> is somewhat magical: it is a function that will return an object of type 'super' that has a reference to the parent class(es) of a class.
-				When invoked, the 'super' object will call the method of the parent class, passing in the object in question.
+				In Python, <code>super</code> is somewhat magical.
+				On its own it is a function that will return an object of type <em>super</em> that has a reference to the parent class(es) of a class.
+				When invoked, the <em>super</em> object will call the method of the parent class, passing in the object in question.
 				The beauty of using <code>super</code> as opposed to directly calling the parent class is that <code>super</code> also manages multiple inheritance for you.
 			</div>
 			<div class="paragraph">
@@ -144,7 +145,7 @@
 			<div class="paragraph">
 				<h3>Step Five: From Here to There</h3>
 				Once everything on the Java side was behaving like everything on the Python side, we were to change the entity pathfinding.
-				The entities that moved had a very simple system: horizontally first, then if it cannot go any more horizontally (in the same column or obstructed) go vertically, then if it cannot go vertically (at the  destination or obstructed) either celebrate victory or admit defeat.
+				The entities that moved had a very simple system: horizontally first, then if it can't go any more horizontally (in the same column or obstructed) go vertically, then if it can't go vertically (at the  destination or obstructed) either celebrate victory or admit defeat.
 				This system resulted in numerous "trapped" entities, even if there may be another way to get to their destination.
 				For that we were introduced to <a href="https://en.wikipedia.org/wiki/A*_search_algorithm">A* pathfinding</a>.
 				A* works by calculating the "cost" to visit a node and comparing costs over a large collection of visited nodes to find the least costly path.
@@ -188,14 +189,14 @@
 				Java has strict rules for variables and requires all variables be instantiated (assigned to a value, even <code>null</code>) to compile.
 				Because a function object is not considered instantiated until the entire function is compiled, any references to itself inside the function code will be references to an un-instantiated variable.
 				You may think you could set the function to <code>null</code> first, then define it: technically it will be instantiated when you reference it in the function definition.
-				This, unfortunately, does not work since all local variables referred to in a function must be treated as final, and changing the value of the variable pointing to your function violates that rule.
+				This, unfortunately, doesn't work since all local variables referred to in a function must be treated as <em>final</em>, and changing the value of the variable pointing to your function violates that rule.
 				Fortunately, there are numerous other ways to get around the compiler police.
 			</div>
 			<div class="paragraph">
 				One method my professor taught us was to wrap the recursive-function-to-be in an array of length 1, like so: <code>IntUnaryOperator[] fact = new IntUnaryOperator[1];</code> or <code>IntUnaryOperator[] fact = { null };</code>.
 				Then, any time you need to reference the function, refer to it as element 0 of that array: <code>fact[0]</code>.
-				This works because Java has more lenient rules with arrays simply because they are much more difficult to check and track all the values, so the compiler does not bother.
-				Even though element 0 of that array is not treated as final, Java does not check that it follows the rules since it's in an array, providing an inconvenient, but effective, exploit to defining recursive functions.
+				This works because Java has more lenient rules with arrays simply because they are much more difficult to check and track all the values, so the compiler doesn't bother.
+				Even though element 0 of that array is not treated as final, Java doesn't check that it follows the rules since it's in an array, providing an inconvenient, but effective, exploit to defining recursive functions.
 			</div>
 			<div class="paragraph">
 				In the context of the project, the Action code was the only functional code.
@@ -211,7 +212,7 @@
 				DFS works by traversing a grid in a predetermined order without visiting the same node twice and "falling back" a node if there are no available paths to take: it goes as far as it can without overlapping before having to backtrack.
 				Think about the common strategy to solve a maze by walking along the left wall and having to go back only when there's nowhere else to go.
 				Given that there is a path between A and B, DFS is a fail-proof algorithm that will find a path from A to B.
-				The problem with DFS is that it is an algorithm, not a heuristic, meaning that it is brute-force and not methodical.
+				The problem with DFS is that it is not a heuristic, meaning that it is brute-force and not methodical.
 				Though DFS will find a path, that path may not be the best path; in some cases, it may be one of the worst paths possible.
 				The following is a vastly over-simplified example of how DFS works in the context of the project:
 			</div>
@@ -246,8 +247,8 @@ Loop until done
 			<div class="paragraph">
 				This pseudo-code demonstrates how one can reach their target by using the pattern RIGHT-UP-LEFT-DOWN.
 				DFS is better written recursively, but the recursive definition is a bit more programmy instead of englishy.
-				DFS is a rigid algorithm, so the order in which it traverses is predetermined: you could just go DOWN and get to the goal, but the algorithm has you go RIGHT, UP, and LEFT first.
-				DFS can be made more heuristically, determining its search order for every node, but that just complicates things.
+				It is a rigid algorithm, so the order in which it traverses is predetermined: if all you needed was to go DOWN to get to the goal, DFS would make you go RIGHT, UP, and LEFT first.
+				It can be made more heuristically, determining its search order for every node, but that just complicates things.
 			</div>
 			<div class="paragraph">
 				<h3>A* Pathfinding</h3>
@@ -257,17 +258,17 @@ Loop until done
 				I'm throwing the word "cost" around without proper explanation, but think of the cost to get to a node is the amount of energy required to get there.
 				For example, the cost to get to a node through water could be greater than to go by land since swimming is more exhaustive than walking.
 				The cost of a node is calculated as <code>Cost = PathCost + Heuristic</code> where PathCost is the total cost to reach that node from the start and Heuristic is the estimated cost to get to the finish from that node.
-				The value of PathCost is calculated.
-				The value of Heuristic is estimated using a variety of techniques: for a grid-based world where actors can move only once block at a time up, down, left, or right, then a reasonable heuristic would be the taxicab distance from the current node to the finish node.
-				The estimated heuristic should never overestimate the actual cost to get to the finish.
+				The value of PathCost is calculated by adding up all the costs spent to get to this node.
+				The value of Heuristic is estimated using a variety of techniques: for a grid-based world where actors can move only once block at a time (up, down, left, or right), then a reasonable heuristic would be the taxicab distance from the current node to the finish node.
+				The estimated heuristic should never overestimate the actual cost to get to the finish: overestimates undermine the effectiveness of the algorithm.
 				Often the cost equation is written as <code>f(n) = g(n) + h(n)</code> where <code>f</code> is Cost, <code>g</code> is PathCost, and <code>h</code> is Heuristic, but I prefer to write the variables in English for explanation purposes.
 			</div>
 			<div class="paragraph">
-				The process behind A* is interesting: it seems complex, but once you understand it, it seems so obvious.
+				The process behind A* is interesting; it seems complex, but once you understand it, it seems so obvious.
 				The following is an overview of how the algorithm works in the context of the project both with a pseudocode example and English explanation.
 				Assume that each node keeps track of three values: its PathCost value, its Cost value, and the Node from which it was entered.
-				Because the model is using a simple grid in which only the four cardinal directions are allowed, the Heuristic value for each node stays constant (the Heuristic is the distance from the Node to the Goal, and the nodes don't move about) so assume all Heuristic values are known by each Node.
-				<code>CalculateCost</code> is defined as <code>Node.PathCost + Node.Heuristic</code>.
+				Because the model is using a simple grid in which only the four cardinal directions are allowed, the Heuristic value for each node stays constant (the nodes don't move about, so the Heuristic is the distance from the Node to the Goal) so assume all Heuristic values are known by each Node.
+				<code>CalculateCost for Node</code> is defined as <code>Node.PathCost + Node.Heuristic</code>.
 			</div>
 <pre>
 ClosedSet = {}
@@ -310,9 +311,9 @@ error: no path to Goal
 				If not, then for every Neighbor around CurrentNode, do the following.
 				If Neighbor is in ClosedSet (we have already visited it) or not a valid location to visit (we can never visit it) then ignore it and continue with the next Neighbor.
 				Store the current PathCost to the variable CurrentPathCost.
-				If the Neighbor is not in OpenSet, or (if it is) if the CurrentPathCost is less than a previously established PathCost for Neighbor, then set the CameFrom Node for Neighbor to CurrentNode, set the PathCost to CurrentPathCost, update the Cost value for Neighbor, and add Neighbor to OpenSet if it is not already in OpenSet.
+				If the Neighbor is not yet in OpenSet, or (if it is) if the CurrentPathCost is less than a previously established PathCost for Neighbor, then set the CameFrom node for Neighbor to CurrentNode, set the PathCost to CurrentPathCost, update Cost for Neighbor, and add Neighbor to OpenSet if it is not already in OpenSet.
 				After going through every neighbor, repeat the while loop until there are no more Nodes left in OpenSet.
-				If after all nodes have been visited and there is not a single path to the goal, then error and complain.
+				If after all nodes have been visited and there is not a single path to the goal, error out and complain.
 			</div>
 		</div>
 	</body>
