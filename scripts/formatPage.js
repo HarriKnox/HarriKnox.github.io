@@ -3,11 +3,13 @@
 	if (typeof $ === 'undefined')
 	{
 		document.writeln('jQuery was not found and is required to render this page');
+		return;
 	}
 	
 	var $document = $(document);
 	var $window = $(window);
 	
+	/** Sets the max-width for <pre> blocks so they aren't wider than the content-container **/
 	var setPreMaxWidth = function()
 	{
 		$pre = $('pre');
@@ -39,6 +41,7 @@
 		console.log('Ignore these net::ERR_FILE_NOT_FOUND messages. They\'re caused by the page trying to load before the <base> tag as an effect.');
 		
 		/** Show content when done **/
+		$('noscript').remove();
 		$content.css('display', 'block');
 		
 		/** Make all pre blocks scroll horizontally when the content is too wide for the window **/
