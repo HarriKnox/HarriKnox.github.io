@@ -38,8 +38,6 @@
 				$this.attr('target', '_blank');
 		});
 		
-		console.log('Ignore these net::ERR_FILE_NOT_FOUND messages. They\'re caused by the page trying to load before the <base> tag as an effect.');
-		
 		/** Show content when done **/
 		$('noscript').remove();
 		$content.css('display', 'block');
