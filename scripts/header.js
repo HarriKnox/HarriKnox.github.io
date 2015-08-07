@@ -65,8 +65,8 @@
 		/** Write page title in <head> and as a header **/
 		$('head').append('<title>Coder by Nature: ' + pageTitle + '</title>');
 		
-		var title = '<h1>Hello friends and family</h1>' +
-			'<h3>My name is Harrison and I\'m a programmer, not by trade but by nature</h3>';
+		var title = '<h1>I\'m a Programmer</h1>' +
+			'<h3>not by trade but by nature</h3>';
 		if (pageTitle !== 'Home') title = '<a href="' + getHome() + '" id="link-home" title="Home">' + title + '</a>';
 		$('body').prepend(
 			'<table id="header-container">' +
