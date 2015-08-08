@@ -40,7 +40,7 @@
 			'Not lounging around',
 			'Contains long-winded essays',
 			'Don\'t deny it,<br />you were reading this',
-			'Ask about the color ' + (function(color) { return '<span style="color:' + color + ';">' + color + '</span>'; })(pickRandom(['Green', 'Goldenrod', 'Blue', 'Purple', 'Brown', 'Orange', 'Black',])),
+			'Ask about the<br />color ' + (function(color) { return '<span style="color:' + color + ';">' + color + '</span>'; })(pickRandom(['Green', 'Goldenrod', 'Blue', 'Purple', 'Brown', 'Orange', 'Black',])),
 			'Today is ' + ['January', 'February', 'March', 'April' , 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][Math.floor(today / 100) - 1] + " " + (today % 100),
 		];
 		
@@ -57,6 +57,15 @@
 		return location.href.match(/^file/) ? 'index.html' : '/';
 	};
 	
+	var setSplashVisibility = function()
+	{
+		var $splash = $('#splash');
+		if ($('#header-container').width() <= 480)
+			$splash.hide();
+		else
+			$splash.show();
+	};
+	
 	$(document).ready(function()
 	{
 		/** Get page title **/
@@ -69,13 +78,22 @@
 			'<h3>not by trade but by nature</h3>';
 		if (pageTitle !== 'Home') title = '<a href="' + getHome() + '" id="link-home" title="Home">' + title + '</a>';
 		$('body').prepend(
-			'<table id="header-container">' +
-				'<td id="title">' + title +
-				'</td><td id="splash">' +
-					getSplash(pageTitle) + 
-				'</td>' +
-			'</table>'
+			'<div id="header-container">' +
+				'<div id="splash">' + getSplash(pageTitle) + '</div>' +
+				'<div id="title">' + title + '</div>'+
+			'</div>'
 		);
+		
+		/** Position the splash in middle of header **/
+		var $splash = $('#splash');
+		var headerHeight = $('#header-container').height();
+		var splashHeight = $splash.height();
+		var top = (headerHeight - splashHeight) / 2;
+		$splash.css('top', top);
+		
+		setSplashVisibility()
+		
+		$(window).resize(setSplashVisibility);
 		
 		/** Make splash change message when clicked **/
 		/*var $splash = $('#splash');

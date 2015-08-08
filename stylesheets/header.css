@@ -1,6 +1,7 @@
 #header-container
 {
 	width:100%;
+	position:relative;
 }
 
 #title
@@ -20,6 +21,9 @@
 	transform:rotate(10deg);
 	text-align:center;
 	font-weight:bold;
+	position:absolute;
+	right:0px;
+	top:0px;
 }
 
 #splash a
