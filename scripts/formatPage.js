@@ -12,7 +12,7 @@
 	/** Sets the max-width for <pre> blocks so they aren't wider than the content-container **/
 	var setPreMaxWidth = function()
 	{
-		$pre = $('pre');
+		var $pre = $('pre');
 		var padding = parseInt($pre.css('padding-left')) + parseInt($pre.css('padding-right'));
 		var width = $('#content-container').width();
 		$pre.css('max-width', width - padding);
@@ -33,7 +33,7 @@
 		/** Make all external links open new tabs **/
 		$('a').each(function()
 		{
-			$this = $(this);
+			var $this = $(this);
 			if ($this.attr('href').match(/^https?:\/\//))
 				$this.attr('target', '_blank');
 		});
