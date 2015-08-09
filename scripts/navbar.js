@@ -25,6 +25,24 @@
 			new Button('Ruby', 'programming/ruby.html'),
 			new Button('Java', 'programming/java.html'),
 		]),
+		/*new Menu('Test',
+		[
+			new Menu('Inside-Test',
+			[
+				new Button('Button1', ''),
+				new Button('Button2', ''),
+				new Button('Button3', ''),
+				new Button('Button4', ''),
+			]),
+			new Menu('Other-Inside-Test',
+			[
+				new Button('Button1', ''),
+				new Button('Button2', ''),
+				new Button('Button3', ''),
+				new Button('Button4', ''),
+			]),
+		]),
+		new Button('Test Again', ''),*/
 	];
 	
 	var DOWN_ARROW = '&#9660;'
@@ -34,14 +52,9 @@
 	
 	var hideAllMenus = function()
 	{
-		$('.navbar-button-arrow').each(function()
-		{
-			$(this).html(DOWN_ARROW);
-		});
-		$('.navbar-menu').each(function()
-		{
-			$(this).slideUp(100);
-		});
+		$('.navbar-button-arrow').html(DOWN_ARROW);
+		$('.navbar-menu-menu').slideUp(100);
+		$('.navbar-menu').slideUp(100);
 	};
 	
 	var positionMenu = function(menuName)
@@ -58,34 +71,80 @@
 	
 	$document.ready(function()
 	{
-		var $content = $('#content-container');
 		var pageTitle = $('#page-title').text();
 		
-		$content.before('<div id="navbar-container"><div id="navbar"></div></div>');
+		$('#content-container').before('<div id="navbar-container"><div id="navbar"></div></div>');
 		
-		/** Function to get HTML code for button **/
-		var makeButtonHTML = function(button, inMenu)
+		var makeArrow = function(name)
 		{
-			var name = button.name;
-			var href = button.href;
-			var clazz = 'navbar-' + (inMenu ? 'menu-' : '') + 'button';
-			
+			return '<span id="' + name + '-arrow" class="navbar-button-arrow">' + DOWN_ARROW + '</span>';
+		}
+		
+		var makeNavbarMenu = function(name)
+		{
+			return '<div id="' + name + '" class="navbar-button">' + makeArrow(name) + name + '</div>';
+		};
+		
+		var makeMenuMenu = function(name, menu)
+		{
+			return '<div id="' + name + '" class="navbar-menu-button">' + makeArrow(name) + name + buildMenu(name, menu, true) + '</div>';
+		};
+		
+		var makeButton = function(name, href, inMenu)
+		{
+			var buttonType = 'navbar' + (inMenu ? '-menu' : '') + '-button';
 			var selected = (name === pageTitle);
 			
-			var inside = '<div ' + (selected ? 'id="' + clazz + '-selected" ' : '') +
-				'class="' + clazz + '">' + name + '</div>';
+			var inside = '<div ' + (selected ? 'id="' + buttonType + '-selected" ' : '') + 'class="' + buttonType + '">' + name + '</div>';
 			if (!selected) inside = '<a href="' + href + '">' + inside + '</a>';
 			
 			return inside;
+		}
+		
+		var makeNavbarButton = function(name, href)
+		{
+			return makeButton(name, href, false);
+		};
+		
+		var makeMenuButton = function(name, href)
+		{
+			return makeButton(name, href, true);
+		};
+		
+		var buildMenu = function(name, menu, inMenu)
+		{
+			var html = '<div id="' + name + '-menu" class="navbar-menu' + (inMenu ? '-menu' : '') + '">';
+			
+			for (var m = 0; m < menu.length; m++)
+			{
+				var thing = menu[m];
+				var name = thing.name;
+				
+				html += ((thing.constructor === Menu) ? makeMenuMenu(name, thing.menu) : makeMenuButton(name, thing.href));
+			}
+			
+			html += '</div>';
+			return html
 		};
 		
 		/** Build navbar **/
-		$navbar = $('#navbar');
+		var $navbar = $('#navbar');
+		var buttons = '';
+		var menus = '';
 		for (var m = 0; m < navbar.length; m++)
 		{
 			var thing = navbar[m];
+			var name = thing.name;
+			var isMenu = (thing.constructor === Menu)
 			
-			if (thing.constructor === Menu)
+			buttons += (isMenu ? makeNavbarMenu(name) : makeNavbarButton(name, thing.href));
+			menus += (isMenu ? buildMenu(name, thing.menu, false) : '');
+		}
+		
+		$navbar.append(buttons + menus);
+			
+			
+			/*if (thing.constructor === Menu)
 			{
 				var menuName = thing.name;
 				var menu = thing.menu;
@@ -109,8 +168,7 @@
 			else if (thing.constructor === Button)
 			{
 				$navbar.append(makeButtonHTML(thing, false));
-			}
-		}
+			}*/
 		var navbarThickness = $('#' + navbar[0].name).outerHeight(true);
 		$navbar.css('min-height', navbarThickness);
 		$('#navbar-container').css('min-height', navbarThickness);
@@ -122,8 +180,23 @@
 			
 			var $menu = $('#' + menuName + '-menu');
 			var hidden = $menu.is(':hidden');
-			positionMenu(menuName);
+			//positionMenu(menuName);
 			hideAllMenus();
+			if (hidden) $menu.slideDown(100);
+			else $menu.slideUp(100);
+			
+			var $arrow = $('#' + menuName + '-arrow');
+			if (hidden) $arrow.html(UP_ARROW);
+			else $arrow.html(DOWN_ARROW);
+		});
+		
+		$('.navbar-menu-button').click(function()
+		{
+			var menuName = $(this).attr('id');
+			
+			var $menu = $('#' + menuName + '-menu');
+			var hidden = $menu.is(':hidden');
+			
 			if (hidden) $menu.slideDown(100);
 			else $menu.slideUp(100);
 			
