@@ -25,7 +25,7 @@
 			new Button('Ruby', 'programming/ruby.html'),
 			new Button('Java', 'programming/java.html'),
 		]),
-		/*new Menu('Test',
+		new Menu('Test',
 		[
 			new Menu('Inside-Test',
 			[
@@ -46,17 +46,17 @@
 				new Button('Button4', ''),
 			]),
 		]),
-		new Button('Test Again', ''),*/
+		new Button('Java', 'programming/java.html'),
 	];
 	
-	var DOWN_ARROW = '&#9660;'
-	var UP_ARROW = '&#9650;'
-	var LEFT_ARROW = '&#9664;'
-	var LEFT_ARROW = '&#9654;'
+	var CLOSED_MENU = '&#9660;'
+	var OPEN_MENU = '&#9650;'
+	//var LEFT_ARROW = '&#9664;'
+	//var RIGHT_ARROW = '&#9654;'
 	
 	var hideAllMenus = function()
 	{
-		$('.navbar-button-arrow').html(DOWN_ARROW);
+		$('.navbar-button-arrow').html(CLOSED_MENU);
 		$('.navbar-menu-menu').slideUp(100);
 		$('.navbar-menu').slideUp(100);
 	};
@@ -79,7 +79,7 @@
 		
 		$('#content-container').before('<div id="navbar-container"><div id="navbar"></div></div>');
 		
-		var makeArrow = function(name) { return '<span id="' + name + '-arrow" class="navbar-button-arrow">' + DOWN_ARROW + '</span>'; };
+		var makeArrow = function(name) { return '<span id="' + name + '-arrow" class="navbar-button-arrow">' + CLOSED_MENU + '</span>'; };
 		var makeNavbarMenu = function(name) { return '<div id="' + name + '" class="navbar-button">' + makeArrow(name) + name + '</div>'; };
 		var makeMenuMenu = function(name, menu) { return '<div id="' + name + '" class="navbar-menu-button">' + makeArrow(name) + name + '</div>'; };
 		var makeNavbarButton = function(name, href) { return makeButton(name, href, false); };
@@ -145,8 +145,8 @@
 			else $menu.slideUp(100);
 			
 			var $arrow = $('#' + menuName + '-arrow');
-			if (hidden) $arrow.html(UP_ARROW);
-			else $arrow.html(DOWN_ARROW);
+			if (hidden) $arrow.html(OPEN_MENU);
+			else $arrow.html(CLOSED_MENU);
 		});
 		
 		$('.navbar-menu-button').click(function()
@@ -160,8 +160,8 @@
 			else $menu.slideUp(100);
 			
 			var $arrow = $('#' + menuName + '-arrow');
-			if (hidden) $arrow.html(UP_ARROW);
-			else $arrow.html(DOWN_ARROW);
+			if (hidden) $arrow.html(OPEN_MENU);
+			else $arrow.html(CLOSED_MENU);
 		});
 	});
 	
