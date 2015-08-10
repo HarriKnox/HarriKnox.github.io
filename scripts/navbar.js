@@ -31,6 +31,10 @@
 			[
 				new Button('Button1', ''),
 				new Button('Button2', ''),
+				new Menu('Super-Inside-Test',
+				[
+					new Button('Button-of-a-life-time', ''),
+				]),
 				new Button('Button3', ''),
 				new Button('Button4', ''),
 			]),
@@ -75,20 +79,11 @@
 		
 		$('#content-container').before('<div id="navbar-container"><div id="navbar"></div></div>');
 		
-		var makeArrow = function(name)
-		{
-			return '<span id="' + name + '-arrow" class="navbar-button-arrow">' + DOWN_ARROW + '</span>';
-		}
-		
-		var makeNavbarMenu = function(name)
-		{
-			return '<div id="' + name + '" class="navbar-button">' + makeArrow(name) + name + '</div>';
-		};
-		
-		var makeMenuMenu = function(name, menu)
-		{
-			return '<div id="' + name + '" class="navbar-menu-button">' + makeArrow(name) + name + buildMenu(name, menu, true) + '</div>';
-		};
+		var makeArrow = function(name) { return '<span id="' + name + '-arrow" class="navbar-button-arrow">' + DOWN_ARROW + '</span>'; };
+		var makeNavbarMenu = function(name) { return '<div id="' + name + '" class="navbar-button">' + makeArrow(name) + name + '</div>'; };
+		var makeMenuMenu = function(name, menu) { return '<div id="' + name + '" class="navbar-menu-button">' + makeArrow(name) + name + '</div>'; };
+		var makeNavbarButton = function(name, href) { return makeButton(name, href, false); };
+		var makeMenuButton = function(name, href) { return makeButton(name, href, true); };
 		
 		var makeButton = function(name, href, inMenu)
 		{
@@ -101,16 +96,6 @@
 			return inside;
 		}
 		
-		var makeNavbarButton = function(name, href)
-		{
-			return makeButton(name, href, false);
-		};
-		
-		var makeMenuButton = function(name, href)
-		{
-			return makeButton(name, href, true);
-		};
-		
 		var buildMenu = function(name, menu, inMenu)
 		{
 			var html = '<div id="' + name + '-menu" class="navbar-menu' + (inMenu ? '-menu' : '') + '">';
@@ -120,7 +105,7 @@
 				var thing = menu[m];
 				var name = thing.name;
 				
-				html += ((thing.constructor === Menu) ? makeMenuMenu(name, thing.menu) : makeMenuButton(name, thing.href));
+				html += ((thing.constructor === Menu) ? makeMenuMenu(name, thing.menu) + buildMenu(name, thing.menu, true) : makeMenuButton(name, thing.href));
 			}
 			
 			html += '</div>';
@@ -142,33 +127,7 @@
 		}
 		
 		$navbar.append(buttons + menus);
-			
-			
-			/*if (thing.constructor === Menu)
-			{
-				var menuName = thing.name;
-				var menu = thing.menu;
-				
-				$navbar.append(
-					'<div id="' + menuName + '" class="navbar-button">' +
-						'<span id="' + menuName + '-arrow" class="navbar-button-arrow">' + DOWN_ARROW + '</span>' +
-						menuName +
-					'</div>'
-				);
-				
-				$navbar.append('<div id="' + menuName + '-menu" class="navbar-menu"></div>');
-				
-				var $menu = $('#' + menuName + '-menu');
-				
-				for (var b = 0; b < menu.length; b++)
-				{
-					$menu.append(makeButtonHTML(menu[b], true));
-				}
-			}
-			else if (thing.constructor === Button)
-			{
-				$navbar.append(makeButtonHTML(thing, false));
-			}*/
+		
 		var navbarThickness = $('#' + navbar[0].name).outerHeight(true);
 		$navbar.css('min-height', navbarThickness);
 		$('#navbar-container').css('min-height', navbarThickness);
