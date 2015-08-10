@@ -77,7 +77,7 @@
 	{
 		var pageTitle = $('#page-title').text();
 		
-		$('#content-container').before('<div id="navbar-container"><div id="navbar"></div></div>');
+		$('#content-container').before('<div id="navbar-container"></div>');
 		
 		var makeArrow = function(name) { return '<span id="' + name + '-arrow" class="navbar-button-arrow">' + CLOSED_MENU + '</span>'; };
 		var makeNavbarMenu = function(name) { return '<div id="' + name + '" class="navbar-button">' + makeArrow(name) + name + '</div>'; };
@@ -113,7 +113,7 @@
 		};
 		
 		/** Build navbar **/
-		var $navbar = $('#navbar');
+		var $navbar = $('#navbar-container');
 		var buttons = '';
 		var menus = '';
 		for (var m = 0; m < navbar.length; m++)
@@ -126,11 +126,12 @@
 			menus += (isMenu ? buildMenu(name, thing.menu, false) : '');
 		}
 		
-		$navbar.append(buttons + menus);
+		$navbar.append('<div id="navbar">' + buttons + '</div>');
+		$navbar.append('<div id="navbar-menus">' + menus + '</div>');
 		
 		var navbarThickness = $('#' + navbar[0].name).outerHeight(true);
 		$navbar.css('min-height', navbarThickness);
-		$('#navbar-container').css('min-height', navbarThickness);
+		$('#navbar').css('min-height', navbarThickness);
 		
 		/** Click navbar menu buttons to toggle menus **/
 		$('.navbar-button').click(function()

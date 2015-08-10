@@ -30,10 +30,12 @@
 
 .navbar-menu
 {
+	margin:0px -5px;
 	background-color:#505050;
 	border-width:1px;
 	border-style:solid;
 	border-color:#000000;
+	color:#ffffff;
 	display:none;
 	cursor:pointer;
 }
@@ -66,7 +68,7 @@
 	cursor:default;
 }
 
-#navbar a
+#navbar-container a
 {
 	text-decoration:none;
 	color:inherit;
