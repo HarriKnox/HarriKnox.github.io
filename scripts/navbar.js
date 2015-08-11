@@ -14,7 +14,7 @@
 	
 	var navbar = [
 		new Menu('Projects',
-		[	
+		[
 			new Button('Projects', 'projects/projects.html'),
 			new Button('CPE 102 Project', 'projects/cpe102project.html'),
 		]),
@@ -27,11 +27,11 @@
 		]),
 		new Menu('Test',
 		[
-			new Menu('Inside-Test',
+			new Menu('Inside Test',
 			[
 				new Button('Button1', ''),
 				new Button('Button2', ''),
-				new Menu('Super-Inside-Test',
+				new Menu('Super Inside Test',
 				[
 					new Button('Button-of-a-life-time', ''),
 				]),
@@ -49,10 +49,31 @@
 		new Button('Java', 'programming/java.html'),
 	];
 	
-	var CLOSED_MENU = '&#9660;'
-	var OPEN_MENU = '&#9650;'
-	//var LEFT_ARROW = '&#9664;'
-	//var RIGHT_ARROW = '&#9654;'
+	var getRoot = function(menuName)
+	{
+		var hasMenu = function(menuList, menuName)
+		{
+			for (var m = 0; m < menuList.length; m++)
+			{
+				var thing = menuList[m];
+				
+				if (thing.constructor === Menu && (thing.name === menuName || hasMenu(thing.menu, menuName))) return true;
+			}
+			return false;
+		}
+		
+		for (var n = 0; n < navbar.length; n++)
+		{
+			var navthing = navbar[n];
+			
+			if (navthing.constructor === Menu && hasMenu(navthing.menu, menuName)) return navthing.name;
+		}
+		
+		return null;
+	};
+	
+	var CLOSED_MENU = '&#9654;';
+	var OPEN_MENU = '&#9660;';
 	
 	var hideAllMenus = function()
 	{
@@ -61,7 +82,7 @@
 		$('.navbar-menu').slideUp(100);
 	};
 	
-	var positionMenu = function(menuName)
+	/*var positionMenu = function(menuName)
 	{
 		var $menuButton = $('#' + menuName + '');
 		var pos = $menuButton.position();
@@ -69,7 +90,7 @@
 			//top : pos.top + $menuButton.outerHeight(true),
 			left : pos.left + 2,
 		});
-	};
+	};*/
 	
 	var $document = $(document);
 	
@@ -78,12 +99,6 @@
 		var pageTitle = $('#page-title').text();
 		
 		$('#content-container').before('<div id="navbar-container"></div>');
-		
-		var makeArrow = function(name) { return '<span id="' + name + '-arrow" class="navbar-button-arrow">' + CLOSED_MENU + '</span>'; };
-		var makeNavbarMenu = function(name) { return '<div id="' + name + '" class="navbar-button">' + makeArrow(name) + name + '</div>'; };
-		var makeMenuMenu = function(name, menu) { return '<div id="' + name + '" class="navbar-menu-button">' + makeArrow(name) + name + '</div>'; };
-		var makeNavbarButton = function(name, href) { return makeButton(name, href, false); };
-		var makeMenuButton = function(name, href) { return makeButton(name, href, true); };
 		
 		var makeButton = function(name, href, inMenu)
 		{
@@ -98,7 +113,7 @@
 		
 		var buildMenu = function(name, menu, inMenu)
 		{
-			var html = '<div id="' + name + '-menu" class="navbar-menu' + (inMenu ? '-menu' : '') + '">';
+			var html = '<div id="' + fixMenuName(name) + '-menu" class="navbar-menu' + (inMenu ? '-menu' : '') + '">';
 			
 			for (var m = 0; m < menu.length; m++)
 			{
@@ -111,6 +126,14 @@
 			html += '</div>';
 			return html
 		};
+		
+		var fixMenuName = function(name) { return name.replace(/\s/g, '-'); };
+		
+		var makeArrow = function(name) { return '<span id="' + fixMenuName(name) + '-arrow" class="navbar-button-arrow">' + CLOSED_MENU + '</span>'; };
+		var makeNavbarMenu = function(name) { return '<div id="' + fixMenuName(name) + '" class="navbar-button">' + makeArrow(name) + name + '</div>'; };
+		var makeMenuMenu = function(name, menu) { return '<div id="' + fixMenuName(name) + '" class="navbar-menu-button">' + makeArrow(name) + name + '</div>'; };
+		var makeNavbarButton = function(name, href) { return makeButton(name, href, false); };
+		var makeMenuButton = function(name, href) { return makeButton(name, href, true); };
 		
 		/** Build navbar **/
 		var $navbar = $('#navbar-container');
@@ -140,7 +163,6 @@
 			
 			var $menu = $('#' + menuName + '-menu');
 			var hidden = $menu.is(':hidden');
-			//positionMenu(menuName);
 			hideAllMenus();
 			if (hidden) $menu.slideDown(100);
 			else $menu.slideUp(100);
