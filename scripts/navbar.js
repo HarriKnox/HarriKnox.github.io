@@ -25,7 +25,7 @@
 			new Button('Ruby', 'programming/ruby.html'),
 			new Button('Java', 'programming/java.html'),
 		]),
-		new Menu('Test',
+		/*new Menu('Test',
 		[
 			new Menu('Inside Test',
 			[
@@ -46,7 +46,7 @@
 				new Button('Button4', ''),
 			]),
 		]),
-		new Button('Java', 'programming/java.html'),
+		new Button('Java', 'programming/java.html'),*/
 	];
 	
 	var getRoot = function(menuName)
