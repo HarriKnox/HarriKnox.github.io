@@ -21,6 +21,12 @@
 	background-color:#303070;
 }
 
+#navbar-button-selected
+{
+	background-color:#303070;
+	cursor:default;
+}
+
 .navbar-button-arrow
 {
 	font-size:0.8em;
