@@ -1,18 +1,18 @@
 (function($)
 {
-	var Menu = function(name, menu)
+	Menu = function(name, menu)
 	{
 		this.name = name;
 		this.menu = menu;
 	};
 	
-	var Button = function(name, href)
+	Button = function(name, href)
 	{
 		this.name = name;
 		this.href = href;
 	};
 	
-	var navbar = [
+	navbar = [
 		new Menu('Projects',
 		[
 			new Button('Projects', 'projects/projects.html'),
@@ -53,7 +53,7 @@
 	{
 		var hasMenu = function(menuList, menuName)
 		{
-			for (var m = 0; m < menuList.length; m++)
+			for (thing of menuList)
 			{
 				var thing = menuList[m];
 				
@@ -62,25 +62,17 @@
 			return false;
 		}
 		
-		for (var n = 0; n < navbar.length; n++)
+		navbar.forEach(function(thing)
 		{
-			var navthing = navbar[n];
-			
 			if (navthing.constructor === Menu && hasMenu(navthing.menu, menuName)) return navthing.name;
-		}
+		});
 		
 		return null;
 	};
 	
 	var CLOSED_MENU = '&#9654;';
 	var OPEN_MENU = '&#9660;';
-	
-	var hideAllMenus = function()
-	{
-		$('.navbar-button-arrow').html(CLOSED_MENU);
-		$('.navbar-menu-menu').slideUp(100);
-		$('.navbar-menu').slideUp(100);
-	};
+	var SLIDE = 100;
 	
 	/*var positionMenu = function(menuName)
 	{
@@ -115,13 +107,12 @@
 		{
 			var html = '<div id="' + fixMenuName(name) + '-menu" class="navbar-menu' + (inMenu ? '-menu' : '') + '">';
 			
-			for (var m = 0; m < menu.length; m++)
+			menu.forEach(function(thing)
 			{
-				var thing = menu[m];
 				var name = thing.name;
 				
 				html += ((thing.constructor === Menu) ? makeMenuMenu(name, thing.menu) + buildMenu(name, thing.menu, true) : makeMenuButton(name, thing.href));
-			}
+			});
 			
 			html += '</div>';
 			return html
@@ -139,15 +130,14 @@
 		var $navbar = $('#navbar-container');
 		var buttons = '';
 		var menus = '';
-		for (var m = 0; m < navbar.length; m++)
+		navbar.forEach(function(thing)
 		{
-			var thing = navbar[m];
 			var name = thing.name;
 			var isMenu = (thing.constructor === Menu)
 			
 			buttons += (isMenu ? makeNavbarMenu(name) : makeNavbarButton(name, thing.href));
 			menus += (isMenu ? buildMenu(name, thing.menu, false) : '');
-		}
+		});
 		
 		$navbar.append('<div id="navbar">' + buttons + '</div>');
 		$navbar.append('<div id="navbar-menus">' + menus + '</div>');
@@ -156,36 +146,37 @@
 		$navbar.css('min-height', navbarThickness);
 		$('#navbar').css('min-height', navbarThickness);
 		
-		/** Click navbar menu buttons to toggle menus **/
-		$('.navbar-button').click(function()
+		hideMenus = function(family)
 		{
-			var menuName = $(this).attr('id');
-			
-			var $menu = $('#' + menuName + '-menu');
-			var hidden = $menu.is(':hidden');
-			hideAllMenus();
-			if (hidden) $menu.slideDown(100);
-			else $menu.slideUp(100);
-			
-			var $arrow = $('#' + menuName + '-arrow');
-			if (hidden) $arrow.html(OPEN_MENU);
-			else $arrow.html(CLOSED_MENU);
-		});
+			var all = family.find('*').andSelf();
+			all.filter('.navbar-button-arrow').html(CLOSED_MENU);
+			all.filter('.navbar-menu-menu').slideUp(SLIDE);
+			all.filter('.navbar-menu').slideUp(SLIDE);
+		}
 		
-		$('.navbar-menu-button').click(function()
+		showMenus = function(hide)
 		{
-			var menuName = $(this).attr('id');
-			
-			var $menu = $('#' + menuName + '-menu');
-			var hidden = $menu.is(':hidden');
-			
-			if (hidden) $menu.slideDown(100);
-			else $menu.slideUp(100);
-			
-			var $arrow = $('#' + menuName + '-arrow');
-			if (hidden) $arrow.html(OPEN_MENU);
-			else $arrow.html(CLOSED_MENU);
-		});
+			return function()
+			{
+				var $esto = $(this);
+				var menuName = $esto.attr('id');
+				
+				var $menu = $('#' + menuName + '-menu');
+				var hidden = $menu.is(':hidden');
+				
+				hide($esto);
+				
+				if (hidden)
+				{
+					$menu.slideDown(SLIDE);
+					$('#' + menuName + '-arrow').html(OPEN_MENU);
+				}
+			};
+		};
+		
+		/** Click navbar menu buttons to toggle menus **/
+		$('.navbar-button').click(showMenus(function($esto) { hideMenus($('#navbar-container')); }));
+		$('.navbar-menu-button').click(showMenus(function($esto) { hideMenus($esto.parent().children()); }));
 	});
 	
 	/** Click off of a navbar item to close all menus **/
@@ -194,6 +185,6 @@
 		$target = $(e.target);
 		var clazz = $target.attr('class');
 		if (typeof clazz === 'undefined' || !clazz.match(/^navbar-/))
-			hideAllMenus();
+			hideMenus($('#navbar-container'));
 	});
 })(jQuery);
