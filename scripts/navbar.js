@@ -22,8 +22,9 @@
 		[
 			new Button('Languages', 'programming/languages.html'),
 			new Button('Lua', 'programming/lua.html'),
-			new Button('Ruby', 'programming/ruby.html'),
+			new Button('JavaScript', 'programming/javascript.html'),
 			new Button('Java', 'programming/java.html'),
+			new Button('Ruby', 'programming/ruby.html'),
 		]),
 		/*new Menu('Test',
 		[
