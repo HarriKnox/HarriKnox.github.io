@@ -20,6 +20,8 @@
 {
 	color:#ff0000;
 	transform:rotate(10deg);
+	-ms-transform:rotate(10deg);
+	-webkit-transform:rotate(10deg);
 	text-align:center;
 	font-weight:bold;
 	position:absolute;
