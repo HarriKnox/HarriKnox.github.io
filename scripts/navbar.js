@@ -73,7 +73,7 @@
 	
 	var CLOSED_MENU = '&#9656;';
 	var OPEN_MENU = '&#9662;';
-	var SLIDE = 100;
+	var SLIDE = 'fast';
 	
 	/*var positionMenu = function(menuName)
 	{
