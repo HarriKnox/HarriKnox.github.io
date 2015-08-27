@@ -26,7 +26,6 @@
 			new Button('Java', 'programming/java.html'),
 			new Button('Ruby', 'programming/ruby.html'),
 		]),
-		new Button('&#' + [9654, 9660, 9656, 9662, 9658].join(';&#') + ';', ''),
 		/*new Menu('Test',
 		[
 			new Menu('Inside Test',
@@ -72,8 +71,8 @@
 		return null;
 	};
 	
-	var CLOSED_MENU = '&#9654;';
-	var OPEN_MENU = '&#9660;';
+	var CLOSED_MENU = '&#9656;';
+	var OPEN_MENU = '&#9662;';
 	var SLIDE = 100;
 	
 	/*var positionMenu = function(menuName)
