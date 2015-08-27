@@ -50,27 +50,6 @@
 		new Button('Java', 'programming/java.html'),*/
 	];
 	
-	var getRoot = function(menuName)
-	{
-		var hasMenu = function(menuList, menuName)
-		{
-			for (thing of menuList)
-			{
-				var thing = menuList[m];
-				
-				if (thing.constructor === Menu && (thing.name === menuName || hasMenu(thing.menu, menuName))) return true;
-			}
-			return false;
-		}
-		
-		navbar.forEach(function(thing)
-		{
-			if (navthing.constructor === Menu && hasMenu(navthing.menu, menuName)) return navthing.name;
-		});
-		
-		return null;
-	};
-	
 	var CLOSED_MENU = '&#9656;';
 	var OPEN_MENU = '&#9662;';
 	var SLIDE = 'fast';
