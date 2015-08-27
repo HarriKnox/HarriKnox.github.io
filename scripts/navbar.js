@@ -26,6 +26,7 @@
 			new Button('Java', 'programming/java.html'),
 			new Button('Ruby', 'programming/ruby.html'),
 		]),
+		new Button('&#' + [9654, 9660, 9656, 9662, 9658].join(';&#') + ';', ''),
 		/*new Menu('Test',
 		[
 			new Menu('Inside Test',
