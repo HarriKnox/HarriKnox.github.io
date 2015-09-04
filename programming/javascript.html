@@ -10,16 +10,20 @@
 			<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="images/language-icons/javascript.png" id="language-icon" /></a>
 			<h1 id="page-title">JavaScript</h1>
 			<div class="paragraph">
-				<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a> is the <em>language of browsers</em> as every internet browser supports it in some way.
-				It is a lovely scripting language with the Script features of Lua but the Java syntax of Java: first-class functions, closures, prototypes, and curly braces and semicolons everywhere!
-				I am a fan of scripting languages, in particular <a href="programming/lua.html">Lua</a>.
-				Lua shares many features with JavaScript (as will be elaborated on later in this page), thus I have a fondness in JavaScript as well.
+				<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a> is the <em>language of browsers</em>: every internet browser more-or-less supports it in some way.
+                The general trend with web developers is to hate JavaScript, but I quite like JavaScript and find it a lovely scripting language with the Script features of Lua stuck with the Java syntax of Java: first-class functions, closures, prototypes, and curly braces and semicolons everywhere!
+                Besides the syntax and a few other minor differences, JavaScript is very much like <a href="programming/lua.html">Lua</a>, which I am not ashamed to say is my absolute favorite language.
 			</div>
 			<div class="paragraph">
-				Technically speaking, JavaScript and Java have nothing in common beside the name, which was probably used as a marketing ploy in the wake of the Java Hype of the late 1990's.
-				JavaScript is also technically not just a language, but an implementation of the <a href="http://www.ecmascript.org/">ECMAScript Specification</a>.
-				While we're being as technical as we are, Mozilla browsers are the only browsers that actually run JavaScript since Mozilla develops JavaScript.
-				All browsers have use a JavaScript engine, and the engine Mozilla uses is <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey">SpiderMonkey</a>; all other browsers use different engines which are compliant with various versions and features of ECMAScript.
+				Technically speaking, JavaScript and Java have nothing in common beside the name, which was probably used as a marketing ploy in the wake of the Java Hype of the late 1990's; JavaScript itself is owned by Mozilla, but the name is trademarked by Oracle (owners of Java).
+				JavaScript is also technically not just a language, but one of the many implementations of the <a href="http://www.ecmascript.org/">ECMAScript Specification</a>: there are also JScript (Microsoft's implementation for Internet Explorer, not to be confused with JavaScript), and ActionScript.
+                From what I can tell, JavaScript, JScript, and ActionScript are all considered the implementations and differ in copyright ownership and the list of ECMAScript standard features they support, but those differences also apply with SpiderMonkey, V8, Rhino, and Chakra.
+               I don't understand why there is a distinction between the implementation and the engines; as far as I can tell, each engine is an implementation of an implementation.
+          </div>
+          <div class="paragraph">
+				Every internet browser has a JavaScript engine (internal code to interpret and execute JavaScript), which really is an ECMAScript engine.
+                Mozilla owns and develops <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey">SpiderMonkey</a>, the first JavaScript engine.
+                There's also V8 (for Chrome, Safari, and other WebKit browsers) and Chakra (for Opera) and quite a few other engines for other browsers, command-line interpreters, and embedded scripting functionality in programs.
 			</div>
 		</div>
 	</body>
