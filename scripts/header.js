@@ -1,5 +1,6 @@
 (function($)
 {
+	var IS_LOCAL = location.href.match(/^file:/);
 	var pickRandom = function(things)
 	{
 		return things[Math.floor(Math.random() * things.length)];
@@ -34,7 +35,7 @@
 			'<span style="color:coral;">Coral</span> <span style="color:crimson;">Crimson</span> <span style="color:darkorange;">DarkOrange</span><br />' +
 			'<span style="color:orange;">Orange</span> <span style="color:orangered;">OrangeRed</span> <span style="color:red;">Red</span>',
 			'Fork me on <a href="https://github.com/HarriKnox">GitHub</a>',
-			'Requires internet access',
+          (IS_LOCAL ? 'Doesn\'t require<br/>' : 'Requires ') + 'internet access',
 			'Ad-free',
 			'Open source',
 			'Not lounging around',
@@ -54,7 +55,7 @@
 	
 	var getHome = function()
 	{
-		return location.href.match(/^file/) ? 'index.html' : '/';
+		return IS_LOCAL ? 'index.html' : '/';
 	};
 	
 	var setSplashVisibility = function()
