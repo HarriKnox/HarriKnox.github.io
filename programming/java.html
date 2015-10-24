@@ -54,6 +54,8 @@
 				Most compiled languages compile to assembler code or machine code, instructions for the CPU to perform specific tasks, like read from a particular memory address or perform an arithmetic operation on some bytes of data.
 				Assembler code and machine code are architecture-specific, meaning they are tied to the motherboard, graphics card, CPU, RAM, and everything else in your computer.
 				Because of this, some programs written in compiled languages need to be compiled for each computer they run on: this is where Java shines.
+			</div>
+			<div class="paragraph">
 				Java does not compile to machine or assembler, it compiles to Java bytecode, which is run by a Java Virtual Machine (JVM).
 				A virtual machine is a program that emulates a physical computer all the way down to the architectural level.
 				A JVM is just that, but follows the <a href="https://docs.oracle.com/javase/specs/jvms/se8/html/">Java Virtual Machine Specification</a>, an abstract definition of a virtual machine where the Java bytecode is its machine code.
@@ -115,6 +117,18 @@
 					<tr><th>Level</th><th>Class</th><th>Package</th><th>Subclass</th><th>Global</th></tr>
 					<tr><td>subclass-private</td><td class="yes">yes</td><td class="no">no</td><td class="yes">yes</td><td class="no">no</td></tr>
 				</table>
+			</div>
+			<div class="paragraph">
+				<em>
+					<h4>An Addendum to Above</h4>
+					After some Search Engine Result Analysis (looking it up on Google), I understand why there is not a subclass-private access modifier.
+					The earlier versions of Java had it (it was called </em><code>private protected</code><em>), which gave access to just the class and subclasses and nothing else.
+					It wasn't used very much, never worked, and the developers thought it was too confusing to use, so they dropped it.
+					Historically, it existed but was taken out for fear of confusion in usage, however from a developer's perspective, it makes sense to not include it.
+					Developers group similar purpose classes into packages and not families, thus it makes sense that a package-private access is available.
+					Though a subclass outside a package can access all protected and public values of its parent, the other classes in the package still have access to those same values.
+					It's easy enough to enforce classes in the same package to not purposefully access certain values, so a subclass-private access is redundant when a protected modifier could be used and respected instead.
+				</em>
 			</div>
 		</div>
 	</body>
