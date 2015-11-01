@@ -8,17 +8,17 @@
 		(file ? 'scripts/' : 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/') + 'jquery.min.js',
 		'scripts/header.js',
 		'scripts/navbar.js',
-		'scripts/formatPage.js',
+		'scripts/content.js',
 	].forEach(function(script)
 	{
 		document.write('<script src="' + script + '"></script>');
 	});
 	
 	[
-		'header.css',
-		'content.css',
-		'navbar.css',
 		'stylesheet.css',
+		'header.css',
+		'navbar.css',
+		'content.css',
 	].forEach(function(sheet)
 	{
 		document.write('<link type="text/css" rel="stylesheet" href="stylesheets/' + sheet + '">');
