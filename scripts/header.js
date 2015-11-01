@@ -1,10 +1,7 @@
 (function($)
 {
 	var IS_LOCAL = location.href.match(/^file:/);
-	var pickRandom = function(things)
-	{
-		return things[Math.floor(Math.random() * things.length)];
-	};
+	var pickRandom = function(things) { return things[Math.floor(Math.random() * things.length)]; };
 	
 	var getSplash = function(pageTitle)
 	{
@@ -14,11 +11,12 @@
 		if (today === 111) return 'Happy Birthday Harri!';
 		if (today === 1008) return 'Happy Birthday Courtney!';
 		if (today === 1016) return 'Happy Anniversary Courtney!';
-		if (today === 126) return '<div style="transform:rotate(180deg);">Happy Australia Day!</div>';
+		if (today === 126) return '<div style="transform:rotate(180deg);-ms-transform:rotate(180deg);-webkit-transform:rotate(180deg);">Happy Australia Day!</div>';
 		if (today >= 1200) return 'Happy &lt;insert holiday here&gt;!';
 		if (today === 101) return 'Happy New Year!';
+		if (today === 401) return 'Fooled you!';
 		if (today === 704) return '<span style="color:red;">Happy</span> <span style="color:white;text-shadow:0px -1px 1px black,1px -1px 1px black,1px 1px 1px black,-1px 0px 1px black,0px 1px 1px black,1px 0px 1px black,-1px -1px 1px black,-1px 1px 1px black;">4th of</span> <span style="color:blue">July!</span>';
-		if (today === 1031) return '<span style="color:orange;">BOO!</span>';
+		if (today === 1031) return pickRandom(['<span style="color:darkorange;">BOO!</span>', '<span style="color:darkorange;">Happy Halloween!</span>']);
 		
 		var splashes = [
 			'Now includes<br/>complementary splashes',
@@ -35,7 +33,7 @@
 			'<span style="color:coral;">Coral</span> <span style="color:crimson;">Crimson</span> <span style="color:darkorange;">DarkOrange</span><br />' +
 			'<span style="color:orange;">Orange</span> <span style="color:orangered;">OrangeRed</span> <span style="color:red;">Red</span>',
 			'Fork me on <a href="https://github.com/HarriKnox">GitHub</a>',
-          (IS_LOCAL ? 'Doesn\'t require<br/>' : 'Requires ') + 'internet access',
+			(IS_LOCAL ? 'Doesn\'t require<br/>' : 'Requires ') + 'internet access',
 			'Ad-free',
 			'Open source',
 			'Not lounging around',
@@ -53,10 +51,7 @@
 		return pickRandom(splashes);
 	};
 	
-	var getHome = function()
-	{
-		return IS_LOCAL ? 'index.html' : '/';
-	};
+	var getHome = function() { return IS_LOCAL ? 'index.html' : '/'; };
 	
 	var setSplashVisibility = function()
 	{
@@ -85,7 +80,7 @@
 			'</div>'
 		);
 		
-		/** Position the splash in middle of header **/
+		/** Position the splash in middle (vertically) of header **/
 		var $splash = $('#splash');
 		var headerHeight = $('#header-container').height();
 		var splashHeight = $splash.height();
@@ -95,12 +90,5 @@
 		setSplashVisibility()
 		
 		$(window).resize(setSplashVisibility);
-		
-		/** Make splash change message when clicked **/
-		/*var $splash = $('#splash');
-		$splash.click(function()
-		{
-			$splash.html(getSplash(pageTitle));
-		});*/
 	});
 })(jQuery);
