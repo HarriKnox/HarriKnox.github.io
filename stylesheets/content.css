@@ -22,14 +22,14 @@
 	text-decoration:underline;
 }
 
+#content-container > div
+{
+	margin:1em 0px;
+}
+
 #page-title
 {
 	margin:0px;
-}
-
-.paragraph
-{
-	margin:1em 0px;
 }
 
 .grouped

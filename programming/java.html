@@ -41,13 +41,13 @@
 		<div id="content-container">
 			<a href="https://www.java.com/en/"><img src="images/language-icons/java.png" id="language-icon" /></a>
 			<h1 id="page-title">Java</h1>
-			<div class="paragraph">
+			<div>
 				<a href="https://www.java.com/en/">Java</a> is the language everyone loves to hate.
 				It was designed to be the safety version of C++, like those rounded scissors children have to use in school.
 				Java is an object-oriented (OO) programming language with verbose syntax, redundant code, and repetative structure: it features static data typing, access modifiers, extensive libraries, data abstraction, and structured class definitions: all to ensure you don't screw up your own code.
 				Jokes aside, Java is a powerful language that does not compile to machine code but to Java Bytecode, which is then run by a Java Virtual Machine, allowing Java to be written anywhere, compiled anywhere, and run anywhere.
 			</div>
-			<div class="paragraph">
+			<div>
 				<h2>Your Friend the JVM</h2>
 				Java is one of the most well-known languages, primarily because it's available on everything: computers, phones, printers, toasters, you name it.
 				The reason for this is because Java's compiling is platform independent.
@@ -55,17 +55,17 @@
 				Assembler code and machine code are architecture-specific, meaning they are tied to the motherboard, graphics card, CPU, RAM, and everything else in your computer.
 				Because of this, some programs written in compiled languages need to be compiled for each computer they run on: this is where Java shines.
 			</div>
-			<div class="paragraph">
+			<div>
 				Java does not compile to machine or assembler, it compiles to Java bytecode, which is run by a Java Virtual Machine (JVM).
 				A virtual machine is a program that emulates a physical computer all the way down to the architectural level.
 				A JVM is just that, but follows the <a href="https://docs.oracle.com/javase/specs/jvms/se8/html/">Java Virtual Machine Specification</a>, an abstract definition of a virtual machine where the Java bytecode is its machine code.
 			</div>
-			<div class="paragraph">
+			<div>
 				<h2>The Many "Safety Features" of Java</h2>
 				Java was designed in the aftermath of C++ to contain all the object-orientedness of C++ without all the dangerous, abusable capabilities like operator overloading, lazy evaluation, inferred data typing, and functional programming.
 				Java instead has numerous features to reduce the chances of rapid and spontaneous code destruction.
 			</div>
-			<div class="paragraph">
+			<div>
 				<h3>Strict Data Typing Rules</h3>
 				Java is what is called <em>strongly typed</em>.
 				The actual definition of <em>strongly typed</em> is non-existant, but it's used colloquially and understood by pretty much everyone.
@@ -80,7 +80,7 @@
 				For example, an object of type ArrayList and another object of type HashMap have similar methods (<code>clear</code>, <code>isEmpty</code>, <code>size</code>).
 				In a dynamic language, like Lua or Python, both objects could be cleared since they both have the <code>clear</code> method, but in Java, since the two objects do not have the same classes they are incompatible.
 			</div>
-			<div class="paragraph">
+			<div>
 				<h3>Access Control</h3>
 				All languages have their own way to do scoping: the "visibility" of the values of variables in certain parts of code.
 				Inside methods, variables in Java are only visible inside the block they were declared and inside any nested blocks, but not visible outside of that.
@@ -104,7 +104,7 @@
 					<tr><td>private</td><td class="yes">yes</td><td class="no">no</td><td class="no">no</td><td class="no">no</td></tr>
 				</table>
 			</div>
-			<div class="paragraph">
+			<div>
 				<h4>Something Bugs Me</h4>
 				One thing that bugs me about Java's selection of access modifiers is that there is not a <em>subclass-private</em> modifier that limits visibility to only a class and its subclasses.
 				I somewhat understand the reasoning behind package-private variables being open to only those classes in the package, but I don't understand why protected variables are also visible everyone else in the package.
@@ -118,7 +118,7 @@
 					<tr><td>subclass-private</td><td class="yes">yes</td><td class="no">no</td><td class="yes">yes</td><td class="no">no</td></tr>
 				</table>
 			</div>
-			<div class="paragraph">
+			<div>
 				<em>
 					<h4>An Addendum to Above</h4>
 					After some Search Engine Result Analysis (looking it up on Google), I understand why there is not a subclass-private access modifier.

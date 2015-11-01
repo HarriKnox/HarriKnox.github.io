@@ -9,13 +9,13 @@
 		<div id="content-container">
 			<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="images/language-icons/javascript.png" id="language-icon" /></a>
 			<h1 id="page-title">JavaScript (ECMAScript)</h1>
-			<div class="paragraph">
+			<div>
 				<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a> is the <em>language of browsers</em>: every internet browser more-or-less supports it in some way.
 				The general trend with web developers is to hate JavaScript with no remorse, but I quite like JavaScript and find it a lovely scripting language with wonderful scripting features, just plagued with the syntax of Java: first-class functions, closures, prototypes, and curly braces and semicolons everywhere!
 				Besides the syntax, a few other minor differences in core features (for example, the presence of IO and multithreading), and variable scoping, JavaScript is almost identical to <a href="programming/lua.html">Lua</a>, which I am not ashamed to say is my absolute favorite language.
 				Technically speaking, JavaScript and Java have nothing in common beside the name, which was probably used as a marketing ploy in the wake of the Java Hype of the late 1990s.
 			</div>
-			<div class="paragraph">
+			<div>
 				<h2>Engines</h2>
 				JavaScript is weird; when using the word <em>JavaScript</em>, one could mean a number of things, including the following:
 				<ol>
@@ -24,7 +24,7 @@
 					<li>a dialect of ECMAScript run only on Mozilla browsers</li>
 				</ol>
 			</div>
-			<div class="paragraph">
+			<div>
 				<h3>ECMAScript</h3>
 				When developers talk about JavaScript, usually they are actually refering to the <a href="http://www.ecmascript.org/">ECMAScript Specification</a>, a standard for scripting in web browsers and other programs.
 				ECMAScript is more-or-less abstract; one does not program in ECMAScript directly like they do with most languages, but in one of its many dialects.
@@ -33,12 +33,12 @@
 				Specifically ECMAScript engines are programs that read the code in an ECMAScript context, either interpret it or compile it to bytecode or machine code, then execute it.
 				Every engine is different, but all implement the ECMAScript Specification and support the primary features.
 			</div>
-			<div class="paragraph">
+			<div>
 				<h3>A Dialect of ECMAScript Run on Most Web Browsers</h3>
 				<a href="https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey">SpiderMonkey</a> for Mozilla browsers, <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Projects/Rhino">Rhino</a> and <a href="http://openjdk.java.net/projects/nashorn/">Nashorn</a> for Java programs, and <a href="https://code.google.com/p/v8/">V8</a> for Chrome and Opera are ECMAscript engines that specifically read the ECMAScript dialect JavaScript.
 				JavaScript code written for one browser will usually work for other browsers.
 			</div>
-			<div class="paragraph">
+			<div>
 				<h3>A Dialect of ECMAScript Run Only on Mozilla Browsers</h3>
 				Usually in programming, dialects are consistent: JavaScript is not one of those.
 				SpiderMonkey, Nashorn, and V8 all say they run the JavaScript dialect, yet they all have various differences that set them slighly apart from each other: for example, SpiderMonkey supports <em>rest parameters</em> and sticky RegEx matches, while V8 does not.

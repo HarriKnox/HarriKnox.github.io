@@ -8,19 +8,19 @@
 		<noscript>JavaScript must be enabled to view this website in all its beauty. Click the script button in the right side of your address bar to allow JavaScript. Fear not, this site does not use harmful scripts to steal your identity or take over your computer. JavaScript is used purely for formatting this site. You can still view the content below, but some elements may not be formatted correctly.</noscript>
 		<div id="content-container">
 			<h1 id="page-title">CPE 102 Project</h1>
-			<div class="paragraph">
+			<div>
 				One major courses for <abbr title="Computer Engineering"><em>CPE</em></abbr> and <abbr title="Computer Science"><em>CSC</em></abbr> majors at <a href="http://www.calpoly.edu/">Cal Poly</a> is the class CSC 102: Fundamentals of Computer Science.
 				In this class we focused on the languages <a href="https://www.python.org/">Python</a> and <a href="https://java.com/en/">Java</a>.
 				For our class project, my partner and I were to use <a href="http://www.pygame.org/news.html">Pygame</a> and <a href="https://processing.org/">Processing</a> to create a grid-based world simulation.
 				The purpose of the project was an exercise in object-oriented programming, functional programming, and simple path-finding.
 				You can view the sources for the project <a href="https://github.com/cchu1008/CPE102Project">here for the Pygame version</a> and <a href="https://github.com/cchu1008/CPE102ProjectJava">here for the Processing version</a>.
 			</div>
-			<div class="paragraph">
+			<div>
 				<h2>Project structure</h2>
 				The project was a large creation, but most of the code was written once and never touched again.
 				The most important classes were the World class, the WorldView class, the actions, and the entity classes.
 			</div>
-			<div class="paragraph">
+			<div>
 				<h3>World and WorldView</h3>
 				The World class kept track of all the entities.
 				It held a list of all entities and an ordered list of all events.
@@ -30,7 +30,7 @@
 				WorldView handled image displaying, moving the viewport, key and mouse presses, and updating the World on a timer.
 				Together the two kept the actions running on schedule and moved the entities about.
 			</div>
-			<div class="paragraph">
+			<div>
 				<h3>The Actions</h3>
 				There were four types of major functions in the Actions class: Action Creators, Entity Creators, Entity Schedulers, and Pathing Functions.
 				The Action Creators would (as the name suggests) create <em>actions</em>.
@@ -41,7 +41,7 @@
 				The Pathing Functions would obtain the position of the target block (if any), calculate the best path, then move the entity one block in that path.
 				Together, all the action functions created the dynamism of the project.
 			</div>
-			<div class="paragraph">
+			<div>
 				<h3>The Entities</h3>
 				There were multiple entities and multiple types of entities.
 				In all, there were three abstract categories of entities and nine non-abstract, final entities.
@@ -67,20 +67,20 @@
 					</div>
 				</div>
 			</div>
-			<div class="paragraph">
+			<div>
 				<h4>Entity</h4>
 				At the head was the Entity class, which stored only the basic data each entity had: name, position, and sprite image.
 				Non-abstract extenders of Entity were non-action classes.
 				Blacksmith and Obstacle both extended Entity and both did nothing; Blacksmith was a target for Miners and Obstacle was the block of water that got in the way.
 			</div>
-			<div class="paragraph">
+			<div>
 				<h4>Actor</h4>
 				Under Entity was the abstract class of Actor.
 				Actor stored data regarding the path from the pathfinding, the list of actions to be executed, and an arbitrary number for the speed of action execution.
 				Ore had one action tied to it: an action to transform itself into an OreBlob.
 				Vein had a repeated action to spawn ores in open spaces around itself.
 			</div>
-			<div class="paragraph">
+			<div>
 				<h4>Animated</h4>
 				Extending Actor was the abstract class Animated, which had an animation rate and a list of sprite images.
 				Under Animated were Miner, OreBlob, Quake, Zombie, and Birdie.
@@ -94,7 +94,7 @@
 				Birdies were the birds that would teleport into the world to kill the Miners and transform them into Zombies.
 				They could fly over everything except other birds, moved very quickly, and would periodically drop Ores.
 			</div>
-			<div class="paragraph">
+			<div>
 				<h2>Object-Oriented (OO) Programming</h2>
 				Java is a famous and ubiquitous OO language, and Python is a notorious scripting language with OO support.
 				Using these two languages we were given different flavors of OO programming in similar contexts.
@@ -103,7 +103,7 @@
 				The code was mostly functional: only a few classes existed.
 				There were helper classes that were given to us (such as <code>Point</code> and <code>Ordered_list</code>) and the entity classes (which only held data and had no behavior for themselves).
 			</div>
-			<div class="paragraph">
+			<div>
 				<h3>Step One: From Functional to OO</h3>
 				Our first task was to move appropriate functionality into classes.
 				The behaviors of all the entities were defined by general external functions.
@@ -113,7 +113,7 @@
 				In addition to moving all the functions over, we also had to change the method calls in the rest of the code to make it run.
 				This exercise was intended to introduce us to defining object methods and accessing them.
 			</div>
-			<div class="paragraph">
+			<div>
 				<h3>Step Two: From Prototype to Inherited</h3>
 				After increasing the sizes of our projects tenfold, we were allowed to use inheritance.
 				Using Python's odd system of inheritance, we grouped like entities together under their shared parent classes.
@@ -125,7 +125,7 @@
 				When invoked, the <em>super</em> object will call the method of the parent class, passing in the object in question.
 				The beauty of using <code>super</code> as opposed to directly calling the parent class is that <code>super</code> also manages multiple inheritance for you.
 			</div>
-			<div class="paragraph">
+			<div>
 				<h3>Step Three: From Python to Java</h3>
 				At this stage we started moving the objects over into Java.
 				Primarily we focused on moving the entity classes and the World class.
@@ -133,7 +133,7 @@
 				The test cases simulated a world with entities, without displaying it.
 				This was an introduction to Java's flavor of OO.
 			</div>
-			<div class="paragraph">
+			<div>
 				<h3>Step Four: From Pygame to Processing</h3>
 				After moving just the entities and the World into Java, we had to move in everything else: the world view, entity actions, and keyboard interactions.
 				This version used Processing to display the world to the screen and manage the keyboard interactions (using arrow keys to move the view port, pressing space to pause, etc).
@@ -142,7 +142,7 @@
 				Python is functional, so functions are first-class and could be returned and passed around easily.
 				However, in Java we needed to use the new Function interface to translate the Action code over.
 			</div>
-			<div class="paragraph">
+			<div>
 				<h3>Step Five: From Here to There</h3>
 				Once everything on the Java side was behaving like everything on the Python side, we were to change the entity pathfinding.
 				The entities that moved had a very simple system: horizontally first, then if it can't go any more horizontally (in the same column or obstructed) go vertically, then if it can't go vertically (at the  destination or obstructed) either celebrate victory or admit defeat.
@@ -150,7 +150,7 @@
 				For that we were introduced to <a href="https://en.wikipedia.org/wiki/A*_search_algorithm">A* pathfinding</a>.
 				A* works by calculating the "cost" to visit a node and comparing costs over a large collection of visited nodes to find the least costly path.
 			</div>
-			<div class="paragraph">
+			<div>
 				<h3>Step Six: From Idea to Reality</h3>
 				All of the previous steps were guided by our professor.
 				For this part, however, he handed the reigns to us to add our own modifications.
@@ -165,7 +165,7 @@
 				Killer birds travel through the portal and spawn in the world, fly around the map, and attack miners.
 				The attacked miners turn into zombies and roam about chasing ore-blobs and turning them into veins.
 			</div>
-			<div class="paragraph">
+			<div>
 				<h2>Functional Programming</h2>
 				Python is a multifaceted scripting language.
 				Besides OO programming, it is rather powerful in functional programming.
@@ -176,13 +176,13 @@
 				Also new in Java 8 is the Function interface, which contains various types of functions: predicates (return true or false), consumers (return void), operators (return same type as argument), and more.
 				Each of these functions aren't really functions but objects with one calling method, like Ruby's proc objects with the <code>call</code> method.
 			</div>
-			<div class="paragraph">
+			<div>
 				Between Python and Java, functions in Python are more powerful and easy to use than their counterparts in Java.
 				For one, functions in Python are first-class citizens, so they can be passed around, stored to variables, and even created and called in-line.
 				Functions can also be created in closures (the coolest thing in programming), called recursively (also the coolest thing in programming), even created in closures and called recursively (the coolest thing in programming squared).
 				Variables do not need to be instantiated for the code to compile, so functions can reference themselves, even though they technically do not fully exist at compile-time.
 			</div>
-			<div class="paragraph">
+			<div>
 				In Java, on the other hand, functions are not as privileged.
 				Functions are wrapped in objects, so, similar to Python, they can be passed around and stored to variables as usual.
 				However, functions cannot be created and called in-line easily, nor called recursively in a succinct manner.
@@ -192,19 +192,19 @@
 				This, unfortunately, doesn't work since all local variables referred to in a function must be treated as <em>final</em>, and changing the value of the variable pointing to your function violates that rule.
 				Fortunately, there are numerous other ways to get around the compiler police.
 			</div>
-			<div class="paragraph">
+			<div>
 				One method my professor taught us was to wrap the recursive-function-to-be in an array of length 1, like so: <code>IntUnaryOperator[] fact = new IntUnaryOperator[1];</code> or <code>IntUnaryOperator[] fact = { null };</code>.
 				Then, any time you need to reference the function, refer to it as element 0 of that array: <code>fact[0]</code>.
 				This works because Java has more lenient rules with arrays simply because they are much more difficult to check and track all the values, so the compiler doesn't bother.
 				Even though element 0 of that array is not treated as final, Java doesn't check that it follows the rules since it's in an array, providing an inconvenient, but effective, exploit to defining recursive functions.
 			</div>
-			<div class="paragraph">
+			<div>
 				In the context of the project, the Action code was the only functional code.
 				In Python, the action code was easy to use because functions in Python can be called recursively, which is what was required for the actions to reschedule themselves.
 				In Java, the action code was more difficult to write because functions cannot be called recursively easily.
 				After implementing the exploit our professor taught us, the action code became easier to write.
 			</div>
-			<div class="paragraph">
+			<div>
 				<h2>Pathfinding</h2>
 				<h3>Depth-First Search</h3>
 				During class we learned briefly about graph theory and path finding.
@@ -244,13 +244,13 @@ Loop until done
     else if NONE are legal spaces then
         go BACK
 </pre>
-			<div class="paragraph">
+			<div>
 				This pseudo-code demonstrates how one can reach their target by using the pattern RIGHT-UP-LEFT-DOWN.
 				DFS is better written recursively, but the recursive definition is a bit more programmy instead of englishy.
 				It is a rigid algorithm, so the order in which it traverses is predetermined: if all you needed was to go DOWN to get to the goal, DFS would make you go RIGHT, UP, and LEFT first.
 				It can be made more heuristically, determining its search order for every node, but that just complicates things.
 			</div>
-			<div class="paragraph">
+			<div>
 				<h3>A* Pathfinding</h3>
 				In the project, rather than using DFS we were encouraged to use A* Pathfinding.
 				A* is a heuristic search algorithm that attempts to follow the path of least resistance from the start point to the finish point.
@@ -263,7 +263,7 @@ Loop until done
 				The estimated heuristic should never overestimate the actual cost to get to the finish: overestimates undermine the effectiveness of the algorithm.
 				Often the cost equation is written as <code>f(n) = g(n) + h(n)</code> where <code>f</code> is Cost, <code>g</code> is PathCost, and <code>h</code> is Heuristic, but I prefer to write the variables in English for explanation purposes.
 			</div>
-			<div class="paragraph">
+			<div>
 				The process behind A* is interesting; it seems complex, but once you understand it, it seems so obvious.
 				The following is an overview of how the algorithm works in the context of the project both with a pseudocode example and English explanation.
 				Assume that each node keeps track of three values: its PathCost value, its Cost value, and the Node from which it was entered.
@@ -301,7 +301,7 @@ while OpenSet is not empty
 
 error: no path to Goal
 </pre>
-			<div class="paragraph">
+			<div>
 				First, you declare two sets: OpenSet and ClosedSet.
 				OpenSet is for nodes waiting to be evaluated; this will contain only the Start node at the beginning.
 				ClosedSet is for nodes that have already been evaluated and won't be considered again; this will be empty at the beginning.
