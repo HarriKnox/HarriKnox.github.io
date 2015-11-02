@@ -55,12 +55,11 @@
 		for (var i = 0; i < reps; i++) patt += '[^\/]+\/';
 		patt += '[^\/]+$';
 		
-		var pageUrl = location.href.match(new RegExp(patt))[0];
+		var urlMatch = location.href.match(new RegExp(patt)) || [''];
+		var pageUrl = urlMatch[0];
 		*/
 		
-		var pageUrl = location.href.match(new RegExp('[^\/]+\/'.repeat((($('base').attr('href') || '').match(/\.\./g) || []).length) + '[^\/]+$'))[0];
-		
-		var pageTitle = $('#page-title').text();
+		pageUrl = (location.href.match(new RegExp('[^\/]+\/'.repeat((($('base').attr('href') || '').match(/\.\./g) || []).length) + '[^\/]+$')) || [''])[0];
 		
 		var $content = $('#content-container')
 		
