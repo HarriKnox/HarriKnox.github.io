@@ -59,7 +59,7 @@
 		var pageUrl = urlMatch[0];
 		*/
 		
-		pageUrl = (location.href.match(new RegExp('[^\/]+\/'.repeat((($('base').attr('href') || '').match(/\.\./g) || []).length) + '[^\/]+$')) || [''])[0];
+		var pageUrl = (location.href.match(new RegExp('[^\/]+\/'.repeat((($('base').attr('href') || '').match(/\.\./g) || []).length) + '[^\/]+$')) || [''])[0];
 		
 		var $content = $('#content-container')
 		
