@@ -26,28 +26,6 @@
 			new Button('Java', 'programming/java.html'),
 			new Button('Ruby', 'programming/ruby.html'),
 		]),
-		/*new Menu('Test',
-		[
-			new Menu('Inside Test',
-			[
-				new Button('Button1', ''),
-				new Button('Button2', ''),
-				new Menu('Super Inside Test',
-				[
-					new Button('Button-of-a-life-time', ''),
-				]),
-				new Button('Button3', ''),
-				new Button('Button4', ''),
-			]),
-			new Menu('Other-Inside-Test',
-			[
-				new Button('Button1', ''),
-				new Button('Button2', ''),
-				new Button('Button3', ''),
-				new Button('Button4', ''),
-			]),
-		]),
-		new Button('Java', 'programming/java.html'),*/
 	];
 	
 	var CLOSED_MENU = '&#9656;';
@@ -162,9 +140,18 @@
 	/** Click off of a navbar item to close all menus **/
 	$document.click(function(e)
 	{
-		$target = $(e.target);
-		var clazz = $target.attr('class');
+		var clazz = $(e.target).attr('class');
 		if (typeof clazz === 'undefined' || !clazz.match(/^navbar-/))
 			hideMenus($('#navbar-container'));
 	});
+	
+	/** Makes navbar stick to top of screen when scrolling past it **/
+	/*$window.scroll(function()
+	{
+		var $navbar = $('#navbar');
+		if ($window.scrollTop() > $('#header-container').height())
+			$navbar.css('position', 'fixed');
+		else
+			$navbar.css('position', 'relative');
+	});*/
 })(jQuery);

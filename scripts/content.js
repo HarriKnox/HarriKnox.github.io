@@ -48,14 +48,4 @@
 		/** Adjust sizes of pre blocks when the window is resized **/
 		$window.resize(setPreMaxWidth);
 	});
-	
-	/** Makes navbar stick to top of screen when scrolling past it **/
-	/*$window.scroll(function()
-	{
-		var $navbar = $('#navbar');
-		if ($window.scrollTop() > $('#header-container').height())
-			$navbar.css('position', 'fixed');
-		else
-			$navbar.css('position', 'relative');
-	});*/
 })(jQuery);

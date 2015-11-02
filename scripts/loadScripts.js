@@ -6,8 +6,8 @@
 	
 	[
 		(file ? 'scripts/' : 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/') + 'jquery.min.js',
-		'scripts/header.js',
 		'scripts/navbar.js',
+		'scripts/header.js',
 		'scripts/content.js',
 	].forEach(function(script)
 	{
@@ -16,8 +16,8 @@
 	
 	[
 		'stylesheet.css',
-		'header.css',
 		'navbar.css',
+		'header.css',
 		'content.css',
 	].forEach(function(sheet)
 	{
