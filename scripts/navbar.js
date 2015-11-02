@@ -22,7 +22,7 @@
 		[
 			new Button('Languages', 'programming/languages.html'),
 			new Button('Lua', 'programming/lua.html'),
-			new Button('JavaScript (ECMAScript)', 'programming/javascript.html'),
+			new Button('JavaScript', 'programming/javascript.html'),
 			new Button('Java', 'programming/java.html'),
 			new Button('Ruby', 'programming/ruby.html'),
 		]),
@@ -46,17 +46,35 @@
 	
 	$document.ready(function()
 	{
+		/*
+		var base = $('base').attr('href') || '';
+		var matches = base.match(/\.\./g) || [];
+		var reps = matches.length;
+		
+		var patt = ''
+		for (var i = 0; i < reps; i++) patt += '[^\/]+\/';
+		patt += '[^\/]+$';
+		
+		var pageUrl = location.href.match(new RegExp(patt))[0];
+		*/
+		
+		var pageUrl = location.href.match(new RegExp('[^\/]+\/'.repeat((($('base').attr('href') || '').match(/\.\./g) || []).length) + '[^\/]+$'))[0];
+		
 		var pageTitle = $('#page-title').text();
 		
-		$('#content-container').before('<div id="navbar-container"></div>');
+		var $content = $('#content-container')
+		
+		$content.before('<div id="navbar-container"></div>');
 		
 		var makeButton = function(name, href, inMenu)
 		{
 			var buttonType = 'navbar' + (inMenu ? '-menu' : '') + '-button';
-			var selected = (name === pageTitle);
+			var selected = (href === pageUrl);
 			
 			var inside = '<div ' + (selected ? 'id="' + buttonType + '-selected" ' : '') + 'class="' + buttonType + '">' + name + '</div>';
 			if (!selected) inside = '<a href="' + href + '">' + inside + '</a>';
+			
+			if (selected) $content.prepend('<h1 id="page-title">' + name + '</h1>');
 			
 			return inside;
 		}
