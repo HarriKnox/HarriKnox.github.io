@@ -9,7 +9,7 @@
 			<h1 id="page-title">Home</h1>
 			<div>
 				My name is Harrison Knox.
-				I am <span id="age"><noscript>19+</noscript></span> years old and a student at <a href="http://www.calpoly.edu/">Cal Poly</a> majoring in Computer Engineering (CPE).
+				I am <span id="age"><noscript>19+</noscript></span> years old and a <span id="year"></span>student at <a href="http://www.calpoly.edu/">Cal Poly</a> majoring in Computer Engineering (CPE).
 				I am studying in this field to go into robotics and prosthetics.
 			</div>
 			<div>
@@ -26,7 +26,11 @@
 			<div><em>(This site is still under construction. New material is constantly being added.)</em></div>
 			<script>
 				var now = new Date();
-				document.getElementById("age").innerHTML = now.getFullYear() - 1996 - ((now.getMonth() == 0 && now.getDate() < 11) ? 1 : 0);
+				var year = now.getFullYear();
+				var month = now.getMonth();
+				var date = now.getDate();
+				document.getElementById("age").innerHTML = year - 1996 - ((month == 0 && date < 11) ? 1 : 0);
+				document.getElementById("year").innerHTML = ["first", "second", "third", "fourth", "fifth"][year - 2014 - ((month < 6) ? 1 : 0)] + "-year ";
 			</script>
 		</div>
 	</body>
