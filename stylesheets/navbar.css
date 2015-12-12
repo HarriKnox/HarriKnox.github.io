@@ -2,6 +2,7 @@
 {
 	background-color:#000050;
 	text-decoration:none;
+	padding:4px;
 	margin:0px -10px;
 	top:0px;
 	color:#ffffff;
@@ -10,7 +11,7 @@
 .navbar-button
 {
 	padding:1em;
-	margin:2px;
+	margin-right:2px;
 	display:inline-block;
 	background-color:#151560;
 	cursor:pointer;
