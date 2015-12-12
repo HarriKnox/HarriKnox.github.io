@@ -21,6 +21,7 @@
 		new Menu('Programming',
 		[
 			new Button('Languages', 'programming/languages.html'),
+			new Button('Clojure', 'programming/clojure.html'),
 			new Button('Lua', 'programming/lua.html'),
 			new Button('JavaScript', 'programming/javascript.html'),
 			new Button('Java', 'programming/java.html'),
