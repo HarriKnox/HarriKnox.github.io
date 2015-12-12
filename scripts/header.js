@@ -6,7 +6,9 @@
 	var getSplash = function(pageTitle)
 	{
 		var now = new Date();
-		var today = (now.getMonth() + 1) * 100 + now.getDate();
+		var month = now.getMonth();
+		var date = now.getDate();
+		var today = (month + 1) * 100 + date;
 		
 		if (today === 111) return 'Happy Birthday Harri!';
 		if (today === 1008) return 'Happy Birthday Courtney!';
@@ -27,6 +29,7 @@
 			'Made from scratch',
 			'Made in California',
 			'Call me Harri',
+			'I am the one who Knox',
 			'Powered by jQuery',
 			'Powered by electrons',
 			'Now available in English',
@@ -39,13 +42,20 @@
 			'Goal-oriented',
 			'Object-oriented',
 			'Learning <a href="http://clojure.org/">Clojure</a>',
+			'A Googol is Ten Duotrigintillion',
 			'Think with your lambdas',
+			'Think with your closures',
 			'&#955;',
 			'Contains long-winded essays',
+			'Warning: contains opinions',
 			'Don\'t deny it,<br />you were reading this',
-			'Ask about the<br />color ' + (function(color) { return '<span style="color:' + color + ';">' + color + '</span>'; })(pickRandom(['Green', 'Goldenrod', 'Blue', 'Purple', 'Brown', 'Orange', 'Black',])),
-			'Today is ' + ['January', 'February', 'March', 'April' , 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][Math.floor(today / 100) - 1] + " " + (today % 100),
+			'Today is ' + ['January', 'February', 'March', 'April' , 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][month] + " " + (date),
 		];
+		
+		['Green', 'Goldenrod', 'Blue', 'Purple', 'Brown', 'Orange', 'Black',].forEach(function(color)
+		{
+			splashes.push('Ask about the<br />color <span style="color:' + color + ';">' + color + '</span>');
+		});
 		
 		if (now.getDay() === 3) splashes.push('It\'s Tuesday');
 		
