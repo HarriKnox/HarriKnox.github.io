@@ -56,11 +56,12 @@
 		for (var i = 0; i < reps; i++) patt += '[^\/]+\/';
 		patt += '[^\/]+$';
 		
-		var urlMatch = location.href.match(new RegExp(patt)) || [''];
+		var urlSansQuery = local.href.match(/^[^?]+/);
+		var urlMatch = urlSansQuery[0].match(new RegExp(patt)) || [''];
 		var pageUrl = urlMatch[0];
 		*/
 		
-		var pageUrl = (location.href.match(new RegExp('[^\/]+\/'.repeat((($('base').attr('href') || '').match(/\.\./g) || []).length) + '[^\/]+$')) || [''])[0];
+		var pageUrl = (location.href.match(/^[^?]+/)[0].match(new RegExp('[^\/]+\/'.repeat((($('base').attr('href') || '').match(/\.\./g) || []).length) + '[^\/?]+$')) || [''])[0];
 		
 		var $content = $('#content-container')
 		
