@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<base href="..">
+		<script src="scripts/loadScripts.js"></script>
+	</head>
+	<body>
+		<noscript>JavaScript must be enabled to view this website in all its beauty. Click the script button in the right side of your address bar to allow JavaScript. Fear not, this site does not use harmful scripts to steal your identity or take over your computer. JavaScript is used purely for formatting this site. You can still view the content below, but some elements may not be formatted correctly.</noscript>
+		<div id="content-container">
+			<div>
+				<em>
+					(Note: This page, and this whole site for that matter, uses the American numbering system, also called <a href="https://en.wikipedia.org/wiki/Long_and_short_scales">the short scale for large numbers</a>.
+					In the 21<sup>st</sup> century you wouldn't think this would be a problem, but a large part of the world use the long scale, a modified short scale, or some other naming system altogether.
+					Just for clarity, a trillion is 10<sup>12</sup> and not 10<sup>18</sup>.)
+				</em>
+			</div>
+			<div>
+				Big numbers are a fantastic study in mathematics.
+				Numbers themselves are quite weird: they are an abstract concept that we can visualize concretely.
+				If I say "seven" it really doesn't mean anything, but you might picture seven amorphous blobs in your head.
+				If I say "seven is greater than two" you nod because your abstraction-comprehending brain-matter understands my assertion.
+				If I show you a bowl with seven balls and a bowl with two balls, your concrete brain can understand the one with seven has more.
+				Abstraction is sometimes difficult to understand because the idea is (excuse my circular logic) abstract, but the lack of a physical object makes big numbers more fun; as numbers get bigger, they start to break our understanding of this simple concept called counting.
+			</div>
+			<div>
+				Thinking of ten or a hundred people is somewhat easy; you could probably name that many people if you saw their faces.
+				Counting to larger numbers, though, gets a bit tricky.
+				A hundred groups of a hundred people each is a little harder to imagine, but that's ten thousand people, about a thousand less than the number of Cal Poly students in Spanos Stadium watching their men's soccer team beat UCSB's soccer team.
+				Counting to even larger numbers becomes more mind-boggling: a hundred Spanos Stadiums filled with excited Cal Poly students is hard to visualize, and that's only a million.
+			</div>
+			<div>
+				You may have seen a million discrete objects: a standard 1080p monitor has about two million pixels which is pretty easy to see collectively.
+				But, you have never seen a billion discrete objects, so picturing a billion things at once is near impossible.
+				We know there are about a trillion stars in the Andromeda galaxy, but we can't accurately imagine that.
+				All these big numbers are abstract, but even when abstract, big numbers are still pretty neat.
+			</div>
+			<div>
+				<h2>Naming</h2>
+				One particular topic of interest I took in big numbers is their naming scheme.
+				Most people are familiar with the smaller of the big number names, usually through economics: names like million, billion, and trillion.
+				But once you get to a decillion, what comes after that?
+				In the real world you wouldn't ever have to worry about numbers getting that large, and even in math and science where there are large numbers they just normalize them and multiply by an exponent (6.022 x 10<sup>23</sup>).
+				Normalized numbers, however, are boring: they don't have any real weight that makes them impressive; <em>10<sup>12</sup> stars in the Andromeda galaxy</em> doesn't sound as good as <em>a trillion stars</em> and <em>6 x 10<sup>23</sup></em> doesn't sound as good as <em>six hundred sextillion</em>.
+			</div>
+			<div>
+				This is why we leave the realm of bland scientific notation and enter into the world of ridiculous and impractically large number names.
+				There are many <a href="https://en.wikipedia.org/wiki/Names_of_large_numbers">systems for naming large numbers</a>, but the one I quite like is John H Conway's and Richard K Guy's system as defined in their book "<a href="https://books.google.com/books/about/The_Book_of_Numbers.html?id=0--3rcO7dMYC">The Book of Numbers</a>".
+				Using Conway and Guy's system, one could properly identify the tresviginticentillisesquinquagintaquadringentillion (which is a 1 followed by 370'371 zeros).
+			</div>
+			<div>
+				Conway and Guy's system works for any integer with any number of digits.
+				The name for a big number is based on its <em>group-number</em> which is, in layman's terms, one less than the number of three-digit groups after the first digit: for example, 7'<strong>111</strong>'<strong>222</strong>'<strong>333</strong>'<strong>444</strong> has 4 three-digit groups after the first digit, so its group-number is 3.
+			</div>
+			<div>
+				More mathematically speaking, the group-number for a large number <em>M</em> is an integer <em>n</em> such that <span class="grouped">10<sup>3<em>n</em> + 3</sup> &le; <em>M</em></span> and <span class="grouped">10<sup>3(<em>n</em>+1) + 3</sup> &gt; <em>M</em>.</span>
+				Million has the group-number 1 because 10<sup>3 + 3</sup> = 10<sup>6</sup> equals a million.
+				From there, group-numbers follow a linear pattern: Billion has group-number 2, Trillion has 3, Quadrillion has 4, Octillion has 8, etc.
+				Thousand is the only odd name since its group-number is 0 <span class="grouped">(10<sup>0+3</sup> = 10<sup>3</sup></span> = 1'000).
+				If you think it's odd there is a 3 being added in the exponent, blame Thousand: if Thousand didn't exist and one million was 1'000 and one billion was 1'000'000, then the group-number would just be the number of three-digit groups with no addition mumbo-jumbo.
+			</div>
+			<div>
+				Now you know how to get the group-number for any large number.
+				Pop quiz: What is the group-number for 808'111'222'333'444'555'666'777?
+				Spoiler alert, it's 6: after the first 8, there are seven groups.
+				
+			</div>
+		</div>
+	</body>
+</html>
