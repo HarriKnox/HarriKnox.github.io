@@ -13,6 +13,25 @@ ul, ol, h1, h2, h3, h4, h5, h6
 	margin:0px;
 }
 
+table
+{
+	border-collapse:collapse;
+}
+
+th, td
+{
+	border-width:1px;
+	border-style:solid;
+	border-color:black;
+	padding-left:2px;
+	padding-right:2px;
+}
+
+iframe
+{
+	border-width:0px;
+}
+
 code, pre
 {
 	background-color:#f0f0f0;
