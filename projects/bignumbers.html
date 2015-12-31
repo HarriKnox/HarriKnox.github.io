@@ -3,6 +3,18 @@
 	<head>
 		<base href="..">
 		<script src="scripts/loadScripts.js"></script>
+		<style>
+			#names td.modcells
+			{
+				border-right:0px;
+				font-size:0.75em;
+			}
+			
+			#names td.namecells
+			{
+				border-left:0px;
+			}
+		</style>
 	</head>
 	<body>
 		<noscript>JavaScript must be enabled to view this website in all its beauty. Click the script button in the right side of your address bar to allow JavaScript. Fear not, this site does not use harmful scripts to steal your identity or take over your computer. JavaScript is used purely for formatting this site. You can still view the content below, but some elements may not be formatted correctly.</noscript>
@@ -43,13 +55,13 @@
 				Normalized numbers, however, are boring: they don't have any real weight that makes them impressive; <em>10<sup>12</sup> stars in the Andromeda galaxy</em> doesn't sound as good as <em>a trillion stars</em> and <em>6 x 10<sup>23</sup></em> doesn't sound as good as <em>six hundred sextillion</em>.
 			</div>
 			<div>
-				This is why we leave the realm of bland scientific notation and enter into the world of ridiculous and impractically large number names.
+				This is why we leave the realm of bland scientific notation and enter into the world of ridiculous and impractical large number names.
 				There are many <a href="https://en.wikipedia.org/wiki/Names_of_large_numbers">systems for naming large numbers</a>, but the one I quite like is John H Conway's and Richard K Guy's system as defined in their book "<a href="https://books.google.com/books/about/The_Book_of_Numbers.html?id=0--3rcO7dMYC">The Book of Numbers</a>".
 				Using Conway and Guy's system, one could properly identify the tresviginticentillisesquinquagintaquadringentillion (which is a 1 followed by 370'371 zeros).
 			</div>
 			<div>
 				Conway and Guy's system works for any integer with any number of digits.
-				The name for a big number is based on its <em>group-number</em> which is, in layman's terms, one less than the number of three-digit groups after the first digit: for example, 7'<strong>111</strong>'<strong>222</strong>'<strong>333</strong>'<strong>444</strong> has 4 three-digit groups after the first digit, so its group-number is 3.
+				The name for a big number is based on its <em>group-number</em> which is, in layman's terms, one less than the number of three-digit groups after the first digit: for example, 807'<strong>111</strong>'<strong>222</strong>'<strong>333</strong>'<strong>444</strong> has 4 three-digit groups after the first 8, so its group-number is 3.
 			</div>
 			<div>
 				More mathematically speaking, the group-number for a large number <em>M</em> is an integer <em>n</em> such that <span class="grouped">10<sup>3<em>n</em> + 3</sup> &le; <em>M</em></span> and <span class="grouped">10<sup>3(<em>n</em>+1) + 3</sup> &gt; <em>M</em>.</span>
@@ -59,10 +71,28 @@
 				If you think it's odd there is a 3 being added in the exponent, blame Thousand: if Thousand didn't exist and one million was 1'000 and one billion was 1'000'000, then the group-number would just be the number of three-digit groups with no addition mumbo-jumbo.
 			</div>
 			<div>
-				Now you know how to get the group-number for any large number.
-				Pop quiz: What is the group-number for 808'111'222'333'444'555'666'777?
-				Spoiler alert, it's 6: after the first 8, there are seven groups.
-				
+				You know how to get the group-number for any large number, now what?
+				We will use the digits of the group-number and Latin prefixes to construct the group-name.
+				Given a group-number, split the group-number into the standard three digit groups: for example, 12'345 would be split into 012 and 345 (I added the 0 to make it a group of three).
+				For each subgroup, the names associated to the values of the ones, tens, and hundreds are combined to produce that subgroup's name, then the names for all subgroups are combined to produce the name for that group-number.
+			</div>
+			<div style="overflow:auto;">
+				<table id="names">
+					<thead>
+						<tr><th>Digit</th> <th>Solo Ones</th> <th>Ones</th>     <th colspan="2">Tens</th>                                           <th colspan="2">Hundreds</th>   </tr>
+					</thead>
+					<tbody>
+						<tr><td>1</td>     <td>mi</td>        <td>un</td>       <td class="modcells">n</td> <td class="namecells">deci</td>         <td class="modcells">nx</td><td class="namecells">centi</td>        </tr>
+						<tr><td>2</td>     <td>bi</td>        <td>duo</td>      <td class="modcells">ms</td><td class="namecells">viginti</td>      <td class="modcells">n</td> <td class="namecells">ducenti</td>      </tr>
+						<tr><td>3</td>     <td>tri</td>       <td>tre</td>      <td class="modcells">ns</td><td class="namecells">triginta</td>     <td class="modcells">ns</td><td class="namecells">trecenti</td>     </tr>
+						<tr><td>4</td>     <td>quadri</td>    <td>quattuor</td> <td class="modcells">ns</td><td class="namecells">quadraginta</td>  <td class="modcells">ns</td><td class="namecells">quadringenti</td> </tr>
+						<tr><td>5</td>     <td>quinti</td>    <td>quinqua</td>  <td class="modcells">ns</td><td class="namecells">quinquaginta</td> <td class="modcells">ns</td><td class="namecells">quingenti</td>    </tr>
+						<tr><td>6</td>     <td>sexti</td>     <td>se</td>       <td class="modcells">n</td> <td class="namecells">sexaginta</td>    <td class="modcells">n</td> <td class="namecells">sescenti</td>     </tr>
+						<tr><td>7</td>     <td>septi</td>     <td>septe</td>    <td class="modcells">n</td> <td class="namecells">septuaginta</td>  <td class="modcells">n</td> <td class="namecells">septingenti</td>  </tr>
+						<tr><td>8</td>     <td>octi</td>      <td>octo</td>     <td class="modcells">mx</td><td class="namecells">octoginta</td>    <td class="modcells">mx</td><td class="namecells">octingenti</td>   </tr>
+						<tr><td>9</td>     <td>noni</td>      <td>nove</td>     <td class="modcells"></td>  <td class="namecells">nonaginta</td>    <td class="modcells"></td>  <td class="namecells">nongenti</td>     </tr>
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</body>
