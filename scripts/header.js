@@ -14,7 +14,6 @@
 		if (today === 1008) return 'Happy Birthday Courtney!';
 		if (today === 1016) return 'Happy Anniversary Courtney!';
 		if (today === 126) return '<div style="transform:rotate(180deg);-ms-transform:rotate(180deg);-webkit-transform:rotate(180deg);">Happy Australia Day!</div>';
-		if (today >= 1200) return 'Happy &lt;insert holiday here&gt;!';
 		if (today === 101) return 'Happy New Year!';
 		if (today === 401) return 'Fooled you!';
 		if (today === 704) return '<span style="color:red;">Happy</span> <span style="color:white;text-shadow:0px -1px 1px black,1px -1px 1px black,1px 1px 1px black,-1px 0px 1px black,0px 1px 1px black,1px 0px 1px black,-1px -1px 1px black,-1px 1px 1px black;">4th of</span> <span style="color:blue">July!</span>';
@@ -37,6 +36,7 @@
 			'<span style="color:orange;">Orange</span> <span style="color:orangered;">OrangeRed</span> <span style="color:red;">Red</span>',
 			'Fork me on <a href="https://github.com/HarriKnox">GitHub</a>',
 			(IS_LOCAL ? 'Doesn\'t require<br/>' : 'Requires ') + 'internet access',
+			'Error 404: Splash not found',
 			'Ad-free',
 			'Open source',
 			'Goal-oriented',
@@ -51,6 +51,17 @@
 			'Don\'t deny it,<br />you were reading this',
 			'Today is ' + ['January', 'February', 'March', 'April' , 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][month] + " " + (date),
 		];
+		
+		if (today >= 1200)
+		{
+			var messages = ['Happy &lt;insert holiday here&gt;!', 'Happy Holidays!', 'Happy Nondenominational<br>Winter Themed Month']
+			if (!document.cookie.match(/december=true/))
+			{
+				document.cookie = "december=true;path=/";
+				return pickrandom(messages);
+			}
+			messages.forEach(function(message) { splashes.push(message); });
+		}
 		
 		['Green', 'Goldenrod', 'Blue', 'Purple', 'Brown', 'Orange', 'Black',].forEach(function(color)
 		{
