@@ -58,7 +58,7 @@
 			if (!document.cookie.match(/december=true/))
 			{
 				document.cookie = "december=true;path=/";
-				return pickrandom(messages);
+				return pickRandom(messages);
 			}
 			messages.forEach(function(message) { splashes.push(message); });
 		}
