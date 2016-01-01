@@ -60,27 +60,36 @@
 				Using Conway and Guy's system, one could properly identify the tresviginticentillisesquinquagintaquadringentillion (which is a 1 followed by 370'371 zeros).
 			</div>
 			<div>
-				<h3>Group-numbers</h3>
-				Conway and Guy's naming system works for any integer with any number of digits.
-				The name for a big number is based on its <em>group-number</em> which is, in layman's terms, one less than the number of three-digit groups after the first digit.
-				For example, 807'<strong>111</strong>'<strong>222</strong>'<strong>333</strong>'<strong>444</strong> has 4 three-digit groups after the first 8, so its group-number is 3.
+				<h3>Groups</h3>
+				At the core of naming numbers is the digit grouping.
+				In the American English system we divide our big numbers into groups of three digits starting from the ones place.
+				Usually these numbers are separated by commas (1,234,567) but I prefer to use apostrophes (1'234'567); just a matter of taste.
+				Each of these groups is given a group-name: the group on the far right (1'234'<strong>567</strong>) has no group-name; the group to the left of that (1'<strong>234</strong>'567) has the group-name "Thousand"; the group to the left of <em>that</em> (<strong>1</strong>'234'567) has the group-name "Million"; etc.
+				To get the name of a digit group, we use the name of the inner number and add the group-name after: the 234 in 1'234'567 becomes <em>two hundred thirty-four thousand</em>.
+				To get the name of a big number, we take all the names for all the digit groups and string them together in order from biggest to smallest: 1'234'567 becomes <em>one million, two hundred thirty-four thousand, five hundred sixty-seven</em>.
+			</div>
+			<div>
+				That was the basic system for converting a number from numerals to words, but you still don't know what comes after a decillion.
+				Luckily, Conway and Guy's naming system works for any integer with any number of digits, long after decillions and centillions.
+				For big numbers a digit group's group-name is based on its <em>group-number</em> which is, in layman's terms, one less than the number of three-digit groups after it.
+				For example, 807'<strong>111</strong>'<strong>222</strong>'<strong>333</strong>'<strong>444</strong> has 4 three-digit groups after the 807, so the 807's group-number is 3, which corresponds to "trillion".
 			</div>
 			<div>
 				More mathematically speaking, the group-number for a large number <em>M</em> is an integer <em>n</em> such that <span class="grouped">10<sup>3<em>n</em> + 3</sup> &le; <em>M</em></span> and <span class="grouped">10<sup>3(<em>n</em>+1) + 3</sup> &gt; <em>M</em>.</span>
 				Million has the group-number 1 because 10<sup>3 + 3</sup> = 10<sup>6</sup> equals a million.
 				From there, group-numbers follow a linear pattern: Billion has group-number 2, Trillion has 3, Quadrillion has 4, Octillion has 8, etc.
 				Thousand is the only odd name since it doesn't end with 'illion' and its group-number is 0 <span class="grouped">(10<sup>0+3</sup> = 10<sup>3</sup></span> = 1'000).
-				If you think it's odd there is a 3 being added in the exponent, blame Thousand: if Thousand didn't exist and one million was 1'000 and one billion was 1'000'000, then the group-number would just be the number of three-digit groups with no addition mumbo-jumbo.
+				If you think it's odd there is a 3 being added in the exponent, blame Thousand: if Thousand didn't exist and one million was 1'000 and one billion was 1'000'000, then the group-number would just be the number of three-digit groups with no addition/subtraction mumbo-jumbo.
 			</div>
 			<div>
 				You know how to get the group-number for any large number, now what?
 				We will use the digits of the group-number and Latin prefixes to construct the group-name.
-				Given a group-number, split the group-number into the standard three digit groups: for example, 12'345 would be split into 012 and 345 (I added the 0 to make it a group of three).
-				For each subgroup, the names associated to the values of the ones, tens, and hundreds are combined to produce that subgroup's name; then the names for all subgroups are combined to produce the name for that group-number.
+				Like we used the digits in groups of the big number to get the names of the digit groups, we use the digits in groups of the group-number to get the group-name associated with that group-number.
+				It's all confusing with all this English but once you see the math it will be easier to understand.
 			</div>
 			<div>
 				<h3>Constructing a Name</h3>
-				Constructing a name uses the following table.
+				The construction of a name uses the following table.
 				I will explain all parts of the table and process as well as provide examples to ensure there is no confusion.
 				First, observe the table.
 				On the left are the digit values from 0 to 9 and to the right of them are the names for each digit if it was in the ones, tens, or hundreds spot.
