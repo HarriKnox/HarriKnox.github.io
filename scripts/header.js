@@ -37,6 +37,7 @@
 			'Fork me on <a href="https://github.com/HarriKnox">GitHub</a>',
 			(IS_LOCAL ? 'Doesn\'t require<br/>' : 'Requires ') + 'internet access',
 			'Error 404: Splash not found',
+			'Lorem ipsum dolor sit amet',
 			'Ad-free',
 			'Open source',
 			'Goal-oriented',
