@@ -4,16 +4,10 @@
 		<base href="..">
 		<script src="scripts/loadScripts.js"></script>
 		<style>
-			td.modcells
-			{
-				border-right:0px;
-				font-size:0.75em;
-			}
-			
-			td.namecells
-			{
-				border-left:0px;
-			}
+			td.modcell { border-right:0px; font-size:0.75em; }
+			td.namecell { border-left:0px; }
+			tr.top td { border-top-width:2px; }
+			.examples td, .examples th { border-width:0px; }
 		</style>
 	</head>
 	<body>
@@ -65,10 +59,14 @@
 				In the American English system we divide our big numbers into groups of three digits starting from the ones place.
 				Usually these numbers are separated by commas (1,234,567) but I prefer to use apostrophes (1'234'567); just a matter of taste.
 				Each of these groups is given a group-name: the group on the far right (1'234'<strong>567</strong>) has no group-name; the group to the left of that (1'<strong>234</strong>'567) has the group-name "Thousand"; the group to the left of <em>that</em> (<strong>1</strong>'234'567) has the group-name "Million"; etc.
-				To get the name of a digit group, we use the name of the inner number and add the group-name after: the 234 in 1'234'567 becomes <em>two hundred thirty-four thousand</em>.
-				To get the name of a big number, we take all the names for all the digit groups and string them together in order from biggest to smallest: 1'234'567 becomes <em>one million, two hundred thirty-four thousand, five hundred sixty-seven</em>.
 			</div>
 			<div>
+				<h4>Converting a Number to Words</h4>
+				To get the name of a digit group, we use the name of the inner number (as if it were its own number) and attach the group-name after: the 234 in 1'234'567 becomes <em>two hundred thirty-four thousand</em>.
+				To get the name of a number, we take all the names for all the digit groups and string them together in order from biggest to smallest: 1'234'567 becomes <em>one million, two hundred thirty-four thousand, five hundred sixty-seven</em>.
+			</div>
+			<div>
+				<h4>Conway and Guy's System</h4>
 				That was the basic system for converting a number from numerals to words, but you still don't know what comes after a decillion.
 				Luckily, Conway and Guy's naming system works for any integer with any number of digits, long after decillions and centillions.
 				For big numbers a digit group's group-name is based on its <em>group-number</em> which is, in layman's terms, one less than the number of three-digit groups after it.
@@ -88,28 +86,84 @@
 				It's all confusing with all this English but once you see the math it will be easier to understand.
 			</div>
 			<div>
-				<h3>Constructing a Name</h3>
-				The construction of a name uses the following table.
-				I will explain all parts of the table and process as well as provide examples to ensure there is no confusion.
-				First, observe the table.
-				On the left are the digit values from 0 to 9 and to the right of them are the names for each digit if it was in the ones, tens, or hundreds spot.
+				<h3>Constructing a Group-Name</h3>
+				The construction of a group-name uses the following table.
+				First, observe the table and see that on the left are the digit values from 0 to 9, and to the right of them are the names for each digit depending on its spot in the digit group of the group number.
 			</div>
 			<div style="overflow:auto;">
 				<table>
 					<thead>
-						<tr><th>Digit</th> <th>Solo Ones</th> <th>Ones</th>       <th colspan="2">Tens</th>                                           <th colspan="2">Hundreds</th>   </tr>
+						<tr><th>Digit</th> <th>Solo Ones</th> <th>Ones</th>       <th colspan=2>Tens</th>                                           <th colspan=2>Hundreds</th>   </tr>
 					</thead>
 					<tbody>
-						<tr><td>0</td>     <td>ni</td>        <td></td>           <td class="modcells"></td>  <td class="namecells"></td>             <td class="modcells"></td>  <td class="namecells"></td>             </tr>
-						<tr><td>1</td>     <td>mi</td>        <td>un</td>         <td class="modcells">n</td> <td class="namecells">deci</td>         <td class="modcells">nx</td><td class="namecells">centi</td>        </tr>
-						<tr><td>2</td>     <td>bi</td>        <td>duo</td>        <td class="modcells">ms</td><td class="namecells">viginti</td>      <td class="modcells">n</td> <td class="namecells">ducenti</td>      </tr>
-						<tr><td>3</td>     <td>tri</td>       <td>tre(s)</td>     <td class="modcells">ns</td><td class="namecells">triginta</td>     <td class="modcells">ns</td><td class="namecells">trecenti</td>     </tr>
-						<tr><td>4</td>     <td>quadri</td>    <td>quattuor</td>   <td class="modcells">ns</td><td class="namecells">quadraginta</td>  <td class="modcells">ns</td><td class="namecells">quadringenti</td> </tr>
-						<tr><td>5</td>     <td>quinti</td>    <td>quinqua</td>    <td class="modcells">ns</td><td class="namecells">quinquaginta</td> <td class="modcells">ns</td><td class="namecells">quingenti</td>    </tr>
-						<tr><td>6</td>     <td>sexti</td>     <td>se(s/x)</td>    <td class="modcells">n</td> <td class="namecells">sexaginta</td>    <td class="modcells">n</td> <td class="namecells">sescenti</td>     </tr>
-						<tr><td>7</td>     <td>septi</td>     <td>septe(m/n)</td> <td class="modcells">n</td> <td class="namecells">septuaginta</td>  <td class="modcells">n</td> <td class="namecells">septingenti</td>  </tr>
-						<tr><td>8</td>     <td>octi</td>      <td>octo</td>       <td class="modcells">mx</td><td class="namecells">octoginta</td>    <td class="modcells">mx</td><td class="namecells">octingenti</td>   </tr>
-						<tr><td>9</td>     <td>noni</td>      <td>nove(m/n)</td>  <td class="modcells"></td>  <td class="namecells">nonaginta</td>    <td class="modcells"></td>  <td class="namecells">nongenti</td>     </tr>
+						<tr><td>0</td>     <td>ni</td>        <td></td>           <td class="modcell"></td>  <td class="namecell"></td>             <td class="modcell"></td>  <td class="namecell"></td>             </tr>
+						<tr><td>1</td>     <td>mi</td>        <td>un</td>         <td class="modcell">n</td> <td class="namecell">deci</td>         <td class="modcell">nx</td><td class="namecell">centi</td>        </tr>
+						<tr><td>2</td>     <td>bi</td>        <td>duo</td>        <td class="modcell">ms</td><td class="namecell">viginti</td>      <td class="modcell">n</td> <td class="namecell">ducenti</td>      </tr>
+						<tr><td>3</td>     <td>tri</td>       <td>tre(s)</td>     <td class="modcell">ns</td><td class="namecell">triginta</td>     <td class="modcell">ns</td><td class="namecell">trecenti</td>     </tr>
+						<tr><td>4</td>     <td>quadri</td>    <td>quattuor</td>   <td class="modcell">ns</td><td class="namecell">quadraginta</td>  <td class="modcell">ns</td><td class="namecell">quadringenti</td> </tr>
+						<tr><td>5</td>     <td>quinti</td>    <td>quinqua</td>    <td class="modcell">ns</td><td class="namecell">quinquaginta</td> <td class="modcell">ns</td><td class="namecell">quingenti</td>    </tr>
+						<tr><td>6</td>     <td>sexti</td>     <td>se(s/x)</td>    <td class="modcell">n</td> <td class="namecell">sexaginta</td>    <td class="modcell">n</td> <td class="namecell">sescenti</td>     </tr>
+						<tr><td>7</td>     <td>septi</td>     <td>septe(m/n)</td> <td class="modcell">n</td> <td class="namecell">septuaginta</td>  <td class="modcell">n</td> <td class="namecell">septingenti</td>  </tr>
+						<tr><td>8</td>     <td>octi</td>      <td>octo</td>       <td class="modcell">mx</td><td class="namecell">octoginta</td>    <td class="modcell">mx</td><td class="namecell">octingenti</td>   </tr>
+						<tr><td>9</td>     <td>noni</td>      <td>nove(m/n)</td>  <td class="modcell"></td>  <td class="namecell">nonaginta</td>    <td class="modcell"></td>  <td class="namecell">nongenti</td>     </tr>
+					</tbody>
+				</table>
+			</div>
+			<div>
+				The process for finding the corresponding group-name for a group-number is the same as the process described earlier of converting a number from numerals to words: split the group-number into digit groups, get the name of each digit group, and string them all together, except this time we use the Latin names instead of the number's actual English names.
+			</div>
+			<div>
+				<h4>Rules for Construction</h4>
+				To get the name of a digit group, you take the Latin names for the ones digit, the tens digit, and the hundreds digit and conjoin them in that order.
+				If in a digit group the tens and hundreds are both 0, then use the name for the ones under the "Solo Ones" column, otherwise use the name for the ones under the "Ones" column; you would not say "unillion" instead of "million", but you wouldn't say "midecillion" instead of "undecillion".
+				If the group-number has more than one digit group (the group number is 1'000 or more), then for each digit group except the last group you replace the last vowel of the name with "illi"; for the very last group you replace the last vowel with "illion".
+				If the ones digit has a letters in parentheses and the next name to be added next has one of the letters in the small letters before it in the table, you place that shared letter between the two: if the ones digit is 3, you place an "s" if the next name has either "s" or "x" before it in the small letters.
+			</div>
+			<div>
+				Here are the rules in a concise list:
+				<ol>
+					<li>Use the table with values for ones, tens, and hundreds digits of the digit group of a group-number to get digit group's name</li>
+					<li>If both tens and hundreds are 0, use name in "Solo Ones" column</li>
+					<li>If group-number has more than one digit group, use "illion" for the last group and "illi" for the ones before</li>
+					<li>If the ones name has a letter in parentheses and the next name has that letter before it in the table, put that letter between the names</li>
+				</ol>
+			</div>
+			<div>
+				The last rule is done to remove ambiguity between some group-names.
+				Without those "filler letters", notice how group-number 103 would have "tre" + "centi" to produce "trecenti", but group-number 300 is already "trecenti".
+				Also note that "octo" does not have a filler letter, so "octooctogintillion" is the correct name for group-number 88.
+			</div>
+			<div>
+				<h4>Examples</h4>
+				The following is a table demonstrating the process behind constructing the group-name for various group-numbers.
+				The numbers were selected to demonstrate the various rules and relieve any confusion.
+			</div>
+			<div style="overflow:auto">
+				<table class="examples">
+					<thead>
+						<tr><th>Group-number</th><th>Ones</th><th>Tens</th><th>Hundreds</th><th>Replacement</th><th>Result</th></tr>
+					</thead>
+					<tbody>
+						<tr class="top"><td>824</td><td>quattuor</td><td>viginta</td><td>octingenti</td><td>illion</td><td>quattuorvigintaocingentillion</td></tr>
+						
+						<tr class="top"><td rowspan=2>75'930</td><td>quinqua</td><td>septuaginta</td><td></td><td>illi</td><td rowspan=2>quinquaseptuagintillitrigintanongentillion</td></tr>
+						<tr><!--75'930--><td></td><td>triginta</td><td>nongenti</td><td>illion</td></tr>
+						
+						<tr class="top"><td>88</td><td>octo</td><td>octoginta</td><td></td><td>illion</td><td>octooctogintillion</td></tr>
+						
+						<tr class="top"><td>36</td><td>ses</td><td>triginta</td><td></td><td>illion</td><td>sestrigintillion</td></tr>
+						
+						<tr class="top"><td rowspan=2>4'050</td><td>quadri</td><td></td><td></td><td>illi</td><td rowspan=2>quadrilliquinquagintillion</td></tr>
+						<tr><!--4'050--><td></td><td>quinquaginta</td><td></td><td>illion</td></tr>
+						
+						<tr class="top"><td rowspan=3>32'000'106</td><td>duo</td><td>triginta</td><td></td><td>illi</td><td rowspan=3>duotrigintillinillisexcentillion</td></tr>
+						<tr><!--32'000'106--><td>ni</td><td></td><td></td><td>illi</td></tr>
+						<tr><!--32'000'106--><td>sex</td><td></td><td>centi</td><td>illion</td></tr>
+						
+						<tr class="top"><td rowspan=2>106'600</td><td>sex</td><td></td><td>centi</td><td>illi</td><td rowspan=2>sexcentillisescentillion</td></tr>
+						<tr><!--106'600--><td></td><td></td><td>sescenti</td><td>illion</td></tr>
+						
+						<tr class="top"><td>357</td><td>septen</td><td>quinquaginta</td><td>trecenti</td><td>illion</td><td>septenquinquagintatrecentillion</td></tr>
 					</tbody>
 				</table>
 			</div>
