@@ -38,6 +38,7 @@
 			(IS_LOCAL ? 'Doesn\'t require<br/>' : 'Requires ') + 'internet access',
 			'Error 404: Splash not found',
 			'Lorem ipsum dolor sit amet',
+			'At a loss for words',
 			'Ad-free',
 			'Open source',
 			'Goal-oriented',
