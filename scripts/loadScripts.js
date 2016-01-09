@@ -5,7 +5,7 @@
 	document.write('<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">');
 	
 	[
-		(file ? 'scripts/' : 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/') + 'jquery.min.js',
+		(file ? 'scripts/' : '//ajax.googleapis.com/ajax/libs/jquery/1.11.3/') + 'jquery.min.js',
 		'scripts/navbar.js',
 		'scripts/header.js',
 		'scripts/content.js',
