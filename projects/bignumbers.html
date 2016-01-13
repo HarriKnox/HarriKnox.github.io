@@ -3,7 +3,7 @@
 	<head>
 		<base href="..">
 		<script src="scripts/loadScripts.js"></script>
-		<script type="text/javascript" src="https://raw.githubusercontent.com/HarriKnox/IntegerString/master/out/main.js"></script>
+		<script type="text/javascript" src="https://raw.githubusercontent.com/HarriKnox/Number-Name/master/out/main.js"></script>
 		<style>
 			td.modcell { border-right:0px; font-size:0.75em; }
 			td.namecell { border-left:0px; }
@@ -188,12 +188,12 @@
 						{
 							try
 							{
-								result = io.harriknox.IntegerString.illion_group_name(value);
+								result = io.harriknox.NumberName.illion_group_name(value);
 							}
 							catch (e)
 							{
 								result = '<span style="color:red;font-weight:bold;">Error: ';
-								if (typeof io === 'undefined' || typeof io.harriknox === 'undefined' || typeof io.harriknox.IntegerString === 'undefined') result += 'IntegerString could not be loaded';
+								if (typeof io === 'undefined' || typeof io.harriknox === 'undefined' || typeof io.harriknox.NumberName === 'undefined') result += 'Number-Name could not be loaded';
 								else if (value.match(/[^\d\.\-]/)) result += 'Value contains non-numerals';
 								else if (!value.match(/^-?\d+(\.\d+)?$/)) result += 'Value not in number format';
 								else if (value.match(/^-/) || value.match(/^0+$/)) result += 'Value is not positive';
