@@ -176,7 +176,13 @@
 				<button class="group-number-button" type="button" onclick="group_number_button_onclick()">Get Name</button>
 				<div style="word-break:break-all;" class="group-number-result"></div>
 				<script>
-					group_number_button_onclick = function()
+					var notLoaded = typeof io === 'undefined' || typeof io.harriknox === 'undefined' || typeof io.harriknox.NumberName === 'undefined';
+					if (notLoaded)
+					{
+						$('.group-number-result').html('<span style="color:red;font-weight:bold;">Error: Number-Name could not be loaded</span>');
+					}
+					
+					group_number_button_onclick = notLoaded ? function(){} : function()
 					{
 						var value = $('.group-number').val();
 						var result;
