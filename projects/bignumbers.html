@@ -193,7 +193,8 @@
 							catch (e)
 							{
 								result = '<span style="color:red;font-weight:bold;">Error: ';
-								if (value.match(/[^\d\.\-]/)) result += 'Value contains non-numerals';
+								if (typeof io === 'undefined' || typeof io.harriknox === 'undefined' || typeof io.harriknox.IntegerString === 'undefined') result += 'IntegerString could not be loaded';
+								else if (value.match(/[^\d\.\-]/)) result += 'Value contains non-numerals';
 								else if (!value.match(/^-?\d+(\.\d+)?$/)) result += 'Value not in number format';
 								else if (value.match(/^-/) || value.match(/^0+$/)) result += 'Value is not positive';
 								else if (value.match(/\./)) result += 'Value is not an integer';
