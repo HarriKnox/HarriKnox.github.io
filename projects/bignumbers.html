@@ -3,7 +3,7 @@
 	<head>
 		<base href="..">
 		<script src="scripts/loadScripts.js"></script>
-		<script type="text/javascript" src="https://raw.githubusercontent.com/HarriKnox/Number-Name/master/out/main.js"></script>
+		<script src="https://raw.githubusercontent.com/HarriKnox/Number-Name/master/out/main.js"></script>
 		<style>
 			td.modcell { border-right:0px; font-size:0.75em; }
 			td.namecell { border-left:0px; }
@@ -172,46 +172,7 @@
 				All you need to do is put in a group-number and click the button and the resulting group-name will appear in the grey box below.
 			</div>
 			<div>
-				<input class="group-number" onkeydown="if (event.keyCode === 13) $('.group-number-button').click();"/>
-				<button class="group-number-button" type="button" onclick="group_number_button_onclick()">Get Name</button>
-				<div style="word-break:break-all;" class="group-number-result"></div>
-				<script>
-					var notLoaded = typeof io === 'undefined' || typeof io.harriknox === 'undefined' || typeof io.harriknox.NumberName === 'undefined';
-					if (notLoaded)
-					{
-						$('.group-number-result').html('<span style="color:red;font-weight:bold;">Error: Number-Name could not be loaded</span>');
-					}
-					
-					group_number_button_onclick = notLoaded ? function(){} : function()
-					{
-						var value = $('.group-number').val();
-						var result;
-						if (value === "")
-						{
-							result = "<em>The group name will appear here</em>";
-						}
-						else
-						{
-							try
-							{
-								result = io.harriknox.NumberName.illion_group_name(value);
-							}
-							catch (e)
-							{
-								result = '<span style="color:red;font-weight:bold;">Error: ';
-								if (typeof io === 'undefined' || typeof io.harriknox === 'undefined' || typeof io.harriknox.NumberName === 'undefined') result += 'Number-Name could not be loaded';
-								else if (value.match(/[^\d\.\-]/)) result += 'Value contains non-numerals';
-								else if (!value.match(/^-?\d+(\.\d+)?$/)) result += 'Value not in number format';
-								else if (value.match(/^-/) || value.match(/^0+$/)) result += 'Value is not positive';
-								else if (value.match(/\./)) result += 'Value is not an integer';
-								else result += e.message;
-								result += '</span>';
-							}
-						}
-						$('.group-number-result').html(result);
-					}
-					group_number_button_onclick();
-				</script>
+				<script src="scripts/numberNameRectangles.js"></script>
 			</div>
 			<div>
 				<h3>Undecillion comes after Decillion, Now What?</h3>
