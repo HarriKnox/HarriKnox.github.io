@@ -2,20 +2,20 @@
 {
 	$(document).ready(function()
 	{
-		var $groupNumberElement = $('script[src="scripts/numberNameRectangles.js"]');
-		$groupNumberElement.after('<input class="group-number" onkeydown="if (event.keyCode === 13) $(\'.group-number-button\').click();"/>' +
-			'<button class="group-number-button" type="button" onclick="group_number_button_onclick()">Get Name</button>' +
-			'<div style="word-break:break-all;" class="group-number-result"><em>The group name will appear here</em></div>');
+		var $groupNumberElement = $('script[src="scripts/numberNameRectangles/illionGroupName.js"]');
+		$groupNumberElement.after('<input class="illion-group-number" onkeydown="if (event.keyCode === 13) $(\'.illion-group-number-button\').click();"/>' +
+			'<button class="illion-group-number-button" type="button" onclick="illion_group_number_button_onclick()">Get Name</button>' +
+			'<div style="word-break:break-all;" class="illion-group-name-result"><em>The group name will appear here</em></div>');
 		
 		var notLoaded = typeof io === 'undefined' || typeof io.harriknox === 'undefined' || typeof io.harriknox.NumberName === 'undefined';
 		if (notLoaded)
 		{
-			$('.group-number-result').html('<span style="color:red;font-weight:bold;">Error: Number-Name could not be loaded</span>');
+			$('.illion-group-name-result').html('<span style="color:red;font-weight:bold;">Error: Number-Name could not be loaded</span>');
 		}
 		
-		group_number_button_onclick = notLoaded ? function(){} : function()
+		illion_group_number_button_onclick = notLoaded ? function(){} : function()
 		{
-			var value = $('.group-number').val();
+			var value = $('.illion-group-number').val();
 			var result;
 			if (value === "")
 			{
@@ -39,7 +39,7 @@
 					result += '</span>';
 				}
 			}
-			$('.group-number-result').html(result);
+			$('.illion-group-name-result').html(result);
 		};
 	});
 })(jQuery);
