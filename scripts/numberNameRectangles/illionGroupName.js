@@ -2,6 +2,7 @@
 {
 	$(document).ready(function()
 	{
+		console.log("Running illionGroupName");
 		var $groupNumberElement = $('script[src="scripts/numberNameRectangles/illionGroupName.js"]');
 		$groupNumberElement.after('<input class="illion-group-number" onkeydown="if (event.keyCode === 13) $(\'.illion-group-number-button\').click();"/>' +
 			'<button class="illion-group-number-button" type="button" onclick="illion_group_number_button_onclick()">Get Name</button>' +
