@@ -58,6 +58,7 @@
 			'Don\'t deny it,<br />you were reading this',
 			'Made you look',
 			'Today is ' + ['January', 'February', 'March', 'April' , 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][month] + " " + (date),
+			(function(color) { return 'Ask about the<br />color <span style="color:' + color + ';">' + color + '</span>'; })(pickRandom(['Green', 'Goldenrod', 'Blue', 'Purple', 'Brown', 'Orange', 'Black',])),
 		];
 		
 		if (today >= 1200)
@@ -70,11 +71,6 @@
 			}
 			messages.forEach(function(message) { splashes.push(message); });
 		}
-		
-		['Green', 'Goldenrod', 'Blue', 'Purple', 'Brown', 'Orange', 'Black',].forEach(function(color)
-		{
-			splashes.push('Ask about the<br />color <span style="color:' + color + ';">' + color + '</span>');
-		});
 		
 		if (now.getDay() === 3) splashes.push('It\'s Tuesday');
 		
