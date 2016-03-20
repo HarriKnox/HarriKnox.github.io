@@ -53,7 +53,7 @@
 			<div>
 				This is why we leave the realm of bland scientific notation and enter into the world of ridiculous and impractical large number names.
 				There are many <a href="https://en.wikipedia.org/wiki/Names_of_large_numbers">systems for naming large numbers</a>, but the one I quite like is John H Conway's and Richard K Guy's system as defined in their book "<a href="https://books.google.com/books/about/The_Book_of_Numbers.html?id=0--3rcO7dMYC">The Book of Numbers</a>".
-				Using Conway and Guy's system, one could properly identify the <span style="word-break:break-all;">tresviginticentillisesquinquagintaquadringentillion</span> (which is a 1 followed by 370'371 zeros).
+				Using Conway and Guy's system, one could properly identify the <span style="word-wrap:break-word;">tresviginticentillisesquinquagintaquadringentillion</span> (which is a 1 followed by 370'371 zeros).
 			</div>
 			<div>
 				<h3>Groups</h3>
@@ -64,6 +64,8 @@
 			</div>
 			<div>
 				<h4>Converting a Number to Words</h4>
+				We are all familiar with creating the name of a number with multiple digit groups.
+				Every digit group gets its own "name" (a "digit-group-name", if you will) and we concatenate them all together to form the completed name.
 				To get the name of a digit group, we use the name of the inner number (as if it were its own number) and attach the group-name after: the 234 in 1'234'567 becomes <em>two hundred thirty-four thousand</em>.
 				To get the name of a number, we take all the names for all the digit groups and string them together in order from biggest to smallest: 1'234'567 becomes <em>one million, two hundred thirty-four thousand, five hundred sixty-seven</em>.
 			</div>
@@ -123,12 +125,12 @@
 			</div>
 			<div>
 				Here are the rules in a concise list:
-				<ol>
+				<ul>
 					<li>Use the table with values for ones, tens, and hundreds digits of the digit group of a group-number to get digit group's name</li>
 					<li>If both tens and hundreds are 0, use name in "Solo Ones" column</li>
 					<li>If group-number has more than one digit group, use "illion" for the last group and "illi" for the ones before</li>
 					<li>If the ones name has a letter in parentheses and the next name has that letter before it in the table, put that letter between the names</li>
-				</ol>
+				</ul>
 			</div>
 			<div>
 				The last rule is done to remove ambiguity between some group-names.
@@ -169,15 +171,46 @@
 			</div>
 			<div>
 				<h4>A Nifty Little Rectangle</h4>
-				Using the language ClojureScript, I wrote a small script that will give you the group-name for whatever group-number you put in.
+				Using the language Clojure and the <a href="http://clojure.org/about/clojurescript">ClojureScript compiler</a>, I wrote a script that will give you the group-name for whatever group-number you put in.
 				All you need to do is put in a group-number and click the button and the resulting group-name will appear in the grey box below.
 			</div>
 			<div class="illion-group-number-div"></div>
 			<div>
-				<h3>How does this all tie together?</h3>
-				Now you know how to create the group-name for every group-number you can possibly imagine.
-				All that's left is taking this knowledge and repeating it over and over and constructing the full name of a big number.
-				Take this randomly generated big number: 389'095'016'830'040'299'825'375'650'499'727'636'148'832'836'837'791'372'546'359'967'160'218'141'192'586'265'492'757'482.
+				<h3>Constructing a Big Number's Name</h3>
+				Now you know how to create the group-name for every group-number you can possibly imagine, and thus you can name every number in existance!
+				How exciting!
+				To get the digit-group-name, attach the group-name after the name of the inner number.
+				To get the name of a number, we take all the names for all the digit groups and string them together in order from biggest to smallest.
+			</div>
+			<div>
+				<h4>Demonstrative Example</h4>
+				In the following example we will follow the process to generating a big number name using the following big number with 33 digit groups.
+			</div>
+			<div style="margin:1em 3em;">
+				389'<wbr>000'<wbr>905'<wbr>416'<wbr>340'<wbr>299'<wbr>825'<wbr>375'<wbr>650'<wbr>499'<wbr>727'<wbr>636'<wbr>148'<wbr>832'<wbr>836'<wbr>837'<wbr>791'<wbr>372'<wbr>546'<wbr>359'<wbr>967'<wbr>160'<wbr>218'<wbr>141'<wbr>192'<wbr>586'<wbr>265'<wbr>492'<wbr>757'<wbr>482'<wbr>507'<wbr>196'<wbr>016
+			</div>
+			<div>
+				First we take the 389 group at the beginning and find its digit-group-name.
+				It has 32 groups following it, which gives it a group-number of 31 and a group-name of "untrigintillion"; therefore the digit-group-name of the 389 is <em>three hundred eighty-nine untrigintillion</em>.
+			</div>
+			<div>
+				The next group is all zeros, so we can skip it.
+			</div>
+			<div>
+				Next we take the 905 group that comes next and find its digit-group-name.
+				It has 30 groups following it, so it has a group-name of "novemvigintillion", thus its digit-group-name is <em>nine hundred five novemvigintillion</em>.
+			</div>
+			<div>
+				Then we take the following 416 group and find its digit-group-name.
+				Its group-number is 28 and its group-name is "octovigintillion", so its digit-group-name is <em>four hundred sixteen octovigintillion</em>.
+			</div>
+			<div>
+				We continue until all groups have been named, then we smash them together into this behemoth:
+			</div>
+			<div style="margin:1em 3em;">
+				<em>
+					three hundred eighty-nine untrigintillion, nine hundred five novemvigintillion, four hundred sixteen octovigintillion, three hundred forty septemvigintillion, two hundred ninety-nine sesvigintillion, eight hundred twenty-five quinquavigintillion, three hundred seventy-five quattuorvigintillion, six hundred fifty tresvigintillion, four hundred ninety-nine duovigintillion, seven hundred twenty-seven unvigintillion, six hundred thirty-six vigintillion, one hundred forty-eight novendecillion, eight hundred thirty-two octodecillion, eight hundred thirty-six septendecillion, eight hundred thirty-seven sedecillion, seven hundred ninety-one quinquadecillion, three hundred seventy-two quattuordecillion, five hundred forty-six tredecillion, three hundred fifty-nine duodecillion, nine hundred sixty-seven undecillion, one hundred sixty decillion, two hundred eighteen nonillion, one hundred forty-one octillion, one hundred ninety-two septillion, five hundred eighty-six sextillion, two hundred sixty-five quintillion, four hundred ninety-two quadrillion, seven hundred fifty-seven trillion, four hundred eighty-two billion, five hundred seven million, one hundred ninety-six thousand, sixteen
+				</em>
 			</div>
 		</div>
 	</body>
