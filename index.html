@@ -5,11 +5,11 @@
 	</head>
 	<body>
 		<noscript>JavaScript must be enabled to view this website in all its beauty. Click the script button in the right side of your address bar to allow JavaScript. Fear not, this site does not use harmful scripts to steal your identity or take over your computer. JavaScript is used purely for formatting this site. You can still view the content below, but some elements may not be formatted correctly.</noscript>
-		<div id="content-container">
-			<h1 id="page-title">Home</h1>
+		<div class="content-container">
+			<h1 class="page-title">Home</h1>
 			<div>
 				My name is Harrison Knox.
-				I am <span id="age"><noscript>20+</noscript></span> years old and a <span id="year"></span>student at <a href="http://www.calpoly.edu/">Cal Poly</a> majoring in Computer Engineering (CPE).
+				I am <span class="age"><noscript>20+</noscript></span> years old and a <span class="year"></span>student at <a href="http://www.calpoly.edu/">Cal Poly</a> majoring in Computer Engineering (CPE).
 				I am studying in this field to go into robotics and prosthetics.
 			</div>
 			<div>
@@ -32,8 +32,8 @@
 				var year = now.getFullYear();
 				var month = now.getMonth();
 				var date = now.getDate();
-				document.getElementById("age").innerHTML = year - 1996 - ((month == 0 && date < 11) ? 1 : 0);
-				document.getElementById("year").innerHTML = ["first", "second", "third", "fourth", "fifth"][year - 2014 - ((month < 6) ? 1 : 0)] + "-year ";
+				document.getElementsByClassName("age")[0].innerHTML = year - 1996 - ((month == 0 && date < 11) ? 1 : 0);
+				document.getElementsByClassName("year")[0].innerHTML = ["first", "second", "third", "fourth", "fifth"][year - 2014 - ((month < 6) ? 1 : 0)] + "-year ";
 			</script>
 		</div>
 	</body>

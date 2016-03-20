@@ -14,13 +14,13 @@
 	{
 		var $pre = $('pre');
 		var padding = parseInt($pre.css('padding-left')) + parseInt($pre.css('padding-right'));
-		var width = $('#content-container').width();
+		var width = $('.content-container').width();
 		$pre.css('max-width', width - padding);
 	};
 	
 	$document.ready(function()
 	{
-		var $content = $('#content-container');
+		var $content = $('.content-container');
 		
 		/** Format content to group code blocks to surrounding punctuation marks **/
 		var GROUPED = '<span class="grouped">$1</span>';

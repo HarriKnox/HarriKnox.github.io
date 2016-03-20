@@ -1,22 +1,22 @@
-#header-container
+.header-container
 {
 	width:100%;
 	position:relative;
 }
 
-#title
+.title
 {
 	padding:1em 0px;
 	display:inline-block;
 }
 
-#link-home
+.link-home
 {
 	color:#000000;
 	text-decoration:none;
 }
 
-#splash
+.splash
 {
 	color:#ff0000;
 	transform:rotate(9deg);
@@ -29,13 +29,13 @@
 	top:0px;
 }
 
-#splash a
+.splash a
 {
 	color:inherit;
 	text-decoration:underline;
 }
 
-#splash a:hover
+.splash a:hover
 {
 	text-decoration:none;
 }

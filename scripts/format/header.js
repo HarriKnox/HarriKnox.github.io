@@ -33,6 +33,7 @@
 			'Follows a normal distribution',
 			'Fork me on <a href="https://github.com/HarriKnox">GitHub</a>',
 			'Goal-oriented',
+			'Gotta Catch \'em all',
 			'I am the one who Knox',
 			'Initializing...',
 			'Learning <a href="http://clojure.org/">Clojure</a>',
@@ -91,8 +92,8 @@
 	
 	var setSplashVisibility = function()
 	{
-		var $splash = $('#splash');
-		if ($('#header-container').width() <= 480)
+		var $splash = $('.splash');
+		if ($('.header-container').width() <= 480)
 			$splash.hide();
 		else
 			$splash.show();
@@ -101,24 +102,24 @@
 	$(document).ready(function()
 	{
 		/** Get page title **/
-		var pageTitle = $('#page-title').text();
+		var pageTitle = $('.page-title').text();
 		
 		/** Write page title in <head> and as a header **/
 		$('head').append('<title>Coder by Nature: ' + pageTitle + '</title>');
 		
 		var title = '<h1>I\'m a Programmer</h1>' +
 			'<h3>not by trade but by nature</h3>';
-		if (pageTitle !== 'Home') title = '<a href="' + getHome() + '" id="link-home" title="Home">' + title + '</a>';
+		if (pageTitle !== 'Home') title = '<a href="' + getHome() + '" class="link-home" title="Home">' + title + '</a>';
 		$('body').prepend(
-			'<div id="header-container">' +
-				'<div id="splash">' + getSplash(pageTitle) + '</div>' +
-				'<div id="title">' + title + '</div>'+
+			'<div class="header-container">' +
+				'<div class="splash">' + getSplash(pageTitle) + '</div>' +
+				'<div class="title">' + title + '</div>'+
 			'</div>'
 		);
 		
 		/** Position the splash in middle (vertically) of header **/
-		var $splash = $('#splash');
-		var headerHeight = $('#header-container').height();
+		var $splash = $('.splash');
+		var headerHeight = $('.header-container').height();
 		var splashHeight = $splash.height();
 		var top = (headerHeight - splashHeight) / 2;
 		$splash.css('top', top);

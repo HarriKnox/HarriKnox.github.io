@@ -64,7 +64,7 @@
 		
 		var pageUrl = (location.href.match(/^[^?]+/)[0].match(new RegExp('[^\/]+\/'.repeat((($('base').attr('href') || '').match(/\.\./g) || []).length) + '[^\/?]+$')) || [''])[0];
 		
-		var $content = $('#content-container')
+		var $content = $('.content-container')
 		
 		$content.before('<div id="navbar-container"></div>');
 		
@@ -76,7 +76,7 @@
 			var inside = '<div ' + (selected ? 'id="' + buttonType + '-selected" ' : '') + 'class="' + buttonType + '">' + name + '</div>';
 			if (!selected) inside = '<a href="' + href + '">' + inside + '</a>';
 			
-			if (selected) $content.prepend('<h1 id="page-title">' + name + '</h1>');
+			if (selected) $content.prepend('<h1 class="page-title">' + name + '</h1>');
 			
 			return inside;
 		}
