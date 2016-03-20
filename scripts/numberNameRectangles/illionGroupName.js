@@ -2,11 +2,10 @@
 {
 	$(document).ready(function()
 	{
-		console.log("Running illionGroupName");
 		var $groupNumberElement = $('div.illion-group-number-div');
 		$groupNumberElement.html('<input class="illion-group-number" onkeydown="if (event.keyCode === 13) $(\'.illion-group-number-button\').click();"/>' +
 			'<button class="illion-group-number-button" type="button" onclick="illion_group_number_button_onclick()">Get Name</button>' +
-			'<div style="word-break:break-all;" class="illion-group-name-result"><em>The group name will appear here</em></div>');
+			'<div style="word-wrap:break-word;" class="illion-group-name-result"><em>The group name will appear here</em></div>');
 		
 		var notLoaded = typeof io === 'undefined' || typeof io.harriknox === 'undefined' || typeof io.harriknox.NumberName === 'undefined';
 		if (notLoaded)
