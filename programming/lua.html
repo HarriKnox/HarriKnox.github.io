@@ -27,10 +27,10 @@
 				In Java, the class is a model of all the attributes its instances will have, and all instances of a class will have exactly those specified attributes.
 				Lua, however, relies on the Prototype-Based model, like JavaScript.
 				In Lua, all complex data types are tables (essentially a Map in Java, a Hash in Ruby, a Dictionary in Python and other languages), which are key-value pairs.
-				In prototype-based design, there are no classes <em>per-se</em>.
+				In prototype-based design, there are no classes <em>per se</em>.
 				Every object is its own bundle of data and can have whatever attributes it wants, though you can emulate the concept of a class by defining default values for various attributes.
 				This would mean that for every time you wanted to "extend" a class (which would just be another object), you would have to clone the entire object, so every attribute name and value would be put into your new object.
-				Thankfully, Lua has a built-in system to manage the inheritence-chain.
+				Thankfully, Lua has a built-in system to manage the inheritance-chain.
 			</div>
 			<div>
 				What Lua uses is called a <em>metatable</em>.
@@ -56,7 +56,7 @@ metavehicle = { __index = Vehicle }
 setmetatable( Motorcycle, metavehicle )
 </pre>
 			<div>
-				In the first line, we're creating a regular table with one field, <code>__index = Vehicle</code> (<code>Vehicle</code> is reffering to the <code>Vehicle</code> table from the previous set of code).
+				In the first line, we're creating a regular table with one field, <code>__index = Vehicle</code> (<code>Vehicle</code> is referring to the <code>Vehicle</code> table from the previous set of code).
 				In the second line, we set the metatable for <code>Motorcycle</code> to <code>metavehicle</code>.
 				Now if you were to do <code>Motorcycle.speed</code> it would return <code>50</code>.
 				Because we did this for only <code>Motorcycle</code> and not for <code>Car</code>, doing <code>Car.vroom</code> will still return <code>nil</code>.
@@ -76,11 +76,11 @@ setmetatable( Motorcycle, metavehicle )
 					<li>Lua got the value of <code>__index</code> in the metatable (which was <code>Vehicle</code>)</li>
 					<li>Lua got the value of <code>speed</code> in <code>Vehicle</code> and returned <code>50</code></li>
 				</ol>
-				Just by specifying an <code>__index</code> you can define inheritence.
+				Just by specifying an <code>__index</code> you can define inheritance.
 			</div>
 			<div>
 				It gets better.
-				A table with a metatable that has <code>__index</code> can be pointed to by another metatable with its own <code>__index</code>, so you can chain inheritences as you go further down.
+				A table with a metatable that has <code>__index</code> can be pointed to by another metatable with its own <code>__index</code>, so you can chain inheritances as you go further down.
 				Suppose we added a <code>Ducati</code> as a child of <code>Motorcycle</code>, we just do:
 			</div>
 <pre>

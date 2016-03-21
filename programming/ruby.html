@@ -168,7 +168,7 @@ puts A_CONST       #=&gt; Input.rb:10: warning: already initialized constant A_C
 			</div>
 			<div>
 				<h4>Blocks</h4>
-				Blocks are nameless pieces of code that are implicitely "passed" to certain functions.
+				Blocks are nameless pieces of code that are implicitly "passed" to certain functions.
 				You define a block after a method call and the method may yield to the block, sometimes passing values in.
 				This sort of functionality is very convenient as it gives module and API writers the ability to generalize their code and gives module and API users the ability to define what's going on.
 				Blocks are rather limited, however.
@@ -177,10 +177,10 @@ puts A_CONST       #=&gt; Input.rb:10: warning: already initialized constant A_C
 			</div>
 			<div>
 				<h4>Procs</h4>
-				Procs are objects with a customizable method that allows them to be explicitely or implicitely "passed" to certain functions.
+				Procs are objects with a customizable method that allows them to be explicitly or implicitly "passed" to certain functions.
 				They can be defined and set in two ways.
 				First, a proc can be set to a variable by using <code>Proc.new</code> and providing a block, like <code>square = Proc.new { |n| n ** 2 }</code> would create a Proc that, when called, returns the square of the passed number.
-				Second, they can be created implicitely by using blocks.
+				Second, they can be created implicitly by using blocks.
 				In a method, blocks can be either yielded to, or converted to a proc by preceding one of the parameters with <code>&amp;</code>.
 				The following pieces of code do the exact same thing.
 			</div>
@@ -323,7 +323,7 @@ puts result.inspect  #=&gt; [1, 4, 9, 16]
 				Like I said, I don't like having a million ways to do something; I like things to be a bit less chaotic.
 				It seems like Matz (creator of Ruby) said to himself "I wonder if this should be put in" and never said no: he was so preoccupied with whether or not he could that he didn't stop to think if he should.
 				There are many instances in Ruby where there are various means to achieve the same thing.
-				It isn't that big of an issue to have multiple ways to do something: in fact, having all these different options gives a better chance that it is possible to do whatevery you want to do.
+				It isn't that big of an issue to have multiple ways to do something: in fact, having all these different options gives a better chance that it is possible to do whatever you want to do.
 				The issue for me is that all these redundancies lead to inconsistent code, which in turn affects comprehensibility.
 			</div>
 			<div>
@@ -338,7 +338,7 @@ puts result.inspect  #=&gt; [1, 4, 9, 16]
 			<div>
 				<h3>Optional and Assumed Syntax</h3>
 				There aren't many languages with completely optional syntax.
-				In Lua, you have the option of following your statements with a semicolon, which is used for disambiguity.
+				In Lua, you have the option of following your statements with a semicolon, which is used for disambiguation.
 				It's required in some instances when the compiler has the possibility of getting confused with what you've written.
 				In JavaScript, the semicolon at the end of statements is also somewhat optional.
 				When parsing through the script, if JS doesn't find a semicolon where it expects one, it will imagine one is there and continue through.
