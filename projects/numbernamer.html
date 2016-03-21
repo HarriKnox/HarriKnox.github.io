@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<base href="..">
+		<script src="scripts/loadScripts.js"></script>
+		<script src="https://raw.githubusercontent.com/HarriKnox/Number-Name/master/out/main.js"></script>
+		<script src="scripts/numberNameRectangles/illionGroupName.js"></script>
+		<script src="scripts/numberNameRectangles/numberToString.js"></script>
+	</head>
+	<body>
+		<noscript>JavaScript must be enabled to view this website in all its beauty. Click the script button in the right side of your address bar to allow JavaScript. Fear not, this site does not use harmful scripts to steal your identity or take over your computer. JavaScript is used purely for formatting this site. You can still view the content below, but some elements may not be formatted correctly.</noscript>
+		<div class="content-container">
+			<div>
+				Having learned the Lisp-like language Clojure I decided to revisit my Number Namer project I did in Lua and improve it with the magical abilities of nested parentheses.
+				This project would take a number and return the English name for it.
+				For example, 8'675'309 would return the string <em>eight million, six hundred seventy-five, three hundred nine</em>.
+				Then, using the ClojureScript compiler, I made the script executable in web browsers everywhere; thus anybody can enjoy naming their favorite numbers, big or small.
+			</div>
+			<div>
+				<h2>The Rectangles</h2>
+				The following two input boxes return the group-name for a given group-number, and the number's full name.
+				These input fields take positive integers only (for right now, at least) meaning you cannot put decimals, negatives, or non-number characters like letters or punctuation.
+				If you choose to not do those, the rectangle will complain.
+			</div>
+			<div>
+				<h3>Number to String</h3>
+				In this rectangle put the number you would like to know the full name of.
+			</div>
+			<div class="number-to-string-div"></div>
+			<div>
+				<h3>Group Name</h3>
+				In this rectangle put the group number you want to know the Latin name of.
+				Strictly speaking, a group-number is one less than the number of three-digit groups following the group in question: in 1'000'000'000'000 (a trillion) the group with 1 is followed by four three-digit groups, four minus one is three, thus <strong>tri</strong>llion.
+				Group-numbers and group-names are explained in more depth on my <a href="projects/bignumbers.html">Big Numbers</a> page, so have a look there if you would like to enlighten yourself.
+			</div>
+			<div class="illion-group-name-div"></div>
+			<div>
+				<h2>The Method</h2>
+				I first built the project in Lua in which the purpose was much more simple than it is now.
+				In the Lua project I had no intention of exceding numbers greater than 999.
+				When I did need to exceed 999, I just had a second function to split the six-digit number into two groups, get the names of each group, and concatenate the names together with "thousand" added between the groups.
+				Those were simpler times.
+			</div>
+		</div>
+	</body>
+</html>
