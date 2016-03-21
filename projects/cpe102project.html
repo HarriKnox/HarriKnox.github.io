@@ -186,7 +186,7 @@
 				Functions are wrapped in objects, so, similar to Python, they can be passed around and stored to variables as usual.
 				However, functions cannot be created and called in-line easily, nor called recursively in a succinct manner.
 				Java has strict rules for variables and requires all variables be instantiated (assigned to a value, even <code>null</code>) to compile.
-				Because a function object is not considered instantiated until the entire function is compiled, any references to itself inside the function code will be references to an un-instantiated variable.
+				Because a function object is not considered instantiated until the entire function is compiled, any references to itself inside the function code will be references to an uninstantiated variable.
 				You may think you could set the function to <code>null</code> first, then define it: technically it will be instantiated when you reference it in the function definition.
 				This, unfortunately, doesn't work since all local variables referred to in a function must be treated as <em>final</em>, and changing the value of the variable pointing to your function violates that rule.
 				Fortunately, there are numerous other ways to get around the compiler police.
