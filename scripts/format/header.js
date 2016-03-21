@@ -23,6 +23,7 @@
 			'A Googol is Ten Duotrigintillion',
 			'A wild HARRI appeared!',
 			'Ad-free',
+			'At a gain for numbers',
 			'At a loss for words',
 			'Call me Harri',
 			'Check out the navbar',
@@ -62,7 +63,7 @@
 			'Work in progress',
 			'&#955;',
 			
-			(IS_LOCAL ? 'Doesn\'t require<br/>' : 'Requires ') + 'internet access',
+			(IS_LOCAL ? 'Doesn\'t require<br/>' : 'Requires ') + 'Internet access',
 			'<span style="color:coral;">Coral</span> <span style="color:crimson;">Crimson</span> <span style="color:darkorange;">DarkOrange</span><br />' +
 			'<span style="color:orange;">Orange</span> <span style="color:orangered;">OrangeRed</span> <span style="color:red;">Red</span>',
 			'Today is ' + ['January', 'February', 'March', 'April' , 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][month] + " " + (date),

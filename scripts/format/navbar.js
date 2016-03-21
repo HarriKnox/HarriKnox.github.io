@@ -18,6 +18,7 @@
 			new Button('Projects', 'projects/projects.html'),
 			new Button('CPE 102 Project', 'projects/cpe102project.html'),
 			new Button('Big Numbers', 'projects/bignumbers.html'),
+			new Button('Number Namer', 'projects/numbernamer.html'),
 		]),
 		new Menu('Programming',
 		[
