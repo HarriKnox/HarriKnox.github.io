@@ -31,6 +31,8 @@
 	];
 	
 	var pages = {
+		'index.html' : 'Home',
+		'' : 'Home',
 		'projects/projects.html' : 'Projects',
 		'projects/cpe102project.html' : 'CPE 102 Project',
 		'projects/bignumbers.html' : 'Big Numbers',
@@ -89,10 +91,10 @@
 			var inside = '<div class="' + buttonType + ' ' + (selected ? buttonType + '-selected' : '') + '">' + name + '</div>';
 			if (!selected) inside = '<a href="' + href + '">' + inside + '</a>';
 			
-			if (selected) $content.prepend('<h1 class="page-title">' + name + '</h1>');
-			
 			return inside;
 		}
+		
+		$content.prepend('<h1 class="page-title">' + pages[pageUrl] + '</h1>');
 		
 		var buildMenu = function(name, menu, inMenu)
 		{
