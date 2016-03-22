@@ -78,3 +78,9 @@
 	text-decoration:none;
 	color:inherit;
 }
+
+.navbar-container a[target="_blank"]
+{
+	font-weight:bold;
+	color:inherit;
+}

@@ -25,6 +25,7 @@
 			'Ad-free',
 			'At a gain for numbers',
 			'At a loss for words',
+			'Built for Firefox',
 			'Call me Harri',
 			'Check out the navbar',
 			'Contains long-winded essays',

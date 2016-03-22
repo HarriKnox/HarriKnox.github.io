@@ -11,6 +11,23 @@
 		this.href = href;
 	};
 	
+	var pages = {
+		'index.html'                  : 'Home',
+		''                            : 'Home',
+		'projects/projects.html'      : 'Projects',
+		'projects/cpe102project.html' : 'CPE 102 Project',
+		'projects/bignumbers.html'    : 'Big Numbers',
+		'projects/numbernamer.html'   : 'Number Namer',
+		'programming/languages.html'  : 'Languages',
+		'programming/clojure.html'    : 'Clojure',
+		'programming/lua.html'        : 'Lua',
+		'programming/javascript.html' : 'JavaScript',
+		'programming/java.html'       : 'Java',
+		'programming/ruby.html'       : 'Ruby',
+		
+		'https://github.com/HarriKnox' : 'GitHub',
+	}
+	
 	var navbar = [
 		new Menu('Projects',
 		[
@@ -28,22 +45,8 @@
 			new Button('programming/java.html'),
 			new Button('programming/ruby.html'),
 		]),
+		new Button('https://github.com/HarriKnox'),
 	];
-	
-	var pages = {
-		'index.html' : 'Home',
-		'' : 'Home',
-		'projects/projects.html' : 'Projects',
-		'projects/cpe102project.html' : 'CPE 102 Project',
-		'projects/bignumbers.html' : 'Big Numbers',
-		'projects/numbernamer.html' : 'Number Namer',
-		'programming/languages.html' : 'Languages',
-		'programming/clojure.html' : 'Clojure',
-		'programming/lua.html' : 'Lua',
-		'programming/javascript.html' : 'JavaScript',
-		'programming/java.html' : 'Java',
-		'programming/ruby.html' : 'Ruby',
-	}
 	
 	var CLOSED_MENU = '&#9656;';
 	var OPEN_MENU = '&#9662;';
@@ -88,7 +91,7 @@
 			var buttonType = 'navbar' + (inMenu ? '-menu' : '') + '-button';
 			var selected = (href === pageUrl);
 			
-			var inside = '<div class="' + buttonType + ' ' + (selected ? buttonType + '-selected' : '') + '">' + name + '</div>';
+			var inside = '<div class="' + buttonType + (selected ? ' ' + buttonType + '-selected' : '') + '">' + name + '</div>';
 			if (!selected) inside = '<a href="' + href + '">' + inside + '</a>';
 			
 			return inside;
