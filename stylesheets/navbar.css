@@ -22,7 +22,7 @@
 	background-color:#303070;
 }
 
-#navbar-button-selected
+.navbar-button-selected
 {
 	background-color:#303070;
 	cursor:default;
@@ -67,7 +67,7 @@
 	background-color:#707070;
 }
 
-#navbar-menu-button-selected
+.navbar-menu-button-selected
 {
 	background-color:#707070;
 	cursor:default;

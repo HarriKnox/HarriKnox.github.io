@@ -49,9 +49,9 @@
 	
 	/*var positionMenu = function(menuName)
 	{
-		var $menuButton = $('#' + menuName + '');
+		var $menuButton = $('.' + menuName + '');
 		var pos = $menuButton.position();
-		$('#' + menuName + '-menu').css({
+		$('.' + menuName + '-menu').css({
 			//top : pos.top + $menuButton.outerHeight(true),
 			left : pos.left + 2,
 		});
@@ -86,7 +86,7 @@
 			var buttonType = 'navbar' + (inMenu ? '-menu' : '') + '-button';
 			var selected = (href === pageUrl);
 			
-			var inside = '<div ' + (selected ? 'id="' + buttonType + '-selected" ' : '') + 'class="' + buttonType + '">' + name + '</div>';
+			var inside = '<div class="' + buttonType + ' ' + (selected ? buttonType + '-selected' : '') + '">' + name + '</div>';
 			if (!selected) inside = '<a href="' + href + '">' + inside + '</a>';
 			
 			if (selected) $content.prepend('<h1 class="page-title">' + name + '</h1>');
@@ -96,7 +96,7 @@
 		
 		var buildMenu = function(name, menu, inMenu)
 		{
-			var html = '<div id="' + fixMenuName(name) + '-menu" class="navbar-menu' + (inMenu ? '-menu' : '') + '">';
+			var html = '<div class="navbar-menu' + (inMenu ? '-menu' : '') + ' ' + fixMenuName(name) + '-menu">';
 			
 			menu.forEach(function(thing)
 			{
@@ -112,9 +112,9 @@
 		var getName = function(thing) { return thing.constructor === Menu ? thing.name : pages[thing.href]; }
 		var fixMenuName = function(name) { return name.replace(/\s/g, '-'); };
 		
-		var makeArrow = function(name) { return '<span id="' + fixMenuName(name) + '-arrow" class="navbar-button-arrow">' + CLOSED_MENU + '</span>'; };
-		var makeNavbarMenu = function(name) { return '<div id="' + fixMenuName(name) + '" class="navbar-button">' + makeArrow(name) + name + '</div>'; };
-		var makeMenuMenu = function(name, menu) { return '<div id="' + fixMenuName(name) + '" class="navbar-menu-button">' + makeArrow(name) + name + '</div>'; };
+		var makeArrow = function(name) { return '<span class="navbar-button-arrow ' + fixMenuName(name) + '-arrow">' + CLOSED_MENU + '</span>'; };
+		var makeNavbarMenu = function(name) { return '<div class="navbar-button ' + fixMenuName(name) + '">' + makeArrow(name) + name + '</div>'; };
+		var makeMenuMenu = function(name, menu) { return '<div class="navbar-menu-button ' + fixMenuName(name) + '">' + makeArrow(name) + name + '</div>'; };
 		var makeNavbarButton = function(name, href) { return makeButton(name, href, false); };
 		var makeMenuButton = function(name, href) { return makeButton(name, href, true); };
 		
@@ -134,7 +134,7 @@
 		$navbar.append('<div class="navbar">' + buttons + '</div>');
 		$navbar.append('<div class="navbar-menus">' + menus + '</div>');
 		
-		var navbarThickness = $('#' + getName(navbar[0])).outerHeight(true);
+		var navbarThickness = $('.' + getName(navbar[0])).outerHeight(true);
 		$navbar.css('min-height', navbarThickness);
 		$('.navbar').css('min-height', navbarThickness);
 		
@@ -151,9 +151,9 @@
 			return function()
 			{
 				var $esto = $(this);
-				var menuName = $esto.attr('id');
+				var menuName = $esto.attr('class').toString().split(/\s+/)[1];
 				
-				var $menu = $('#' + menuName + '-menu');
+				var $menu = $('.' + menuName + '-menu');
 				var hidden = $menu.is(':hidden');
 				
 				hide($esto);
@@ -161,7 +161,7 @@
 				if (hidden)
 				{
 					$menu.slideDown(SLIDE);
-					$('#' + menuName + '-arrow').html(OPEN_MENU);
+					$('.' + menuName + '-arrow').html(OPEN_MENU);
 				}
 			};
 		};
@@ -183,7 +183,7 @@
 	/*$window.scroll(function()
 	{
 		var $navbar = $('.navbar');
-		if ($window.scrollTop() > $('#.eader-container').height())
+		if ($window.scrollTop() > $('.header-container').height())
 			$navbar.css('position', 'fixed');
 		else
 			$navbar.css('position', 'relative');
