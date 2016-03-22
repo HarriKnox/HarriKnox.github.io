@@ -1,35 +1,47 @@
 (function($)
 {
-	Menu = function(name, menu)
+	var Menu = function(name, menu)
 	{
 		this.name = name;
 		this.menu = menu;
 	};
 	
-	Button = function(name, href)
+	var Button = function(href)
 	{
-		this.name = name;
 		this.href = href;
 	};
 	
-	navbar = [
+	var navbar = [
 		new Menu('Projects',
 		[
-			new Button('Projects', 'projects/projects.html'),
-			new Button('CPE 102 Project', 'projects/cpe102project.html'),
-			new Button('Big Numbers', 'projects/bignumbers.html'),
-			new Button('Number Namer', 'projects/numbernamer.html'),
+			new Button('projects/projects.html'),
+			new Button('projects/cpe102project.html'),
+			new Button('projects/bignumbers.html'),
+			new Button('projects/numbernamer.html'),
 		]),
 		new Menu('Programming',
 		[
-			new Button('Languages', 'programming/languages.html'),
-			//new Button('Clojure', 'programming/clojure.html'),
-			new Button('Lua', 'programming/lua.html'),
-			new Button('JavaScript', 'programming/javascript.html'),
-			new Button('Java', 'programming/java.html'),
-			new Button('Ruby', 'programming/ruby.html'),
+			new Button('programming/languages.html'),
+		//	new Button('programming/clojure.html'),
+			new Button('programming/lua.html'),
+			new Button('programming/javascript.html'),
+			new Button('programming/java.html'),
+			new Button('programming/ruby.html'),
 		]),
 	];
+	
+	var pages = {
+		'projects/projects.html' : 'Projects',
+		'projects/cpe102project.html' : 'CPE 102 Project',
+		'projects/bignumbers.html' : 'Big Numbers',
+		'projects/numbernamer.html' : 'Number Namer',
+		'programming/languages.html' : 'Languages',
+		'programming/clojure.html' : 'Clojure',
+		'programming/lua.html' : 'Lua',
+		'programming/javascript.html' : 'JavaScript',
+		'programming/java.html' : 'Java',
+		'programming/ruby.html' : 'Ruby',
+	}
 	
 	var CLOSED_MENU = '&#9656;';
 	var OPEN_MENU = '&#9662;';
@@ -67,7 +79,7 @@
 		
 		var $content = $('.content-container')
 		
-		$content.before('<div id="navbar-container"></div>');
+		$content.before('<div class="navbar-container"></div>');
 		
 		var makeButton = function(name, href, inMenu)
 		{
@@ -88,7 +100,7 @@
 			
 			menu.forEach(function(thing)
 			{
-				var name = thing.name;
+				var name = getName(thing);
 				
 				html += ((thing.constructor === Menu) ? makeMenuMenu(name, thing.menu) + buildMenu(name, thing.menu, true) : makeMenuButton(name, thing.href));
 			});
@@ -97,6 +109,7 @@
 			return html
 		};
 		
+		var getName = function(thing) { return thing.constructor === Menu ? thing.name : pages[thing.href]; }
 		var fixMenuName = function(name) { return name.replace(/\s/g, '-'); };
 		
 		var makeArrow = function(name) { return '<span id="' + fixMenuName(name) + '-arrow" class="navbar-button-arrow">' + CLOSED_MENU + '</span>'; };
@@ -106,24 +119,24 @@
 		var makeMenuButton = function(name, href) { return makeButton(name, href, true); };
 		
 		/** Build navbar **/
-		var $navbar = $('#navbar-container');
+		var $navbar = $('.navbar-container');
 		var buttons = '';
 		var menus = '';
 		navbar.forEach(function(thing)
 		{
-			var name = thing.name;
 			var isMenu = (thing.constructor === Menu)
+			var name = getName(thing);
 			
 			buttons += (isMenu ? makeNavbarMenu(name) : makeNavbarButton(name, thing.href));
 			menus += (isMenu ? buildMenu(name, thing.menu, false) : '');
 		});
 		
-		$navbar.append('<div id="navbar">' + buttons + '</div>');
-		$navbar.append('<div id="navbar-menus">' + menus + '</div>');
+		$navbar.append('<div class="navbar">' + buttons + '</div>');
+		$navbar.append('<div class="navbar-menus">' + menus + '</div>');
 		
-		var navbarThickness = $('#' + navbar[0].name).outerHeight(true);
+		var navbarThickness = $('#' + getName(navbar[0])).outerHeight(true);
 		$navbar.css('min-height', navbarThickness);
-		$('#navbar').css('min-height', navbarThickness);
+		$('.navbar').css('min-height', navbarThickness);
 		
 		hideMenus = function(family)
 		{
@@ -154,7 +167,7 @@
 		};
 		
 		/** Click navbar menu buttons to toggle menus **/
-		$('.navbar-button').click(showMenus(function($esto) { hideMenus($('#navbar-container')); }));
+		$('.navbar-button').click(showMenus(function($esto) { hideMenus($('.navbar-container')); }));
 		$('.navbar-menu-button').click(showMenus(function($esto) { hideMenus($esto.parent().children()); }));
 	});
 	
@@ -163,14 +176,14 @@
 	{
 		var clazz = $(e.target).attr('class');
 		if (typeof clazz === 'undefined' || !clazz.match(/^navbar-/))
-			hideMenus($('#navbar-container'));
+			hideMenus($('.navbar-container'));
 	});
 	
 	/** Makes navbar stick to top of screen when scrolling past it **/
 	/*$window.scroll(function()
 	{
-		var $navbar = $('#navbar');
-		if ($window.scrollTop() > $('#header-container').height())
+		var $navbar = $('.navbar');
+		if ($window.scrollTop() > $('#.eader-container').height())
 			$navbar.css('position', 'fixed');
 		else
 			$navbar.css('position', 'relative');
