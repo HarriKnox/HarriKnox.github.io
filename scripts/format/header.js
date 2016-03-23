@@ -63,6 +63,7 @@
 			'Think with your closures',
 			'Think with your lambdas',
 			'Thinking of clever splashes',
+			'Top secret',
 			'Uses big numbers',
 			'Uses recycled electrons',
 			'Warning: contains opinions',
