@@ -2,10 +2,9 @@
 {
 	$(document).ready(function()
 	{
-		var $groupNumberElement = $('div.number-to-string-div');
-		$groupNumberElement.html('<input class="number-to-string-number" onkeydown="if (event.keyCode === 13) $(\'.number-to-string-button\').click();"/>' +
+		$('div.number-to-string-div').html('<input class="number-to-string-number" onkeydown="if (event.keyCode === 13) $(\'.number-to-string-button\').click();"/>' +
 			'<button class="number-to-string-button" type="button" onclick="number_to_string_button_onclick()">Get Name</button>' +
-			'<div class="number-to-string-result" style="margin:0em 2em;"><em>The group name will appear here</em></div>');
+			'<div class="number-to-string-result" style="margin:0em 2em;"><em>The number\'s name will appear here</em></div>');
 		
 		var notLoaded = typeof io === 'undefined' || typeof io.harriknox === 'undefined' || typeof io.harriknox.NumberName === 'undefined';
 		if (notLoaded)

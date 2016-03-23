@@ -2,8 +2,7 @@
 {
 	$(document).ready(function()
 	{
-		var $groupNumberElement = $('div.illion-group-name-div');
-		$groupNumberElement.html('<input class="illion-group-number" onkeydown="if (event.keyCode === 13) $(\'.illion-group-number-button\').click();"/>' +
+		$('div.illion-group-name-div').html('<input class="illion-group-number" onkeydown="if (event.keyCode === 13) $(\'.illion-group-number-button\').click();"/>' +
 			'<button class="illion-group-number-button" type="button" onclick="illion_group_number_button_onclick()">Get Name</button>' +
 			'<div class="illion-group-name-result" style="margin:0em 2em;"><em>The group name will appear here</em></div>');
 		
