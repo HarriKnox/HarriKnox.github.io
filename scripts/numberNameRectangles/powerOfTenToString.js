@@ -3,7 +3,7 @@
 	$(document).ready(function()
 	{
 		$('div.power-of-ten-div').html('<input class="power-of-ten-number" onkeydown="if (event.keyCode === 13) $(\'.power-of-ten-button\').click();"/>' +
-			'<button class="power-of-ten-button" type="button" onclick="power_of_ten_button_onclick()">Get Name</button>' +
+			'<button class="power-of-ten-button" type="button" onclick="power_of_ten_button_onclick()">Submit</button>' +
 			'<div class="power-of-ten-result" style="margin:0em 2em;"><em>The number\'s name will appear here</em></div>');
 		
 		var notLoaded = typeof io === 'undefined' || typeof io.harriknox === 'undefined' || typeof io.harriknox.NumberName === 'undefined';
