@@ -43,3 +43,25 @@
 	margin-left:1em;
 	float:right;
 }
+
+.documentation
+{
+	border-style:solid;
+	border-color:#ddd;
+	border-width:1px;
+	padding:0.5em;
+	background-color:#eee;
+}
+
+.documentation > .doc-title
+{
+	margin:-0.5em -0.5em 0.5em;
+	background-color:#d0d0f0;
+	padding:0.5em;
+	font-weight:bold;
+}
+
+.documentation > h4
+{
+	margin-top:1em;
+}

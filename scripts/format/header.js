@@ -50,6 +50,7 @@
 			'Made out of star dust',
 			'Made you look',
 			'Made with love',
+			'Multilingual',
 			'Never going to give you up',
 			'Now available in English',
 			'Now includes<br/>complementary splashes',
