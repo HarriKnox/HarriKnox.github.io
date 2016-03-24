@@ -39,6 +39,8 @@
 			'Goal-oriented',
 			'Gotta Catch \'em all',
 			'I am the one who Knox',
+			'I know you\'re on the<br />' + pageTitle + ' page',
+			'I spell only "incorrectly" uncorectely',
 			'Indubitably',
 			'Initializing...',
 			'Learning <a href="http://clojure.org/">Clojure</a>',
