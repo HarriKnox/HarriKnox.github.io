@@ -63,8 +63,10 @@
 			'Now mobile friendly',
 			'Object-oriented',
 			'Open source',
+			'Overly complicated',
 			'Performing big calculations',
 			'Please wait...',
+			'Populated with words',
 			'Powered by electrons',
 			'Powered by jQuery',
 			'Recycled star dust',
@@ -75,6 +77,7 @@
 			'Uses big numbers',
 			'Uses recycled electrons',
 			'Warning: contains opinions',
+			'When Harri met Courtney',
 			'Work in progress',
 			
 			'&lambda;',
