@@ -47,7 +47,7 @@
 .documentation
 {
 	border-style:solid;
-	border-color:#ddd;
+	border-color:#f0f0f0;
 	border-width:1px;
 	padding:0.5em;
 	background-color:#eee;
@@ -64,4 +64,10 @@
 .documentation > h4
 {
 	margin-top:1em;
+}
+
+.documentation code
+{
+	border-style:none;
+	padding:0px;
 }
