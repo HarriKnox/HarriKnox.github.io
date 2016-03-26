@@ -1,6 +1,6 @@
 body
 {
-	background-color:#f0f0f0;
+	background-color:#eee;
 	max-width:1000px;
 	margin:auto;
 	padding:20px;
@@ -34,9 +34,9 @@ iframe
 
 code, pre
 {
-	background-color:#f0f0f0;
+	background-color:#eee;
 	border-width:1px;
-	border-color:#cccccc;
+	border-color:#ccc;
 	border-style:solid;
 	border-radius:3px;
 }

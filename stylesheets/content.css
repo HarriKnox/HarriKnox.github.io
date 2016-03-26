@@ -47,7 +47,7 @@
 .documentation
 {
 	border-style:solid;
-	border-color:#f0f0f0;
+	border-color:#ccc;
 	border-width:1px;
 	padding:0.5em;
 	background-color:#eee;
@@ -56,7 +56,10 @@
 .documentation > .doc-title
 {
 	margin:-0.5em -0.5em 0.5em;
-	background-color:#d0d0f0;
+	background-color:#ccf;
+	border-bottom-style:solid;
+	border-width:1px;
+	border-color:#aac;
 	padding:0.5em;
 	font-weight:bold;
 }
