@@ -91,7 +91,7 @@
 			var buttonType = 'navbar' + (inMenu ? '-menu' : '') + '-button';
 			var selected = (href === pageUrl);
 			
-			var inside = '<div class="' + buttonType + (selected ? ' ' + buttonType + '-selected' : '') + '">' + name + '</div>';
+			var inside = '<div class="' + buttonType + ' ' + (selected ? buttonType + '-selected ' : '') + fixMenuName(name) + '">' + name + '</div>';
 			if (!selected) inside = '<a href="' + href + '">' + inside + '</a>';
 			
 			return inside;
@@ -139,9 +139,8 @@
 		$navbar.append('<div class="navbar">' + buttons + '</div>');
 		$navbar.append('<div class="navbar-menus">' + menus + '</div>');
 		
-		var navbarThickness = $('.' + getName(navbar[0])).outerHeight(true);
-		$navbar.css('min-height', navbarThickness);
-		$('.navbar').css('min-height', navbarThickness);
+		var navbarThickness = Math.max.apply(null, navbar.map(function(thing) { return $('.' + getName(thing)).outerHeight(true); }));
+		$('.navbar-button').outerHeight(navbarThickness);
 		
 		hideMenus = function(family)
 		{
