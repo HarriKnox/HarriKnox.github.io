@@ -10,13 +10,16 @@
 		var date = now.getDate();
 		var today = (month + 1) * 100 + date;
 		
-		if (today === 111) return 'Happy Birthday Harri!';
+		if (today ===  111) return 'Happy Birthday Harri!';
 		if (today === 1008) return 'Happy Birthday Courtney!';
 		if (today === 1016) return 'Happy Anniversary Courtney!';
-		if (today === 126) return '<div style="transform:rotate(180deg);-ms-transform:rotate(180deg);-webkit-transform:rotate(180deg);">Happy Australia Day!</div>';
-		if (today === 101) return 'Happy New Year!';
-		if (today === 401) return 'Fooled you!';
-		if (today === 704) return '<span style="color:red;">Happy</span> <span style="color:white;text-shadow:0px -1px 1px black,1px -1px 1px black,1px 1px 1px black,-1px 0px 1px black,0px 1px 1px black,1px 0px 1px black,-1px -1px 1px black,-1px 1px 1px black;">4th of</span> <span style="color:blue">July!</span>';
+		
+		if (today ===  101) return 'Happy New Year!';
+		if (today ===  126) return '<div style="transform:rotate(180deg);-ms-transform:rotate(180deg);-webkit-transform:rotate(180deg);">Happy Australia Day!</div>';
+		if (today ===  229) return 'Happy Leap Year!';
+		if (today ===  314) return 'Happy Pi Day!';
+		if (today ===  401) return 'Fooled you!';
+		if (today ===  704) return '<span style="color:red;">Happy</span> <span style="color:white;text-shadow:0px -1px 1px black,1px -1px 1px black,1px 1px 1px black,-1px 0px 1px black,0px 1px 1px black,1px 0px 1px black,-1px -1px 1px black,-1px 1px 1px black;">4th of</span> <span style="color:blue">July!</span>';
 		if (today === 1031) return pickRandom(['<span style="color:darkorange;">BOO!</span>', '<span style="color:darkorange;">Happy Halloween!</span>']);
 		
 		var splashes = [
@@ -40,9 +43,10 @@
 			'Gotta Catch \'em all',
 			'I am the one who Knox',
 			'I know you\'re on the<br />' + pageTitle + ' page',
-			'I spell only "incorrectly" uncorectely',
+			'I spell only "incorrectly" uncorrectly',
 			'Indubitably',
 			'Initializing...',
+			'Is this your card: ' + pickRandom(['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']) + pickRandom(['&spades', '&clubs', '&hearts', '&diams']),
 			'Learning <a href="http://clojure.org/">Clojure</a>',
 			'Loading...',
 			'Lorem ipsum dolor sit amet',
@@ -63,6 +67,7 @@
 			'Please wait...',
 			'Powered by electrons',
 			'Powered by jQuery',
+			'Recycled star dust',
 			'Think with your closures',
 			'Think with your lambdas',
 			'Thinking of clever splashes',
@@ -71,8 +76,8 @@
 			'Uses recycled electrons',
 			'Warning: contains opinions',
 			'Work in progress',
-			'&#955;',
 			
+			'&lambda;',
 			'<span style="font-family:monospace">A wild HARRI appeared!</span>',
 			(IS_LOCAL ? 'Doesn\'t require<br/>' : 'Requires ') + 'Internet access',
 			'<span style="color:coral;">Coral</span> <span style="color:crimson;">Crimson</span> <span style="color:darkorange;">DarkOrange</span><br /><span style="color:orange;">Orange</span> <span style="color:orangered;">OrangeRed</span> <span style="color:red;">Red</span>',
