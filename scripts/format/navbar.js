@@ -139,7 +139,7 @@
 		$navbar.append('<div class="navbar">' + buttons + '</div>');
 		$navbar.append('<div class="navbar-menus">' + menus + '</div>');
 		
-		var navbarThickness = Math.max.apply(null, navbar.map(function(thing) { return $('.' + getName(thing)).outerHeight(true); }));
+		var navbarThickness = Math.max.apply(null, navbar.map(function(thing) { return $('.' + getName(thing)).outerHeight(); }));
 		$('.navbar-button').outerHeight(navbarThickness);
 		
 		hideMenus = function(family)

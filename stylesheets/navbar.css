@@ -1,30 +1,29 @@
 .navbar
 {
-	background-color:#000050;
+	background-color:#005;
 	text-decoration:none;
-	padding:3px;
 	margin:0px -10px;
 	top:0px;
-	color:#ffffff;
+	color:#fff;
 }
 
 .navbar-button
 {
 	padding:1em;
-	margin-right:3px;
+	margin:3px 0px 3px 3px;
 	display:inline-block;
-	background-color:#151560;
+	background-color:#116;
 	cursor:pointer;
 }
 
 .navbar-button:hover
 {
-	background-color:#303070;
+	background-color:#337;
 }
 
 .navbar-button-selected
 {
-	background-color:#303070;
+	background-color:#337;
 	cursor:default;
 }
 
@@ -36,21 +35,21 @@
 .navbar-menu
 {
 	margin:0px -5px;
-	background-color:#505050;
+	background-color:#555;
 	border-width:1px;
 	border-style:solid;
-	border-color:#000000;
-	color:#ffffff;
+	border-color:#000;
+	color:#fff;
 	display:none;
 	cursor:pointer;
 }
 
 .navbar-menu-menu
 {
-	background-color:#505050;
+	background-color:#555;
 	border-width:1px;
 	border-style:solid;
-	border-color:#000000;
+	border-color:#000;
 	display:none;
 }
 
@@ -64,12 +63,12 @@
 
 .navbar-menu-button:hover
 {
-	background-color:#707070;
+	background-color:#888;
 }
 
 .navbar-menu-button-selected
 {
-	background-color:#707070;
+	background-color:#777;
 	cursor:default;
 }
 

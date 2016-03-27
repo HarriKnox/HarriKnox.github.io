@@ -17,20 +17,24 @@
 		if (today ===  101) return 'Happy New Year!';
 		if (today ===  126) return '<div style="transform:rotate(180deg);-ms-transform:rotate(180deg);-webkit-transform:rotate(180deg);">Happy Australia Day!</div>';
 		if (today ===  229) return 'Happy Leap Year!';
-		if (today ===  314) return 'Happy Pi Day!';
+		if (today ===  314) return (Math.random() < 0.9375) ? 'Happy Pi Day!' : 'Happy Half-Tau Day!';
 		if (today ===  401) return 'Fooled you!';
+		if (today ===  628) return 'Happy Tau Day!';
 		if (today ===  704) return '<span style="color:red;">Happy</span> <span style="color:white;text-shadow:0px -1px 1px black,1px -1px 1px black,1px 1px 1px black,-1px 0px 1px black,0px 1px 1px black,1px 0px 1px black,-1px -1px 1px black,-1px 1px 1px black;">4th of</span> <span style="color:blue">July!</span>';
 		if (today === 1031) return pickRandom(['<span style="color:darkorange;">BOO!</span>', '<span style="color:darkorange;">Happy Halloween!</span>']);
 		
 		var splashes = [
 			'A Googol is Ten Duotrigintillion',
+			'A Googolplex is 10 in base googolplex',
 			'Ad-free',
 			'At a gain for numbers',
 			'At a loss for words',
+			'Built for Chrome',
 			'Built for Firefox',
 			'Call me Harri',
 			'Check out the navbar',
 			'Check out these splashes',
+			'Client-side',
 			'Coder by day,<br />Coder by night',
 			'Coder by Nature',
 			'Contains long-winded essays',
@@ -70,11 +74,13 @@
 			'Powered by electrons',
 			'Powered by jQuery',
 			'Recycled star dust',
+			'Splash',
 			'Think with your closures',
 			'Think with your lambdas',
 			'Thinking of clever splashes',
 			'Top secret',
 			'Uses big numbers',
+			'Uses MathJax',
 			'Uses recycled electrons',
 			'Warning: contains opinions',
 			'When Harri met Courtney',
@@ -84,7 +90,7 @@
 			'<span style="font-family:monospace">A wild HARRI appeared!</span>',
 			(IS_LOCAL ? 'Doesn\'t require<br/>' : 'Requires ') + 'Internet access',
 			'<span style="color:coral;">Coral</span> <span style="color:crimson;">Crimson</span> <span style="color:darkorange;">DarkOrange</span><br /><span style="color:orange;">Orange</span> <span style="color:orangered;">OrangeRed</span> <span style="color:red;">Red</span>',
-			'Today is ' + ['January', 'February', 'March', 'April' , 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][month] + " " + (date),
+			'Today is ' + ['January', 'February', 'March', 'April' , 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][month] + " " + date,
 			(function(color) { return 'Ask about the<br />color <span style="color:' + color + ';">' + color + '</span>'; })(pickRandom(['Green', 'Goldenrod', 'Blue', 'Purple', 'Brown', 'Orange', 'Black',])),
 		];
 		
