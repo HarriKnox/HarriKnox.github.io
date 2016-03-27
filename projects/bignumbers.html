@@ -3,6 +3,7 @@
 	<head>
 		<base href="..">
 		<script src="scripts/loadScripts.js"></script>
+		<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		<script src="https://rawgit.com/HarriKnox/Number-Name/86cab6ee75b0bc0f0130c7a2d46f1a5f5e4756db/out/main.js"></script>
 		<script src="scripts/numberNameRectangles/illionGroupName.js"></script>
 		<script src="scripts/numberNameRectangles/numberToString.js"></script>
@@ -243,9 +244,100 @@
 			</div>
 			<div>
 				One googol is equal to <em>ten duotrigintillion</em>.
-				Anyone can find that easily by typing in a one with a hundred zeros into my <a href="projects/numbernamer.html">Number Namer</a> project.
+				Anyone can find that easily by typing in a 1 with a hundred zeros into my <a href="projects/numbernamer.html">Number Namer</a> project.
 				You could also count the digit groups after the 10 in the first group (33) and figure out the group number (32) and use your newfound knowledge of group-name construction to figure it out.
 				Or you could plug the appropriate number into the nifty rectangles provided above.
+			</div>
+			<div>
+				<h3>How about a Googolplex?</h3>
+				We know a googolplex is 10<sup>googol</sup>, or 10<sup>10<sup>100</sup></sup>; that is a 1 followed by the number of zeros specified by the large number above.
+				In order to write out one googolplex, if you wrote a zero on every atom of the observable universe, you would need to write about a sextillion zeros per atom.
+				Even though we will never be able to write out a googolplex in all its glory, I can tell you one googolplex is
+			</div>
+			<div class="indented">
+				<em>ten <span style="word-wrap:break-word;">trilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;duotrigintatrecentillion</span></em>
+			</div>
+			<div>
+				or
+			</div>
+			<div class="indented">
+				<em>ten trilli + (trestrigintatrecentilli * 32) + duotrigintatrecentillion</em>.
+			</div>
+			<div>
+				You may be thinking "How the hell did you come up with that?".
+				I came up with this large number name using the upcoming derivation.
+				This derivation is to show how to construct names for any number 10<sup>10<sup>R</sup></sup>.
+				First a few givens that we know to be true.
+			</div>
+			<div>
+				<h4>The Derivation</h4>
+				<ol>
+					<li>An integer that is \(1\) followed by \(n\) zeros can be written as \(10^n\)</li>
+					<li>The corresponding integer for a group-number \(M\) is \(10^{3M + 3}\)</li>
+					<li>\({10^R \equiv 1} \pmod 3\) for any \(R \ge 0\)</li>
+				</ol>
+			</div>
+			<div>
+				Suppose an integer was \(1\) followed by \(n\) zeros, it would have a group-number \(M\).
+				\[10^n = 10^{3M+3}\]
+				Taking the base 10 logarithm of both sides, equates functions of \(n\) and \(M\) directly to each other and we can solve for \(M\).
+				\[\begin{align}
+					n & = 3M+3 \\[1ex]
+					n - 3 & = 3M \\[1ex]
+					\frac{n-3}3 & = M
+				\end{align}\]
+			</div>
+			<div>
+				Because \(M\) is an integer, the division by \(3\) will need to be adjusted to prevent non-whole numbers.
+				If \(3\) divides \(n\) (meaning there are whole digit-groups of zeros like 1'000'000) then \(M\) is just \(\frac{n-3} 3\). If \(3\) does not divide \(n\) (indicating that there are some zeros that do not form a complete group like 10'000'000), then \(M\) equals either  \(\frac{(n-1)-3} 3\) or  \(\frac{(n-2)-3} 3\).
+				\[M =
+				\begin{cases}
+					\frac{n - 3} 3,       & \text {if} \; n \bmod 3 = 0 \\[1ex]
+					\frac{(n - 1) - 3} 3, & \text {if} \; {n - 1} \bmod 3 = 0 \\[1ex]
+					\frac{(n - 2) - 3} 3, & \text {if} \; {n - 2} \bmod 3 = 0
+				\end{cases}\]
+			</div>
+			<div>
+				Suppose an integer was \(1\) followed by \(n=10^R\) zeros, it would be written out as \(10^{10^R}\).
+				\({10^R \equiv 1} \pmod 3\), so \(\left (10^R - 1 \right ) \bmod 3 = 0\).
+				Using the first given at the top of the list, we know
+				\[n = 10 \ldots 00 \; \text{($0$ repeated \(R\) times)}\]
+				Letting \(n'=n - 1\), subtracting \(1\) from that gives us
+				\[n' = 9 \ldots 99 \; \text{($9$ repeated \(R\) times)}\]
+			</div>
+			<div>
+				We can solve for \(M\) using \(n'\) and these arbitrarily large numbers.
+				\begin{align}
+					M & = \frac{(n - 1) - 3} 3 \\[1ex]
+					  & = \frac{n' - 3} 3 \\[1ex]
+					  & = \frac{9 \ldots 99 - 3} 3 & \text{($9$ repeated $R$ times)} \\[1ex]
+					  & = \frac{9 \ldots 96} 3 & \text{($9$ repeated $R - 1$ times, then $6$)} \\[1ex]
+					  & = 3 \ldots 32 & \text{($3$ repeated $R - 1$ times, then $2$)}
+				\end{align}
+			</div>
+			<div>
+				The group-name for an integer \(10^{10^R}\) can be found using the group-number \(M = 3 \ldots 32 \; \text{($3$ repeated $R - 1$ times, then $2$)}\).
+				The name of the integer \(10^{10^R}\) involves "ten" followed by the aforementioned group-name; it has "ten" because \(10^R \bmod 3 = 1\), meaning there's one more zero than a number with a 3-divisible number of zeros.0
+			</div>
+			<div>
+				A Googolplex is \(10^\text{googol}\) which can also be written as \(10^{10^{100}}\), thus \(R = 100\).
+				The group-number for a googolplex is \(3 \ldots 32 \text{($3$ repeated $99$ times, then $2$)}\), which looks like the following when written out.
+			</div>
+			<div class="indented">
+				3'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>332
+			</div>
+			<div>
+				or
+			</div>
+			<div class="indented">
+				3 + (333 repeated 32 times) + 332
+			</div>
+			<div>
+				Using the group-name constructing rules in <a href="projects/bignumbers.html">Big Numbers</a>, the group-name for a googolplex starts with <em>trilli</em>, has a bunch of <em>trestrigintatrecentilli</em>s, and ends with <em>duotrigintatrecentillion</em>.
+				Thus, a googolplex is <em>ten trillitrestrigintatrecentilli...duotrigintatrecentillion</em>.
+			</div>
+			<div>
+				<em>QED</em>
 			</div>
 		</div>
 	</body>
