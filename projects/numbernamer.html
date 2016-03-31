@@ -21,7 +21,9 @@
 				<h2>The Rectangles</h2>
 				The following two input boxes return the group-name for a given group-number, and the number's full name.
 				These input fields take positive integers only (for right now, at least) meaning you cannot put decimals, negatives, or non-number characters like letters or punctuation.
-				If you choose to not do those, the rectangle will complain.
+				If you choose to put one or more of those, the rectangle will complain.
+				Because of the way JavaScript handles numbers, these scripts work primarily with string representations of numbers.
+				By using strings instead of the built-in primitive numbers there is no theoretical limit to the size of the numbers; the only limit is the memory limit of JavaScript and your browser.
 			</div>
 			<div>
 				<h3>Number to String</h3>
@@ -59,8 +61,6 @@
 				<h3>Powers of Ten</h3>
 				In this rectangle put the quantity of digits in the number you want to know the Latin name of.
 				For example, if you wanted to know what a googol was (10<sup>100</sup>) put 100.
-				The maximum value you can put into this and get a reliable result is 9007199254740991.
-				Beyond that number there is no guarantee you will get the response you want.
 			</div>
 			<div class="power-of-ten-div"></div>
 			<div class="documentation">
