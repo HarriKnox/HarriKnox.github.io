@@ -6,10 +6,10 @@
 			'<button class="illion-group-number-button" type="button" onclick="illion_group_number_button_onclick()">Submit</button>' +
 			'<div class="illion-group-name-result" style="margin:0em 2em;"><em>The group name will appear here</em></div>');
 		
-		var notLoaded = typeof io === 'undefined' || typeof io.harriknox === 'undefined' || typeof io.harriknox.NumberName === 'undefined';
+		var notLoaded = typeof io === 'undefined' || typeof io.harriknox === 'undefined' || typeof io.harriknox.NumberNamer === 'undefined';
 		if (notLoaded)
 		{
-			$('.illion-group-name-result').html('<span style="color:red;font-weight:bold;">Error: Number-Name could not be loaded</span>');
+			$('.illion-group-name-result').html('<span style="color:red;font-weight:bold;">Error: Number-Namer could not be loaded</span>');
 		}
 		
 		illion_group_number_button_onclick = notLoaded ? function(){} : function()
@@ -24,12 +24,12 @@
 			{
 				try
 				{
-					result = '<span style="word-wrap:break-word;">' + io.harriknox.NumberName.illion_group_name(value) + '</span>';
+					result = '<span style="word-wrap:break-word;">' + io.harriknox.NumberNamer.illion_group_name(value) + '</span>';
 				}
 				catch (e)
 				{
 					result = '<span style="color:red;font-weight:bold;">Error: ';
-					if (typeof io === 'undefined' || typeof io.harriknox === 'undefined' || typeof io.harriknox.NumberName === 'undefined') result += 'Number-Name could not be loaded';
+					if (typeof io === 'undefined' || typeof io.harriknox === 'undefined' || typeof io.harriknox.NumberNamer === 'undefined') result += 'Number-Namer could not be loaded';
 					else if (value.match(/[^\d\.\-]/)) result += 'Value contains non-numerals';
 					else if (!value.match(/^-?\d+(\.\d+)?$/)) result += 'Value not in number format';
 					else if (value.match(/^-/) || value.match(/^0+$/)) result += 'Value is not positive';
