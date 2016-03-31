@@ -18,7 +18,7 @@
 		if (today ===  126) return '<div style="transform:rotate(180deg);-ms-transform:rotate(180deg);-webkit-transform:rotate(180deg);">Happy Australia Day!</div>';
 		if (today ===  229) return 'Happy Leap Year!';
 		if (today ===  314) return (Math.random() < 0.9375) ? 'Happy Pi Day!' : 'Happy Half-Tau Day!';
-		if (today ===  401) return 'Fooled you!';
+		if (today ===  401) return 'Fooled you!' + '<style>body{transform:rotate(-1deg);}</style>';
 		if (today ===  628) return 'Happy Tau Day!';
 		if (today ===  704) return '<span style="color:red;">Happy</span> <span style="color:white;text-shadow:0px -1px 1px black,1px -1px 1px black,1px 1px 1px black,-1px 0px 1px black,0px 1px 1px black,1px 0px 1px black,-1px -1px 1px black,-1px 1px 1px black;">4th of</span> <span style="color:blue">July!</span>';
 		if (today === 1031) return pickRandom(['<span style="color:darkorange;">BOO!</span>', '<span style="color:darkorange;">Happy Halloween!</span>']);
@@ -74,7 +74,7 @@
 			'Powered by electrons',
 			'Powered by jQuery',
 			'Recycled star dust',
-			'Splash',
+			'Splash!',
 			'Think with your closures',
 			'Think with your lambdas',
 			'Thinking of clever splashes',
