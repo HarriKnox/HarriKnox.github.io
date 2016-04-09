@@ -23,4 +23,4 @@
 	{
 		document.write('<link type="text/css" rel="stylesheet" href="stylesheets/' + sheet + '">');
 	});
-})()
+})();

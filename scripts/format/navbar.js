@@ -26,7 +26,7 @@
 		'programming/ruby.html'       : 'Ruby',
 		
 		'https://github.com/HarriKnox' : 'GitHub',
-	}
+	};
 	
 	var navbar = [
 		new Menu('Projects',
@@ -48,8 +48,8 @@
 		new Button('https://github.com/HarriKnox'),
 	];
 	
-	var CLOSED_MENU = '&#9656;';
-	var OPEN_MENU = '&#9662;';
+	var CLOSED_MENU_ARROW = '&#9656;';
+	var OPEN_MENU_ARROW = '&#9662;';
 	var SLIDE = 'fast';
 	
 	/*var positionMenu = function(menuName)
@@ -95,7 +95,7 @@
 			if (!selected) inside = '<a href="' + href + '">' + inside + '</a>';
 			
 			return inside;
-		}
+		};
 		
 		$content.prepend('<h1 class="page-title">' + pages[pageUrl] + '</h1>');
 		
@@ -117,7 +117,7 @@
 		var getName = function(thing) { return thing.constructor === Menu ? thing.name : pages[thing.href]; }
 		var fixMenuName = function(name) { return name.replace(/\s/g, '-'); };
 		
-		var makeArrow = function(name) { return '<span class="navbar-button-arrow ' + fixMenuName(name) + '-arrow">' + CLOSED_MENU + '</span>'; };
+		var makeArrow = function(name) { return '<span class="navbar-button-arrow ' + fixMenuName(name) + '-arrow">' + CLOSED_MENU_ARROW + '</span>'; };
 		var makeNavbarMenu = function(name) { return '<div class="navbar-button ' + fixMenuName(name) + '">' + makeArrow(name) + name + '</div>'; };
 		var makeMenuMenu = function(name, menu) { return '<div class="navbar-menu-button ' + fixMenuName(name) + '">' + makeArrow(name) + name + '</div>'; };
 		var makeNavbarButton = function(name, href) { return makeButton(name, href, false); };
@@ -145,10 +145,10 @@
 		hideMenus = function(family)
 		{
 			var all = family.find('*').andSelf();
-			all.filter('.navbar-button-arrow').html(CLOSED_MENU);
+			all.filter('.navbar-button-arrow').html(CLOSED_MENU_ARROW);
 			all.filter('.navbar-menu-menu').slideUp(SLIDE);
 			all.filter('.navbar-menu').slideUp(SLIDE);
-		}
+		};
 		
 		showMenus = function(hide)
 		{
@@ -165,7 +165,7 @@
 				if (hidden)
 				{
 					$menu.slideDown(SLIDE);
-					$('.' + menuName + '-arrow').html(OPEN_MENU);
+					$('.' + menuName + '-arrow').html(OPEN_MENU_ARROW);
 				}
 			};
 		};

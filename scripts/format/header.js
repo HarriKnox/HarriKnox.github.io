@@ -50,7 +50,7 @@
 			'I spell only "incorrectly" uncorrectly',
 			'Indubitably',
 			'Initializing...',
-			'Is this your card: ' + pickRandom(['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']) + pickRandom(['&spades', '&clubs', '&hearts', '&diams']),
+			'Is this your card: ' + pickRandom(['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']) + pickRandom(['&spades;', '&clubs;', '&hearts;', '&diams;']),
 			'Learning <a href="http://clojure.org/">Clojure</a>',
 			'Loading...',
 			'Lorem ipsum dolor sit amet',
@@ -69,28 +69,36 @@
 			'Open source',
 			'Overly complicated',
 			'Performing big calculations',
+			'Permanently temporary',
 			'Please wait...',
 			'Populated with words',
 			'Powered by electrons',
 			'Powered by jQuery',
 			'Recycled star dust',
+			'Self-referential',
+			'Something\'s a SKU',
 			'Splash!',
+			'Temporarily permanent',
 			'Think with your closures',
 			'Think with your lambdas',
 			'Thinking of clever splashes',
+			'This I\'ll defend',
+			'Today is ' + ['January', 'February', 'March', 'April' , 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][month] + " " + date,
 			'Top secret',
+			'Updates available',
 			'Uses big numbers',
 			'Uses MathJax',
 			'Uses recycled electrons',
 			'Warning: contains opinions',
 			'When Harri met Courtney',
+			'WIP<br />harriknox.github.io<br />June 15, 2015 - present',
 			'Work in progress',
 			
 			'&lambda;',
 			'<span style="font-family:monospace">A wild HARRI appeared!</span>',
+			'<span style="color:#008000">Go Mustangs!</span>',
 			(IS_LOCAL ? 'Doesn\'t require<br/>' : 'Requires ') + 'Internet access',
 			'<span style="color:coral;">Coral</span> <span style="color:crimson;">Crimson</span> <span style="color:darkorange;">DarkOrange</span><br /><span style="color:orange;">Orange</span> <span style="color:orangered;">OrangeRed</span> <span style="color:red;">Red</span>',
-			'Today is ' + ['January', 'February', 'March', 'April' , 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][month] + " " + date,
 			(function(color) { return 'Ask about the<br />color <span style="color:' + color + ';">' + color + '</span>'; })(pickRandom(['Green', 'Goldenrod', 'Blue', 'Purple', 'Brown', 'Orange', 'Black',])),
 		];
 		
@@ -105,10 +113,12 @@
 			messages.forEach(function(message) { splashes.push(message); });
 		}
 		
-		if (now.getDay() === 3) splashes.push('It\'s Tuesday');
+		if (now.getDay() === 3) splashes.push('It\'s Tuesday!');
 		
 		var hour = now.getHours();
 		if (hour >= 5 && hour <= 10) splashes.push('Good Morning');
+		else if (hour >= 16 && hour <= 19) splashes.push('Good Afternoon');
+		else if (hour >= 20 && hour <= 23) splashes.push('Good Evening');
 		
 		return pickRandom(splashes);
 	};
@@ -132,15 +142,9 @@
 		/** Write page title in <head> and as a header **/
 		$('head').append('<title>Coder by Nature: ' + pageTitle + '</title>');
 		
-		var title = '<h1>I\'m a Programmer</h1>' +
-			'<h3>not by trade but by nature</h3>';
+		var title = '<h1>I\'m a Programmer</h1><h3>not by trade but by nature</h3>';
 		if (pageTitle !== 'Home') title = '<a href="' + getHome() + '" class="link-home" title="Home">' + title + '</a>';
-		$('body').prepend(
-			'<div class="header-container">' +
-				'<div class="splash">' + getSplash(pageTitle) + '</div>' +
-				'<div class="title">' + title + '</div>'+
-			'</div>'
-		);
+		$('body').prepend('<div class="header-container"><div class="splash">' + getSplash(pageTitle) + '</div><div class="title">' + title + '</div></div>');
 		
 		/** Position the splash in middle (vertically) of header **/
 		var $splash = $('.splash');
