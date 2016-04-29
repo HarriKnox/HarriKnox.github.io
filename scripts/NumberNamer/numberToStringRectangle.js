@@ -23,7 +23,7 @@ var number_to_string_button_onclick = function()
 };
 
 (function()
-{
+{console.log('Running NumberToStringRectangle.js');
 	var notLoaded = typeof io === 'undefined' || typeof io.harriknox === 'undefined' || typeof io.harriknox.NumberNamer === 'undefined';
 	
 	var ntsInput = document.createElement('input');
