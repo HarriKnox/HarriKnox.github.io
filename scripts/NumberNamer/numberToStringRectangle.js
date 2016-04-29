@@ -1,9 +1,7 @@
 (function()
 {
-	console.log('Running NumberToStringRectangle.js');
 	if (typeof number_to_string_button_onclick === 'undefined')
 	{
-	console.log('Doing the thing');
 		number_to_string_button_onclick = function()
 		{
 			var value = document.getElementsByClassName('number-to-string-input')[0].value;
