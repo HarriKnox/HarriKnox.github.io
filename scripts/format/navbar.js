@@ -26,6 +26,7 @@
 		'programming/ruby.html'       : 'Ruby',
 		
 		'https://github.com/HarriKnox' : 'GitHub',
+		'http://cchu1008.github.io'    : 'Bytes and Bits',
 	};
 	
 	var navbar = [
@@ -46,6 +47,7 @@
 			new Button('programming/ruby.html'),
 		]),
 		new Button('https://github.com/HarriKnox'),
+		new Button('http://cchu1008.github.io'),
 	];
 	
 	var CLOSED_MENU_ARROW = '&#9656;';
