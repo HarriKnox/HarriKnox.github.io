@@ -1,6 +1,6 @@
 .navbar
 {
-	background-color:#005;
+	background-color:#050;
 	text-decoration:none;
 	margin:0px -10px;
 	top:0px;
@@ -12,18 +12,18 @@
 	padding:1em;
 	margin:3px 0px 3px 3px;
 	display:inline-block;
-	background-color:#116;
+	background-color:#161;
 	cursor:pointer;
 }
 
 .navbar-button:hover
 {
-	background-color:#337;
+	background-color:#686;
 }
 
 .navbar-button-selected
 {
-	background-color:#337;
+	background-color:#373;
 	cursor:default;
 }
 
@@ -35,40 +35,32 @@
 .navbar-menu
 {
 	margin:0px -5px;
-	background-color:#555;
-	border-width:1px;
-	border-style:solid;
-	border-color:#000;
-	color:#fff;
-	display:none;
 	cursor:pointer;
+	display:none;
 }
 
-.navbar-menu-menu
+.navbar-menu, .navbar-menu-menu, .navbar-menu-button
 {
-	background-color:#555;
+	background-color:#fb0;
 	border-width:1px;
 	border-style:solid;
-	border-color:#000;
-	display:none;
+	border-color:#860;
+	color:#000;
 }
 
 .navbar-menu-button
 {
 	padding:0.5em 1em;
-	border-width:1px;
-	border-style:solid;
-	border-color:#000;
 }
 
 .navbar-menu-button:hover
 {
-	background-color:#888;
+	background-color:#fd8;
 }
 
-.navbar-menu-button-selected
+.navbar-menu-button-selected, .navbar-menu-button-selected:hover
 {
-	background-color:#777;
+	background-color:#fd6;
 	cursor:default;
 }
 
