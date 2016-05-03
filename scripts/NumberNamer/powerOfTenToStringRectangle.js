@@ -30,6 +30,8 @@
 		
 		var potInput = document.createElement('input');
 		potInput.className = 'power-of-ten-input';
+		ntsInput.pattern = '^\\d+$';
+		ntsInput.value = 0;
 		potInput.setAttribute('onkeydown', 'if (event.keyCode === 13) power_of_ten_button_onclick();');
 		
 		var potButton = document.createElement('input');

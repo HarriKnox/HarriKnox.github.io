@@ -30,6 +30,8 @@
 		
 		var ignInput = document.createElement('input');
 		ignInput.className = 'illion-group-name-input';
+		ntsInput.pattern = '^[1-9]\\d*$';
+		ntsInput.value = 0;
 		ignInput.setAttribute('onkeydown', 'if (event.keyCode === 13) illion_group_number_button_onclick();');
 		
 		var ignButton = document.createElement('input');

@@ -30,6 +30,8 @@
 		
 		var ntsInput = document.createElement('input');
 		ntsInput.className = 'number-to-string-input';
+		ntsInput.pattern = '^\\d+$';
+		ntsInput.value = 0;
 		ntsInput.setAttribute('onkeydown', 'if (event.keyCode === 13) number_to_string_button_onclick();');
 		
 		var ntsButton = document.createElement('input');
