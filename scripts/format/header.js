@@ -5,6 +5,7 @@
 	
 	var getSplash = function(pageTitle)
 	{
+		//return '9&frac34';
 		var now = new Date();
 		var month = now.getMonth();
 		var date = now.getDate();
@@ -29,6 +30,7 @@
 			'Abstract',
 			'Ad-free',
 			'An hour\'s drive up',
+			'As seen on the Internet',
 			'At a gain for numbers',
 			'At a loss for words',
 			'Built for Chrome',
@@ -56,6 +58,7 @@
 			'Has the force of a great typhoon',
 			'Has the strength of a raging fire',
 			'High-level programming',
+			'Hufflepuff',
 			'I am the one who Knox',
 			'I know you\'re on the<br />' + pageTitle + ' page',
 			'I spell only "incorrectly" uncorrectly',
@@ -123,6 +126,7 @@
 			'WIP<br />harriknox.github.io<br />June 15, 2015 - present',
 			'Work in progress',
 			
+			'9&frac34',
 			'&lambda;',
 			'&pi; &lt; &tau;',
 			'<span style="font-family:monospace">A wild HARRI appeared!</span>',

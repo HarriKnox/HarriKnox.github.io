@@ -2,7 +2,7 @@
 {
 	if (typeof power_of_ten_button_onclick === 'undefined')
 	{
-		var power_of_ten_button_onclick = function()
+		power_of_ten_button_onclick = function()
 		{
 			var value = document.getElementsByClassName('power-of-ten-input')[0].value;
 			var result = '<em>The number\'s name will appear here</em>';
