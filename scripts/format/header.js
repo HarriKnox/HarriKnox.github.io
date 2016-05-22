@@ -5,7 +5,7 @@
 	
 	var getSplash = function(pageTitle)
 	{
-		//return '9&frac34';
+		//return '9&frac34;';
 		var now = new Date();
 		var month = now.getMonth();
 		var date = now.getDate();
@@ -31,9 +31,11 @@
 			'Ad-free',
 			'An hour\'s drive up',
 			'As seen on the Internet',
+			'As mysterious as<br/>the dark side of the moon',
+			'As swift as a coursing river',
 			'At a gain for numbers',
 			'At a loss for words',
-			'Built for Chrome',
+			//'Built for Chrome',
 			'Built for Firefox',
 			'Call me Harri',
 			'Check out the navbar',
@@ -67,12 +69,11 @@
 			'Insert clever statement here',
 			'Initializing...',
 			'Initiating awesomeness',
-			'Is as mysterious as<br/>the dark side of the moon',
-			'Is as swift as a coursing river',
 			'Is this your card: ' + pickRandom(['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']) + pickRandom(['&spades;', '&clubs;', '&hearts;', '&diams;']),
 			'It\'s pronounced "gif" not "gif"',
 			'Learning <a href="http://clojure.org/">Clojure</a>',
 			'Libre y Gratis',
+			'Lithium and Iron are<br/>necessary for LiFe',
 			'Loading...',
 			'Lorem ipsum dolor sit amet',
 			'Made by Harrison Knox',
@@ -88,6 +89,7 @@
 			'Now includes<br/>complementary splashes',
 			'Now mobile friendly',
 			'Object-oriented',
+			'OPEN',
 			'Open source',
 			'Overly complicated',
 			'Paradoxical',
@@ -101,6 +103,7 @@
 			'Procedural',
 			'Recycled star dust',
 			'References itself',
+			'Se habla Espa&ntilde;ol',
 			'Self-referential',
 			'Something\'s a SKU',
 			'Specific',
@@ -125,8 +128,9 @@
 			'When Harri met Courtney',
 			'WIP<br />harriknox.github.io<br />June 15, 2015 - present',
 			'Work in progress',
+			'You look nice today',
 			
-			'9&frac34',
+			'9&frac34;',
 			'&lambda;',
 			'&pi; &lt; &tau;',
 			'<span style="font-family:monospace">A wild HARRI appeared!</span>',
@@ -212,24 +216,4 @@ You must be swift as a coursing river		As swift as a coursing river
 With all the force of a great typhoon		Has the force of a great typhoon
 With all the strength of a raging fire		Has the strength of a raging fire
 Mysterious as the dark side of the moon		Is as mysterious as the dark side of the moon
-
-
-Love song
-
-I'm not gonna write you a love song														Will not write you a love song
-'cause you asked for it																	because you requested it
-'cause you need one, you see															nor because you need one
-I'm not gonna write you a love song														will not write you a love song
-'cause you tell me it's make or break in this											because it's make or break
-If you're on your way																	if you are leaving
-I'm not gonna write you to stay															will not write to make you stay
-If all you have is leaving I'ma need a better reason to write you a love song today		will need a better reason than you leaving
-
-
-Shake It Off
-
-'Cause the players gonna play, play, play, play, play		Players will play
-And the haters gonna hate, hate, hate, hate, hate			Haters will hate
-Baby, I'm just gonna shake, shake, shake, shake, shake		I will shake
-I shake it off, I shake it off								Shake it off
 */
