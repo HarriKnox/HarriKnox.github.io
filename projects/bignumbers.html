@@ -6,11 +6,12 @@
 		<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		<script src="scripts/NumberNamer/loadNumberNamer.js"></script>
 		<style>
-			td.modcell { border-right:0px; font-size:0.75em; }
-			td.namecell { border-left:0px; }
-			tr.top td { border-color:black; border-style:solid; border-top-width:2px; }
+			table.latinprefixes td { border-right-width:1px; border-right-style:dashed; border-right-color:black; }
+			table.latinprefixes td:first-child { border-right-style:solid; }
+			table.latinprefixes td:last-child { border-right-style:none; }
+			table.latinprefixes td.modcell { border-right:0px; font-size:0.75em; }
+			tr.top td { border-color:black; border-style:solid; border-top-width:1px; }
 			.examples td, .examples th { border-width:0px; }
-			.indented { margin-left:3em; margin-right:3em; }
 		</style>
 	</head>
 	<body>
@@ -96,21 +97,23 @@
 				First, observe the table and see that on the left are the digit values from 0 to 9, and to the right of them are the names for each digit depending on its spot in the digit group of the group number.
 			</div>
 			<div style="overflow:auto;">
-				<table>
+				<table class="latinprefixes">
 					<thead>
-						<tr><th>Digit</th> <th>Solo Ones</th> <th>Ones</th>       <th colspan=2>Tens</th>                                           <th colspan=2>Hundreds</th>   </tr>
+						<tr><th>Digit</th>                   <th>Solo Ones</th> <th>Ones</th>       <th colspan=2>Tens</th>                          <th colspan=2>Hundreds</th>                      </tr>
 					</thead>
 					<tbody>
-						<tr><td>0</td>     <td>ni</td>        <td></td>           <td class="modcell"></td>  <td class="namecell"></td>             <td class="modcell"></td>  <td class="namecell"></td>             </tr>
-						<tr><td>1</td>     <td>mi</td>        <td>un</td>         <td class="modcell">n</td> <td class="namecell">deci</td>         <td class="modcell">nx</td><td class="namecell">centi</td>        </tr>
-						<tr><td>2</td>     <td>bi</td>        <td>duo</td>        <td class="modcell">ms</td><td class="namecell">viginti</td>      <td class="modcell">n</td> <td class="namecell">ducenti</td>      </tr>
-						<tr><td>3</td>     <td>tri</td>       <td>tre(s)</td>     <td class="modcell">ns</td><td class="namecell">triginta</td>     <td class="modcell">ns</td><td class="namecell">trecenti</td>     </tr>
-						<tr><td>4</td>     <td>quadri</td>    <td>quattuor</td>   <td class="modcell">ns</td><td class="namecell">quadraginta</td>  <td class="modcell">ns</td><td class="namecell">quadringenti</td> </tr>
-						<tr><td>5</td>     <td>quinti</td>    <td>quinqua</td>    <td class="modcell">ns</td><td class="namecell">quinquaginta</td> <td class="modcell">ns</td><td class="namecell">quingenti</td>    </tr>
-						<tr><td>6</td>     <td>sexti</td>     <td>se(s/x)</td>    <td class="modcell">n</td> <td class="namecell">sexaginta</td>    <td class="modcell">n</td> <td class="namecell">sescenti</td>     </tr>
-						<tr><td>7</td>     <td>septi</td>     <td>septe(m/n)</td> <td class="modcell">n</td> <td class="namecell">septuaginta</td>  <td class="modcell">n</td> <td class="namecell">septingenti</td>  </tr>
-						<tr><td>8</td>     <td>octi</td>      <td>octo</td>       <td class="modcell">mx</td><td class="namecell">octoginta</td>    <td class="modcell">mx</td><td class="namecell">octingenti</td>   </tr>
-						<tr><td>9</td>     <td>noni</td>      <td>nove(m/n)</td>  <td class="modcell"></td>  <td class="namecell">nonaginta</td>    <td class="modcell"></td>  <td class="namecell">nongenti</td>     </tr>
+						<tr><td class="digitcell">0</td>     <td>ni</td>        <td></td>           <td class="modcell"></td>  <td></td>             <td class="modcell"></td>  <td></td>             </tr>
+						<tr><td class="digitcell">1</td>     <td>mi</td>        <td>un</td>         <td class="modcell">n</td> <td>deci</td>         <td class="modcell">nx</td><td>centi</td>        </tr>
+						<tr><td class="digitcell">2</td>     <td>bi</td>        <td>duo</td>        <td class="modcell">ms</td><td>viginti</td>      <td class="modcell">n</td> <td>ducenti</td>      </tr>
+						<tr><td class="digitcell">3</td>     <td>tri</td>       <td>tre(s)</td>     <td class="modcell">ns</td><td>triginta</td>     <td class="modcell">ns</td><td>trecenti</td>     </tr>
+						<tr><td class="digitcell">4</td>     <td>quadri</td>    <td>quattuor</td>   <td class="modcell">ns</td><td>quadraginta</td>  <td class="modcell">ns</td><td>quadringenti</td> </tr>
+					</tbody>
+					<tbody>
+						<tr><td class="digitcell">5</td>     <td>quinti</td>    <td>quinqua</td>    <td class="modcell">ns</td><td>quinquaginta</td> <td class="modcell">ns</td><td>quingenti</td>    </tr>
+						<tr><td class="digitcell">6</td>     <td>sexti</td>     <td>se(s/x)</td>    <td class="modcell">n</td> <td>sexaginta</td>    <td class="modcell">n</td> <td>sescenti</td>     </tr>
+						<tr><td class="digitcell">7</td>     <td>septi</td>     <td>septe(m/n)</td> <td class="modcell">n</td> <td>septuaginta</td>  <td class="modcell">n</td> <td>septingenti</td>  </tr>
+						<tr><td class="digitcell">8</td>     <td>octi</td>      <td>octo</td>       <td class="modcell">mx</td><td>octoginta</td>    <td class="modcell">mx</td><td>octingenti</td>   </tr>
+						<tr><td class="digitcell">9</td>     <td>noni</td>      <td>nove(m/n)</td>  <td class="modcell"></td>  <td>nonaginta</td>    <td class="modcell"></td>  <td>nongenti</td>     </tr>
 					</tbody>
 				</table>
 			</div>
@@ -261,17 +264,15 @@
 				<em>ten trilli + (trestrigintatrecentilli * 32) + duotrigintatrecentillion</em>.
 			</div>
 			<div>
+				<h4>The Derivation</h4>
 				You may be thinking "How the hell did you come up with that?".
 				I came up with this large number name using the upcoming derivation.
 				This derivation is to show how to construct names for any number 10<sup>10<sup>R</sup></sup>.
-				First a few givens that we know to be true.
-			</div>
-			<div>
-				<h4>The Derivation</h4>
+				First a few givens that we know to be true:
 				<ol>
 					<li>An integer that is \(1\) followed by \(n\) zeros can be written as \(10^n\)</li>
 					<li>The corresponding integer for a group-number \(M\) is \(10^{3M + 3}\)</li>
-					<li>\({10^R \equiv 1} \pmod 3\) for any \(R \ge 0\)</li>
+					<li>\({10^R \equiv 1} \pmod 3\) for any integer \(R \ge 0\)</li>
 				</ol>
 			</div>
 			<div>

@@ -19,11 +19,38 @@ table
 	border-collapse:collapse;
 }
 
-th, td
+thead tr:nth-last-child(1)
 {
-	border-width:1px;
-	border-style:solid;
+	border-bottom-width:2px;
+	border-bottom-style:solid;
+	border-bottom-color:black;
+}
+
+tbody tr:first-child
+{
+	border-top-width:1px;
+	border-top-style:dashed;
+	border-top-color:black;
+}
+
+tfoot tr:first-child
+{
+	border-top-width:2px;
+	border-top-style:solid;
+	border-top-color:black;
+}
+
+td:first-child
+{
+	border-right-width:1px;
+	border-right-style:solid;
 	border-color:black;
+	font-style:italic;
+	text-align:right;
+}
+
+td
+{
 	padding:2px 4px;
 }
 

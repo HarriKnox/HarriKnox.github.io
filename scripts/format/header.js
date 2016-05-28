@@ -5,7 +5,7 @@
 	
 	var getSplash = function(pageTitle)
 	{
-		//return '9&frac34;';
+		//return 'Executes an infinite loop<br/>in half the time';
 		var now = new Date();
 		var month = now.getMonth();
 		var date = now.getDate();
@@ -51,6 +51,7 @@
 			'Doing its best',
 			'Don\'t deny it,<br />you were reading this',
 			'Eco-friendly',
+			'Executes an infinite loop<br/>in half the time',
 			'Error 404: Splash not found',
 			'Follows a normal distribution',
 			'Fork me on <a href="https://github.com/HarriKnox">GitHub</a>',
@@ -63,10 +64,10 @@
 			'Hufflepuff',
 			'I am the one who Knox',
 			'I know you\'re on the<br />' + pageTitle + ' page',
-			'I spell only "incorrectly" uncorrectly',
 			'If it\'s not paradoxical,<br/>then it\'s paradoxical',
 			'Indubitably',
 			'Insert clever statement here',
+			'Infinite loop complete',
 			'Initializing...',
 			'Initiating awesomeness',
 			'Is this your card: ' + pickRandom(['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']) + pickRandom(['&spades;', '&clubs;', '&hearts;', '&diams;']),
@@ -82,14 +83,16 @@
 			'Made out of star dust',
 			'Made you look',
 			'Made with love',
+			'MacFarlane',
 			'Multilingual',
-			'Never going to give you up',
+			'Never gonna give you up',
 			'No longer broken',
 			'Now available in English',
 			'Now includes<br/>complementary splashes',
 			'Now mobile friendly',
 			'Object-oriented',
 			'OPEN',
+			'Open 24/7',
 			'Open source',
 			'Overly complicated',
 			'Paradoxical',
@@ -101,6 +104,7 @@
 			'Powered by electrons',
 			'Powered by jQuery',
 			'Procedural',
+			'Punny',
 			'Recycled star dust',
 			'References itself',
 			'Se habla Espa&ntilde;ol',
@@ -108,6 +112,7 @@
 			'Something\'s a SKU',
 			'Specific',
 			'Splash!',
+			'Tail optimized',
 			'Tail recursive',
 			'Temporarily permanent',
 			'Think with your closures',
@@ -157,13 +162,11 @@
 		
 		var hour = now.getHours();
 		if (hour >= 5 && hour <= 10) splashes.push('Good Morning');
-		else if (hour >= 16 && hour <= 19) splashes.push('Good Afternoon');
+		else if (hour >= 15 && hour <= 19) splashes.push('Good Afternoon');
 		else if (hour >= 20 && hour <= 23) splashes.push('Good Evening');
 		
 		return pickRandom(splashes);
 	};
-	
-	var getHome = function() { return IS_LOCAL ? 'index.html' : '/'; };
 	
 	var setSplashVisibility = function()
 	{
@@ -183,7 +186,7 @@
 		$('head').append('<title>Coder by Nature: ' + pageTitle + '</title>');
 		
 		var title = '<h1>I\'m a Programmer</h1><h3>not by trade but by nature</h3>';
-		if (pageTitle !== 'Home') title = '<a href="' + getHome() + '" class="link-home" title="Home">' + title + '</a>';
+		if (pageTitle !== 'Home') title = '<a href="' + (IS_LOCAL ? 'index.html' : '/') + '" class="link-home" title="Home">' + title + '</a>';
 		$('body').prepend('<div class="header-container"><div class="splash">' + getSplash(pageTitle) + '</div><div class="title">' + title + '</div></div>');
 		
 		/** Position the splash in middle (vertically) of header **/
@@ -198,22 +201,3 @@
 		$(window).resize(setSplashVisibility);
 	});
 })(jQuery);
-
-/*
-Never Gonna Give you Up
-
-Never gonna give you up						Will not give you up
-Never gonna let you down					Will not let you down
-Never gonna run around and desert you		Will not run around and desert you
-Never gonna make you cry					Will not make you cry
-Never gonna say goodbye						Will not say goodbye
-Never gonna tell a lie and hurt you			Will not tell a lie and hurt you
-
-
-I'll Make a Man out of You
-
-You must be swift as a coursing river		As swift as a coursing river
-With all the force of a great typhoon		Has the force of a great typhoon
-With all the strength of a raging fire		Has the strength of a raging fire
-Mysterious as the dark side of the moon		Is as mysterious as the dark side of the moon
-*/
