@@ -6,12 +6,13 @@
 		<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		<script src="scripts/NumberNamer/loadNumberNamer.js"></script>
 		<style>
-			table.latinprefixes td { border-right-width:1px; border-right-style:dashed; border-right-color:black; }
-			table.latinprefixes td:first-child { border-right-style:solid; }
-			table.latinprefixes td:last-child { border-right-style:none; }
-			table.latinprefixes td.modcell { border-right:0px; font-size:0.75em; }
-			tr.top td { border-color:black; border-style:solid; border-top-width:1px; }
-			.examples td, .examples th { border-width:0px; }
+			.latinprefixes td { border-right-width:1px; border-right-style:dashed; border-right-color:black; }
+			.latinprefixes td:first-child { border-right-style:solid; }
+			.latinprefixes td:last-child { border-right-style:none; }
+			.latinprefixes td.modcell { border-right:0px; font-size:0.75em; }
+			.examples tr.top td { border-color:black; border-style:solid; border-top-width:1px; }
+			.examples td { border-width:0px; font-style:normal; text-align:left; }
+			.examples .number { font-style:italic; }
 		</style>
 	</head>
 	<body>
@@ -96,24 +97,24 @@
 				The construction of a group-name uses the following table.
 				First, observe the table and see that on the left are the digit values from 0 to 9, and to the right of them are the names for each digit depending on its spot in the digit group of the group number.
 			</div>
-			<div style="overflow:auto;">
+			<div class="overflow">
 				<table class="latinprefixes">
 					<thead>
-						<tr><th>Digit</th>                   <th>Solo Ones</th> <th>Ones</th>       <th colspan=2>Tens</th>                          <th colspan=2>Hundreds</th>                      </tr>
+						<tr><th>Digit</th>               <th>Solo</th>   <th>Ones</th>       <th colspan=2>Tens</th>                          <th colspan=2>Hundreds</th>                      </tr>
 					</thead>
 					<tbody>
-						<tr><td class="digitcell">0</td>     <td>ni</td>        <td></td>           <td class="modcell"></td>  <td></td>             <td class="modcell"></td>  <td></td>             </tr>
-						<tr><td class="digitcell">1</td>     <td>mi</td>        <td>un</td>         <td class="modcell">n</td> <td>deci</td>         <td class="modcell">nx</td><td>centi</td>        </tr>
-						<tr><td class="digitcell">2</td>     <td>bi</td>        <td>duo</td>        <td class="modcell">ms</td><td>viginti</td>      <td class="modcell">n</td> <td>ducenti</td>      </tr>
-						<tr><td class="digitcell">3</td>     <td>tri</td>       <td>tre(s)</td>     <td class="modcell">ns</td><td>triginta</td>     <td class="modcell">ns</td><td>trecenti</td>     </tr>
-						<tr><td class="digitcell">4</td>     <td>quadri</td>    <td>quattuor</td>   <td class="modcell">ns</td><td>quadraginta</td>  <td class="modcell">ns</td><td>quadringenti</td> </tr>
+						<tr><td class="digitcell">0</td> <td>ni</td>     <td></td>           <td class="modcell"></td>  <td></td>             <td class="modcell"></td>  <td></td>             </tr>
+						<tr><td class="digitcell">1</td> <td>mi</td>     <td>un</td>         <td class="modcell">n</td> <td>deci</td>         <td class="modcell">nx</td><td>centi</td>        </tr>
+						<tr><td class="digitcell">2</td> <td>bi</td>     <td>duo</td>        <td class="modcell">ms</td><td>viginti</td>      <td class="modcell">n</td> <td>ducenti</td>      </tr>
+						<tr><td class="digitcell">3</td> <td>tri</td>    <td>tre(s)</td>     <td class="modcell">ns</td><td>triginta</td>     <td class="modcell">ns</td><td>trecenti</td>     </tr>
+						<tr><td class="digitcell">4</td> <td>quadri</td> <td>quattuor</td>   <td class="modcell">ns</td><td>quadraginta</td>  <td class="modcell">ns</td><td>quadringenti</td> </tr>
 					</tbody>
 					<tbody>
-						<tr><td class="digitcell">5</td>     <td>quinti</td>    <td>quinqua</td>    <td class="modcell">ns</td><td>quinquaginta</td> <td class="modcell">ns</td><td>quingenti</td>    </tr>
-						<tr><td class="digitcell">6</td>     <td>sexti</td>     <td>se(s/x)</td>    <td class="modcell">n</td> <td>sexaginta</td>    <td class="modcell">n</td> <td>sescenti</td>     </tr>
-						<tr><td class="digitcell">7</td>     <td>septi</td>     <td>septe(m/n)</td> <td class="modcell">n</td> <td>septuaginta</td>  <td class="modcell">n</td> <td>septingenti</td>  </tr>
-						<tr><td class="digitcell">8</td>     <td>octi</td>      <td>octo</td>       <td class="modcell">mx</td><td>octoginta</td>    <td class="modcell">mx</td><td>octingenti</td>   </tr>
-						<tr><td class="digitcell">9</td>     <td>noni</td>      <td>nove(m/n)</td>  <td class="modcell"></td>  <td>nonaginta</td>    <td class="modcell"></td>  <td>nongenti</td>     </tr>
+						<tr><td class="digitcell">5</td> <td>quinti</td> <td>quinqua</td>    <td class="modcell">ns</td><td>quinquaginta</td> <td class="modcell">ns</td><td>quingenti</td>    </tr>
+						<tr><td class="digitcell">6</td> <td>sexti</td>  <td>se(s/x)</td>    <td class="modcell">n</td> <td>sexaginta</td>    <td class="modcell">n</td> <td>sescenti</td>     </tr>
+						<tr><td class="digitcell">7</td> <td>septi</td>  <td>septe(m/n)</td> <td class="modcell">n</td> <td>septuaginta</td>  <td class="modcell">n</td> <td>septingenti</td>  </tr>
+						<tr><td class="digitcell">8</td> <td>octi</td>   <td>octo</td>       <td class="modcell">mx</td><td>octoginta</td>    <td class="modcell">mx</td><td>octingenti</td>   </tr>
+						<tr><td class="digitcell">9</td> <td>noni</td>   <td>nove(m/n)</td>  <td class="modcell"></td>  <td>nonaginta</td>    <td class="modcell"></td>  <td>nongenti</td>     </tr>
 					</tbody>
 				</table>
 			</div>
@@ -131,7 +132,7 @@
 				Here are the rules in a concise list:
 				<ul>
 					<li>Use the table with values for ones, tens, and hundreds digits of the digit group of a group-number to get digit group's name</li>
-					<li>If both tens and hundreds are 0, use name in "Solo Ones" column</li>
+					<li>If both tens and hundreds are 0, use name in "Solo" column</li>
 					<li>If group-number has more than one digit group, use "illion" for the last group and "illi" for the ones before</li>
 					<li>If the ones name has a letter in parentheses and the next name has that letter before it in the table, put that letter between the names</li>
 				</ul>
@@ -146,29 +147,29 @@
 				The following is a table demonstrating the process behind constructing the group-name for various group-numbers.
 				The numbers were selected to demonstrate the various rules and relieve any confusion.
 			</div>
-			<div style="overflow:auto">
+			<div class="overflow">
 				<table class="examples">
 					<thead>
 						<tr><th>Group-number</th><th>Ones</th><th>Tens</th><th>Hundreds</th><th>Replacement</th><th>Result</th></tr>
 					</thead>
 					<tbody>
-						<tr class="top"><td>824</td><td>quattuor</td><td>viginta</td><td>octingenti</td><td>illion</td><td>quattuorvigintaocingentillion</td></tr>
+						<tr class="top"><td class="number">824</td><td>quattuor</td><td>viginta</td><td>octingenti</td><td>illion</td><td>quattuorvigintaocingentillion</td></tr>
 						
-						<tr class="top"><td rowspan=2>75'930</td><td>quinqua</td><td>septuaginta</td><td></td><td>illi</td><td rowspan=2>quinquaseptuagintillitrigintanongentillion</td></tr>
+						<tr class="top"><td class="number" rowspan=2>75'930</td><td>quinqua</td><td>septuaginta</td><td></td><td>illi</td><td rowspan=2>quinquaseptuagintillitrigintanongentillion</td></tr>
 						<tr><!--75'930--><td></td><td>triginta</td><td>nongenti</td><td>illion</td></tr>
 						
-						<tr class="top"><td>88</td><td>octo</td><td>octoginta</td><td></td><td>illion</td><td>octooctogintillion</td></tr>
+						<tr class="top"><td class="number">88</td><td>octo</td><td>octoginta</td><td></td><td>illion</td><td>octooctogintillion</td></tr>
 						
-						<tr class="top"><td>36</td><td>ses</td><td>triginta</td><td></td><td>illion</td><td>sestrigintillion</td></tr>
+						<tr class="top"><td class="number">36</td><td>ses</td><td>triginta</td><td></td><td>illion</td><td>sestrigintillion</td></tr>
 						
-						<tr class="top"><td rowspan=2>4'050</td><td>quadri</td><td></td><td></td><td>illi</td><td rowspan=2>quadrilliquinquagintillion</td></tr>
+						<tr class="top"><td class="number" rowspan=2>4'050</td><td>quadri</td><td></td><td></td><td>illi</td><td rowspan=2>quadrilliquinquagintillion</td></tr>
 						<tr><!--4'050--><td></td><td>quinquaginta</td><td></td><td>illion</td></tr>
 						
-						<tr class="top"><td rowspan=3>32'000'106</td><td>duo</td><td>triginta</td><td></td><td>illi</td><td rowspan=3>duotrigintillinillisexcentillion</td></tr>
+						<tr class="top"><td class="number" rowspan=3>32'000'106</td><td>duo</td><td>triginta</td><td></td><td>illi</td><td rowspan=3>duotrigintillinillisexcentillion</td></tr>
 						<tr><!--32'000'106--><td>ni</td><td></td><td></td><td>illi</td></tr>
 						<tr><!--32'000'106--><td>sex</td><td></td><td>centi</td><td>illion</td></tr>
 						
-						<tr class="top"><td rowspan=2>106'600</td><td>sex</td><td></td><td>centi</td><td>illi</td><td rowspan=2>sexcentillisescentillion</td></tr>
+						<tr class="top"><td class="number" rowspan=2>106'600</td><td>sex</td><td></td><td>centi</td><td>illi</td><td rowspan=2>sexcentillisescentillion</td></tr>
 						<tr><!--106'600--><td></td><td></td><td>sescenti</td><td>illion</td></tr>
 					</tbody>
 				</table>
