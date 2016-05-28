@@ -278,8 +278,14 @@
 			</div>
 			<div>
 				Suppose an integer was \(1\) followed by \(n\) zeros, it would have a group-number \(M\).
+			</div>
+			<div class="overflow">
 				\[10^n = 10^{3M+3}\]
+			</div>
+			<div>
 				Taking the base 10 logarithm of both sides, equates functions of \(n\) and \(M\) directly to each other and we can solve for \(M\).
+			</div>
+			<div class="overflow">
 				\[\begin{align}
 					n & = 3M+3 \\[1ex]
 					n - 3 & = 3M \\[1ex]
@@ -289,6 +295,8 @@
 			<div>
 				Because \(M\) is an integer, the division by \(3\) will need to be adjusted to prevent non-whole numbers.
 				If \(3\) divides \(n\) (meaning there are whole digit-groups of zeros like 1'000'000) then \(M\) is just \(\frac{n-3} 3\). If \(3\) does not divide \(n\) (indicating that there are some zeros that do not form a complete group like 10'000'000), then \(M\) equals either  \(\frac{(n-1)-3} 3\) or  \(\frac{(n-2)-3} 3\).
+			</div>
+			<div class="overflow">
 				\[M =
 				\begin{cases}
 					\frac{n - 3} 3,       & \text {if} \; n \bmod 3 = 0 \\[1ex]
@@ -300,12 +308,20 @@
 				Suppose an integer was \(1\) followed by \(n=10^R\) zeros, it would be written out as \(10^{10^R}\).
 				\({10^R \equiv 1} \pmod 3\), so \(\left (10^R - 1 \right ) \bmod 3 = 0\).
 				Using the first given at the top of the list, we know
+			</div>
+			<div class="overflow">
 				\[n = 10 \ldots 00 \; \text{($0$ repeated \(R\) times)}\]
+			</div>
+			<div>
 				Letting \(n'=n - 1\), subtracting \(1\) from that gives us
+			</div>
+			<div class="overflow">
 				\[n' = 9 \ldots 99 \; \text{($9$ repeated \(R\) times)}\]
 			</div>
 			<div>
 				We can solve for \(M\) using \(n'\) and these arbitrarily large numbers.
+			</div>
+			<div class="overflow">
 				\begin{align}
 					M & = \frac{(n - 1) - 3} 3 \\[1ex]
 					  & = \frac{n' - 3} 3 \\[1ex]
