@@ -29,6 +29,7 @@
 			'A Googolplex is 10 in base googolplex',
 			'Abstract',
 			'Ad-free',
+			'All human beings are born<br/>free and equal in dignity and rights',
 			'An hour\'s drive up',
 			'As seen on the Internet',
 			'As mysterious as<br/>the dark side of the moon',
@@ -71,7 +72,7 @@
 			'Initializing...',
 			'Initiating awesomeness',
 			'Is this your card: ' + pickRandom(['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']) + pickRandom(['&spades;', '&clubs;', '&hearts;', '&diams;']),
-			'It\'s pronounced "gif" not "gif"',
+			'It\'s pronounced "gif", not "gif"',
 			'Learning <a href="http://clojure.org/">Clojure</a>',
 			'Libre y Gratis',
 			'Lithium and Iron are<br/>necessary for LiFe',
@@ -146,19 +147,23 @@
 			(function(color) { return 'Ask about the<br />color <span style="color:' + color + ';">' + color + '</span>'; })(pickRandom(['Green', 'Goldenrod', 'Blue', 'Purple', 'Brown', 'Orange', 'Black',])),
 		];
 		
+		if (date === 1)
+			splashes.push('Rabbit');
+		
 		if (today >= 1200)
 		{
 			var messages = ['Happy &lt;insert holiday here&gt;!', 'Happy Holidays!', 'Happy Nondenominational<br>Winter Themed Month']
 			if (!document.cookie.match(/december=true/))
 			{
-				document.cookie = "december=true;path=/";
+				document.cookie = 'december=true;path=/';
 				return pickRandom(messages);
 			}
 			messages.forEach(function(message) { splashes.push(message); });
 		}
 		
-		if (now.getDay() === 3) splashes.push('It\'s Tuesday!');
-		if (now.getDay() === 1) splashes.push('Enjoy your weekend!');
+		var weekday = now.getDay();
+		if (weekday === 3) splashes.push('It\'s Tuesday!');
+		if (weekday === 1) splashes.push('Enjoy your weekend!');
 		
 		var hour = now.getHours();
 		if (hour >= 5 && hour <= 10) splashes.push('Good Morning');
