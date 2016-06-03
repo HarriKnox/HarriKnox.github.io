@@ -24,6 +24,20 @@
 		if (today ===  704) return '<span style="color:red;">Happy</span> <span style="color:white;text-shadow:0px -1px 1px black,1px -1px 1px black,1px 1px 1px black,-1px 0px 1px black,0px 1px 1px black,1px 0px 1px black,-1px -1px 1px black,-1px 1px 1px black;">4th of</span> <span style="color:blue">July!</span>';
 		if (today === 1031) return pickRandom(['<span style="color:darkorange;">BOO!</span>', '<span style="color:darkorange;">Happy Halloween!</span>']);
 		
+		if (!document.cookie.match(/periodic=\d+/))
+		{
+			document.cookie = 'periodic=8;path=/';
+		}
+		else
+		{
+			var periodic = parseInt(document.cookie.match(/periodic=(\d+)/)[1])
+			if (--periodic < 0)
+				periodic = 7;
+			document.cookie = 'periodic=' + periodic + ';path=/';
+			if (periodic === 0)
+				return 'Periodic';
+		}
+		
 		var splashes = [
 			'A Googol is Ten Duotrigintillion',
 			'A Googolplex is 10 in base googolplex',
