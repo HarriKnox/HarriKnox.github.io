@@ -43,7 +43,7 @@
 			'A Googolplex is 10 in base googolplex',
 			'Abstract',
 			'Ad-free',
-			'All human beings are born<br/>free and equal in dignity and rights',
+			'All human beings<br/>are born free and equal<br>in dignity and rights',
 			'An hour\'s drive up',
 			'As seen on the Internet',
 			'As mysterious as<br/>the dark side of the moon',
@@ -59,6 +59,7 @@
 			'Coder by day,<br />Coder by night',
 			'Coder by Nature',
 			'Conceptual',
+			'Conventional',
 			'Construction zone',
 			'Contains long-winded essays',
 			'Data',
@@ -68,6 +69,7 @@
 			'Eco-friendly',
 			'Executes an infinite loop<br/>in half the time',
 			'Error 404: Splash not found',
+			'Everything is arbitrary',
 			'Follows a normal distribution',
 			'Fork me on <a href="https://github.com/HarriKnox">GitHub</a>',
 			'GNU',
@@ -137,6 +139,7 @@
 			'Today is ' + ['January', 'February', 'March', 'April' , 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][month] + " " + date,
 			'Top secret',
 			'Under construction',
+			'Unique like everything else',
 			'Updates available',
 			'Uses big numbers',
 			'Uses dial-up',
@@ -160,9 +163,16 @@
 			'<span style="color:coral;">Coral</span> <span style="color:crimson;">Crimson</span> <span style="color:darkorange;">DarkOrange</span><br /><span style="color:orange;">Orange</span> <span style="color:orangered;">OrangeRed</span> <span style="color:red;">Red</span>',
 			(function(color) { return 'Ask about the<br />color <span style="color:' + color + ';">' + color + '</span>'; })(pickRandom(['Green', 'Goldenrod', 'Blue', 'Purple', 'Brown', 'Orange', 'Black',])),
 		];
-		
+		return splashes[4];
 		if (date === 1)
+		{
+			if (!document.cookie.match(/rabbit=true/))
+			{
+				document.cookie = 'rabbit=true;path=/';
+				return 'Rabbit';
+			}
 			splashes.push('Rabbit');
+		}
 		
 		if (today >= 1200)
 		{
