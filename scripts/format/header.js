@@ -5,7 +5,7 @@
 	
 	var getSplash = function(pageTitle)
 	{
-		//return 'Executes an infinite loop<br/>in half the time';
+		//return 'Happy <span class="black-shadow" style="color:white;">4th of</span> <span style="color:blue">July!</span>'
 		var now = new Date();
 		var month = now.getMonth();
 		var date = now.getDate();
@@ -21,7 +21,8 @@
 		if (today ===  314) return (Math.random() < 0.9375) ? 'Happy Pi Day!' : 'Happy Half-Tau Day!';
 		if (today ===  401) return 'Fooled you!';
 		if (today ===  628) return 'Happy Tau Day!';
-		if (today ===  704) return '<span style="color:red;">Happy</span> <span style="color:white;text-shadow:0px -1px 1px black,1px -1px 1px black,1px 1px 1px black,-1px 0px 1px black,0px 1px 1px black,1px 0px 1px black,-1px -1px 1px black,-1px 1px 1px black;">4th of</span> <span style="color:blue">July!</span>';
+		if (today ===  701) return 'Happy <span class="black-shadow" style="color:white;">Canada</span> Day!';
+		if (today ===  704) return 'Happy <span class="black-shadow" style="color:white;">4th of</span> <span style="color:blue">July!</span>';
 		if (today === 1031) return pickRandom(['<span style="color:darkorange;">BOO!</span>', '<span style="color:darkorange;">Happy Halloween!</span>']);
 		
 		if (!document.cookie.match(/periodic=\d+/))
@@ -45,6 +46,7 @@
 			'Ad-free',
 			'All human beings<br/>are born free and equal<br>in dignity and rights',
 			'An hour\'s drive up',
+			'Arbitrarily precise',
 			'As seen on the Internet',
 			'As mysterious as<br/>the dark side of the moon',
 			'As swift as a coursing river',
@@ -74,7 +76,8 @@
 			'Fork me on <a href="https://github.com/HarriKnox">GitHub</a>',
 			'GNU',
 			'Goal-oriented',
-			'Gotta Catch \'em all',
+			'Gotta catch \'em all',
+			'Hackie-dorie all the way',
 			'Has the force of a great typhoon',
 			'Has the strength of a raging fire',
 			'High-level programming',
