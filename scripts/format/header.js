@@ -11,18 +11,22 @@
 		var date = now.getDate();
 		var today = (month + 1) * 100 + date;
 		
+		var year = now.getFullYear();
+		var isleapyear = (year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0);
+		
 		if (today ===  111) return 'Happy Birthday Harri!';
 		if (today === 1008) return 'Happy Birthday Courtney!';
 		if (today === 1016) return 'Happy Anniversary Courtney!';
 		
 		if (today ===  101) return 'Happy New Year!';
 		if (today ===  126) return '<div style="transform:rotate(180deg);-ms-transform:rotate(180deg);-webkit-transform:rotate(180deg);">Happy Australia Day!</div>';
-		if (today ===  229) return 'Happy Leap Year!';
+		if (today ===  229) return 'Happy Leap Day!';
 		if (today ===  314) return (Math.random() < 0.9375) ? 'Happy Pi Day!' : 'Happy Half-Tau Day!';
 		if (today ===  401) return 'Fooled you!';
 		if (today ===  628) return 'Happy Tau Day!';
 		if (today ===  701) return 'Happy <span class="black-shadow" style="color:white;">Canada</span> Day!';
 		if (today ===  704) return 'Happy <span class="black-shadow" style="color:white;">4th of</span> <span style="color:blue">July!</span>';
+		if ((today ===  913 && !isleapyear) || (today == 912 && isleapyear)) return 'Happy Programmer\'s Day!';
 		if (today === 1031) return pickRandom(['<span style="color:darkorange;">BOO!</span>', '<span style="color:darkorange;">Happy Halloween!</span>']);
 		
 		if (!document.cookie.match(/periodic=\d+/))
