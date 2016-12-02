@@ -5,7 +5,19 @@
     
     var getSplash = function(pageTitle)
     {
-        //return 'Happy <span class="black-shadow" style="color:white;">4th of</span> <span style="color:blue">July!</span>'
+        var splashes = [
+            '"Land of the Free"',
+            '"Democracy"',
+            'Three-letter agencies suck'.
+            'Rule 41 sucks',
+            'America sucks',
+            '1984',
+            'Big Brother is watching',
+            'Start using Tor',
+            'Get a VPN',
+            'No such thing as privacy',
+        ];
+        /*//return 'Happy <span class="black-shadow" style="color:white;">4th of</span> <span style="color:blue">July!</span>'
         var now = new Date();
         var month = now.getMonth();
         var date = now.getDate();
@@ -209,7 +221,7 @@
         var hour = now.getHours();
         if (hour >= 5 && hour <= 10) splashes.push('Good Morning');
         else if (hour >= 15 && hour <= 19) splashes.push('Good Afternoon');
-        else if (hour >= 20 && hour <= 23) splashes.push('Good Evening');
+        else if (hour >= 20 && hour <= 23) splashes.push('Good Evening');*/
         
         return pickRandom(splashes);
     };
