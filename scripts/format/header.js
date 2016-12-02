@@ -5,19 +5,45 @@
     
     var getSplash = function(pageTitle)
     {
+        var now = new Date();
+        var month = ['January', 'February', 'March', 'April' , 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][now.getMonth()];
+        var date = now.getDate();
+        
         var splashes = [
+            'Fuck you 2016',
             '"Land of the Free"',
             '"Democracy"',
-            'Three-letter agencies suck'.
+            //'Three-letter agencies suck',
+            //'The FBI sucks',
+            //'The CIA sucks',
+            //'The NSA sucks',
             'Rule 41 sucks',
             'America sucks',
-            '1984',
+            'CNN and FOX cannot be trusted',
+            'Censorship is <span style="background-color:red;">dangerous</span> safe',
+            //'RIP America',
+            //'It\'s like Orwell and\nHuxley\'s lovechild',
+            //'1984',
+            //'Brave New World',
             'Big Brother is watching',
-            'Start using Tor',
-            'Get a VPN',
+            'Good-bye privacy,\nwish I got to know you',
             'No such thing as privacy',
+            'You\'re not allowed privacy',
+            'The country is run by\nshit-slinging\nbaboons in suits',
+            'Rule 41 means the police/FBI/etc\ncan access your computer,\nremotely,\nlegally',
+            'Start using <a href="https://www.torproject.org/projects/torbrowser.html.en">Tor</a>',
+            '<a href="https://www.torproject.org/projects/torbrowser.html.en">Tor</a> is not illegal',
+            //'Moving to ' + pickRandom(['Nigeria', 'Yemen', 'Myanmar (Burma)', 'Iraq', 'Afghanistan', 'Somalia', 'Pakistan', 'The Congo', 'Sudan', 'Syria']) + '\ndoesn\'t seem so bad now',
+            //'Today is ' + month + ' ' + date + ' 1984',
+            
         ];
-        /*//return 'Happy <span class="black-shadow" style="color:white;">4th of</span> <span style="color:blue">July!</span>'
+        
+        return pickRandom(splashes);
+    }
+    
+    /*
+    var getSplash = function(pageTitle)
+    {//return 'Happy <span class="black-shadow" style="color:white;">4th of</span> <span style="color:blue">July!</span>'
         var now = new Date();
         var month = now.getMonth();
         var date = now.getDate();
@@ -221,10 +247,10 @@
         var hour = now.getHours();
         if (hour >= 5 && hour <= 10) splashes.push('Good Morning');
         else if (hour >= 15 && hour <= 19) splashes.push('Good Afternoon');
-        else if (hour >= 20 && hour <= 23) splashes.push('Good Evening');*/
+        else if (hour >= 20 && hour <= 23) splashes.push('Good Evening');
         
         return pickRandom(splashes);
-    };
+    };*/
     
     var setSplashVisibility = function()
     {
