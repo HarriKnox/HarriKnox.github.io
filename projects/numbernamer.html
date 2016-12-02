@@ -1,119 +1,119 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<base href="..">
-		<script src="scripts/loadScripts.js"></script>
-		<script src="scripts/NumberNamer/loadNumberNamer.js"></script>
-	</head>
-	<body>
-		<noscript>JavaScript must be enabled to view this website in all its beauty. Click the script button in the right side of your address bar to allow JavaScript. Fear not, this site does not use harmful scripts to steal your identity or take over your computer. JavaScript is used purely for formatting this site. You can still view the content below, but some elements may not be formatted correctly.</noscript>
-		<div class="content-container">
-			<div>
-				Having learned the Lisp-like language Clojure I decided to revisit my Number Namer project I did in Lua and improve it with the magical abilities of nested parentheses.
-				This project would take a number and return the English name for it.
-				For example, 8'675'309 would return the string <em>eight million, six hundred seventy-five thousand, three hundred nine</em>.
-				Then, using the ClojureScript compiler, I made the script executable in web browsers everywhere; thus anybody can enjoy naming their favorite numbers, big or small.
-			</div>
-			<div>
-				<h2>The Rectangles</h2>
-				The following two input boxes return the group-name for a given group-number, and the number's full name.
-				These input fields take positive integers only (for right now, at least) meaning you cannot put decimals, negatives, or non-number characters like letters or punctuation.
-				If you choose to put one or more of those, the rectangle will complain.
-				Because of the way JavaScript handles numbers, these scripts work primarily with string representations of numbers.
-				By using strings instead of the built-in primitive numbers there is no theoretical limit to the size of the numbers; the only limit is the memory limit of JavaScript and your browser.
-			</div>
-			<div>
-				<h3>Number to String</h3>
-				In this rectangle put the number you would like to know the full name of.
-			</div>
-			<script src="scripts/NumberNamer/numberToStringRectangle.js"></script>
-			<div class="documentation">
-				<div class="doc-title">number_to_string</div>
-				<code>io.harriknox.NumberNamer.number_to_string(value)</code>
-				<h4>Parameters:</h4>
-				<code>value</code> is either an int or string representation of a non-negative integer
-				<h4>Returns:</h4>
-				the number's full name in English as a string
-				<h4>Throws:</h4>
-				assertion exceptions if input is invalid
-			</div>
-			<div>
-				<h3>Group Name</h3>
-				In this rectangle put the group number you want to know the Latin name of.
-				Strictly speaking, a group-number is one less than the number of three-digit groups following the group in question: in 1'000'000'000'000 (a trillion) the group with 1 is followed by four three-digit groups, four minus one is three, thus <strong>tri</strong>llion.
-				Group-numbers and group-names are explained in more depth on my <a href="projects/bignumbers.html">Big Numbers</a> page, so have a look there if you would like to enlighten yourself.
-			</div>
-			<script src="scripts/NumberNamer/illionGroupNameRectangle.js"></script>
-			<div class="documentation">
-				<div class="doc-title">illion_group_name</div>
-				<code>io.harriknox.NumberNamer.illion_group_name(group)</code>
-				<h4>Parameters:</h4>
-				<code>group</code> is either an int or string representation of a positive integer
-				<h4>Returns:</h4>
-				the corresponding Latin group-name for the group number as a string
-				<h4>Throws:</h4>
-				assertion exceptions if input is invalid
-			</div>
-			<div>
-				<h3>Powers of Ten</h3>
-				In this rectangle put the quantity of digits in the number you want to know the Latin name of.
-				For example, if you wanted to know what a googol was (10<sup>100</sup>) put 100.
-			</div>
-			<script src="scripts/NumberNamer/powerOfTenToStringRectangle.js"></script>
-			<div class="documentation">
-				<div class="doc-title">power_of_10_to_string</div>
-				<code>io.harriknox.NumberNamer.power_of_10_to_string(exp)</code>
-				<h4>Parameters:</h4>
-				<code>exp</code> is either an int or string representation of a non-negative integer
-				<h4>Returns:</h4>
-				the full name in English of the number 10<sup>exp</sup> as a string
-				<h4>Throws:</h4>
-				assertion exceptions if input is invalid
-			</div>
-			<div>
-				<h2>The Method</h2>
-				<h3>The Language</h3>
-				I first built the project in Lua when its purpose was much more simple than it is now.
-				In the Lua project I had no intention of exceding numbers greater than 999.
-				When I did need to extend into the thousands, I just had a second function to split the six-digit number into two groups, get the names of each group, and concatenate the names together with "thousand" added between the groups.
-				Those were the days.
-			</div>
-			<div>
-				Then, I learned a cool new programming language called Clojure.
-				Clojure (and other Lisp-like languages) are fantastic for succinct recursion.
-				Though at a high level iteration and recursion are essentially the same, the recursion in the ClojureScript version makes the control flow and variable assignment more comprehensible than the Lua version.
-			</div>
-			<div>
-				<h3>The Process</h3>
-				The following is an overview of how the Number Namer function works.
-				Before entering the parsing loop it checks the integrity of the number passed in: if it is not an int or an integer disguised as a string, it errors; if the value is effectively equal to zero, it returns "zero".
-				If it passes all tests it continues to decode the number.
-			</div>
-			<div>
-				In the initialization step of the loop it pads the number (as a string) with extra zeros in the front to make the number of digits divisible by three, then splits the digits into a long sequence, reverses their order, and converts each to an int value.
-				The loop sets the variables <code>ones</code>, <code>tens</code>, and <code>hundreds</code> to the first three digits of the split-and-reversed sequence (which end up being the last three digits of the input number) while the remaining digits are assigned as a sequence to the variable <code>remaining</code>.
-				It initializes two more variables before starting: <code>group</code> starts at zero and represents the adjusted number of the group being parsed and <code>number-strings</code> is a list of all the digit-group-names.
-			</div>
-			<div>
-				In the loop body it checks if the current digit values are <code>nil</code> (indicating whether all digit groups have been traversed).
-				If the values are <code>nil</code>, then all digits were traversed and it returns a nicely formatted string of the number's name.
-				Otherwise it loops back, setting <code>ones</code>, <code>tens</code>, and <code>hundreds</code> to the next three values of <code>remaining</code>, setting <code>remaining</code> to the remaining digits, incrementing <code>group</code>, and appending the digit-names and group-name to <code>number-strings</code>.
-			</div>
-			<div>
-				In getting the digit-names of a group, it performs the following checks to determine what to write in.
-				First it checks <code>hundreds</code> to see if it is positive, if so it adds "X hundred" to the digit-name, otherwise it adds nothing.
-				Next it checks <code>tens</code> to see if it is equal to <code>1</code>: this is because all the numbers 10 to 19 use a different naming system than the other numbers.
-				If <code>tens</code> is <code>1</code>, then it uses a switch-case based on <code>ones</code> to determine what name to add to the digit-name.
-				If <code>tens</code> is not <code>1</code>, then it slaps together the string versions of <code>tens</code> and <code>ones</code> (if any) with a hyphen between (if needed).
-			</div>
-			<div>
-				To get the group-name, it checks <code>group</code>.
-				If <code>group</code> is <code>1</code> (meaning the digit group is the thousands) it adds "thousand"; otherwise it decrements the value and determines the group-name using the process described on my <a href="projects/bignumbers.html">Big Numbers</a> page.
-			</div>
-			<div>
-				The loop traverses group by group appending the digit-names and the group-names together into one long string.
-				The source code for Number Namer is located <a href="https://github.com/HarriKnox/Number-Namer">here on GitHub</a>.
-			</div>
-		</div>
-	</body>
+    <head>
+        <base href="..">
+        <script src="scripts/loadScripts.js"></script>
+        <script src="scripts/NumberNamer/loadNumberNamer.js"></script>
+    </head>
+    <body>
+        <noscript>JavaScript must be enabled to view this website in all its beauty. Click the script button in the right side of your address bar to allow JavaScript. Fear not, this site does not use harmful scripts to steal your identity or take over your computer. JavaScript is used purely for formatting this site. You can still view the content below, but some elements may not be formatted correctly.</noscript>
+        <div class="content-container">
+            <div>
+                Having learned the Lisp-like language Clojure I decided to revisit my Number Namer project I did in Lua and improve it with the magical abilities of nested parentheses.
+                This project would take a number and return the English name for it.
+                For example, 8'675'309 would return the string <em>eight million, six hundred seventy-five thousand, three hundred nine</em>.
+                Then, using the ClojureScript compiler, I made the script executable in web browsers everywhere; thus anybody can enjoy naming their favorite numbers, big or small.
+            </div>
+            <div>
+                <h2>The Rectangles</h2>
+                The following two input boxes return the group-name for a given group-number, and the number's full name.
+                These input fields take positive integers only (for right now, at least) meaning you cannot put decimals, negatives, or non-number characters like letters or punctuation.
+                If you choose to put one or more of those, the rectangle will complain.
+                Because of the way JavaScript handles numbers, these scripts work primarily with string representations of numbers.
+                By using strings instead of the built-in primitive numbers there is no theoretical limit to the size of the numbers; the only limit is the memory limit of JavaScript and your browser.
+            </div>
+            <div>
+                <h3>Number to String</h3>
+                In this rectangle put the number you would like to know the full name of.
+            </div>
+            <script src="scripts/NumberNamer/numberToStringRectangle.js"></script>
+            <div class="documentation">
+                <div class="doc-title">number_to_string</div>
+                <code>io.harriknox.NumberNamer.number_to_string(value)</code>
+                <h4>Parameters:</h4>
+                <code>value</code> is either an int or string representation of a non-negative integer
+                <h4>Returns:</h4>
+                the number's full name in English as a string
+                <h4>Throws:</h4>
+                assertion exceptions if input is invalid
+            </div>
+            <div>
+                <h3>Group Name</h3>
+                In this rectangle put the group number you want to know the Latin name of.
+                Strictly speaking, a group-number is one less than the number of three-digit groups following the group in question: in 1'000'000'000'000 (a trillion) the group with 1 is followed by four three-digit groups, four minus one is three, thus <strong>tri</strong>llion.
+                Group-numbers and group-names are explained in more depth on my <a href="projects/bignumbers.html">Big Numbers</a> page, so have a look there if you would like to enlighten yourself.
+            </div>
+            <script src="scripts/NumberNamer/illionGroupNameRectangle.js"></script>
+            <div class="documentation">
+                <div class="doc-title">illion_group_name</div>
+                <code>io.harriknox.NumberNamer.illion_group_name(group)</code>
+                <h4>Parameters:</h4>
+                <code>group</code> is either an int or string representation of a positive integer
+                <h4>Returns:</h4>
+                the corresponding Latin group-name for the group number as a string
+                <h4>Throws:</h4>
+                assertion exceptions if input is invalid
+            </div>
+            <div>
+                <h3>Powers of Ten</h3>
+                In this rectangle put the quantity of digits in the number you want to know the Latin name of.
+                For example, if you wanted to know what a googol was (10<sup>100</sup>) put 100.
+            </div>
+            <script src="scripts/NumberNamer/powerOfTenToStringRectangle.js"></script>
+            <div class="documentation">
+                <div class="doc-title">power_of_10_to_string</div>
+                <code>io.harriknox.NumberNamer.power_of_10_to_string(exp)</code>
+                <h4>Parameters:</h4>
+                <code>exp</code> is either an int or string representation of a non-negative integer
+                <h4>Returns:</h4>
+                the full name in English of the number 10<sup>exp</sup> as a string
+                <h4>Throws:</h4>
+                assertion exceptions if input is invalid
+            </div>
+            <div>
+                <h2>The Method</h2>
+                <h3>The Language</h3>
+                I first built the project in Lua when its purpose was much more simple than it is now.
+                In the Lua project I had no intention of exceding numbers greater than 999.
+                When I did need to extend into the thousands, I just had a second function to split the six-digit number into two groups, get the names of each group, and concatenate the names together with "thousand" added between the groups.
+                Those were the days.
+            </div>
+            <div>
+                Then, I learned a cool new programming language called Clojure.
+                Clojure (and other Lisp-like languages) are fantastic for succinct recursion.
+                Though at a high level iteration and recursion are essentially the same, the recursion in the ClojureScript version makes the control flow and variable assignment more comprehensible than the Lua version.
+            </div>
+            <div>
+                <h3>The Process</h3>
+                The following is an overview of how the Number Namer function works.
+                Before entering the parsing loop it checks the integrity of the number passed in: if it is not an int or an integer disguised as a string, it errors; if the value is effectively equal to zero, it returns "zero".
+                If it passes all tests it continues to decode the number.
+            </div>
+            <div>
+                In the initialization step of the loop it pads the number (as a string) with extra zeros in the front to make the number of digits divisible by three, then splits the digits into a long sequence, reverses their order, and converts each to an int value.
+                The loop sets the variables <code>ones</code>, <code>tens</code>, and <code>hundreds</code> to the first three digits of the split-and-reversed sequence (which end up being the last three digits of the input number) while the remaining digits are assigned as a sequence to the variable <code>remaining</code>.
+                It initializes two more variables before starting: <code>group</code> starts at zero and represents the adjusted number of the group being parsed and <code>number-strings</code> is a list of all the digit-group-names.
+            </div>
+            <div>
+                In the loop body it checks if the current digit values are <code>nil</code> (indicating whether all digit groups have been traversed).
+                If the values are <code>nil</code>, then all digits were traversed and it returns a nicely formatted string of the number's name.
+                Otherwise it loops back, setting <code>ones</code>, <code>tens</code>, and <code>hundreds</code> to the next three values of <code>remaining</code>, setting <code>remaining</code> to the remaining digits, incrementing <code>group</code>, and appending the digit-names and group-name to <code>number-strings</code>.
+            </div>
+            <div>
+                In getting the digit-names of a group, it performs the following checks to determine what to write in.
+                First it checks <code>hundreds</code> to see if it is positive, if so it adds "X hundred" to the digit-name, otherwise it adds nothing.
+                Next it checks <code>tens</code> to see if it is equal to <code>1</code>: this is because all the numbers 10 to 19 use a different naming system than the other numbers.
+                If <code>tens</code> is <code>1</code>, then it uses a switch-case based on <code>ones</code> to determine what name to add to the digit-name.
+                If <code>tens</code> is not <code>1</code>, then it slaps together the string versions of <code>tens</code> and <code>ones</code> (if any) with a hyphen between (if needed).
+            </div>
+            <div>
+                To get the group-name, it checks <code>group</code>.
+                If <code>group</code> is <code>1</code> (meaning the digit group is the thousands) it adds "thousand"; otherwise it decrements the value and determines the group-name using the process described on my <a href="projects/bignumbers.html">Big Numbers</a> page.
+            </div>
+            <div>
+                The loop traverses group by group appending the digit-names and the group-names together into one long string.
+                The source code for Number Namer is located <a href="https://github.com/HarriKnox/Number-Namer">here on GitHub</a>.
+            </div>
+        </div>
+    </body>
 </html>

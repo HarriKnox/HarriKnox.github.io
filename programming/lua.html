@@ -1,97 +1,97 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<base href=".." />
-		<script src="scripts/loadScripts.js"></script>
-	</head>
-	<body>
-		<noscript>JavaScript must be enabled to view this website in all its beauty. Click the script button in the right side of your address bar to allow JavaScript. Fear not, this site does not use harmful scripts to steal your identity or take over your computer. JavaScript is used purely for formatting this site. You can still view the content below, but some elements may not be formatted correctly.</noscript>
-		<div class="content-container">
-			<a href="http://www.lua.org"><img src="images/language-icons/lua.png" class="language-icon" /></a>
-			<div>
-				<a href="http://www.lua.org">Lua</a> is a beautiful and simple scripting language that is safe, easy, and fun for the whole family: easy to learn with simple syntax and no unnecessary rubbish.
-				It is lightweight and portable: as the fastest interpreted language it is also runnable on all OSes (computer and phone) and embeddable in many applications.
-				It is a multi-paradigm language, featuring support for functional and object-oriented (prototype-based) programming.
-				Despite differences in syntax, Lua and <a href="programming/javascript.html">JavaScript</a> are remarkably similar.
-			</div>
-			<div>
-				<h2>Functional Programming</h2>
-				Functions are first-class citizens in Lua.
-				Like most functional languages, functions are values that can be passed between function calls, assigned to variables, and called recursively.
-				In Lua, functions can be passed anonymously, called recursively, created in closures, and used as keys for tables.
-				These are not unique to Lua, but the freedom to the usage of functions in Lua makes them pretty powerful and pretty darn cool.
-			</div>
-			<div>
-				<h2>Object Oriented (OO) Programming</h2>
-				Lua has basic support for OO-like programming, but not like common OO languages like Java and Ruby.
-				In Java, the class is a model of all the attributes its instances will have, and all instances of a class will have exactly those specified attributes.
-				Lua, however, relies on the Prototype-Based model, like JavaScript.
-				In Lua, all complex data types are tables (essentially a Map in Java, a Hash in Ruby, a Dictionary in Python and other languages), which are key-value pairs.
-				In prototype-based design, there are no classes <em>per se</em>.
-				Every object is its own bundle of data and can have whatever attributes it wants, though you can emulate the concept of a class by defining default values for various attributes.
-				This would mean that for every time you wanted to "extend" a class (which would just be another object), you would have to clone the entire object, so every attribute name and value would be put into your new object.
-				Thankfully, Lua has a built-in system to manage the inheritance-chain.
-			</div>
-			<div>
-				What Lua uses is called a <em>metatable</em>.
-				A metatable affects the behavior of the table itself rather than the behavior inside the table.
-				In Java, classes define the behavior inside an object: how the object manipulates and uses the data inside of it.
-				In Lua, tables can still do that, but the metatables affect how Lua manipulates and uses certain tables.
-				Using the <code>_index</code> metamethod in a table's metatable, you can point Lua to a different table if the first table doesn't have a value Lua's looking for.
-				For example, take the following code:
-			</div>
+    <head>
+        <base href=".." />
+        <script src="scripts/loadScripts.js"></script>
+    </head>
+    <body>
+        <noscript>JavaScript must be enabled to view this website in all its beauty. Click the script button in the right side of your address bar to allow JavaScript. Fear not, this site does not use harmful scripts to steal your identity or take over your computer. JavaScript is used purely for formatting this site. You can still view the content below, but some elements may not be formatted correctly.</noscript>
+        <div class="content-container">
+            <a href="http://www.lua.org"><img src="images/language-icons/lua.png" class="language-icon" /></a>
+            <div>
+                <a href="http://www.lua.org">Lua</a> is a beautiful and simple scripting language that is safe, easy, and fun for the whole family: easy to learn with simple syntax and no unnecessary rubbish.
+                It is lightweight and portable: as the fastest interpreted language it is also runnable on all OSes (computer and phone) and embeddable in many applications.
+                It is a multi-paradigm language, featuring support for functional and object-oriented (prototype-based) programming.
+                Despite differences in syntax, Lua and <a href="programming/javascript.html">JavaScript</a> are remarkably similar.
+            </div>
+            <div>
+                <h2>Functional Programming</h2>
+                Functions are first-class citizens in Lua.
+                Like most functional languages, functions are values that can be passed between function calls, assigned to variables, and called recursively.
+                In Lua, functions can be passed anonymously, called recursively, created in closures, and used as keys for tables.
+                These are not unique to Lua, but the freedom to the usage of functions in Lua makes them pretty powerful and pretty darn cool.
+            </div>
+            <div>
+                <h2>Object Oriented (OO) Programming</h2>
+                Lua has basic support for OO-like programming, but not like common OO languages like Java and Ruby.
+                In Java, the class is a model of all the attributes its instances will have, and all instances of a class will have exactly those specified attributes.
+                Lua, however, relies on the Prototype-Based model, like JavaScript.
+                In Lua, all complex data types are tables (essentially a Map in Java, a Hash in Ruby, a Dictionary in Python and other languages), which are key-value pairs.
+                In prototype-based design, there are no classes <em>per se</em>.
+                Every object is its own bundle of data and can have whatever attributes it wants, though you can emulate the concept of a class by defining default values for various attributes.
+                This would mean that for every time you wanted to "extend" a class (which would just be another object), you would have to clone the entire object, so every attribute name and value would be put into your new object.
+                Thankfully, Lua has a built-in system to manage the inheritance-chain.
+            </div>
+            <div>
+                What Lua uses is called a <em>metatable</em>.
+                A metatable affects the behavior of the table itself rather than the behavior inside the table.
+                In Java, classes define the behavior inside an object: how the object manipulates and uses the data inside of it.
+                In Lua, tables can still do that, but the metatables affect how Lua manipulates and uses certain tables.
+                Using the <code>_index</code> metamethod in a table's metatable, you can point Lua to a different table if the first table doesn't have a value Lua's looking for.
+                For example, take the following code:
+            </div>
 <pre>
 Vehicle = { speed = 50, vroom = "vroom" }
 Motorcycle = { vroom = "VROOM!" }
 Car = { speed = 80 }
 </pre>
-			<div>
-				If you tried to get the values of <code>Car.vroom</code> and <code>Motorcycle.speed</code> you'd get <code>nil</code> both times.
-				That's because each of the three tables are completely separate and different tables.
-				Lua doesn't know they're related to each other yet.
-				To do that, you'd need to do the following:
-			</div>
+            <div>
+                If you tried to get the values of <code>Car.vroom</code> and <code>Motorcycle.speed</code> you'd get <code>nil</code> both times.
+                That's because each of the three tables are completely separate and different tables.
+                Lua doesn't know they're related to each other yet.
+                To do that, you'd need to do the following:
+            </div>
 <pre>
 metavehicle = { __index = Vehicle }
 setmetatable( Motorcycle, metavehicle )
 </pre>
-			<div>
-				In the first line, we're creating a regular table with one field, <code>__index = Vehicle</code> (<code>Vehicle</code> is referring to the <code>Vehicle</code> table from the previous set of code).
-				In the second line, we set the metatable for <code>Motorcycle</code> to <code>metavehicle</code>.
-				Now if you were to do <code>Motorcycle.speed</code> it would return <code>50</code>.
-				Because we did this for only <code>Motorcycle</code> and not for <code>Car</code>, doing <code>Car.vroom</code> will still return <code>nil</code>.
-				To add <code>Car</code> to the family, simply run <code>setmetatable( Car, metavehicle )</code>.
-			</div>
-			<div>
-				What's happening behind the scenes is rather interesting.
-				Before setting the metatable, when we tried to call <code>Motorcycle.speed</code> this happened:
-				<ol>
-					<li>Lua first looked in <code>Motorcycle</code> for <code>speed</code> and couldn't find it</li>
-					<li>Lua gave up and returned <code>nil</code></li>
-				</ol>
-				After setting the metatable for <code>Motorcycle</code>, if we tried to call <code>Motorcycle.speed</code>, the following happens:
-				<ol>
-					<li>Lua first looked in <code>Motorcycle</code> for <code>speed</code> and couldn't find it</li>
-					<li>Lua saw that <code>Motorcycle</code> had a metatable</li>
-					<li>Lua got the value of <code>__index</code> in the metatable (which was <code>Vehicle</code>)</li>
-					<li>Lua got the value of <code>speed</code> in <code>Vehicle</code> and returned <code>50</code></li>
-				</ol>
-				Just by specifying an <code>__index</code> you can define inheritance.
-			</div>
-			<div>
-				It gets better.
-				A table with a metatable that has <code>__index</code> can be pointed to by another metatable with its own <code>__index</code>, so you can chain inheritances as you go further down.
-				Suppose we added a <code>Ducati</code> as a child of <code>Motorcycle</code>, we just do:
-			</div>
+            <div>
+                In the first line, we're creating a regular table with one field, <code>__index = Vehicle</code> (<code>Vehicle</code> is referring to the <code>Vehicle</code> table from the previous set of code).
+                In the second line, we set the metatable for <code>Motorcycle</code> to <code>metavehicle</code>.
+                Now if you were to do <code>Motorcycle.speed</code> it would return <code>50</code>.
+                Because we did this for only <code>Motorcycle</code> and not for <code>Car</code>, doing <code>Car.vroom</code> will still return <code>nil</code>.
+                To add <code>Car</code> to the family, simply run <code>setmetatable( Car, metavehicle )</code>.
+            </div>
+            <div>
+                What's happening behind the scenes is rather interesting.
+                Before setting the metatable, when we tried to call <code>Motorcycle.speed</code> this happened:
+                <ol>
+                    <li>Lua first looked in <code>Motorcycle</code> for <code>speed</code> and couldn't find it</li>
+                    <li>Lua gave up and returned <code>nil</code></li>
+                </ol>
+                After setting the metatable for <code>Motorcycle</code>, if we tried to call <code>Motorcycle.speed</code>, the following happens:
+                <ol>
+                    <li>Lua first looked in <code>Motorcycle</code> for <code>speed</code> and couldn't find it</li>
+                    <li>Lua saw that <code>Motorcycle</code> had a metatable</li>
+                    <li>Lua got the value of <code>__index</code> in the metatable (which was <code>Vehicle</code>)</li>
+                    <li>Lua got the value of <code>speed</code> in <code>Vehicle</code> and returned <code>50</code></li>
+                </ol>
+                Just by specifying an <code>__index</code> you can define inheritance.
+            </div>
+            <div>
+                It gets better.
+                A table with a metatable that has <code>__index</code> can be pointed to by another metatable with its own <code>__index</code>, so you can chain inheritances as you go further down.
+                Suppose we added a <code>Ducati</code> as a child of <code>Motorcycle</code>, we just do:
+            </div>
 <pre>
 metamotorcycle = { __index = Motorcycle }
 Ducati = {}
 setmetatable( Ducati, metamotorcycle )
 </pre>
-			<div>
-				You can also have a table be its own metatable, with its <code>__index</code> metamethod pointing to its parent class.
-				You can also have a table be a metatable for other tables and have its <code>__index</code> metamethod point to itself.
-			</div>
+            <div>
+                You can also have a table be its own metatable, with its <code>__index</code> metamethod pointing to its parent class.
+                You can also have a table be a metatable for other tables and have its <code>__index</code> metamethod point to itself.
+            </div>
 <pre>
 -- Motorcycle as its own metatable
 
@@ -104,43 +104,43 @@ setmetatable( Motorcycle, Motorcycle )
 Vehicle.__index = Vehicle
 setmetatable( Motorcycle, Vehicle )
 </pre>
-			<div>
-				There are a <a href="http://www.lua.org/manual/5.3/manual.html#2.4">ton of other metamethods</a> that are too numerous to elaborate on here.
-				Metatables make Lua about as close to OO without being OO.
-			</div>
-			<div>
-				<h2>An Annoying Gotcha</h2>
-				Lua is almost the perfect language, but there is one primary thing that bugs me about it: <code>0</code> does not fail a conditional.
-				It is very common in many other languages, especially C-like languages, for <code>0</code> to evaluate as <code>false</code> in a conditional.
-				In Lua, the only things that fail a conditional are <code>false</code> and <code>nil</code>.
-				Everything else evaluates to <code>true</code>, or at least <code>not nil</code>.
-				It sort of makes sense that only <code>false</code> and <code>nil</code> have this property because booleans are actually relatively new to Lua.
-				<a href="http://www.lua.org/versions.html#5.0">Lua 5.0</a> introduced booleans back in 2003 (about halfway through Lua's current lifetime).
-				Prior to that, the only thing that would evaluate to false was <code>nil</code>: values were either something, or <code>nil</code>.
-				Then, booleans were added so that <code>false</code> wasn't exactly <code>nil</code>, but both would fail a conditional test.
-				It make sense that <code>0</code> was overlooked to evaluate to <code>false</code>, but it would be convenient if it did.
-				Adding that feature would make checks for empty strings and empty tables a tad more efficient.
-				For example, it would be nicer for <code>if #arg then parse() else error() end</code> to error if nothing was passed to the script in the command line.
-				You could also do <code>if not #(io.read()) ...</code> to execute something if nothing was read in.
-			</div>
-			<!--div>
-				<h3>Getting Table Size</h3>
-				Second is that there is no way to get the size of a table, only the length of a number-indexed array.
-				If you had the table <code>a = {1, 2, 3, 4, 5, [7] = 10}</code>, then <code>#a</code> would return <code>5</code>, even though there are 6 elements in the table.
-				To get the total number of elements in the table, you'd have to iterate through it using <code>for k, v in pairs(a) count = count + 1 end</code>.
-				Perhaps a table function or an operator like <code>$a</code> or <code>&amp;a</code> to return the total number of elements in the table would be nice.
-			</div>
-			<div>
-				<h3>Sigils</h3>
-				Third is that there can be no question mark in variable names.
-				This is only a case in which I'm envious of Ruby.
-				Ruby has methods that end with a question mark to indicate that the method returns a boolean.
-				Something like that would be nice so function and method names in Lua would look a bit more English.
-			</div>
-			<div>
-				<h3>Native Fractions</h3>
-				Fourth, fractions
-			</div-->
-		</div>
-	</body>
+            <div>
+                There are a <a href="http://www.lua.org/manual/5.3/manual.html#2.4">ton of other metamethods</a> that are too numerous to elaborate on here.
+                Metatables make Lua about as close to OO without being OO.
+            </div>
+            <div>
+                <h2>An Annoying Gotcha</h2>
+                Lua is almost the perfect language, but there is one primary thing that bugs me about it: <code>0</code> does not fail a conditional.
+                It is very common in many other languages, especially C-like languages, for <code>0</code> to evaluate as <code>false</code> in a conditional.
+                In Lua, the only things that fail a conditional are <code>false</code> and <code>nil</code>.
+                Everything else evaluates to <code>true</code>, or at least <code>not nil</code>.
+                It sort of makes sense that only <code>false</code> and <code>nil</code> have this property because booleans are actually relatively new to Lua.
+                <a href="http://www.lua.org/versions.html#5.0">Lua 5.0</a> introduced booleans back in 2003 (about halfway through Lua's current lifetime).
+                Prior to that, the only thing that would evaluate to false was <code>nil</code>: values were either something, or <code>nil</code>.
+                Then, booleans were added so that <code>false</code> wasn't exactly <code>nil</code>, but both would fail a conditional test.
+                It make sense that <code>0</code> was overlooked to evaluate to <code>false</code>, but it would be convenient if it did.
+                Adding that feature would make checks for empty strings and empty tables a tad more efficient.
+                For example, it would be nicer for <code>if #arg then parse() else error() end</code> to error if nothing was passed to the script in the command line.
+                You could also do <code>if not #(io.read()) ...</code> to execute something if nothing was read in.
+            </div>
+            <!--div>
+                <h3>Getting Table Size</h3>
+                Second is that there is no way to get the size of a table, only the length of a number-indexed array.
+                If you had the table <code>a = {1, 2, 3, 4, 5, [7] = 10}</code>, then <code>#a</code> would return <code>5</code>, even though there are 6 elements in the table.
+                To get the total number of elements in the table, you'd have to iterate through it using <code>for k, v in pairs(a) count = count + 1 end</code>.
+                Perhaps a table function or an operator like <code>$a</code> or <code>&amp;a</code> to return the total number of elements in the table would be nice.
+            </div>
+            <div>
+                <h3>Sigils</h3>
+                Third is that there can be no question mark in variable names.
+                This is only a case in which I'm envious of Ruby.
+                Ruby has methods that end with a question mark to indicate that the method returns a boolean.
+                Something like that would be nice so function and method names in Lua would look a bit more English.
+            </div>
+            <div>
+                <h3>Native Fractions</h3>
+                Fourth, fractions
+            </div-->
+        </div>
+    </body>
 </html>

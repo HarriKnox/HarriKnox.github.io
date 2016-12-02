@@ -1,359 +1,359 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<base href="..">
-		<script src="scripts/loadScripts.js"></script>
-		<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-		<script src="scripts/NumberNamer/loadNumberNamer.js"></script>
-		<style>
-			.latinprefixes td { border-right-width:1px; border-right-style:dashed; border-right-color:black; }
-			.latinprefixes td:first-child { border-right-style:solid; }
-			.latinprefixes td:last-child { border-right-style:none; }
-			.latinprefixes td.modcell { border-right:0px; font-size:0.75em; }
-			.examples tr.top td { border-color:black; border-style:solid; border-top-width:1px; }
-			.examples td { border-width:0px; font-style:normal; text-align:left; }
-			.examples .number { font-style:italic; }
-		</style>
-	</head>
-	<body>
-		<noscript>JavaScript must be enabled to view this website in all its beauty. Click the script button in the right side of your address bar to allow JavaScript. Fear not, this site does not use harmful scripts to steal your identity or take over your computer. JavaScript is used purely for formatting this site. You can still view the content below, but some elements may not be formatted correctly.</noscript>
-		<div class="content-container">
-			<div>
-				<em>
-					(Note: This page, and this whole site for that matter, uses the American numbering system, also called <a href="https://en.wikipedia.org/wiki/Long_and_short_scales">the short scale for large numbers</a>.
-					In the 21<sup>st</sup> century you wouldn't think this would be a problem, but a large part of the world use the long scale, a modified short scale, or some other naming system altogether.
-					Just for clarity, in the US and for this site a trillion is 10<sup>12</sup> and not 10<sup>18</sup>.)
-				</em>
-			</div>
-			<div>
-				Big numbers are a fantastic study in mathematics.
-				Numbers themselves are pretty weird: they are an abstract concept that we can visualize concretely.
-				If I say "seven" it really doesn't mean anything, but you might picture seven amorphous blobs in your head.
-				If I say "seven is greater than two" you nod because your abstraction-comprehending brain-matter understands my assertion.
-				If I show you a bowl with seven balls and a bowl with two balls, your concrete brain can understand the one with seven has more.
-				Abstraction is sometimes difficult to understand because the idea is (excuse my circular logic) abstract, but the lack of a physical object makes big numbers more fun; as numbers get bigger, they start to break our understanding of this simple concept called counting.
-			</div>
-			<div>
-				Thinking of ten or a hundred people is somewhat easy; you could probably name that many people if you saw their faces.
-				Counting to larger numbers, though, gets a bit tricky.
-				A hundred groups of a hundred people each is a little harder to imagine, but that's ten thousand people, about a thousand less than the number of Cal Poly students in Spanos Stadium watching their men's soccer team beat UCSB's soccer team.
-				Counting to even larger numbers becomes more mind-boggling: a hundred Spanos Stadiums filled with excited Cal Poly students is hard to visualize, and that's only a million.
-			</div>
-			<div>
-				You may have seen a million discrete objects: a standard 1080p monitor has about two million pixels which is pretty easy to see collectively.
-				But, you have never seen a billion discrete objects, so picturing a billion things at once is near impossible.
-				We know there are about a trillion stars in the Andromeda galaxy, but we can't accurately imagine that.
-				All these big numbers are abstract, but even when abstract, big numbers are still pretty neat.
-			</div>
-			<div>
-				<h2>Naming</h2>
-				One particular topic of interest I took in big numbers is their naming scheme.
-				Most people are familiar with the smaller of the big number names, usually through economics: names like million, billion, and trillion.
-				But once you get to a decillion, what comes after that?
-				In the real world you wouldn't ever have to worry about numbers getting that large, and even in math and science where there are large numbers they just normalize them and multiply by an exponent (6.022 x 10<sup>23</sup>).
-				Normalized numbers, however, are boring: they don't have any real weight that makes them impressive; <em>10<sup>12</sup> stars in the Andromeda galaxy</em> doesn't sound as good as <em>a trillion stars</em> and <em>6 x 10<sup>23</sup></em> doesn't sound as good as <em>six hundred sextillion</em>.
-			</div>
-			<div>
-				This is why we leave the realm of bland scientific notation and enter into the world of ridiculous and impractical large number names.
-				There are many <a href="https://en.wikipedia.org/wiki/Names_of_large_numbers">systems for naming large numbers</a>, but the one I quite like is John H Conway's and Richard K Guy's system as defined in their book "<a href="https://books.google.com/books/about/The_Book_of_Numbers.html?id=0--3rcO7dMYC">The Book of Numbers</a>".
-				Using Conway and Guy's system, one could properly identify the <span style="word-wrap:break-word;">tresviginticentillisesquinquagintaquadringentillion</span> (which is a 1 followed by 370'371 zeros).
-			</div>
-			<div>
-				<h3>Groups</h3>
-				At the core of naming numbers is the digit grouping.
-				In the American English system we divide our big numbers into groups of three digits starting from the ones place.
-				Usually these numbers are separated by commas (1,234,567) but I prefer to use apostrophes (1'234'567); just a matter of taste.
-				Each of these groups is given a group-name: the group on the far right (1'234'<strong>567</strong>) has no group-name; the group to the left of that (1'<strong>234</strong>'567) has the group-name "Thousand"; the group to the left of <em>that</em> (<strong>1</strong>'234'567) has the group-name "Million"; etc.
-			</div>
-			<div>
-				<h4>Converting a Number to Words</h4>
-				We are all familiar with creating the name of a number with multiple digit groups.
-				Every digit group gets its own "name" (a "digit-group-name", if you will) and we concatenate them all together to form the completed name.
-				To get the name of a digit group, we use the name of the inner number (as if it were its own number) and attach the group-name after: the 234 in 1'234'567 becomes <em>two hundred thirty-four thousand</em>.
-				To get the name of a number, we take all the names for all the digit groups and string them together in order from biggest to smallest: 1'234'567 becomes <em>one million, two hundred thirty-four thousand, five hundred sixty-seven</em>.
-			</div>
-			<div>
-				<h4>Conway and Guy's System</h4>
-				That was the basic system for converting a number from numerals to words, but you still don't know what comes after a decillion.
-				Luckily, Conway and Guy's naming system works for any integer with any number of digits, long after decillions and centillions.
-				For big numbers a digit group's group-name is based on its <em>group-number</em> which is, in layman's terms, one less than the number of three-digit groups after it.
-				For example, 807'<strong>111</strong>'<strong>222</strong>'<strong>333</strong>'<strong>444</strong> has 4 three-digit groups after the 807, so the 807's group-number is 3, which corresponds to "trillion".
-			</div>
-			<div>
-				More mathematically speaking, the group-number for a large number <em>M</em> is an integer <em>n</em> such that <span class="grouped">10<sup>3<em>n</em> + 3</sup> &le; <em>M</em></span> and <span class="grouped">10<sup>3(<em>n</em>+1) + 3</sup> &gt; <em>M</em>.</span>
-				Million has the group-number 1 because 10<sup>3 + 3</sup> = 10<sup>6</sup> equals a million.
-				From there, group-numbers follow a linear pattern: Billion has group-number 2, Trillion has 3, Quadrillion has 4, Octillion has 8, etc.
-				Thousand is the only odd name since it doesn't end with 'illion' and its group-number is 0 <span class="grouped">(10<sup>0+3</sup> = 10<sup>3</sup></span> = 1'000).
-				If you think it's odd there is a 3 being added in the exponent, blame Thousand: if Thousand didn't exist and one million was 1'000 and one billion was 1'000'000, then the group-number would just be the number of three-digit groups with no addition/subtraction mumbo-jumbo.
-			</div>
-			<div>
-				You know how to get the group-number for any large number, now what?
-				We will use the digits of the group-number and Latin prefixes to construct the group-name.
-				Like we used the digits in groups of the big number to get the names of the digit groups, we use the digits in groups of the group-number to get the group-name associated with that group-number.
-				It's all confusing with all this English but once you see the math it will be easier to understand.
-			</div>
-			<div>
-				<h3>Constructing a Group-Name</h3>
-				The construction of a group-name uses the following table.
-				First, observe the table and see that on the left are the digit values from 0 to 9, and to the right of them are the names for each digit depending on its spot in the digit group of the group number.
-			</div>
-			<div class="overflow">
-				<table class="latinprefixes">
-					<thead>
-						<tr><th>Digit</th>               <th>Solo</th>   <th>Ones</th>       <th colspan=2>Tens</th>                          <th colspan=2>Hundreds</th>                      </tr>
-					</thead>
-					<tbody>
-						<tr><td class="digitcell">0</td> <td>ni</td>     <td></td>           <td class="modcell"></td>  <td></td>             <td class="modcell"></td>  <td></td>             </tr>
-						<tr><td class="digitcell">1</td> <td>mi</td>     <td>un</td>         <td class="modcell">n</td> <td>deci</td>         <td class="modcell">nx</td><td>centi</td>        </tr>
-						<tr><td class="digitcell">2</td> <td>bi</td>     <td>duo</td>        <td class="modcell">ms</td><td>viginti</td>      <td class="modcell">n</td> <td>ducenti</td>      </tr>
-						<tr><td class="digitcell">3</td> <td>tri</td>    <td>tre(s)</td>     <td class="modcell">ns</td><td>triginta</td>     <td class="modcell">ns</td><td>trecenti</td>     </tr>
-						<tr><td class="digitcell">4</td> <td>quadri</td> <td>quattuor</td>   <td class="modcell">ns</td><td>quadraginta</td>  <td class="modcell">ns</td><td>quadringenti</td> </tr>
-					</tbody>
-					<tbody>
-						<tr><td class="digitcell">5</td> <td>quinti</td> <td>quinqua</td>    <td class="modcell">ns</td><td>quinquaginta</td> <td class="modcell">ns</td><td>quingenti</td>    </tr>
-						<tr><td class="digitcell">6</td> <td>sexti</td>  <td>se(s/x)</td>    <td class="modcell">n</td> <td>sexaginta</td>    <td class="modcell">n</td> <td>sescenti</td>     </tr>
-						<tr><td class="digitcell">7</td> <td>septi</td>  <td>septe(m/n)</td> <td class="modcell">n</td> <td>septuaginta</td>  <td class="modcell">n</td> <td>septingenti</td>  </tr>
-						<tr><td class="digitcell">8</td> <td>octi</td>   <td>octo</td>       <td class="modcell">mx</td><td>octoginta</td>    <td class="modcell">mx</td><td>octingenti</td>   </tr>
-						<tr><td class="digitcell">9</td> <td>noni</td>   <td>nove(m/n)</td>  <td class="modcell"></td>  <td>nonaginta</td>    <td class="modcell"></td>  <td>nongenti</td>     </tr>
-					</tbody>
-				</table>
-			</div>
-			<div>
-				The process for finding the corresponding group-name for a group-number is the same as the process described earlier of converting a number from numerals to words: split the group-number into digit groups, get the name of each digit group, and string them all together, except this time we use the Latin names instead of the number's actual English names.
-			</div>
-			<div>
-				<h4>Rules for Construction</h4>
-				To get the name of a digit group, you take the Latin names for the ones digit, the tens digit, and the hundreds digit and conjoin them in that order.
-				If in a digit group the tens and hundreds are both 0, then use the name for the ones under the "Solo Ones" column, otherwise use the name for the ones under the "Ones" column; you would not say "unillion" instead of "million", but you wouldn't say "midecillion" instead of "undecillion".
-				If the group-number has more than one digit group (the group number is 1'000 or more), then for each digit group except the last group you replace the last vowel of the name with "illi"; for the very last group you replace the last vowel with "illion".
-				If the ones digit has a letters in parentheses and the next name to be added next has one of the letters in the small letters before it in the table, you place that shared letter between the two: if the ones digit is 3, you place an "s" if the next name has either "s" or "x" before it in the small letters.
-			</div>
-			<div>
-				Here are the rules in a concise list:
-				<ul>
-					<li>Use the table with values for ones, tens, and hundreds digits of the digit group of a group-number to get digit group's name</li>
-					<li>If both tens and hundreds are 0, use name in "Solo" column</li>
-					<li>If group-number has more than one digit group, use "illion" for the last group and "illi" for the ones before</li>
-					<li>If the ones name has a letter in parentheses and the next name has that letter before it in the table, put that letter between the names</li>
-				</ul>
-			</div>
-			<div>
-				The last rule is done to remove ambiguity between some group-names.
-				Without those "filler letters", notice how group-number 103 would have "tre" + "centi" to produce "trecenti", but group-number 300 is already "trecenti".
-				Also note that "octo" does not have a filler letter, so "octooctogintillion" is the correct name for group-number 88.
-			</div>
-			<div>
-				<h4>Examples</h4>
-				The following is a table demonstrating the process behind constructing the group-name for various group-numbers.
-				The numbers were selected to demonstrate the various rules and relieve any confusion.
-			</div>
-			<div class="overflow">
-				<table class="examples">
-					<thead>
-						<tr><th>Group-number</th><th>Ones</th><th>Tens</th><th>Hundreds</th><th>Replacement</th><th>Result</th></tr>
-					</thead>
-					<tbody>
-						<tr class="top"><td class="number">824</td><td>quattuor</td><td>viginta</td><td>octingenti</td><td>illion</td><td>quattuorvigintaocingentillion</td></tr>
-						
-						<tr class="top"><td class="number" rowspan=2>75'930</td><td>quinqua</td><td>septuaginta</td><td></td><td>illi</td><td rowspan=2>quinquaseptuagintillitrigintanongentillion</td></tr>
-						<tr><!--75'930--><td></td><td>triginta</td><td>nongenti</td><td>illion</td></tr>
-						
-						<tr class="top"><td class="number">88</td><td>octo</td><td>octoginta</td><td></td><td>illion</td><td>octooctogintillion</td></tr>
-						
-						<tr class="top"><td class="number">36</td><td>ses</td><td>triginta</td><td></td><td>illion</td><td>sestrigintillion</td></tr>
-						
-						<tr class="top"><td class="number" rowspan=2>4'050</td><td>quadri</td><td></td><td></td><td>illi</td><td rowspan=2>quadrilliquinquagintillion</td></tr>
-						<tr><!--4'050--><td></td><td>quinquaginta</td><td></td><td>illion</td></tr>
-						
-						<tr class="top"><td class="number" rowspan=3>32'000'106</td><td>duo</td><td>triginta</td><td></td><td>illi</td><td rowspan=3>duotrigintillinillisexcentillion</td></tr>
-						<tr><!--32'000'106--><td>ni</td><td></td><td></td><td>illi</td></tr>
-						<tr><!--32'000'106--><td>sex</td><td></td><td>centi</td><td>illion</td></tr>
-						
-						<tr class="top"><td class="number" rowspan=2>106'600</td><td>sex</td><td></td><td>centi</td><td>illi</td><td rowspan=2>sexcentillisescentillion</td></tr>
-						<tr><!--106'600--><td></td><td></td><td>sescenti</td><td>illion</td></tr>
-					</tbody>
-				</table>
-			</div>
-			<div>
-				<h4>A Nifty Little Rectangle</h4>
-				This rectangle comes from my <a href="projects/numbernamer.html">Number Namer</a> project.
-				Check that page for more in-depth information about the project.
-				This rectangle returns the group-name for any group-number using the rules from above.
-				All you need to do is put in a group-number and click the button and the resulting group-name will appear in the grey box below.
-			</div>
-			<script src="scripts/NumberNamer/illionGroupNameRectangle.js"></script>
-			<div>
-				<h3>Constructing a Big Number's Name</h3>
-				Now you know how to create the group-name for every group-number you can possibly imagine, and thus you can name every number in existence!
-				How exciting!
-				To get the digit-group-name, attach the group-name after the name of the inner number.
-				To get the name of a number, we take all the names for all the digit groups and string them together in order from biggest to smallest.
-			</div>
-			<div>
-				<h4>Demonstrative Example</h4>
-				In the following example we will follow the process to generating a big number name using the following big number with 33 digit groups.
-			</div>
-			<div class="indented">
-				389'<wbr>000'<wbr>905'<wbr>416'<wbr>340'<wbr>299'<wbr>825'<wbr>375'<wbr>650'<wbr>499'<wbr>727'<wbr>636'<wbr>148'<wbr>832'<wbr>836'<wbr>837'<wbr>791'<wbr>372'<wbr>546'<wbr>359'<wbr>967'<wbr>160'<wbr>218'<wbr>141'<wbr>192'<wbr>586'<wbr>265'<wbr>492'<wbr>757'<wbr>482'<wbr>507'<wbr>196'<wbr>016
-			</div>
-			<div>
-				First we take the 389 group at the beginning and find its digit-group-name.
-				It has 32 groups following it, which gives it a group-number of 31 and a group-name of "untrigintillion"; therefore the digit-group-name of the 389 is <em>three hundred eighty-nine untrigintillion</em>.
-			</div>
-			<div>
-				The next group is all zeros, so we can skip it.
-			</div>
-			<div>
-				Next we take the 905 group that comes next and find its digit-group-name.
-				It has 30 groups following it, so it has a group-name of "novemvigintillion", thus its digit-group-name is <em>nine hundred five novemvigintillion</em>.
-			</div>
-			<div>
-				Then we take the following 416 group and find its digit-group-name.
-				Its group-number is 28 and its group-name is "octovigintillion", so its digit-group-name is <em>four hundred sixteen octovigintillion</em>.
-			</div>
-			<div>
-				We continue until all groups have been named, then we smash them together into this behemoth:
-			</div>
-			<div class="indented">
-				<em>
-					three hundred eighty-nine untrigintillion, nine hundred five novemvigintillion, four hundred sixteen octovigintillion, three hundred forty septemvigintillion, two hundred ninety-nine sesvigintillion, eight hundred twenty-five quinquavigintillion, three hundred seventy-five quattuorvigintillion, six hundred fifty tresvigintillion, four hundred ninety-nine duovigintillion, seven hundred twenty-seven unvigintillion, six hundred thirty-six vigintillion, one hundred forty-eight novendecillion, eight hundred thirty-two octodecillion, eight hundred thirty-six septendecillion, eight hundred thirty-seven sedecillion, seven hundred ninety-one quinquadecillion, three hundred seventy-two quattuordecillion, five hundred forty-six tredecillion, three hundred fifty-nine duodecillion, nine hundred sixty-seven undecillion, one hundred sixty decillion, two hundred eighteen nonillion, one hundred forty-one octillion, one hundred ninety-two septillion, five hundred eighty-six sextillion, two hundred sixty-five quintillion, four hundred ninety-two quadrillion, seven hundred fifty-seven trillion, four hundred eighty-two billion, five hundred seven million, one hundred ninety-six thousand, sixteen
-				</em>
-			</div>
-			<div>
-				<h4>A Second Nifty Little Rectangle</h4>
-				Like the previous Nifty Little Rectangle, this also comes from my <a href="projects/numbernamer.html">Number Namer</a> project.
-				Type in a number and click the button, and it will return the full name of the number.
-			</div>
-			<script src="scripts/NumberNamer/numberToStringRectangle.js"></script>
-			<div>
-				<h4>A Convenient Nifty Little Rectangle</h4>
-				A lot of times large numbers are expressed as "ten to the power bleh" (10<sup>bleh</sup>).
-				As convenient as that notation is for representing large numbers, it gets annoying when we need to calculate the group-number manually to get the number's name.
-				On top of that the number could represent either "one blehllion", "ten blehllion", or "one hundred blehllion".
-				To fix this, I present the "Power of Ten Rectangle", which will calculate the group-number for you and give you the number's name.
-			</div>
-			<script src="scripts/NumberNamer/powerOfTenToStringRectangle.js"></script>
-			<div>
-				<h2>Some Other Big Numbers</h2>
-				There are many big numbers: there are infinitely many of them.
-				Many of the more famous big numbers are simple in creation: a googol is 10<sup>100</sup> and a googolplex is 10<sup>googol</sup>.
-				Even though a googol seems large you can still write it (100 zeros is not a lot).
-				In fact, this is one googol:
-			</div>
-			<div class="indented">
-				10'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000
-			</div>
-			<div>
-				One googol is equal to <em>ten duotrigintillion</em>.
-				Anyone can find that easily by typing in a 1 with a hundred zeros into my <a href="projects/numbernamer.html">Number Namer</a> project.
-				You could also count the digit groups after the 10 in the first group (33) and figure out the group number (32) and use your newfound knowledge of group-name construction to figure it out.
-				Or you could plug the appropriate number into the nifty rectangles provided above.
-			</div>
-			<div>
-				<h3>How about a Googolplex?</h3>
-				We know a googolplex is 10<sup>googol</sup>, or 10<sup>10<sup>100</sup></sup>; that is a 1 followed by the number of zeros specified by the large number above.
-				In order to write out one googolplex, if you wrote a zero on every atom of the observable universe, you would need to write about a sextillion zeros per atom.
-				Even though we will never be able to write out a googolplex in all its glory, I can tell you one googolplex is
-			</div>
-			<div class="indented">
-				<em>ten <span style="word-wrap:break-word;">trilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;duotrigintatrecentillion</span></em>
-			</div>
-			<div>
-				or
-			</div>
-			<div class="indented">
-				<em>ten trilli + (trestrigintatrecentilli * 32) + duotrigintatrecentillion</em>.
-			</div>
-			<div>
-				<h4>The Derivation</h4>
-				You may be thinking "How the hell did you come up with that?".
-				I came up with this large number name using the upcoming derivation.
-				This derivation is to show how to construct names for any number 10<sup>10<sup>R</sup></sup>.
-				First a few givens that we know to be true:
-				<ol>
-					<li>An integer that is \(1\) followed by \(n\) zeros can be written as \(10^n\)</li>
-					<li>The corresponding integer for a group-number \(M\) is \(10^{3M + 3}\)</li>
-					<li>\({10^R \equiv 1} \pmod 3\) for any integer \(R \ge 0\)</li>
-				</ol>
-			</div>
-			<div>
-				Suppose an integer was \(1\) followed by \(n\) zeros, it would have a group-number \(M\).
-			</div>
-			<div class="overflow">
-				\[10^n = 10^{3M+3}\]
-			</div>
-			<div>
-				Taking the base 10 logarithm of both sides, equates functions of \(n\) and \(M\) directly to each other and we can solve for \(M\).
-			</div>
-			<div class="overflow">
-				\[\begin{align}
-					n & = 3M+3 \\[1ex]
-					n - 3 & = 3M \\[1ex]
-					\frac{n-3}3 & = M
-				\end{align}\]
-			</div>
-			<div>
-				Because \(M\) is an integer, the division by \(3\) will need to be adjusted to prevent non-whole numbers.
-				If \(3\) divides \(n\) (meaning there are whole digit-groups of zeros like 1'000'000) then \(M\) is just \(\frac{n-3} 3\). If \(3\) does not divide \(n\) (indicating that there are some zeros that do not form a complete group like 10'000'000), then \(M\) equals either  \(\frac{(n-1)-3} 3\) or  \(\frac{(n-2)-3} 3\).
-			</div>
-			<div class="overflow">
-				\[M =
-				\begin{cases}
-					\frac{n - 3} 3,       & \text {if} \; n \bmod 3 = 0 \\[1ex]
-					\frac{(n - 1) - 3} 3, & \text {if} \; {n - 1} \bmod 3 = 0 \\[1ex]
-					\frac{(n - 2) - 3} 3, & \text {if} \; {n - 2} \bmod 3 = 0
-				\end{cases}\]
-			</div>
-			<div>
-				Suppose an integer was \(1\) followed by \(n=10^R\) zeros, it would be written out as \(10^{10^R}\).
-				\({10^R \equiv 1} \pmod 3\), so \(\left (10^R - 1 \right ) \bmod 3 = 0\).
-				Using the first given at the top of the list, we know
-			</div>
-			<div class="overflow">
-				\[n = 10 \ldots 00 \; \text{($0$ repeated \(R\) times)}\]
-			</div>
-			<div>
-				Letting \(n'=n - 1\), subtracting \(1\) from that gives us
-			</div>
-			<div class="overflow">
-				\[n' = 9 \ldots 99 \; \text{($9$ repeated \(R\) times)}\]
-			</div>
-			<div>
-				We can solve for \(M\) using \(n'\) and these arbitrarily large numbers.
-			</div>
-			<div class="overflow">
-				\begin{align}
-					M & = \frac{(n - 1) - 3} 3 \\[1ex]
-					  & = \frac{n' - 3} 3 \\[1ex]
-					  & = \frac{9 \ldots 99 - 3} 3 & \text{($9$ repeated $R$ times)} \\[1ex]
-					  & = \frac{9 \ldots 96} 3 & \text{($9$ repeated $R - 1$ times, then $6$)} \\[1ex]
-					  & = 3 \ldots 32 & \text{($3$ repeated $R - 1$ times, then $2$)}
-				\end{align}
-			</div>
-			<div>
-				The group-name for an integer \(10^{10^R}\) can be found using the group-number \(M = 3 \ldots 32 \; \text{($3$ repeated $R - 1$ times, then $2$)}\).
-				The name of the integer \(10^{10^R}\) involves "ten" followed by the aforementioned group-name; it has "ten" because \(10^R \bmod 3 = 1\), meaning there's one more zero than a number with a 3-divisible number of zeros.0
-			</div>
-			<div>
-				A Googolplex is \(10^\text{googol}\) which can also be written as \(10^{10^{100}}\), thus \(R = 100\).
-				The group-number for a googolplex is \(3 \ldots 32 \text{($3$ repeated $99$ times, then $2$)}\), which looks like the following when written out.
-			</div>
-			<div class="indented">
-				3'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>332
-			</div>
-			<div>
-				or
-			</div>
-			<div class="indented">
-				3 + (333 repeated 32 times) + 332
-			</div>
-			<div>
-				Using the group-name constructing rules in <a href="projects/bignumbers.html">Big Numbers</a>, the group-name for a googolplex starts with <em>trilli</em>, has a bunch of <em>trestrigintatrecentilli</em>s, and ends with <em>duotrigintatrecentillion</em>.
-				Thus, a googolplex is <em>ten trillitrestrigintatrecentilli...duotrigintatrecentillion</em>.
-			</div>
-			<div>
-				<em>QED</em>
-			</div>
-		</div>
-	</body>
+    <head>
+        <base href="..">
+        <script src="scripts/loadScripts.js"></script>
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="scripts/NumberNamer/loadNumberNamer.js"></script>
+        <style>
+            .latinprefixes td { border-right-width:1px; border-right-style:dashed; border-right-color:black; }
+            .latinprefixes td:first-child { border-right-style:solid; }
+            .latinprefixes td:last-child { border-right-style:none; }
+            .latinprefixes td.modcell { border-right:0px; font-size:0.75em; }
+            .examples tr.top td { border-color:black; border-style:solid; border-top-width:1px; }
+            .examples td { border-width:0px; font-style:normal; text-align:left; }
+            .examples .number { font-style:italic; }
+        </style>
+    </head>
+    <body>
+        <noscript>JavaScript must be enabled to view this website in all its beauty. Click the script button in the right side of your address bar to allow JavaScript. Fear not, this site does not use harmful scripts to steal your identity or take over your computer. JavaScript is used purely for formatting this site. You can still view the content below, but some elements may not be formatted correctly.</noscript>
+        <div class="content-container">
+            <div>
+                <em>
+                    (Note: This page, and this whole site for that matter, uses the American numbering system, also called <a href="https://en.wikipedia.org/wiki/Long_and_short_scales">the short scale for large numbers</a>.
+                    In the 21<sup>st</sup> century you wouldn't think this would be a problem, but a large part of the world use the long scale, a modified short scale, or some other naming system altogether.
+                    Just for clarity, in the US and for this site a trillion is 10<sup>12</sup> and not 10<sup>18</sup>.)
+                </em>
+            </div>
+            <div>
+                Big numbers are a fantastic study in mathematics.
+                Numbers themselves are pretty weird: they are an abstract concept that we can visualize concretely.
+                If I say "seven" it really doesn't mean anything, but you might picture seven amorphous blobs in your head.
+                If I say "seven is greater than two" you nod because your abstraction-comprehending brain-matter understands my assertion.
+                If I show you a bowl with seven balls and a bowl with two balls, your concrete brain can understand the one with seven has more.
+                Abstraction is sometimes difficult to understand because the idea is (excuse my circular logic) abstract, but the lack of a physical object makes big numbers more fun; as numbers get bigger, they start to break our understanding of this simple concept called counting.
+            </div>
+            <div>
+                Thinking of ten or a hundred people is somewhat easy; you could probably name that many people if you saw their faces.
+                Counting to larger numbers, though, gets a bit tricky.
+                A hundred groups of a hundred people each is a little harder to imagine, but that's ten thousand people, about a thousand less than the number of Cal Poly students in Spanos Stadium watching their men's soccer team beat UCSB's soccer team.
+                Counting to even larger numbers becomes more mind-boggling: a hundred Spanos Stadiums filled with excited Cal Poly students is hard to visualize, and that's only a million.
+            </div>
+            <div>
+                You may have seen a million discrete objects: a standard 1080p monitor has about two million pixels which is pretty easy to see collectively.
+                But, you have never seen a billion discrete objects, so picturing a billion things at once is near impossible.
+                We know there are about a trillion stars in the Andromeda galaxy, but we can't accurately imagine that.
+                All these big numbers are abstract, but even when abstract, big numbers are still pretty neat.
+            </div>
+            <div>
+                <h2>Naming</h2>
+                One particular topic of interest I took in big numbers is their naming scheme.
+                Most people are familiar with the smaller of the big number names, usually through economics: names like million, billion, and trillion.
+                But once you get to a decillion, what comes after that?
+                In the real world you wouldn't ever have to worry about numbers getting that large, and even in math and science where there are large numbers they just normalize them and multiply by an exponent (6.022 x 10<sup>23</sup>).
+                Normalized numbers, however, are boring: they don't have any real weight that makes them impressive; <em>10<sup>12</sup> stars in the Andromeda galaxy</em> doesn't sound as good as <em>a trillion stars</em> and <em>6 x 10<sup>23</sup></em> doesn't sound as good as <em>six hundred sextillion</em>.
+            </div>
+            <div>
+                This is why we leave the realm of bland scientific notation and enter into the world of ridiculous and impractical large number names.
+                There are many <a href="https://en.wikipedia.org/wiki/Names_of_large_numbers">systems for naming large numbers</a>, but the one I quite like is John H Conway's and Richard K Guy's system as defined in their book "<a href="https://books.google.com/books/about/The_Book_of_Numbers.html?id=0--3rcO7dMYC">The Book of Numbers</a>".
+                Using Conway and Guy's system, one could properly identify the <span style="word-wrap:break-word;">tresviginticentillisesquinquagintaquadringentillion</span> (which is a 1 followed by 370'371 zeros).
+            </div>
+            <div>
+                <h3>Groups</h3>
+                At the core of naming numbers is the digit grouping.
+                In the American English system we divide our big numbers into groups of three digits starting from the ones place.
+                Usually these numbers are separated by commas (1,234,567) but I prefer to use apostrophes (1'234'567); just a matter of taste.
+                Each of these groups is given a group-name: the group on the far right (1'234'<strong>567</strong>) has no group-name; the group to the left of that (1'<strong>234</strong>'567) has the group-name "Thousand"; the group to the left of <em>that</em> (<strong>1</strong>'234'567) has the group-name "Million"; etc.
+            </div>
+            <div>
+                <h4>Converting a Number to Words</h4>
+                We are all familiar with creating the name of a number with multiple digit groups.
+                Every digit group gets its own "name" (a "digit-group-name", if you will) and we concatenate them all together to form the completed name.
+                To get the name of a digit group, we use the name of the inner number (as if it were its own number) and attach the group-name after: the 234 in 1'234'567 becomes <em>two hundred thirty-four thousand</em>.
+                To get the name of a number, we take all the names for all the digit groups and string them together in order from biggest to smallest: 1'234'567 becomes <em>one million, two hundred thirty-four thousand, five hundred sixty-seven</em>.
+            </div>
+            <div>
+                <h4>Conway and Guy's System</h4>
+                That was the basic system for converting a number from numerals to words, but you still don't know what comes after a decillion.
+                Luckily, Conway and Guy's naming system works for any integer with any number of digits, long after decillions and centillions.
+                For big numbers a digit group's group-name is based on its <em>group-number</em> which is, in layman's terms, one less than the number of three-digit groups after it.
+                For example, 807'<strong>111</strong>'<strong>222</strong>'<strong>333</strong>'<strong>444</strong> has 4 three-digit groups after the 807, so the 807's group-number is 3, which corresponds to "trillion".
+            </div>
+            <div>
+                More mathematically speaking, the group-number for a large number <em>M</em> is an integer <em>n</em> such that <span class="grouped">10<sup>3<em>n</em> + 3</sup> &le; <em>M</em></span> and <span class="grouped">10<sup>3(<em>n</em>+1) + 3</sup> &gt; <em>M</em>.</span>
+                Million has the group-number 1 because 10<sup>3 + 3</sup> = 10<sup>6</sup> equals a million.
+                From there, group-numbers follow a linear pattern: Billion has group-number 2, Trillion has 3, Quadrillion has 4, Octillion has 8, etc.
+                Thousand is the only odd name since it doesn't end with 'illion' and its group-number is 0 <span class="grouped">(10<sup>0+3</sup> = 10<sup>3</sup></span> = 1'000).
+                If you think it's odd there is a 3 being added in the exponent, blame Thousand: if Thousand didn't exist and one million was 1'000 and one billion was 1'000'000, then the group-number would just be the number of three-digit groups with no addition/subtraction mumbo-jumbo.
+            </div>
+            <div>
+                You know how to get the group-number for any large number, now what?
+                We will use the digits of the group-number and Latin prefixes to construct the group-name.
+                Like we used the digits in groups of the big number to get the names of the digit groups, we use the digits in groups of the group-number to get the group-name associated with that group-number.
+                It's all confusing with all this English but once you see the math it will be easier to understand.
+            </div>
+            <div>
+                <h3>Constructing a Group-Name</h3>
+                The construction of a group-name uses the following table.
+                First, observe the table and see that on the left are the digit values from 0 to 9, and to the right of them are the names for each digit depending on its spot in the digit group of the group number.
+            </div>
+            <div class="overflow">
+                <table class="latinprefixes">
+                    <thead>
+                        <tr><th>Digit</th>               <th>Solo</th>   <th>Ones</th>       <th colspan=2>Tens</th>                          <th colspan=2>Hundreds</th>                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="digitcell">0</td> <td>ni</td>     <td></td>           <td class="modcell"></td>  <td></td>             <td class="modcell"></td>  <td></td>             </tr>
+                        <tr><td class="digitcell">1</td> <td>mi</td>     <td>un</td>         <td class="modcell">n</td> <td>deci</td>         <td class="modcell">nx</td><td>centi</td>        </tr>
+                        <tr><td class="digitcell">2</td> <td>bi</td>     <td>duo</td>        <td class="modcell">ms</td><td>viginti</td>      <td class="modcell">n</td> <td>ducenti</td>      </tr>
+                        <tr><td class="digitcell">3</td> <td>tri</td>    <td>tre(s)</td>     <td class="modcell">ns</td><td>triginta</td>     <td class="modcell">ns</td><td>trecenti</td>     </tr>
+                        <tr><td class="digitcell">4</td> <td>quadri</td> <td>quattuor</td>   <td class="modcell">ns</td><td>quadraginta</td>  <td class="modcell">ns</td><td>quadringenti</td> </tr>
+                    </tbody>
+                    <tbody>
+                        <tr><td class="digitcell">5</td> <td>quinti</td> <td>quinqua</td>    <td class="modcell">ns</td><td>quinquaginta</td> <td class="modcell">ns</td><td>quingenti</td>    </tr>
+                        <tr><td class="digitcell">6</td> <td>sexti</td>  <td>se(s/x)</td>    <td class="modcell">n</td> <td>sexaginta</td>    <td class="modcell">n</td> <td>sescenti</td>     </tr>
+                        <tr><td class="digitcell">7</td> <td>septi</td>  <td>septe(m/n)</td> <td class="modcell">n</td> <td>septuaginta</td>  <td class="modcell">n</td> <td>septingenti</td>  </tr>
+                        <tr><td class="digitcell">8</td> <td>octi</td>   <td>octo</td>       <td class="modcell">mx</td><td>octoginta</td>    <td class="modcell">mx</td><td>octingenti</td>   </tr>
+                        <tr><td class="digitcell">9</td> <td>noni</td>   <td>nove(m/n)</td>  <td class="modcell"></td>  <td>nonaginta</td>    <td class="modcell"></td>  <td>nongenti</td>     </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                The process for finding the corresponding group-name for a group-number is the same as the process described earlier of converting a number from numerals to words: split the group-number into digit groups, get the name of each digit group, and string them all together, except this time we use the Latin names instead of the number's actual English names.
+            </div>
+            <div>
+                <h4>Rules for Construction</h4>
+                To get the name of a digit group, you take the Latin names for the ones digit, the tens digit, and the hundreds digit and conjoin them in that order.
+                If in a digit group the tens and hundreds are both 0, then use the name for the ones under the "Solo Ones" column, otherwise use the name for the ones under the "Ones" column; you would not say "unillion" instead of "million", but you wouldn't say "midecillion" instead of "undecillion".
+                If the group-number has more than one digit group (the group number is 1'000 or more), then for each digit group except the last group you replace the last vowel of the name with "illi"; for the very last group you replace the last vowel with "illion".
+                If the ones digit has a letters in parentheses and the next name to be added next has one of the letters in the small letters before it in the table, you place that shared letter between the two: if the ones digit is 3, you place an "s" if the next name has either "s" or "x" before it in the small letters.
+            </div>
+            <div>
+                Here are the rules in a concise list:
+                <ul>
+                    <li>Use the table with values for ones, tens, and hundreds digits of the digit group of a group-number to get digit group's name</li>
+                    <li>If both tens and hundreds are 0, use name in "Solo" column</li>
+                    <li>If group-number has more than one digit group, use "illion" for the last group and "illi" for the ones before</li>
+                    <li>If the ones name has a letter in parentheses and the next name has that letter before it in the table, put that letter between the names</li>
+                </ul>
+            </div>
+            <div>
+                The last rule is done to remove ambiguity between some group-names.
+                Without those "filler letters", notice how group-number 103 would have "tre" + "centi" to produce "trecenti", but group-number 300 is already "trecenti".
+                Also note that "octo" does not have a filler letter, so "octooctogintillion" is the correct name for group-number 88.
+            </div>
+            <div>
+                <h4>Examples</h4>
+                The following is a table demonstrating the process behind constructing the group-name for various group-numbers.
+                The numbers were selected to demonstrate the various rules and relieve any confusion.
+            </div>
+            <div class="overflow">
+                <table class="examples">
+                    <thead>
+                        <tr><th>Group-number</th><th>Ones</th><th>Tens</th><th>Hundreds</th><th>Replacement</th><th>Result</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="top"><td class="number">824</td><td>quattuor</td><td>viginta</td><td>octingenti</td><td>illion</td><td>quattuorvigintaocingentillion</td></tr>
+                        
+                        <tr class="top"><td class="number" rowspan=2>75'930</td><td>quinqua</td><td>septuaginta</td><td></td><td>illi</td><td rowspan=2>quinquaseptuagintillitrigintanongentillion</td></tr>
+                        <tr><!--75'930--><td></td><td>triginta</td><td>nongenti</td><td>illion</td></tr>
+                        
+                        <tr class="top"><td class="number">88</td><td>octo</td><td>octoginta</td><td></td><td>illion</td><td>octooctogintillion</td></tr>
+                        
+                        <tr class="top"><td class="number">36</td><td>ses</td><td>triginta</td><td></td><td>illion</td><td>sestrigintillion</td></tr>
+                        
+                        <tr class="top"><td class="number" rowspan=2>4'050</td><td>quadri</td><td></td><td></td><td>illi</td><td rowspan=2>quadrilliquinquagintillion</td></tr>
+                        <tr><!--4'050--><td></td><td>quinquaginta</td><td></td><td>illion</td></tr>
+                        
+                        <tr class="top"><td class="number" rowspan=3>32'000'106</td><td>duo</td><td>triginta</td><td></td><td>illi</td><td rowspan=3>duotrigintillinillisexcentillion</td></tr>
+                        <tr><!--32'000'106--><td>ni</td><td></td><td></td><td>illi</td></tr>
+                        <tr><!--32'000'106--><td>sex</td><td></td><td>centi</td><td>illion</td></tr>
+                        
+                        <tr class="top"><td class="number" rowspan=2>106'600</td><td>sex</td><td></td><td>centi</td><td>illi</td><td rowspan=2>sexcentillisescentillion</td></tr>
+                        <tr><!--106'600--><td></td><td></td><td>sescenti</td><td>illion</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <h4>A Nifty Little Rectangle</h4>
+                This rectangle comes from my <a href="projects/numbernamer.html">Number Namer</a> project.
+                Check that page for more in-depth information about the project.
+                This rectangle returns the group-name for any group-number using the rules from above.
+                All you need to do is put in a group-number and click the button and the resulting group-name will appear in the grey box below.
+            </div>
+            <script src="scripts/NumberNamer/illionGroupNameRectangle.js"></script>
+            <div>
+                <h3>Constructing a Big Number's Name</h3>
+                Now you know how to create the group-name for every group-number you can possibly imagine, and thus you can name every number in existence!
+                How exciting!
+                To get the digit-group-name, attach the group-name after the name of the inner number.
+                To get the name of a number, we take all the names for all the digit groups and string them together in order from biggest to smallest.
+            </div>
+            <div>
+                <h4>Demonstrative Example</h4>
+                In the following example we will follow the process to generating a big number name using the following big number with 33 digit groups.
+            </div>
+            <div class="indented">
+                389'<wbr>000'<wbr>905'<wbr>416'<wbr>340'<wbr>299'<wbr>825'<wbr>375'<wbr>650'<wbr>499'<wbr>727'<wbr>636'<wbr>148'<wbr>832'<wbr>836'<wbr>837'<wbr>791'<wbr>372'<wbr>546'<wbr>359'<wbr>967'<wbr>160'<wbr>218'<wbr>141'<wbr>192'<wbr>586'<wbr>265'<wbr>492'<wbr>757'<wbr>482'<wbr>507'<wbr>196'<wbr>016
+            </div>
+            <div>
+                First we take the 389 group at the beginning and find its digit-group-name.
+                It has 32 groups following it, which gives it a group-number of 31 and a group-name of "untrigintillion"; therefore the digit-group-name of the 389 is <em>three hundred eighty-nine untrigintillion</em>.
+            </div>
+            <div>
+                The next group is all zeros, so we can skip it.
+            </div>
+            <div>
+                Next we take the 905 group that comes next and find its digit-group-name.
+                It has 30 groups following it, so it has a group-name of "novemvigintillion", thus its digit-group-name is <em>nine hundred five novemvigintillion</em>.
+            </div>
+            <div>
+                Then we take the following 416 group and find its digit-group-name.
+                Its group-number is 28 and its group-name is "octovigintillion", so its digit-group-name is <em>four hundred sixteen octovigintillion</em>.
+            </div>
+            <div>
+                We continue until all groups have been named, then we smash them together into this behemoth:
+            </div>
+            <div class="indented">
+                <em>
+                    three hundred eighty-nine untrigintillion, nine hundred five novemvigintillion, four hundred sixteen octovigintillion, three hundred forty septemvigintillion, two hundred ninety-nine sesvigintillion, eight hundred twenty-five quinquavigintillion, three hundred seventy-five quattuorvigintillion, six hundred fifty tresvigintillion, four hundred ninety-nine duovigintillion, seven hundred twenty-seven unvigintillion, six hundred thirty-six vigintillion, one hundred forty-eight novendecillion, eight hundred thirty-two octodecillion, eight hundred thirty-six septendecillion, eight hundred thirty-seven sedecillion, seven hundred ninety-one quinquadecillion, three hundred seventy-two quattuordecillion, five hundred forty-six tredecillion, three hundred fifty-nine duodecillion, nine hundred sixty-seven undecillion, one hundred sixty decillion, two hundred eighteen nonillion, one hundred forty-one octillion, one hundred ninety-two septillion, five hundred eighty-six sextillion, two hundred sixty-five quintillion, four hundred ninety-two quadrillion, seven hundred fifty-seven trillion, four hundred eighty-two billion, five hundred seven million, one hundred ninety-six thousand, sixteen
+                </em>
+            </div>
+            <div>
+                <h4>A Second Nifty Little Rectangle</h4>
+                Like the previous Nifty Little Rectangle, this also comes from my <a href="projects/numbernamer.html">Number Namer</a> project.
+                Type in a number and click the button, and it will return the full name of the number.
+            </div>
+            <script src="scripts/NumberNamer/numberToStringRectangle.js"></script>
+            <div>
+                <h4>A Convenient Nifty Little Rectangle</h4>
+                A lot of times large numbers are expressed as "ten to the power bleh" (10<sup>bleh</sup>).
+                As convenient as that notation is for representing large numbers, it gets annoying when we need to calculate the group-number manually to get the number's name.
+                On top of that the number could represent either "one blehllion", "ten blehllion", or "one hundred blehllion".
+                To fix this, I present the "Power of Ten Rectangle", which will calculate the group-number for you and give you the number's name.
+            </div>
+            <script src="scripts/NumberNamer/powerOfTenToStringRectangle.js"></script>
+            <div>
+                <h2>Some Other Big Numbers</h2>
+                There are many big numbers: there are infinitely many of them.
+                Many of the more famous big numbers are simple in creation: a googol is 10<sup>100</sup> and a googolplex is 10<sup>googol</sup>.
+                Even though a googol seems large you can still write it (100 zeros is not a lot).
+                In fact, this is one googol:
+            </div>
+            <div class="indented">
+                10'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000'<wbr>000
+            </div>
+            <div>
+                One googol is equal to <em>ten duotrigintillion</em>.
+                Anyone can find that easily by typing in a 1 with a hundred zeros into my <a href="projects/numbernamer.html">Number Namer</a> project.
+                You could also count the digit groups after the 10 in the first group (33) and figure out the group number (32) and use your newfound knowledge of group-name construction to figure it out.
+                Or you could plug the appropriate number into the nifty rectangles provided above.
+            </div>
+            <div>
+                <h3>How about a Googolplex?</h3>
+                We know a googolplex is 10<sup>googol</sup>, or 10<sup>10<sup>100</sup></sup>; that is a 1 followed by the number of zeros specified by the large number above.
+                In order to write out one googolplex, if you wrote a zero on every atom of the observable universe, you would need to write about a sextillion zeros per atom.
+                Even though we will never be able to write out a googolplex in all its glory, I can tell you one googolplex is
+            </div>
+            <div class="indented">
+                <em>ten <span style="word-wrap:break-word;">trilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;trestrigintatrecentilli&shy;duotrigintatrecentillion</span></em>
+            </div>
+            <div>
+                or
+            </div>
+            <div class="indented">
+                <em>ten trilli + (trestrigintatrecentilli * 32) + duotrigintatrecentillion</em>.
+            </div>
+            <div>
+                <h4>The Derivation</h4>
+                You may be thinking "How the hell did you come up with that?".
+                I came up with this large number name using the upcoming derivation.
+                This derivation is to show how to construct names for any number 10<sup>10<sup>R</sup></sup>.
+                First a few givens that we know to be true:
+                <ol>
+                    <li>An integer that is \(1\) followed by \(n\) zeros can be written as \(10^n\)</li>
+                    <li>The corresponding integer for a group-number \(M\) is \(10^{3M + 3}\)</li>
+                    <li>\({10^R \equiv 1} \pmod 3\) for any integer \(R \ge 0\)</li>
+                </ol>
+            </div>
+            <div>
+                Suppose an integer was \(1\) followed by \(n\) zeros, it would have a group-number \(M\).
+            </div>
+            <div class="overflow">
+                \[10^n = 10^{3M+3}\]
+            </div>
+            <div>
+                Taking the base 10 logarithm of both sides, equates functions of \(n\) and \(M\) directly to each other and we can solve for \(M\).
+            </div>
+            <div class="overflow">
+                \[\begin{align}
+                    n & = 3M+3 \\[1ex]
+                    n - 3 & = 3M \\[1ex]
+                    \frac{n-3}3 & = M
+                \end{align}\]
+            </div>
+            <div>
+                Because \(M\) is an integer, the division by \(3\) will need to be adjusted to prevent non-whole numbers.
+                If \(3\) divides \(n\) (meaning there are whole digit-groups of zeros like 1'000'000) then \(M\) is just \(\frac{n-3} 3\). If \(3\) does not divide \(n\) (indicating that there are some zeros that do not form a complete group like 10'000'000), then \(M\) equals either  \(\frac{(n-1)-3} 3\) or  \(\frac{(n-2)-3} 3\).
+            </div>
+            <div class="overflow">
+                \[M =
+                \begin{cases}
+                    \frac{n - 3} 3,       & \text {if} \; n \bmod 3 = 0 \\[1ex]
+                    \frac{(n - 1) - 3} 3, & \text {if} \; {n - 1} \bmod 3 = 0 \\[1ex]
+                    \frac{(n - 2) - 3} 3, & \text {if} \; {n - 2} \bmod 3 = 0
+                \end{cases}\]
+            </div>
+            <div>
+                Suppose an integer was \(1\) followed by \(n=10^R\) zeros, it would be written out as \(10^{10^R}\).
+                \({10^R \equiv 1} \pmod 3\), so \(\left (10^R - 1 \right ) \bmod 3 = 0\).
+                Using the first given at the top of the list, we know
+            </div>
+            <div class="overflow">
+                \[n = 10 \ldots 00 \; \text{($0$ repeated \(R\) times)}\]
+            </div>
+            <div>
+                Letting \(n'=n - 1\), subtracting \(1\) from that gives us
+            </div>
+            <div class="overflow">
+                \[n' = 9 \ldots 99 \; \text{($9$ repeated \(R\) times)}\]
+            </div>
+            <div>
+                We can solve for \(M\) using \(n'\) and these arbitrarily large numbers.
+            </div>
+            <div class="overflow">
+                \begin{align}
+                    M & = \frac{(n - 1) - 3} 3 \\[1ex]
+                      & = \frac{n' - 3} 3 \\[1ex]
+                      & = \frac{9 \ldots 99 - 3} 3 & \text{($9$ repeated $R$ times)} \\[1ex]
+                      & = \frac{9 \ldots 96} 3 & \text{($9$ repeated $R - 1$ times, then $6$)} \\[1ex]
+                      & = 3 \ldots 32 & \text{($3$ repeated $R - 1$ times, then $2$)}
+                \end{align}
+            </div>
+            <div>
+                The group-name for an integer \(10^{10^R}\) can be found using the group-number \(M = 3 \ldots 32 \; \text{($3$ repeated $R - 1$ times, then $2$)}\).
+                The name of the integer \(10^{10^R}\) involves "ten" followed by the aforementioned group-name; it has "ten" because \(10^R \bmod 3 = 1\), meaning there's one more zero than a number with a 3-divisible number of zeros.0
+            </div>
+            <div>
+                A Googolplex is \(10^\text{googol}\) which can also be written as \(10^{10^{100}}\), thus \(R = 100\).
+                The group-number for a googolplex is \(3 \ldots 32 \text{($3$ repeated $99$ times, then $2$)}\), which looks like the following when written out.
+            </div>
+            <div class="indented">
+                3'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>333'<wbr>332
+            </div>
+            <div>
+                or
+            </div>
+            <div class="indented">
+                3 + (333 repeated 32 times) + 332
+            </div>
+            <div>
+                Using the group-name constructing rules in <a href="projects/bignumbers.html">Big Numbers</a>, the group-name for a googolplex starts with <em>trilli</em>, has a bunch of <em>trestrigintatrecentilli</em>s, and ends with <em>duotrigintatrecentillion</em>.
+                Thus, a googolplex is <em>ten trillitrestrigintatrecentilli...duotrigintatrecentillion</em>.
+            </div>
+            <div>
+                <em>QED</em>
+            </div>
+        </div>
+    </body>
 </html>

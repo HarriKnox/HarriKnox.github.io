@@ -1,46 +1,46 @@
 .header-container
 {
-	width:100%;
-	position:relative;
+    width:100%;
+    position:relative;
 }
 
 .title
 {
-	padding:1em 0px;
-	display:inline-block;
+    padding:1em 0px;
+    display:inline-block;
 }
 
 .link-home
 {
-	color:#000000;
-	text-decoration:none;
+    color:#000000;
+    text-decoration:none;
 }
 
 .splash
 {
-	color:#ff0000;
-	transform:rotate(9deg);
-	-ms-transform:rotate(9deg);
-	-webkit-transform:rotate(9deg);
-	text-align:center;
-	font-weight:bold;
-	position:absolute;
-	right:0px;
-	top:0px;
+    color:#ff0000;
+    transform:rotate(9deg);
+    -ms-transform:rotate(9deg);
+    -webkit-transform:rotate(9deg);
+    text-align:center;
+    font-weight:bold;
+    position:absolute;
+    right:0px;
+    top:0px;
 }
 
 .splash a
 {
-	color:inherit;
-	text-decoration:underline;
+    color:inherit;
+    text-decoration:underline;
 }
 
 .splash a:hover
 {
-	text-decoration:none;
+    text-decoration:none;
 }
 
 .black-shadow
 {
-	text-shadow:0px -1px 1px black,1px -1px 1px black,1px 1px 1px black,-1px 0px 1px black,0px 1px 1px black,1px 0px 1px black,-1px -1px 1px black,-1px 1px 1px black;
+    text-shadow:0px -1px 1px black,1px -1px 1px black,1px 1px 1px black,-1px 0px 1px black,0px 1px 1px black,1px 0px 1px black,-1px -1px 1px black,-1px 1px 1px black;
 }
