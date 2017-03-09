@@ -1,86 +1,86 @@
 body
 {
-    background-color:#eee;
-    max-width:1000px;
-    margin:auto;
-    padding:20px;
-    padding-top:0px;
-    font-family:sans-serif;
-    overflow-y:scroll;
+   background-color:#eee;
+   max-width:1000px;
+   margin:auto;
+   padding:20px;
+   padding-top:0px;
+   font-family:sans-serif;
+   overflow-y:scroll;
 }
 
 ul, ol, h1, h2, h3, h4, h5, h6
 {
-    margin:0px;
+   margin:0px;
 }
 
 table
 {
-    border-collapse:collapse;
+   border-collapse:collapse;
 }
 
 thead tr:nth-last-child(1)
 {
-    border-bottom-width:2px;
-    border-bottom-style:solid;
-    border-bottom-color:black;
+   border-bottom-width:2px;
+   border-bottom-style:solid;
+   border-bottom-color:black;
 }
 
 tbody tr:first-child
 {
-    border-top-width:1px;
-    border-top-style:dashed;
-    border-top-color:black;
+   border-top-width:1px;
+   border-top-style:dashed;
+   border-top-color:black;
 }
 
 tfoot tr:first-child
 {
-    border-top-width:2px;
-    border-top-style:solid;
-    border-top-color:black;
+   border-top-width:2px;
+   border-top-style:solid;
+   border-top-color:black;
 }
 
 td:first-child
 {
-    border-right-width:1px;
-    border-right-style:solid;
-    border-color:black;
-    font-style:italic;
-    text-align:right;
+   border-right-width:1px;
+   border-right-style:solid;
+   border-color:black;
+   font-style:italic;
+   text-align:right;
 }
 
 td
 {
-    padding:2px 4px;
+   padding:2px 4px;
 }
 
 iframe
 {
-    border-width:0px;
+   border-width:0px;
 }
 
 code, pre
 {
-    background-color:#eee;
-    border-width:1px;
-    border-color:#ccc;
-    border-style:solid;
-    border-radius:3px;
+   background-color:#eee;
+   border-width:1px;
+   border-color:#ccc;
+   border-style:solid;
+   border-radius:3px;
 }
 
 code
 {
-    white-space:pre-wrap;
-    padding:0px 5px;
-    margin:0px;
+   white-space:pre-wrap;
+   padding:0px 5px;
+   margin:0px;
 }
 
 pre
 {
-    display:inline-block;
-    margin:5px;
-    margin-left:0px;
-    padding:10px;
-    overflow:auto;
-    overflow-y:hidden;
+   display:inline-block;
+   margin:5px;
+   margin-left:0px;
+   padding:10px;
+   overflow:auto;
+   overflow-y:hidden;
 }

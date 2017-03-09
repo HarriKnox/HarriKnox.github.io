@@ -1,44 +1,44 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <script src="scripts/loadScripts.js"></script>
-    </head>
-    <body>
-        <noscript>JavaScript must be enabled to view this website in all its beauty. Click the script button in the right side of your address bar to allow JavaScript. Fear not, this site does not use harmful scripts to steal your identity or take over your computer. JavaScript is used purely for formatting this site. You can still view the content below, but some elements may not be formatted correctly.</noscript>
-        <div class="content-container">
-            <div>
-                My name is Harrison Knox.
-                I am <span class="age"><noscript>20+</noscript></span> years old and a <span class="year"></span>student at <a href="http://www.calpoly.edu/">Cal Poly</a> majoring in Computer Engineering (CPE).
-                I am studying in this field to go into robotics and prosthetics.
-            </div>
-            <div>
-                This website has become a blog of sorts.
-                In it, I will write about various programming languages and paradigms, cool math and science topics, and anything else that piques my interest.
-                More or less, this is my forum on which I voice my opinions.
-                Fear not, I will most likely not write about politics, religion, or anything else you don't want Uncle Benny bringing up during Thanksgiving dinner.
-            </div>
-            <div>
-                Recently I have been putting my projects online.
-                Some of my projects and school assignments are viewable from the links in the navigation box above.
-                This site is still under construction.
-                New material is constantly being added.
-                Unfortunately, because of school and other life stuff, I am unable to update this site as often as I would like.
-                I will, however, continue writing and pushing changes.
-            </div>
-            <div>
-                Also check out the website <a href="http://cchu1008.github.io">Bytes and Bits</a>, created by my partner in crime, Courtney Chu.
-                She writes about school projects she (and sometimes we) have done.
-                She also writes cooking recipes for the hungry university student.
-                Like my site, hers is also still under construction.
-            </div>
-            <script>
-                var now = new Date();
-                var year = now.getFullYear();
-                var month = now.getMonth();
-                var date = now.getDate();
-                document.getElementsByClassName("age")[0].innerHTML = year - 1996 - ((month == 0 && date < 11) ? 1 : 0);
-                document.getElementsByClassName("year")[0].innerHTML = ["first", "second", "third", "fourth", "fifth"][year - 2014 - ((month < 6) ? 1 : 0)] + "-year ";
-            </script>
-        </div>
-    </body>
+   <head>
+      <script src="scripts/loadScripts.js"></script>
+   </head>
+   <body>
+      <noscript>JavaScript must be enabled to view this website in all its beauty. Click the script button in the right side of your address bar to allow JavaScript. Fear not, this site does not use harmful scripts to steal your identity or take over your computer. JavaScript is used purely for formatting this site. You can still view the content below, but some elements may not be formatted correctly.</noscript>
+      <div class="content-container">
+         <div>
+            My name is Harrison Knox.
+            I am <span class="age"><noscript>20+</noscript></span> years old and a <span class="year"></span>student at <a href="http://www.calpoly.edu/">Cal Poly</a> majoring in Computer Engineering (CPE).
+            I am studying in this field to go into robotics and prosthetics.
+         </div>
+         <div>
+            This website has become a blog of sorts.
+            In it, I will write about various programming languages and paradigms, cool math and science topics, and anything else that piques my interest.
+            More or less, this is my forum on which I voice my opinions.
+            Fear not, I will most likely not write about politics, religion, or anything else you don't want Uncle Benny bringing up during Thanksgiving dinner.
+         </div>
+         <div>
+            Recently I have been putting my projects online.
+            Some of my projects and school assignments are viewable from the links in the navigation box above.
+            This site is still under construction.
+            New material is constantly being added.
+            Unfortunately, because of school and other life stuff, I am unable to update this site as often as I would like.
+            I will, however, continue writing and pushing changes.
+         </div>
+         <div>
+            Also check out the website <a href="http://cchu1008.github.io">Bytes and Bits</a>, created by my partner in crime, Courtney Chu.
+            She writes about school projects she (and sometimes we) have done.
+            She also writes cooking recipes for the hungry university student.
+            Like my site, hers is also still under construction.
+         </div>
+         <script>
+            var now = new Date();
+            var year = now.getFullYear();
+            var month = now.getMonth();
+            var date = now.getDate();
+            document.getElementsByClassName("age")[0].innerHTML = year - 1996 - ((month == 0 && date < 11) ? 1 : 0);
+            document.getElementsByClassName("year")[0].innerHTML = ["first", "second", "third", "fourth", "fifth"][year - 2014 - ((month < 6) ? 1 : 0)] + "-year ";
+         </script>
+      </div>
+   </body>
 </html>
