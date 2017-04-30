@@ -6,7 +6,6 @@
    
    [
       (file ? 'scripts/' : '//ajax.googleapis.com/ajax/libs/jquery/1.11.3/') + 'jquery.min.js',
-      'scripts/format/navbar.js',
       'scripts/format/header.js',
       'scripts/format/content.js',
    ].forEach(function(script)
