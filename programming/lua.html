@@ -93,15 +93,16 @@ setmetatable( Motorcycle, metavehicle )
             What's happening behind the scenes is rather interesting.
             Before setting the metatable, when we tried to call <code>Motorcycle.speed</code> this happened:
             <ol>
-               <li>Lua first looked in <code>Motorcycle</code> for <code>speed</code> and couldn't find it</li>
+               <li>Lua looked in <code>Motorcycle</code> for <code>speed</code> and couldn't find it</li>
                <li>Lua gave up and returned <code>nil</code></li>
             </ol>
             After setting the metatable for <code>Motorcycle</code>, if we tried to call <code>Motorcycle.speed</code>, the following happens:
             <ol>
-               <li>Lua first looked in <code>Motorcycle</code> for <code>speed</code> and couldn't find it</li>
+               <li>Lua looked in <code>Motorcycle</code> for <code>speed</code> and couldn't find it</li>
                <li>Lua saw that <code>Motorcycle</code> had a metatable</li>
-               <li>Lua got the value of <code>__index</code> in the metatable (which was <code>Vehicle</code>)</li>
-               <li>Lua got the value of <code>speed</code> in <code>Vehicle</code> and returned <code>50</code></li>
+               <li>Lua looked in the metatable for <code>__index</code> and saw it was a table (<code>Vehicle</code>)</li>
+               <li>Lua looked in <code>Vehicle</code> for <code>speed</code> and found it</li>
+               <li>Lua got the value of <code>Vehicle.speed</code> and returned <code>50</code></li>
             </ol>
             Just by specifying an <code>__index</code> you can define inheritance.
          </div>
@@ -137,18 +138,28 @@ setmetatable( Motorcycle, Vehicle )
          </div>
          <div>
             <h2>An Annoying Gotcha</h2>
-            Lua is almost the perfect language, but there is one primary thing that bugs me about it: <code>0</code> does not fail a conditional.
-            It is very common in many other languages, especially C-like languages, for <code>0</code> to evaluate as <code>false</code> in a conditional.
-            In Lua, the only things that fail a conditional are <code>false</code> and <code>nil</code>.
-            Everything else evaluates to <code>true</code>, or at least <code>not nil</code>.
-            It sort of makes sense that only <code>false</code> and <code>nil</code> have this property because booleans are actually relatively new to Lua.
-            <a href="http://www.lua.org/versions.html#5.0">Lua 5.0</a> introduced booleans back in 2003 (about halfway through Lua's current lifetime).
-            Prior to that, the only thing that would evaluate to false was <code>nil</code>: values were either something, or <code>nil</code>.
-            Then, booleans were added so that <code>false</code> wasn't exactly <code>nil</code>, but both would fail a conditional test.
-            It make sense that <code>0</code> was overlooked to evaluate to <code>false</code>, but it would be convenient if it did.
-            Adding that feature would make checks for empty strings and empty tables a tad more efficient.
+            Lua is almost the perfect language, but there is one thing that bugs me about it: <code>0</code> is not falsy (that is, it does not fail a conditional).
+            It would be convenient if <code>0</code> failed.
+            Adding that feature would make checks for empty strings and empty tables a tad more eloquent.
             For example, it would be nicer for <code>if #arg then parse() else error() end</code> to error if nothing was passed to the script in the command line.
             You could also do <code>if not #(io.read()) ...</code> to execute something if nothing was read in.
+         </div>
+         <div>
+            This decision is most likely because of Lua's background.
+            Though Lua was built on ANSI C, it had influences from Lisp (specifically Scheme, one of two main Lisp dialects/families).
+            Historically, in Lisp values were either <code>NIL</code> or not.
+            Thus, in Lua, values were either <code>nil</code> or not: the only thing that would evaluate to false was <code>nil</code>.
+            Then with <a href="http://www.lua.org/versions.html#5.0">Lua 5.0</a> in 2003, booleans were added so that <code>false</code> wasn't exactly <code>nil</code>, and <code>true</code> wasn't exactly a meaningful data value, but both would evaluate to their approximates in conditionals.
+            In the addition of <code>false</code> it makes sense that <code>0</code> was just simply overlooked.
+         </div>
+         <div>
+            One argument I read against this was that it would break the canonical Lua ternary conditional operator when using a zero in it.
+            In this contrived scenario, suppose your code was <code>x = math.random() &lt; 0.5 and 0 or 1</code>.
+            That line would assign <code>x</code> randomly to either <code>0</code> or <code>1</code> with equal weight; however, if <code>0</code> was falsy, the <code>and</code> will always fail and <code>x</code> will always be <code>1</code> regardless of the random number generator output.
+            That problem, though, is easily fixed by switching the outputs: <code>x = math.random() &lt; 0.5 and 1 or 0</code>.
+            This code would work perfectly fine because when Lua short-circuits <code>or</code> operators, if all values are falsy it returns the last value; thus, if <code>math.random() &lt; 0.5</code> failed, it will fail again at <code>0</code> but return <code>0</code> anyway.
+            That problem is easily fixable in small projects, but not as easily for large libraries: especially ones that are years old and no longer regularly maintained.
+            To avoid breaking everything and pissing off much of the Lua community, the Lua devs are keeping <code>0</code> truthy.
          </div>
          <!--div>
             <h3>Getting Table Size</h3>
