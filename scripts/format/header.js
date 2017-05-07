@@ -227,9 +227,6 @@
       /** Get page title **/
       var pageTitle = $('.page-title').text();
       
-      /** Write page title in <head> and as a header **/
-      $('head').append('<title>Coder by Nature: ' + pageTitle + '</title>');
-      
       var title = '<h1>I\'m a Programmer</h1><h3>not by trade but by nature</h3>';
       if (pageTitle !== 'Home') title = '<a href="' + (IS_LOCAL ? 'index.html' : '/') + '" class="link-home" title="Home">' + title + '</a>';
       $('body').prepend('<div class="header-container"><div class="splash">' + getSplash(pageTitle) + '</div><div class="title">' + title + '</div></div>');
