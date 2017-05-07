@@ -213,15 +213,6 @@
       return pickRandom(splashes);
    };
    
-   var setSplashVisibility = function()
-   {
-      var $splash = $('.splash');
-      if ($('.header-container').width() <= 480)
-         $splash.hide();
-      else
-         $splash.show();
-   };
-   
    $(document).ready(function()
    {
       /** Get page title **/
@@ -234,9 +225,5 @@
       var splashHeight = $splash.height();
       var top = (headerHeight - splashHeight) / 2;
       $splash.css('top', top);
-      
-      setSplashVisibility()
-      
-      $(window).resize(setSplashVisibility);
    });
 })(jQuery);
