@@ -227,12 +227,9 @@
       /** Get page title **/
       var pageTitle = $('.page-title').text();
       
-      var title = '<h1>I\'m a Programmer</h1><h3>not by trade but by nature</h3>';
-      if (pageTitle !== 'Home') title = '<a href="' + (IS_LOCAL ? 'index.html' : '/') + '" class="link-home" title="Home">' + title + '</a>';
-      $('body').prepend('<div class="header-container"><div class="splash">' + getSplash(pageTitle) + '</div><div class="title">' + title + '</div></div>');
-      
       /** Position the splash in middle (vertically) of header **/
       var $splash = $('.splash');
+      /*$splash.html(getSplash(pageTitle));*/
       var headerHeight = $('.header-container').height();
       var splashHeight = $splash.height();
       var top = (headerHeight - splashHeight) / 2;
