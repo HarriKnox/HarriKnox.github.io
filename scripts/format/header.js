@@ -4,7 +4,7 @@
    var pickRandom = function(things) { return things[Math.floor(Math.random() * things.length)]; };
    
    var getSplash = function(pageTitle)
-   {//return 'Happy <span class="black-shadow" style="color:white;">4th of</span> <span style="color:blue">July!</span>'
+   {
       var now = new Date();
       var month = now.getMonth();
       var date = now.getDate();
@@ -27,6 +27,12 @@
       if (today ===  704) return 'Happy <span class="black-shadow" style="color:white;">4th of</span> <span style="color:blue">July!</span>';
       if ((today ===  913 && !isleapyear) || (today == 912 && isleapyear)) return 'Happy Programmer\'s Day!';
       if (today === 1031) return pickRandom(['<span style="color:darkorange;">BOO!</span>', '<span style="color:darkorange;">Happy Halloween!</span>']);
+      
+      if (date === 1 && !document.cookie.match(/rabbit=true/))
+      {
+         document.cookie = 'rabbit=true;path=/';
+         return 'Rabbit';
+      }
       
       if (!document.cookie.match(/periodic=\d+/))
       {
@@ -183,16 +189,6 @@
          '<span style="color:coral;">Coral</span> <span style="color:crimson;">Crimson</span> <span style="color:darkorange;">DarkOrange</span><br /><span style="color:orange;">Orange</span> <span style="color:orangered;">OrangeRed</span> <span style="color:red;">Red</span>',
          (function(color) { return 'Ask about the<br />color <span style="color:' + color + ';">' + color + '</span>'; })(pickRandom(['Green', 'Goldenrod', 'Blue', 'Purple', 'Brown', 'Orange', 'Black',])),
       ];
-      
-      if (date === 1)
-      {
-         if (!document.cookie.match(/rabbit=true/))
-         {
-            document.cookie = 'rabbit=true;path=/';
-            return 'Rabbit';
-         }
-         splashes.push('Rabbit');
-      }
       
       if (today >= 1200)
       {
