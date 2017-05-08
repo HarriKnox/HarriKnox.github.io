@@ -1,4 +1,4 @@
-(function($)
+(function()
 {
    var IS_LOCAL = location.href.match(/^file:/);
    var pickRandom = function(things) { return things[Math.floor(Math.random() * things.length)]; };
@@ -212,4 +212,4 @@
       
       return pickRandom(splashes);
    };
-})(jQuery);
+})();
