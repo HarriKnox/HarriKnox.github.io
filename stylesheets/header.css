@@ -1,18 +1,18 @@
 .header-container
 {
    width:100%;
-   position:relative;
+   display:table;
 }
 
 .title
 {
    padding:1em 0px;
-   display:inline-block;
+   display:table-cell;
 }
 
 .link-home
 {
-   color:#000000;
+   color:#000;
    text-decoration:none;
 }
 
@@ -24,9 +24,9 @@
    -webkit-transform:rotate(9deg);
    text-align:center;
    font-weight:bold;
-   position:absolute;
-   right:0px;
-   top:37px;
+   width:1px;
+   white-space:nowrap;
+   vertical-align:middle;
    display:none;
 }
 
@@ -34,7 +34,7 @@
 {
    .splash
    {
-      display:block;
+      display:table-cell;
    }
 }
 

@@ -212,18 +212,4 @@
       
       return pickRandom(splashes);
    };
-   
-   $(document).ready(function()
-   {
-      /** Get page title **/
-      var pageTitle = $('.page-title').text();
-      
-      /** Position the splash in middle (vertically) of header **/
-      var $splash = $('.splash');
-      /*$splash.html(getSplash(pageTitle));*/
-      var headerHeight = $('.header-container').height();
-      var splashHeight = $splash.height();
-      var top = (headerHeight - splashHeight) / 2;
-      $splash.css('top', top);
-   });
 })(jQuery);
