@@ -11,14 +11,4 @@
    {
       document.write('<script src="' + script + '"></script>');
    });
-   
-   [
-      'stylesheet.css',
-      'navbar.css',
-      'header.css',
-      'content.css',
-   ].forEach(function(sheet)
-   {
-      document.write('<link type="text/css" rel="stylesheet" href="stylesheets/' + sheet + '">');
-   });
 })();
