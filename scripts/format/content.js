@@ -38,10 +38,6 @@
             $this.attr('target', '_blank');
       });
       
-      /** Show content when done **/
-      $('noscript').remove();
-      $content.css('display', 'block');
-      
       /** Make all pre blocks scroll horizontally when the content is too wide for the window **/
       setPreMaxWidth();
       
