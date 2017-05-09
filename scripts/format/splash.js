@@ -1,7 +1,7 @@
 var IS_LOCAL = location.href.match(/^file:/);
 var pickRandom = function(things) { return things[Math.floor(Math.random() * things.length)]; };
 
-var getSplash = function()
+var getSplash = function(defaultSplash)
 {
    var now = new Date();
    var month = now.getMonth();
@@ -188,6 +188,8 @@ var getSplash = function()
       (function(color) { return 'Ask about the<br />color <span style="color:' + color + ';">' + color + '</span>'; })(pickRandom(['Green', 'Goldenrod', 'Blue', 'Purple', 'Brown', 'Orange', 'Black',])),
    ];
    
+   splashes.push(defaultSplash);
+   
    if (today >= 1200)
    {
       var messages = ['Happy &lt;insert holiday here&gt;!', 'Happy Holidays!', 'Happy Nondenominational<br>Winter Themed Month']
@@ -212,4 +214,4 @@ var getSplash = function()
 };
 
 var splash = document.getElementsByClassName("splash")[0];
-splash.innerHTML = getSplash();
+splash.innerHTML = getSplash(splash.innerHTML);
