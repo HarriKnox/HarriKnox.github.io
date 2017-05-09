@@ -46,11 +46,11 @@
       <div class="content-container">
          <h1 class="page-title">CPE 102 Project</h1>
          <div>
-            One major courses for <abbr title="Computer Engineering"><em>CPE</em></abbr> and <abbr title="Computer Science"><em>CSC</em></abbr> majors at <a href="http://www.calpoly.edu/">Cal Poly</a> is the class CSC 102: Fundamentals of Computer Science.
-            In this class we focused on the languages <a href="https://www.python.org/">Python</a> and <a href="https://java.com/en/">Java</a>.
-            For our class project, my partner and I were to use <a href="http://www.pygame.org/news.html">Pygame</a> and <a href="https://processing.org/">Processing</a> to create a grid-based world simulation.
+            One major courses for <abbr title="Computer Engineering"><em>CPE</em></abbr> and <abbr title="Computer Science"><em>CSC</em></abbr> majors at <a target="_blank" href="http://www.calpoly.edu/">Cal Poly</a> is the class CSC 102: Fundamentals of Computer Science.
+            In this class we focused on the languages <a target="_blank" href="https://www.python.org/">Python</a> and <a target="_blank" href="https://java.com/en/">Java</a>.
+            For our class project, my partner and I were to use <a target="_blank" href="http://www.pygame.org/news.html">Pygame</a> and <a target="_blank" href="https://processing.org/">Processing</a> to create a grid-based world simulation.
             The purpose of the project was an exercise in object-oriented programming, functional programming, and simple path-finding.
-            You can view the sources for the project <a href="https://github.com/cchu1008/CPE102Project">here for the Pygame version</a> and <a href="https://github.com/cchu1008/CPE102ProjectJava">here for the Processing version</a>.
+            You can view the sources for the project <a target="_blank" href="https://github.com/cchu1008/CPE102Project">here for the Pygame version</a> and <a target="_blank" href="https://github.com/cchu1008/CPE102ProjectJava">here for the Processing version</a>.
          </div>
          <div>
             <h2>Project structure</h2>
@@ -186,7 +186,7 @@
             Once everything on the Java side was behaving like everything on the Python side, we were to change the entity pathfinding.
             The entities that moved had a very simple system: horizontally first, then if it can't go any more horizontally (in the same column or obstructed) go vertically, then if it can't go vertically (at the  destination or obstructed) either celebrate victory or admit defeat.
             This system resulted in numerous "trapped" entities, even if there may be another way to get to their destination.
-            For that we were introduced to <a href="https://en.wikipedia.org/wiki/A*_search_algorithm">A* pathfinding</a>.
+            For that we were introduced to <a target="_blank" href="https://en.wikipedia.org/wiki/A*_search_algorithm">A* pathfinding</a>.
             A* works by calculating the "cost" to visit a node and comparing costs over a large collection of visited nodes to find the least costly path.
          </div>
          <div>
@@ -247,7 +247,7 @@
             <h2>Pathfinding</h2>
             <h3>Depth-First Search</h3>
             During class we learned briefly about graph theory and path finding.
-            To introduce us to the topic, our professor demonstrated the <a href="https://en.wikipedia.org/wiki/Depth-first_search">Depth-First Search algorithm</a> (DFS).
+            To introduce us to the topic, our professor demonstrated the <a target="_blank" href="https://en.wikipedia.org/wiki/Depth-first_search">Depth-First Search algorithm</a> (DFS).
             DFS works by traversing a grid in a predetermined order without visiting the same node twice and "falling back" a node if there are no available paths to take: it goes as far as it can without overlapping before having to backtrack.
             Think about the common strategy to solve a maze by walking along the left wall and having to go back only when there's nowhere else to go.
             Given that there is a path between A and B, DFS is a fail-proof algorithm that will find a path from A to B.

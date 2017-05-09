@@ -30,13 +30,6 @@
                    .replace(/<span class="grouped">((?:[^\w\s>]|&.+?;)+<code>(?:[^<]|<(?!\/code>))*?<\/code>)<\/span>([^<\w\s]|&.+?;)+/g, GROUPED.replace(/\$1/, '$$1$$2'));
       $content.html(innards);
       
-      /** Make all external links open new tabs **/
-      $('a').each(function()
-      {
-         var $this = $(this);
-         if ($this.attr('href').match(/^https?:\/\//))
-            $this.attr('target', '_blank');
-      });
       
       /** Make all pre blocks scroll horizontally when the content is too wide for the window **/
       setPreMaxWidth();
