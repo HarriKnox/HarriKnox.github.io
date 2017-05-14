@@ -9,7 +9,7 @@
       <link type="text/css" rel="stylesheet" href="stylesheets/navbar.css">
       <link type="text/css" rel="stylesheet" href="stylesheets/header.css">
       <link type="text/css" rel="stylesheet" href="stylesheets/content.css">
-      <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js  ?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       <script src="scripts/NumberNamer/loadNumberNamer.js"></script>
       <style>
          .latinprefixes td { border-right-width:1px; border-right-style:dashed; border-right-color:black; }
@@ -178,7 +178,7 @@
          <div>
             The last rule is done to remove ambiguity between some group-names.
             Without those "filler letters", notice how group-number 103 would have "tre" + "centi" to produce "trecenti", but group-number 300 is already "trecenti".
-            Also note that "octo" does not have a filler letter, so "octooctogintillion" is the correct name for group-number 88.
+            Also note that "octo" does not have a filler letter, so "octooctogintillion" is the correct name for group-number 88, in which you would say "octo octo gin tillion"
          </div>
          <div>
             <h4>Examples</h4>
@@ -188,27 +188,27 @@
          <div class="overflow">
             <table class="examples">
                <thead>
-                  <tr><th>Group-number</th><th>Ones</th><th>Tens</th><th>Hundreds</th><th>Replacement</th><th>Result</th></tr>
+                  <tr>             <th>Group-number</th>                        <th>Ones</th>     <th>Tens</th>         <th>Hundreds</th>   <th>Replacement</th> <th>Result</th>                                               </tr>
                </thead>
                <tbody>
-                  <tr class="top"><td class="number">824</td><td>quattuor</td><td>viginta</td><td>octingenti</td><td>illion</td><td>quattuorvigintaocingentillion</td></tr>
+                  <tr class="top"> <td class="number">824</td>                  <td>quattuor</td> <td>viginta</td>      <td>octingenti</td> <td>illion</td>      <td>quattuorvigintaocingentillion</td>                        </tr>
                   
-                  <tr class="top"><td class="number" rowspan=2>75'930</td><td>quinqua</td><td>septuaginta</td><td></td><td>illi</td><td rowspan=2>quinquaseptuagintillitrigintanongentillion</td></tr>
-                  <tr><!--75'930--><td></td><td>triginta</td><td>nongenti</td><td>illion</td></tr>
+                  <tr class="top"> <td class="number" rowspan=2>75'930</td>     <td>quinqua</td>  <td>septuaginta</td>  <td></td>           <td>illi</td>        <td rowspan=2>quinquaseptuagintillitrigintanongentillion</td> </tr>
+                  <tr>                                      <!--75'930-->       <td></td>         <td>triginta</td>     <td>nongenti</td>   <td>illion</td>                <!--quinquaseptuagintillitrigintanongentillion-->    </tr>
                   
-                  <tr class="top"><td class="number">88</td><td>octo</td><td>octoginta</td><td></td><td>illion</td><td>octooctogintillion</td></tr>
+                  <tr class="top"> <td class="number">88</td>                   <td>octo</td>     <td>octoginta</td>    <td></td>           <td>illion</td>      <td>octooctogintillion</td>                                   </tr>
                   
-                  <tr class="top"><td class="number">36</td><td>ses</td><td>triginta</td><td></td><td>illion</td><td>sestrigintillion</td></tr>
+                  <tr class="top"> <td class="number">36</td>                   <td>ses</td>      <td>triginta</td>     <td></td>           <td>illion</td>      <td>sestrigintillion</td>                                     </tr>
                   
-                  <tr class="top"><td class="number" rowspan=2>4'050</td><td>quadri</td><td></td><td></td><td>illi</td><td rowspan=2>quadrilliquinquagintillion</td></tr>
-                  <tr><!--4'050--><td></td><td>quinquaginta</td><td></td><td>illion</td></tr>
+                  <tr class="top"> <td class="number" rowspan=2>4'050</td>      <td>quadri</td>   <td></td>             <td></td>           <td>illi</td>        <td rowspan=2>quadrilliquinquagintillion</td>                 </tr>
+                  <tr>                                      <!--4'050-->        <td></td>         <td>quinquaginta</td> <td></td>           <td>illion</td>      <!--quadrilliquinquagintillion-->                             </tr>
                   
-                  <tr class="top"><td class="number" rowspan=3>32'000'106</td><td>duo</td><td>triginta</td><td></td><td>illi</td><td rowspan=3>duotrigintillinillisexcentillion</td></tr>
-                  <tr><!--32'000'106--><td>ni</td><td></td><td></td><td>illi</td></tr>
-                  <tr><!--32'000'106--><td>sex</td><td></td><td>centi</td><td>illion</td></tr>
+                  <tr class="top"> <td class="number" rowspan=3>32'000'106</td> <td>duo</td>      <td>triginta</td>     <td></td>           <td>illi</td>        <td rowspan=3>duotrigintillinillisexcentillion</td>           </tr>
+                  <tr>                                      <!--32'000'106-->   <td>ni</td>       <td></td>             <td></td>           <td>illi</td>                  <!--duotrigintillinillisexcentillion-->             </tr>
+                  <tr>                                      <!--32'000'106-->   <td>sex</td>      <td></td>             <td>centi</td>      <td>illion</td>                <!--duotrigintillinillisexcentillion-->             </tr>
                   
-                  <tr class="top"><td class="number" rowspan=2>106'600</td><td>sex</td><td></td><td>centi</td><td>illi</td><td rowspan=2>sexcentillisescentillion</td></tr>
-                  <tr><!--106'600--><td></td><td></td><td>sescenti</td><td>illion</td></tr>
+                  <tr class="top"> <td class="number" rowspan=2>106'600</td>    <td>sex</td>      <td></td>             <td>centi</td>      <td>illi</td>        <td rowspan=2>sexcentillisescentillion</td>                   </tr>
+                  <tr>                                      <!--106'600-->      <td></td>         <td></td>             <td>sescenti</td>   <td>illion</td>               <!--sexcentillisescentillion-->                      </tr>
                </tbody>
             </table>
          </div>
@@ -306,12 +306,12 @@
             <h4>The Derivation</h4>
             You may be thinking "How the hell did you come up with that?".
             I came up with this large number name using the upcoming derivation.
-            This derivation is to show how to construct names for any number 10<sup>10<sup>R</sup></sup>.
+            This derivation is to show how to construct names for any number \(10^{10^R}\).
             First a few givens that we know to be true:
             <ol>
                <li>An integer that is \(1\) followed by \(n\) zeros can be written as \(10^n\)</li>
                <li>The corresponding integer for a group-number \(M\) is \(10^{3M + 3}\)</li>
-               <li>\({10^R \equiv 1} \pmod 3\) for any integer \(R \ge 0\)</li>
+               <li>\({10^R \equiv 1} \pmod 3\) for any integer \(R \gt 0\)</li>
             </ol>
          </div>
          <div>
@@ -325,8 +325,8 @@
          </div>
          <div class="overflow">
             \[\begin{align}
-               n & = 3M+3 \\[1ex]
-               n - 3 & = 3M \\[1ex]
+                         n & = 3M+3 \\[1ex]
+                     n - 3 & = 3M \\[1ex]
                \frac{n-3}3 & = M
             \end{align}\]
          </div>
