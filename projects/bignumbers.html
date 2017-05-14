@@ -195,14 +195,14 @@
                   <tr class="top"> <td class="number">824</td>                  <td>quattuor</td> <td>viginta</td>      <td>octingenti</td> <td>illion</td>      <td>quattuorvigintaocingentillion</td>                        </tr>
                   
                   <tr class="top"> <td class="number" rowspan=2>75'930</td>     <td>quinqua</td>  <td>septuaginta</td>  <td></td>           <td>illi</td>        <td rowspan=2>quinquaseptuagintillitrigintanongentillion</td> </tr>
-                  <tr>                                      <!--75'930-->       <td></td>         <td>triginta</td>     <td>nongenti</td>   <td>illion</td>                <!--quinquaseptuagintillitrigintanongentillion-->    </tr>
+                  <tr>                                      <!--75'930-->       <td></td>         <td>triginta</td>     <td>nongenti</td>   <td>illion</td>                <!--quinquaseptuagintillitrigintanongentillion-->   </tr>
                   
                   <tr class="top"> <td class="number">88</td>                   <td>octo</td>     <td>octoginta</td>    <td></td>           <td>illion</td>      <td>octooctogintillion</td>                                   </tr>
                   
                   <tr class="top"> <td class="number">36</td>                   <td>ses</td>      <td>triginta</td>     <td></td>           <td>illion</td>      <td>sestrigintillion</td>                                     </tr>
                   
                   <tr class="top"> <td class="number" rowspan=2>4'050</td>      <td>quadri</td>   <td></td>             <td></td>           <td>illi</td>        <td rowspan=2>quadrilliquinquagintillion</td>                 </tr>
-                  <tr>                                      <!--4'050-->        <td></td>         <td>quinquaginta</td> <td></td>           <td>illion</td>      <!--quadrilliquinquagintillion-->                             </tr>
+                  <tr>                                      <!--4'050-->        <td></td>         <td>quinquaginta</td> <td></td>           <td>illion</td>                <!--quadrilliquinquagintillion-->                   </tr>
                   
                   <tr class="top"> <td class="number" rowspan=3>32'000'106</td> <td>duo</td>      <td>triginta</td>     <td></td>           <td>illi</td>        <td rowspan=3>duotrigintillinillisexcentillion</td>           </tr>
                   <tr>                                      <!--32'000'106-->   <td>ni</td>       <td></td>             <td></td>           <td>illi</td>                  <!--duotrigintillinillisexcentillion-->             </tr>
@@ -214,7 +214,7 @@
             </table>
          </div>
          <div>
-            <h4>A Nifty Little Rectangle</h4>
+            <h4>A Nifty Little Rectangle (Getting Group Name from Group Number)</h4>
             This rectangle comes from my <a href="projects/numbernamer.html">Number Namer</a> project.
             Check that page for more in-depth information about the project.
             This rectangle returns the group-name for any group-number using the rules from above.
@@ -259,13 +259,13 @@
             </em>
          </div>
          <div>
-            <h4>A Second Nifty Little Rectangle</h4>
+            <h4>A Second Nifty Little Rectangle (Getting Name of Number)</h4>
             Like the previous Nifty Little Rectangle, this also comes from my <a href="projects/numbernamer.html">Number Namer</a> project.
             Type in a number and click the button, and it will return the full name of the number.
          </div>
          <script src="scripts/NumberNamer/numberToStringRectangle.js"></script>
          <div>
-            <h4>A Convenient Nifty Little Rectangle</h4>
+            <h4>A Convenient Nifty Little Rectangle (Getting Name of Power of Ten)</h4>
             A lot of times large numbers are expressed as "ten to the power bleh" (10<sup>bleh</sup>).
             As convenient as that notation is for representing large numbers, it gets annoying when we need to calculate the group-number manually to get the number's name.
             On top of that the number could represent either "one blehllion", "ten blehllion", or "one hundred blehllion".
@@ -307,7 +307,7 @@
             <h4>The Derivation</h4>
             You may be thinking "How the hell did you come up with that?".
             I came up with this large number name using the upcoming derivation.
-            This derivation is to show how to construct names for any number \(10^{10^R}\).
+            This derivation is not formal in any way but still demonstrates how to construct names for any number \(10^{10^R}\).
             First a few givens that we know to be true:
             <ol>
                <li>An integer that is \(1\) followed by \(n\) zeros can be written as \(10^n\)</li>
@@ -333,7 +333,8 @@
          </div>
          <div>
             Because \(M\) is an integer, the division by \(3\) will need to be adjusted to prevent non-whole numbers.
-            If \(3\) divides \(n\) (meaning there are whole digit-groups of zeros like 1'000'000) then \(M\) is just \(\frac{n-3} 3\). If \(3\) does not divide \(n\) (indicating that there are some zeros that do not form a complete group like 10'000'000), then \(M\) equals either  \(\frac{(n-1)-3} 3\) or  \(\frac{(n-2)-3} 3\).
+            If \(3\) divides \(n\) (meaning there are whole digit-groups of zeros like 1'<strong>000</strong>'<strong>000</strong>) then \(M\) is just \(\frac{n-3} 3\).
+            If \(3\) does not divide \(n\) (indicating that there are some zeros that do not form a complete group like 1<strong>0</strong>'<strong>000</strong>'<strong>000</strong>), then \(M\) equals either  \(\frac{(n-1)-3} 3\) or  \(\frac{(n-2)-3} 3\).
          </div>
          <div class="overflow">
             \[M =
