@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+      <meta content="utf-8" http-equiv="encoding">
+      <title>Coder by Nature: CRISPR NOR Gate</title>
+      <link type="text/css" rel="stylesheet" href="stylesheets/stylesheet.css">
+      <link type="text/css" rel="stylesheet" href="stylesheets/navbar.css">
+      <link type="text/css" rel="stylesheet" href="stylesheets/header.css">
+      <link type="text/css" rel="stylesheet" href="stylesheets/content.css">
+      <style>
+         .refs > li
+         {
+            margin-bottom:0.5em;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="header-container">
+         <div class="title"><h1>I'm a Programmer</h1><h3>not by trade but by nature</h3></div>
+         <div class="splash">For BMED 213</div>
+      </div>
+      
+      <nav>
+         <ul class="navigation">
+            <li class="navbutton"><a class="navtext"href="/">Home</a></li>
+            <li class="navbutton dropdown">
+               <span class="navtext dropbutton">Projects</span>
+               <ul class="dropdown-content">
+                  <li><a href="projects/cpe102project.html">CPE 102 Project</a></li>
+                  <li><a href="projects/bignumbers.html">Big Numbers</a></li>
+                  <li><a href="projects/numbernamer.html">Number Namer</a></li>
+                  <li><a href="projects/ttrscorecalculator.html">Ticket to Ride Score Calculator</a></li>
+                  <li><a href="projects/projects.html">Other Projects</a></li>
+               </ul>
+            </li>
+            <li class="navbutton dropdown">
+               <span class="navtext dropbutton">Programming</span>
+               <ul class="dropdown-content">
+                  <li><a href="programming/lua.html">Lua</a></li>
+                  <li><a href="programming/java.html">Java</a></li>
+                  <li><a href="programming/javascript.html">JavaScript</a></li>
+                  <li><a href="programming/ruby.html">Ruby</a></li>
+                  <li><a href="programming/languages.html">Other Languages</a></li>
+               </ul>
+            </li>
+            <li class="navbutton"><a class="navtext" target="_blank" href="https://github.com/HarriKnox">My GitHub</a></li>
+            <li class="navbutton"><a class="navtext" target="_blank" href="https://cchu1008.github.io">Bytes and Bits</a></li>
+         </ul>
+      </nav>
+      
+      <div class="content-container">
+         <h1 class="page-title">CRISPR-dCas9 NOR Gate</h1>
+         <div>
+            As you can see by the header at the very top of the page, I'm a programmer.
+            More specifically, I'm a computer engineer (CPE) with hopes to go into processor design and manufacturing.
+            Processors are built from logic gates, which are built from diodes and transistors.
+            Now we can add DNA to that list.
+            Using DNA and the CRISPR-dCas9 system, scientists have been able to construct logic circuits in a cell.
+            These cellular digital circuits can be used for gene therapy, immune system aiding, and tissue engineering.
+         </div>
+         <div>
+            <h2>A Background in Logic</h2>
+            <em>(If you already know how processors and logic gates work skip to the next section, Gene Editing with Cas9. This is an <a target="_blank" title="Explain Like I'm 5 Subreddit" href="https://reddit.com/r/explainlikeimfive">ELI5</a>-like explanation.)</em>
+         </div>
+         <div>
+            At the very heart of computers are ones and zeros (AKA, bits), and all a computer does is move and change these bits around in a systematic fashion.
+            To manipulate these bits computers send them into logic gates.
+            In an abstract sense, gates' inputs and outputs are binary (only one or zero, which are often called "high" and "low", or "on" and "off", respectively).
+            In reality, logic gates are built using transistors and are activated with voltages that correspond to high and low (in some computers, "high" corresponds to somewhere in 2.7-3.3&nbsp;V to 5&nbsp;V and "low" corresponds to between 0&nbsp;V and 0.5-1.5&nbsp;V).
+         </div>
+         <div>
+            Common gates that are taught in schools are the NOT, AND, and OR gates.
+            A NOT gate has one input and simply outputs the opposite value: if the input is high, the output is low; if the input is low, the output is high.
+            An AND gate outputs high only if all inputs are high; otherwise it outputs low.
+            An OR gate outputs high if any inputs are high; it outputs low only if all inputs are low.
+         </div>
+         <div>
+            In electronics, because of the nature of transistors, AND and OR gates are impractical, thus we prefer to use NAND and NOR gates, which are simply AND and OR gates connected directly into a NOT gate (by "impractical" I mean to say it is easier to build a NAND gate than it is to build an AND gate, since an AND gate in transistors is usually built with a NAND and a NOT).
+            A NAND gate outputs low only if all inputs are high; otherwise it outputs high.
+            A NOR gate outputs low if any inputs are high; it outputs high only if all inputs are low.
+            Processors are built using billions of these gates, all of which allow the computer to move bits around and display pictures of cats to your screen.
+         </div>
+         <div>
+            <h2>Gene Editing with Cas9</h2>
+            Scientists at University of Washington are using the CRISPR-dCas9 system to edit genes to build logic gates in living yeast cells.
+            Cas9 is a protein used in bacterial cells that clamps onto the DNA and uses an RNA "library" to check and cut off foreign DNA (DNA injected by viruses, for example).
+            Cas9 has the ability to bind anywhere on a DNA strand, as well as the ability to perform a wide array of functions.
+            These traits are admirable, but its cutting of the DNA is permanent and undesireable, so scientists produced an inactive version called "Dead Cas9", or dCas9, that can still clamp but can't cut.
+         </div>
+         <div>
+            dCas9 is then used to target specific genes to activate or repress them.
+            When dCas9 is used to activate genes, it is bound to a promoter to increase gene transcription.
+            When it's used to repress genes, it is bound to a repressor that makes it difficult for transcription of a gene to occur.
+         </div>
+         <div>
+            <h2>Using dCas9 Gene Repression for a NOR gate</h2>
+            Using the CRISPR-dCas9 system, scientists can modify three sequences of DNA and get three dCas9 proteins to target each one: two sequences are treated as input and one is output.
+            The input gene sequences code for the production of a signal protein that will signal gene repression of the output dCas9.
+            By activating either or both of the input gene sequences (that is, by binding the input dCas9 with an activator) they "produce a signal" to the output dCas9 to repress the gene production.
+            If both of the input genes are left unactivated, the gene is unsequenced, so the output dCas9 allows transcription.
+         </div>
+         <div>
+            The output is repressed (low) when either or both of the inputs are active (high); likewise, the output is active (high) only when both inputs are repressed/unactive (low).
+            By doing this the scientists created a biological NOR gate, which can be used as the basis of all logic gates.
+            They created seven CRISPR-dCas9 NOR gates and designed them in various configurations to test their efficacy as logic gates.
+            They connected them to build other complex logic gates (such as AND, OR, XOR) and found them to be effective in these configurations.
+         </div>
+         <div>
+            <h2>So...</h2>
+            Gene editing has already been done before, but now gene editing can be done in a reversible, dynamic, and digital fashion.
+            Using these biological digital circuits genes can be activated or repressed based on environmental factors, the immune system can be better equipped to tackle pathogens, or tissue generation can be activated with a lower risk of causing cancer.
+            The possibilities are endless, though it will be a while until cells can play Crysis 3.
+         </div>
+         <div>
+            <h2>Check These Out</h2>
+            <ul class="refs">
+               <li>Applied Biological Materials - abm. "<a href='https://www.youtube.com/watch?v=ATSegvJEUkw'>4) CRISPR Cas9 - Gene Regulation with dCas9</a>". <em>YouTube</em>. YouTube. 11 Oct 2016</li>
+               <li>Gander, M. W. et al. Digital logic circuits in yeast with CRISPR-dCas9 NOR gates. <em>Nature Communicatons</em>, 2017; 8, 15459 DOI: <a target="_blank" href='https://www.nature.com/articles/ncomms15459'>10.1038/ncomms15459</a> (2017).</li>
+               <li>University of Washington. "Scientists borrow from electronics to build circuits in living cells." <em>ScienceDaily</em>. ScienceDaily, 25 May 2017. &lt;<a target="_blank" href='https://www.sciencedaily.com/releases/2017/05/170525085123.htm'>www.sciencedaily.com/releases/2017/05/170525085123.htm</a>&gt;.</li>
+            </ul>
+         </div>
+      </div>
+   </body>
+</html>
