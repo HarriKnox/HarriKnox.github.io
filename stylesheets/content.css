@@ -7,17 +7,11 @@
 .content-container a
 {
    text-decoration:none;
-   color:#101080;
+   color:#36b;
    font-weight:bold;
 }
 
-.content-container a[target="_blank"]
-{
-   color:#3366bb;
-   font-weight:normal;
-}
-
-a[target="_blank"]::after
+ a[target="_blank"]:not(.img-link)::after
 {
    content:'\2197';
 }
