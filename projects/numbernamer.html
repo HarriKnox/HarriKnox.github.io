@@ -119,13 +119,13 @@
          <div>
             Then, I learned a cool new programming language called Clojure.
             Clojure (and other Lisp-like languages) are fantastic for succinct recursion.
-            Though at a high level iteration and recursion are essentially the same, the recursion in the ClojureScript version makes the control flow and variable assignment more comprehensible than the Lua version.
+            Though at a high level iteration and recursion are both looping, the recursion in the Clojure version makes the control flow and variable assignment more comprehensive than the iterative Lua version.
          </div>
          <div>
             <h3>The Process</h3>
             The following is an overview of how the Number Namer function works.
-            Before entering the parsing loop it checks the integrity of the number passed in: if it is not an int or an integer disguised as a string, it errors; if the value is effectively equal to zero, it returns "zero".
-            If it passes all tests it continues to decode the number.
+            Before entering the parsing loop it checks the integrity of the number passed in: if it is not an int or an integer disguised as a string, it errors; if the value is effectively equal to zero, it simply returns "zero".
+            If it passes all tests, it continues to decode the number.
          </div>
          <div>
             In the initialization step of the loop it pads the number (as a string) with extra zeros in the front to make the number of digits divisible by three, then splits the digits into a long sequence, reverses their order, and converts each to an int value.
