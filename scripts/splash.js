@@ -12,8 +12,6 @@ var getSplash = function(defaultSplash)
    var isleapyear = (year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0);
    
    if (today ===  111) return 'Happy Birthday Harri!';
-   if (today === 1008) return 'Happy Birthday Courtney!';
-   if (today === 1016) return 'Happy Anniversary Courtney!';
    
    if (today ===  101) return 'Happy New Year!';
    if (today ===  126) return '<div style="transform:rotate(180deg);-ms-transform:rotate(180deg);-webkit-transform:rotate(180deg);">Happy Australia Day!</div>';
@@ -78,12 +76,10 @@ var getSplash = function(defaultSplash)
       'Eco-friendly',
       'Executes an infinite loop<br/>in half the time',
       'Error 404: Splash not found',
-      'Everything is arbitrary',
       'Follows a normal distribution',
       'Fork me on <a href="https://github.com/HarriKnox">GitHub</a>',
       'Free',
-      'Free and Open-Source',
-      'Friendship',
+      'Free, Libre, and Open-Source',
       'GNU',
       'Go <span style="color:#115641"><a href="http://gopoly.com">Mustangs</a></span>!',
       'Goal-oriented',
@@ -101,7 +97,7 @@ var getSplash = function(defaultSplash)
       'Insert clever statement here',
       'Infinite loop complete',
       'Initializing...',
-      'Is this your card: ' + pickRandom(['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']) + pickRandom(['&spades;', '&clubs;', '&hearts;', '&diams;']),
+      'Is this your card: ' + pickRandom(['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']) + pickRandom(['&spades;', '&clubs;', '&hearts;', '&diams;']) + '?',
       'It\'s pronounced "gif", not "gif"',
       'Libre y Gratis',
       'Loading...',
@@ -126,7 +122,7 @@ var getSplash = function(defaultSplash)
       'Overly complicated',
       'Paradoxical',
       'Parallel processing',
-      'Performing big calculations',
+      'Performing big calculations...',
       'Permanently temporary',
       'Please wait...',
       'Populated with words',
@@ -150,7 +146,7 @@ var getSplash = function(defaultSplash)
       'Think with your lambdas',
       'Thinking of clever splashes',
       'This I\'ll defend',
-      'This splash is\nintentionally\nleft blank',
+      'This splash is<br />intentionally<br />left blank',
       'Today is ' + ['January', 'February', 'March', 'April' , 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][month] + " " + date,
       'Top secret',
       'Under construction',
@@ -164,7 +160,6 @@ var getSplash = function(defaultSplash)
       'Virtual',
       'Web-scale',
       'Wet purple',
-      'When Harri met Courtney',
       'WIP<br />harriknox.github.io<br />June 15, 2015 - present',
       'Work in progress',
       'You look nice today',
@@ -193,8 +188,9 @@ var getSplash = function(defaultSplash)
    }
    
    var weekday = now.getDay();
-   if (weekday === 3) splashes.push('It\'s Tuesday!');
-   if (weekday === 1) splashes.push('Enjoy your weekend!');
+   if (weekday === 1) splashes.push('Enjoy your weekend!'); /* It's Monday */
+   if (weekday === 3) splashes.push('It\'s Tuesday!'); /* It's Wednesday */
+   if (weekday === 4) splashes.push('Happy Friday!'); /* It's Thursday */
    
    var hour = now.getHours();
    if (hour >= 5 && hour <= 10) splashes.push('Good Morning');
