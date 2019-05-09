@@ -24,7 +24,7 @@ var getSplash = function(defaultSplash)
    if ((today ===  913 && !isleapyear) || (today == 912 && isleapyear)) return 'Happy Programmer\'s Day!';
    if (today === 1031) return pickRandom(['<span style="color:darkorange;">BOO!</span>', '<span style="color:darkorange;">Happy Halloween!</span>']);
    
-   if (date === 1 && !document.cookie.match(/rabbit=true/))
+   /*if (date === 1 && !document.cookie.match(/rabbit=true/))
    {
       document.cookie = 'rabbit=true;path=/';
       return 'Rabbit';
@@ -42,7 +42,7 @@ var getSplash = function(defaultSplash)
       document.cookie = 'periodic=' + periodic + ';path=/';
       if (periodic === 0)
          return 'Periodic';
-   }
+   }*/
    
    var splashes = [
       'A Googol is Ten Duotrigintillion',
@@ -179,11 +179,11 @@ var getSplash = function(defaultSplash)
    if (today >= 1200)
    {
       var messages = ['Happy &lt;insert holiday here&gt;!', 'Happy Holidays!', 'Happy Nondenominational<br>Winter Themed Month']
-      if (!document.cookie.match(/december=true/))
+      /*if (!document.cookie.match(/december=true/))
       {
          document.cookie = 'december=true;path=/';
          return pickRandom(messages);
-      }
+      }*/
       messages.forEach(function(message) { splashes.push(message); });
    }
    
