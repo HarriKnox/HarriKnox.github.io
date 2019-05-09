@@ -1,0 +1,72 @@
+I was watching Computerphile on YouTube and saw this video (Sorting Secret) in which Professor Hutton built a simple sorting network to demonstrate that, from an abstract point of view, insertion sort and selection sort are effectively the same in that they do the same operations but in different orders. (There was a lot of discussion in the comments of the video regarding Professor Hutton's argument that I will not get into here, but I have written about on a different page.) When I saw the video, I realized that I could build that sorting network in hardware. So guess what I did. On this page I will guide you through the process of building a sorting network out of resistors, transistors, and LEDs.
+
+
+#The Bubble Box
+Before we break out the breadboards, let's assess our problem abstractly. First, we start out with a box that has two inputs and two outputs. It takes in two numbers on the top and left side, then it sends out the larger number on the right side and the smaller number on the bottom side. If the input numbers were 5 on top and 7 on the left, 7 would be sent out on the right side and 5 on the bottom. If instead they were 7 on top and 5 on the left, 7 would still be sent out on the right side and 5 on the bottom. If both the input numbers were the same, then the output numbers would also be the same. This box is what I call a "bubble box" because it does exactly one step of the bubble sort algorithm (compare two adjacent numbers and put the larger number on the right and the smaller number on the left).
+
+
+(diagram of bubble box sorting 5, 7) (diagram of bubble box sorting 7, 5) (diagram of bubble box sorting 5, 5)
+
+
+These bubble boxes can be laid out in a network to facilitate sorting more than just two numbers: a sorting network. Take the following example. This triangle is the sorting network that Professor Hutton drew in the video I linked above. You could trace out all the numbers to find out where they end up, and you will see that they always end up sorted. Start in the top-left box and continue downwards and rightwards until you have resolved the numbers at each connection. This is not the most efficient network you can build, but it's a start and it's easy to wrap your head around.
+
+
+(diagram of 5-input network) (diagram of another 5-input network with connections resolved)
+
+
+This sorting network is our goal. We will build each bubble box as a circuit using transistor logic, then wire them up according to the sorting network diagram. We don't know how many numbers we want to sort, nor do we know how large they are going to be, but we will figure that out after designing the bubble boxes since their design is scalable.
+
+
+#Designing a Bubble Box
+The operation of a single bubble box can be described by the following pseudocode. First, it compares the number on top to the number on the left, then it selects which number goes to the bottom (smaller) output and which to the right (larger) output. It does two operations: comparison and selection; thus, those are the two operations we will need to implement in hardware to build one bubble box.
+
+
+(pseudocode:
+def bubble(top, left):
+    if left < top:
+        (bottom, right) = (left, top)
+    else:
+        (bottom, right) = (top, left)
+    return (bottom, right)
+)
+
+
+##Comparison
+In electronics, digital comparators usually have two multi-bit inputs (A and B) and three one-bit outputs: an output for A equals B, an output for A is greater than B, and an output for A is less than B. We don't actually care about the output for A equaling B since it won't matter which input of the bubble box gets mapped to which output of the bubble box; furthermore, if we ignore all instances where A equals B, then our two remaining outputs are mutually exclusive: if A is not greater than B, it must be less than B (since we are ignoring the cases where they equal). These assumptions allow us to whittle down the comparator from three outputs to just one. When A is greater than B, the comparator will output high; when A is less than B, the comparator will output low; when A equals B, we don't care whether the output is high or low.
+
+
+(diagram of 3-output comparator with arrow pointing to diagram of 1-output comparator)
+
+
+We *could* build a truth table for this comparator to see how it behaves, but truth tables sometimes make it more difficult to see patterns and how to simplify the logic. Instead, let's build some Karnaugh maps (K-maps) for one-bit inputs all the way up to four-bit inputs. In these K-maps, I will use 0's and 1's for the inputs (since it's easier to see them as numbers) and H's, L's, and X's for the output (since it will be a hardware circuit): H means the output is high, L means the output is low, and X means we don't care what the output is. For more on K-maps and truth tables, check out my page on them.
+
+
+(K-map for one-bit inputs) (K-map for two-bit inputs) (K-map for three-could just treat the one-bit input comparator as an identitybit inputs) (K-map for four-bit inputs)
+
+
+Looking at the K-maps reveals some neat patterns that could have otherwise gone unnoticed with just truth tables. Take the four-bit input K-map; we see a block of H's in the upper-right quadrant and a block of L's in the lower-left quadrant. The upper-right quadrant is where A<sub>3</sub> is 1 and B<sub>3</sub> is 0, meaning that regardless of the values of the remaining bits, A will always be greater than B. The lower-left quadrant is the exact opposite: A<sub>3</sub> is 0 and B<sub>3</sub> is 1, so A is always less than B.
+
+
+The remaining two quadrants are where A<sub>3</sub> equals B<sub>3</sub>, whether they are both 0 or both 1; thus, in those quadrants, we would need to look at the remaining bits to find which number is greater. Upon closer inspection, you can see that the lower-right quadrant is just the upper-left quadrant rotated 180&deg;. The rotation is caused by the use of Gray codes for the column and row indices. The duplication is caused by us ignoring the most-significant bits and comparing just the last three bits of each number.
+
+
+That duplication leads us to another revelation: the upper-left quadrant of the four-bit input K-map is the same as the entire three-bit input K-map. This is because we are ignoring A<sub>3</sub> and B<sub>3</sub>, so we are comparing two three-bit numbers. In fact, you can follow this pattern down the chain: the two-bit input K-map is the upper-left quadrant of the three-bit input K-map; and the one-bit input K-map is the upper-left quadrant of the two-bit input K-map.
+
+
+We have recursive K-maps, which will make it easier to simplify the logic: we can define the behavior of the comparator for large inputs in terms of the behavior of the comparator for smaller inputs. We first check the most significant bits of both numbers. If they differ, then we can just use the value of A<sub>MSB</sub> (A<sub>MSB</sub> does not equal B<sub>MSB</sub>, so one of A or B is definitely greater and the remaining bits don't matter). If A<sub>MSB</sub> and B<sub>MSB</sub> are the same, we remove them from the inputs and repeat the process with the remaining bits as one-bit shorter inputs until either two corresponding bits differ or we have one-bit inputs. The one-bit input comparison ends the recursion since there's no zero-bit input comparison to recurse to. In that case, since we don't care what the output value is when A and B are the same, the outputs could just be mapped to the value of A (high when A is 1, low when A is 0).
+
+
+Sometimes it's easier to see the behavior when it's written in pseudocode, which I have provided here. The -1 in brackets is used to get the last element of a list, which I am using as the most-significant bit. The 0, colon, and -1 in brackets is called a "slice" and is used to get a range of elements from the first index to the second index, but not including the element at the second index; in this case it means to get all remaining bits after the most-significant bit. Also, even though I described it last, the one-bit input test is done first; when explaining in English I feel it makes more sense to put it last, but programmatically it should go first.
+
+
+(pseudocode:
+def compare(A, B):
+    if len(A) == 1:
+        return A[0]
+    if A[-1] != B[-1]:
+        return A[-1]
+    return compare(A[0:-1], B[0:-1])
+)
+
+
+
